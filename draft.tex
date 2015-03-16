@@ -71,7 +71,7 @@
 
 %% Paper title.
 
-\title{Interactive Visual Regression Cubes Analysis of Image-Centric Cohort Study Data}
+\title{Regression Cube Analysis of Cohort Study Data}
 
 %% This is how authors are specified in the journal style
 
@@ -86,16 +86,45 @@
 }
 
 %other entries to be set up for journal
-\shortauthortitle{Klemm \MakeLowercase{\textit{et al.}}: Interactive Visual Regression Cubes Analysis of Image-Centric Cohort Study Data}
+\shortauthortitle{Klemm \MakeLowercase{\textit{et al.}}: Regression Cube Analysis of Cohort Study Data}
 %\shortauthortitle{Firstauthor \MakeLowercase{\textit{et al.}}: Paper Title}
 
 %% Abstract section.
 \abstract{%
-(The problem).
-(New Solution).
-(Validation).
-(Results).
-(Implications).
+\com{Problem}.
+Epidemiological studies comprise of heterogenous data about a subject group (a \emph{cohort}) to define disease-specific risk factors.
+%%
+These data contain information (\emph{features}) about a subjects lifestyle, medical conditions and also medical images of the whole body.
+%%
+These features are analyzed using statistical regression analyses towards features indicating a disease (the \emph{target feature}).
+%%
+%These complex data are hard to analyze concurrently, only a few features can be considered in statistical analyses, such as regression analyses.
+These analyses usually include two to five features (\emph{independent features}) towards the disease of interest.
+\com{New Solution}.
+%(New Solution).
+We propose a new analyses approach of epidemiological data sets by incorporating all dimensions in a exhaustive regression-based analyses.
+%%
+It takes all possible combinations of \emph{independent features} towards a \emph{target feature} into account and provides a visualization, which allows for insights into the data by showing relationships possibly unknown to the domain expert.
+%%
+%The most meaningful features 
+A 3D-visualization of all possible combinations of two to three target variables acts as overview over the whole data set.
+%%
+We call it the \emph{Regression Cube}.
+%%
+Slicing through the regression cube allows for the detailed analysis of features towards the target disease.
+%%
+\com{Validation}.
+%%
+We applied our \emph{Regression Cube} method to a hepatic steatosis data set to reproduce results from a data-mining driven analysis.
+%%
+We conducted a qualitative analysis with three domain experts on a breast fat data set to derive insights into the correlation between breast lesions and non-image variables.
+%%
+\com{Results}. TODO.
+%%
+\com{Implications}.
+Epidemiological data sets can for the first time be visually overviewed using a regression-based analysis of all features towards a disease. 
+%With our technique it is possible for the first time to provide a overview visualization of variables regarding a target variable.
+
 } % end of abstract
 
 %% Keywords that describe your work. Will show as 'Index Terms' in journal
