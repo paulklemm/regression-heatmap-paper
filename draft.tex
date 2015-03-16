@@ -1,0 +1,260 @@
+\documentclass[journal]{style/vgtc} 			          % final (journal style)
+%\documentclass[review,journal]{style/vgtc}         % review (journal style)
+%\documentclass[widereview]{style/vgtc}             % wide-spaced review
+%\documentclass[preprint,journal]{style/vgtc}       % preprint (journal style)
+%\documentclass[electronic,journal]{style/vgtc}     % electronic version, journal
+%% Uncomment one of the lines above depending on where your paper is
+%% in the conference process. ``review'' and ``widereview'' are for review
+%% submission, ``preprint'' is for pre-publication, and the final version
+%% doesn't use a specific qualifier. Further, ``electronic'' includes
+%% hyperreferences for more convenient online viewing.
+%% Please use one of the ``review'' options in combination with the
+%% assigned online id (see below) ONLY if your paper uses a double blind
+%% review process. Some conferences, like IEEE Vis and InfoVis, have NOT
+%% in the past.
+
+%% Please note that the use of figures other than the optional teaser is not permitted on the first page
+%% of the journal version.  Figures should begin on the second page and be
+%% in CMYK or Grey scale format, otherwise, colour shifting may occur
+%% during the printing process.  Papers submitted with figures other than the optional teaser on the
+%% first page will be refused.
+
+%% These three lines bring in essential packages: ``mathptmx'' for Type 1
+%% typefaces, ``graphicx'' for inclusion of EPS figures. and ``times''
+%% for proper handling of the times font family.
+
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage{times}
+
+% -- My Own Packages and Commands
+\usepackage[normalem]{ulem}
+\usepackage{xcolor}
+\newcommand{\rem}[1]{\textcolor{red}{\sout{#1}}}
+\newcommand{\add}[1]{\textcolor{blue}{\uline{#1}}}
+\newcommand{\com}[1]{\textcolor{orange}{\uline{#1}}}
+
+%% We encourage the use of mathptmx for consistent usage of times font
+%% throughout the proceedings. However, if you encounter conflicts
+%% with other math-related packages, you may want to disable it.
+
+%% This turns references into clickable hyperlinks.
+\usepackage[bookmarks,backref=true,linkcolor=black]{hyperref} %,colorlinks
+\hypersetup{
+  pdfauthor = {},
+  pdftitle = {},
+  pdfsubject = {},
+  pdfkeywords = {},
+  colorlinks=true,
+  linkcolor= black,
+  citecolor= black,
+  pageanchor=true,
+  urlcolor = black,
+  plainpages = false,
+  linktocpage
+}
+
+%% If you are submitting a paper to a conference for review with a double
+%% blind reviewing process, please replace the value ``0'' below with your
+%% OnlineID. Otherwise, you may safely leave it at ``0''.
+%% TODO: Blind Review: Replace with online ID
+\onlineid{0}
+
+%% declare the category of your paper, only shown in review mode
+\vgtccategory{Research}
+
+%% allow for this line if you want the electronic option to work properly
+\vgtcinsertpkg
+
+%% In preprint mode you may define your own headline.
+%\preprinttext{To appear in an IEEE VGTC sponsored conference.}
+
+%% Paper title.
+
+\title{Interactive Visual Regression Cubes Analysis of Image-Centric Cohort Study Data}
+
+%% This is how authors are specified in the journal style
+
+%% indicate IEEE Member or Student Member in form indicated below
+\author{Paul Klemm, Kai Lawonn, Sylvia Gla{\ss}er, Uli Niemann, Katrin Hegenscheid, Henry V{\"o}lzke, Bernard Preim}
+\authorfooter{
+%% insert punctuation at end of each item
+\item
+ Paul Klemm, Kai Lawonn, Sylvia Gla{\ss}er, Uli Niemann, Bernhard Preim are with Otto-von-Guericke University Magdeburg, Germany. E-mail: \{klemm,lawonn,niemann,preim\}@ovgu.de
+\item
+ Katrin Hegenscheid, Henry V{\"o}lzke are with Ernst-Moritz-Arndt University Greifswald, Germany. E-mail: \{katrin.hegenscheid,voelzke\}@uni-greifswald.de
+}
+
+%other entries to be set up for journal
+\shortauthortitle{Klemm \MakeLowercase{\textit{et al.}}: Interactive Visual Regression Cubes Analysis of Image-Centric Cohort Study Data}
+%\shortauthortitle{Firstauthor \MakeLowercase{\textit{et al.}}: Paper Title}
+
+%% Abstract section.
+\abstract{%
+(The problem).
+(New Solution).
+(Validation).
+(Results).
+(Implications).
+} % end of abstract
+
+%% Keywords that describe your work. Will show as 'Index Terms' in journal
+%% please capitalize first letter and insert punctuation after last keyword
+\keywords{Interactive Visual Analysis, Epidemiology, Breast Cancer, Hepatic Steatosis}
+
+%% ACM Computing Classification System (CCS). 
+%% See <http://www.acm.org/class/1998/> for details.
+%% The ``\CCScat'' command takes four arguments.
+
+\CCScatlist{ % not used in journal version
+ \CCScat{K.6.1}{Management of Computing and Information Systems}%
+{Project and People Management}{Life Cycle};
+ \CCScat{K.7.m}{The Computing Profession}{Miscellaneous}{Ethics}
+}
+
+%% Uncomment below to include a teaser figure.
+  % \teaser{
+  % \centering
+  % \includegraphics[width=16cm]{CypressView}
+  % \caption{In the Clouds: Vancouver from Cypress Mountain.}
+  % }
+
+%% Uncomment below to disable the manuscript note
+%\renewcommand{\manuscriptnotetxt}{}
+
+%% Copyright space is enabled by default as required by guidelines.
+%% It is disabled by the 'review' option or via the following command:
+% \nocopyrightspace
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% START OF THE PAPER %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%% The ``\maketitle'' command must be the first command after the
+%% ``begin{document}'' command. It prepares and prints the title block.
+
+%% the only exception to this rule is the \firstsection command
+\firstsection{Introduction}
+
+\maketitle
+
+\section{Epidemiological Background} \label{MedicalAndTechnicalBackground}
+%%
+This section covers the epidemiological workflow and requirements.
+
+\subsection{Epidemiological Workflow} \label{EpidemiologicalWorkflow}
+	
+\subsection{Epidemiological Data} \label{EpidemiologicalData}
+
+\subsection{The Study of Health in Pomerania (SHIP)}
+After the pioneering Rotterdam study (started in 1990), several MR imaging study initiatives were initiated.
+%
+They slightly differ in clinical focus, acquired data and epidemiological research questions.
+%
+Starting in 1997 with a cohort of 4,308 subjects, the \texttt{SHIP}, located in Northern Germany, aims to characterize health and disease in the widest range possible \cite{Volzke2011}.
+%
+Data are collected without focus on a group of diseases.
+%
+This allows to query the data regarding many diseases and conditions.
+%
+Subjects were examined in a 5-year time span, continuously adding new parameters including MRI scans in the last iteration \cite{Hegenscheid2009}.
+%
+\section{Prior and Related Work}
+
+\paragraph{Visual Analysis of Heterogenous Data.}
+Zhang et al. \cite{Zhang2012} provide a web-based system for analyzing subject groups with linked views and batch-processing capabilities for categorizing new subject entries into the data set.
+%
+Their definition of a cohort differs from the understanding of the term in an epidemiological context by denoting every parameter-divided subject group as individual cohort.
+%
+Due to the short paper length, detail is missing on the data types and their algorithms of identifying similar subjects or whether they employ statistical measures.
+%
+We employ the idea of adding variables via drag and drop into a canvas area.
+
+Generalized Pairs Plots (\texttt{GPLOM´S}) are an information visualization technique comparing heterogenous variables pairwise using a plot-matrix grouped by type \cite{GPLOMS, Francois2013}.
+%%
+They are useful to gain an overview over numerous variables and their distributions.
+%%
+Histograms, bar charts, scatter plots and heat maps are used to visualize variable combinations with regard to their type.
+%%
+The resulting matrix provides an \emph{overview visualization}, but requires a lot of screen space for many variables (127 in our application scenario).
+%%
+We incorporate the idea of adaptive type-dependent visualizations.
+%%
+Dai et al. \cite{Dai2005} explored risk factors by incorporating choropleth maps of epidemiological variables (e.g., mortality rates in a region) with parallel coordinates, bar charts and scatter plots with integrated regression lines.
+%%
+Their findings yielded a \emph{Concept Map}, which linked cancer-related associations via graph edges.
+%%
+While their goal to identify possible risk factors using socio-economic and health data is similar to ours, they focus on iteratively refining defined hypotheses and on geographical data.
+%%
+We employ the use of small multiples for incorporating heterogenous data types for comparability.
+%%
+Chui et al. \cite{Chui2011} visualized associations in time-dependent epidemiological data using time-series plots highlighting risk factor differences in age and gender.
+%%
+%The connection of time series plots with histograms and heat maps allows for fast insight into complex relationships and 
+While the work shows how different visualization techniques provide insight into these data sets, it focuses on the time aspect, which is not present for our data.
+%%
+% *********************** Our own Work ***********************
+% Prior Work
+\paragraph{Prior Work.}
+We visualized lumbar spine variabilities based on a semi-automatic shape detection algorithm of 490 participants of the \texttt{SHIP-2} cohort \cite{Klemm2013VMV}.
+%
+Hierarchical agglomerative clustering divided the population into shape-related groups.
+%
+As proof of concept, a relation between the size of the segmented shape and the measured size of the subjects was shown.
+%
+This work focuses on incorporating these derived data as new variables, enabling to include it into the hypothesis validation and generation process.
+%
+When applying clustering techniques to the non-image data it was found that \texttt{k-Prototypes} and \texttt{DBSCAN} are appropriate, but are strongly dependent on the chosen variables and distance measures \cite{Klemm2014BVM}.
+%
+Niemann et al. \cite{Niemann2014} presented an interactive data mining tool for the assessment of risk factors of hepatic steatosis, the fatty liver disease.
+%
+Association rules created by data mining methods can be analyzed interactively with their tool and highlight potentially overlooked variables.
+% *********************** / Our own Work ***********************
+\section{Regression Cubes} \label{Image Centric Cohort Study Data in Interactive Visual Analysis Context}
+%%
+\subsection{Analysis Workflow}
+%%
+\section{System Design and Implementation} \label{Interaction- and Visualization Techniques}
+%
+\subsection{Design and Visualization Techniques} \label{Structure and Workflow}
+
+\paragraph{System Layout.}
+
+\subsection{Implementation} \label{implementation}
+%%
+\com{Use VAST'14 as Guideline}
+%
+\section{Application} \label{application}
+%
+\subsection{The Breast Fat Data Set}
+
+\subsubsection{Data Preprocessing} \label{application:Data Preprocessing}
+The data processing follows the description in Section~\ref{Data Preprocessing}.
+%
+
+\subsection{Participants, Setup and Procedure}
+%
+\paragraph{Setup.} Due to the large geographical distance, the evaluation was done completely web-based.
+%%
+\paragraph{Procedure.}
+%%
+\com{Analyses here ...}
+%%
+\subsection{Further Feedback and Lessons Learned} \label{Lessons Learned}
+%%
+
+\section{Summary and Conclusion}
+%%
+\begin{small}
+	\acknowledgments{Omitted due to blind review}
+% \acknowledgments{SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics. We thank Marko Rak and Klaus Toennies for providing the image detection data.}
+\end{small}
+\clearpage
+\newpage
+\bibliographystyle{abbrv}
+%%use following if all content of bibtex file should be shown
+%\nocite{*}
+\bibliography{bibliography}
+\end{document}
