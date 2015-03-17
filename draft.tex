@@ -113,6 +113,9 @@ We call it the \emph{Regression Cube}.
 %%
 Slicing through the regression cube allows for the detailed analysis of features towards the target disease.
 %%
+The regression formula can be adjusted by the user to describe disease-specific hypotheses.
+%%
+Influences of features can be assessed using a difference view, comparing different calculation results.
 \com{Validation}.
 %%
 We applied our \emph{Regression Cube} method to a hepatic steatosis data set to reproduce results from a data-mining driven analysis.
@@ -157,7 +160,7 @@ Epidemiological data sets can for the first time be visually overviewed using a 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%% START OF THE PAPER %%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
@@ -168,6 +171,46 @@ Epidemiological data sets can for the first time be visually overviewed using a 
 \firstsection{Introduction}
 
 \maketitle
+%%
+Epidemiology aims to characterize health and disease conditions in defined populations (\emph{Cohorts}).
+%%
+Insights about risk factors allow to characterize disease-specific high-risk groups and act as important diagnostic key figures \cite{Fletcher2012}.
+%%
+They can also be used to give recommendations regarding a healthy lifestyle and provide information about wide spread diseases.
+%%
+In the standard workflow, physicians translate observations into hypotheses, which are depicted using epidemiological features and then assessed using regression analyses.
+
+An important epidemiological tool for deriving such features are \emph{Cohort studies}, such as the Study of Health in Pomerania (SHIP) \cite{Volzke2011}.
+%%
+To reduce any selection bias, subjects are invited at random and without a focus on a specific disease.
+%%
+The acquired features range from social and lifestyle factors to prior or current diseases and medications as well as medical parameters, such as blood pressure and also comprises of non-radiating medical image data. e.g. magnetic resonance imaging (MRI).
+%%
+Medical image data quantified using user-defined landmarks, describing for example shape, volume or diameter of a structure.
+%%
+
+To assess the statistical resilience of a hypotheses using regression analyses rarely involves more than three features due to the required subject count.
+%%
+Due to missing overview techniques, possibly interesting correlations lie within the data, but are not made apparent.
+%%
+Explorative analyses and first overview visualizations of the data set as presented by Klemm et al. \cite{Klemm2014VIS} are not custom tailored to a specific target variable and mostly highlights correlations between variables, which are known to the domain expert (e.g. correlation between body size and spine shape).
+%%
+We incorporate the regression analysis, which is familiar to the domain experts into a overview visualizations, which can either be used for an hypothesis-free analysis or a analysis towards a specific disease or hypotheses.
+%%
+This is achieved by providing template regression formulas, which are applied to all potential variable combinations.
+%%
+Since the notation is familiar to epidemiologists, they can rapidly include their domain knowledge into the analysis process.
+%%
+Difference views between regression formulas allow to assess the influences of individual variables in the process.
+
+Our contributions are:
+\begin{itemize}
+	\item An overview visualization technique describing feature interactions using target features.
+	\item Visualization techniques, which incorporate overview visualizations of all regression analyses at once as well as details on demand techniques for detailed investigations of feature relationships.
+	\item freely adjustable regression formulas provide a simple, yet powerful way to adjust the regression analysis to specific hypotheses about the data.
+	\item analysis of confounding variables by providing comparison views between different formula results
+	\item The open and web based approach of the system allows for analysis of any data using the presented method.
+\end{itemize}
 
 \section{Epidemiological Background} \label{MedicalAndTechnicalBackground}
 %%
@@ -243,7 +286,9 @@ Association rules created by data mining methods can be analyzed interactively w
 % *********************** / Our own Work ***********************
 \section{Regression Cubes} \label{Image Centric Cohort Study Data in Interactive Visual Analysis Context}
 %%
+\com{Target Group: Physicians/Epidemiologists with basic statistical background to understand regression formulas and Interaction}
 \subsection{Analysis Workflow}
+\com{Different Formulas work as different steps in the analysis}
 %%
 \section{System Design and Implementation} \label{Interaction- and Visualization Techniques}
 %
