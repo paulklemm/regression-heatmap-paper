@@ -92,9 +92,9 @@
 %% Abstract section.
 \abstract{%
 \com{Problem}.
-Epidemiological studies comprise of heterogenous data about a subject group (a \emph{cohort}) to define disease-specific risk factors.
+Epidemiological studies comprise heterogeneous data about a subject group (a \emph{cohort}) to define disease-specific risk factors.
 %%
-These data contain information (\emph{features}) about a subjects lifestyle, medical conditions and also medical images of the whole body.
+These data contain information (\emph{features}) about a subjects' lifestyle, medical conditions and also medical images of the whole body.
 %%
 These features are analyzed using statistical regression analyses towards features indicating a disease (the \emph{target feature}).
 %%
@@ -102,12 +102,14 @@ These features are analyzed using statistical regression analyses towards featur
 These analyses usually include two to five features (\emph{independent features}) towards the disease of interest.
 \com{New Solution}.
 %(New Solution).
-We propose a new analyses approach of epidemiological data sets by incorporating all dimensions in a exhaustive regression-based analyses.
+We propose a new analyses approach of epidemiological data sets by incorporating all dimensions in an exhaustive regression-based analyses.
 %%
-It takes all possible combinations of \emph{independent features} towards a \emph{target feature} into account and provides a visualization, which allows for insights into the data by showing relationships possibly unknown to the domain expert.
+%It takes all possible combinations of \emph{independent features} towards a \emph{target feature} into account and provides a visualization, which allows for insights into the data by showing relationships possibly unknown to the domain expert.
+This approach combines all \emph{independent features} towards a \emph{target feature} and provides a visualization, which allows for insights into the data by showing the domain expert possibly unknown relationships.
 %%
 %The most meaningful features 
-A 3D-visualization of all possible combinations of two to three target variables acts as overview over the whole data set.
+%A 3D-visualization of all possible combinations of two to three target variables acts as overview over the whole data set.
+A 3D-visualization of all combinations of two to three target variables acts as an overview over the whole data set.
 %%
 We call it the \emph{Regression Cube}.
 %%
@@ -220,6 +222,11 @@ This section covers the epidemiological workflow and requirements.
 	
 \subsection{Epidemiological Data} \label{EpidemiologicalData}
 
+\subsection{Regression Analysis}
+\com{Regression cubes are an important tool for checking statistical resilience.}
+\com{Describe how regression cubes work (including notation).}
+\com{Move this to Regression Cube part?}
+
 \subsection{The Study of Health in Pomerania (SHIP)}
 After the pioneering Rotterdam study (started in 1990), several MR imaging study initiatives were initiated.
 %
@@ -234,7 +241,7 @@ This allows to query the data regarding many diseases and conditions.
 Subjects were examined in a 5-year time span, continuously adding new parameters including MRI scans in the last iteration \cite{Hegenscheid2009}.
 %
 \section{Prior and Related Work}
-
+\com{From VAST'14 Paper:}
 \paragraph{Visual Analysis of Heterogenous Data.}
 Zhang et al. \cite{Zhang2012} provide a web-based system for analyzing subject groups with linked views and batch-processing capabilities for categorizing new subject entries into the data set.
 %
@@ -284,42 +291,118 @@ Niemann et al. \cite{Niemann2014} presented an interactive data mining tool for 
 %
 Association rules created by data mining methods can be analyzed interactively with their tool and highlight potentially overlooked variables.
 % *********************** / Our own Work ***********************
-\section{Regression Cubes} \label{Image Centric Cohort Study Data in Interactive Visual Analysis Context}
+\section{Regression Cube Analysis of Cohort Study Data}
 %%
-\com{Target Group: Physicians/Epidemiologists with basic statistical background to understand regression formulas and Interaction}
+\com{Target Group: Physicians/Epidemiologists with basic statistical background to understand regression formulas and Interaction.}
+
+\subsection{Target-Variable-dependent Dimension Reduction}
+\com{Explain the CFS algorithm and how it is applied to reduce the number of dimensions and therefore the calculation process.}
+
+\subsection{Cube Description using Regression Formula Notation}
+\com{Regression formulas are described using standard regression formula notation by introducing variables.}
+
+\subsection{Abstracting Regression Results using R$^2$}
+\com{R$^2$ are used to encode regression results to color spaces.}
+\com{R$^2$ is comparable between regression results of the same type, but not in between types. Therefore it is encoded using different colours.}
+
 \subsection{Analysis Workflow}
-\com{Different Formulas work as different steps in the analysis}
+\begin{figure}[htb]
+ \centering
+ \includegraphics[width=2.8in]{figures/placeholder}
+ \caption{
+ \com{Workflow for different analysis approaches.}
+ \com{a) Analysis without hypothesis about the data set (z ~ x+y)}
+ \com{b) Analysis without hypothesis with confounder (z ~ age)}
+ \com{c) Analysis with hypothesis about the data set (Var ~ x+y+z)}
+ \com{d) Clarify using confounder (Var ~ x)}
+ }
+  \label{fig:Workflow}
+\end{figure}
+\com{Different Formulas work as different steps in the analysis (Fig.~\ref{fig:Workflow})}
 %%
 \section{System Design and Implementation} \label{Interaction- and Visualization Techniques}
-%
+%%
+
 \subsection{Design and Visualization Techniques} \label{Structure and Workflow}
+\begin{figure}[htb]
+ \centering
+ \includegraphics[width=2.8in]{figures/placeholder}
+ \caption{
+ \com{Screenshot of the cube visualization embedded in the framework}
+ \com{Also include active tooltip}
+ }
+  \label{fig:Cube}
+\end{figure}
+
+\begin{figure}[htb]
+ \centering
+ \includegraphics[width=2.8in]{figures/placeholder}
+ \caption{
+ \com{Screenshot of the cube visualization embedded in the framework}
+ }
+  \label{fig:comparison}
+\end{figure}
+%%
+\com{Simplicity of interface to allow for steep learning curve.}
+\com{Visualization as skewed cube to reduce visual clutter and remove double entries.}
+\com{Cube acts as visual mini map to give a global impression over the data.}
+\com{current pane shown using a heat map visualization.}
+\com{details on demand for selected regression formula.}
+\com{comparison view using reference cubes.}
 
 \paragraph{System Layout.}
 
 \subsection{Implementation} \label{implementation}
+\begin{figure}[htb]
+ \centering
+ \includegraphics[width=2.8in]{figures/placeholder}
+ \caption{
+ \com{Describe the Bootstrap/Angular/D3 Frontend, Node backend, R/OCPU Backend.}
+ }
+  \label{fig:Implementation}
+\end{figure}
 %%
 \com{Use VAST'14 as Guideline}
-%
+\com{Speed is merely a matter of available server machines due to parallelization process.}
+\com{Security enabled by hashing files.}
+\com{Bootstrap/Angular/D3 Frontend, Node backend, R/OCPU Backend (Fig.~\ref{fig:Implementation})}
+
 \section{Application} \label{application}
 %
 \subsection{The Breast Fat Data Set}
+\com{Describe how the data was acquired and preprocessed}
+
+\subsubsection{Data Preprocessing} \label{application:Data Preprocessing}
+The data processing follows the description in Section~\ref{Data Preprocessing}.
+%
+
+\subsection{The Hepatic Steatosis Data Set}
+\com{Uli: Describe the data set and also prior work on it.}
 
 \subsubsection{Data Preprocessing} \label{application:Data Preprocessing}
 The data processing follows the description in Section~\ref{Data Preprocessing}.
 %
 
 \subsection{Participants, Setup and Procedure}
+%%
+\com{Use of VDAR Technique}
 %
 \paragraph{Setup.} Due to the large geographical distance, the evaluation was done completely web-based.
 %%
 \paragraph{Procedure.}
 %%
-\com{Analyses here ...}
+\subsection{Case 1: Hypothesis-free Analysis of the Breast Cancer Data Set}
+
+\subsection{Case 2: Hypothesis-driven Analysis of the Hepatic Steatosis Data Set}
 %%
 \subsection{Further Feedback and Lessons Learned} \label{Lessons Learned}
 %%
+\com{Feedback from the evaluation goes here.}
+\com{Time-aspect critical, interactive analysis requires for fast response. The method needs to be speeded up.}
 
 \section{Summary and Conclusion}
+\paragraph{Future Work.}
+\com{Implementing of regression analysis on the graphics card.}
 %%
 \begin{small}
 	\acknowledgments{Omitted due to blind review}
