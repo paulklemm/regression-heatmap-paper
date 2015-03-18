@@ -217,28 +217,172 @@ Our contributions are:
 \section{Epidemiological Background} \label{MedicalAndTechnicalBackground}
 %%
 This section covers the epidemiological workflow and requirements.
-
+%%
 \subsection{Epidemiological Workflow} \label{EpidemiologicalWorkflow}
-	
+Epidemiology unites experts from different academic disciplines, such as physicians, statisticians and medical computer scientists focusing on biometrics and image segmentation.
+%%
+Their goal is derive disease-specific risk factors by assessing epidemiological features using statistical methods.
+%%
+As described by \cite{Thew2009} is divided into three different steps:
+\begin{itemize}
+	\item Clinicians make observations in the daily practice which are translated into hypotheses.
+	\item Epidemiologists compile a list of variables depicting the hypothesis and include confounding variables.
+	\item Statisticians assess the association of the derived features towards the investigated disease.
+\end{itemize}
+%%
+Relative risks can be determined if a statistical resilient association of features towards a condition are extracted.
+%%
+They indicate the per-subject chance of developing the disease.
+%%
+Reproducibility of results is a epidemiological key requirement and guides all analyses steps.
+%%
+Statistical programs, such as \texttt{SPSS} are used to analyzed the data using the classical sequential epidemiological workflow, which uses images largely only to communicate results, rather than providing insight.
+%%
+A alternative data driven approach is described as follows.
+
+\subsubsection{Data Driven Hypothesis-Generation-based Analysis}
+Klemm et al. describe an approach for a Interactive Visual Analysis approach for image-centric cohort study data, which connects to the variable listing step \cite{Klemm2014VIS}.
+%%
+Their methods aim to derive hypotheses through analysis of the data and observations about previously unknown feature correlations.
+%%
+Employing \emph{hypotheses generation} requires overview visualizations of feature correlations, which are not supported by standard statistical processors.
+
 \subsection{Epidemiological Data} \label{EpidemiologicalData}
+%%
+\emph{Cohort studies} are a major epidemiological tool for gathering epidemiological features.
+%%
+They yield a highly heterogenous and incomplete information space.
+%%
+Subject data are collected with the widest range possible, allowing the data set to be assessed towards different diseases.
+%%
+The feature space comprises information about lifestyle, somatometric variables, medical parameters, genetic data as well as medical image data derived through different modalities, such as questionnaires or medical examinations or laboratory analyses.
+%%
+Many features are sparse, such as follow up questions about a medication or treatment of a certain disease.
+%%
+Other features are exclusive, such as women-specific questions, e.g. number of born children or period status.
+
+\paragraph{Data Types.}
+%%
+Medical status variables or lifestyle factors are often of \emph{dichotomous} (binary) type.
+%%
+The data space comprises continuous variables (somatometric variables, such as body weight or BMI or laboratory values) as well as categorical variables (e.g. graduation type).
+%%
+The data heterogeneity has to be taken into account when the analysis method is chosen.
+%%
+Continuous data are often discretized (e.g. 10 year steps for age) to equalize the variable types and to simplify the method selection.
+%%
+This is however avoided if possible, since it reduces the information space and also introduces a new information bias, as assumptions are modeled through the discretization.
+%%
+
+\paragraph{Image Data.}
+%%
+Since the Rotterdam study, many modern cohort studies include medical image data.
+%%
+For ethical reasons, the imaging modalities must not include ionizing radiation.
+%%
+The image quality is often inferior to clinical standard, which is a tradeoff between time and cost \cite{Preim2014}.
+%%
+These data are hard to analyze as they require segmentation highlighting the structures of interest.
+%%
+This process is prone to inter and intra-observer variability when carried out manually.
+%%
+Automatic or semi-automatic solutions bypass this problem, but are costly and need to be custom tailored to the structure of interest \cite{Toennies2015}.
+%%
+Image-derived variables are either dichotomous variables indicating a medical finding by a radiologist or continuous, describing the shape of segmented structures (e.g. volume or diameter).
+
+\paragraph{Confounding Features}
+Features influencing the exposure as well as the outcome of a analysis are called confounders.
+%%
+The analysis model has to be adjusted by normalizing all included features towards the confounding feature.
+%%
+\emph{Age} is included as confounder in almost any epidemiological analysis, since most diseases (such as different cancer types) are more likely to happen with increasing age.
+%%
+It also influences the general body condition and therefore almost all features acquired through cohort studies.
+%%
+Another important confounder is \emph{Gender}.
+%%
+Other confounder have to be selected by epidemiologists specific to the investigated condition.
 
 \subsection{Regression Analysis}
-\com{Regression cubes are an important tool for checking statistical resilience.}
-\com{Describe how regression cubes work (including notation).}
+%%
+Regression analyses are the most important statistical tool when analyzing epidemiological data.
+%%
+They are also the foundation of this work.
+%%
+A regression analysis assesses the influence of one or more (\emph{independent}) features to one target (\emph{dependent}) feature.
+%%
+The regression model yields a function describing the target feature by weighting the independent features.
+%%
+Metrics, such as the weightings itself and associated p values and describe the resulting function (the \emph{model}).
+%%
+R$^2$ values describe the goodness of fit; in other words how well the dependent features describe the target feature.
+%%
+The value is in the range [0,1], while 1 encodes a perfect fit.
+
+\paragraph{Regression Analysis Notation.} Regression formulas are usually denoted as follows:
+%%
+\begin{equation}
+Dependent \sim Independent_1 + Independent_2 + ... + Independent_n
+\end{equation}
+%%
+The most used regression operators comprise:
+%%
+\begin{itemize}
+	\item $+$ / $-$ inclusion/exclusion of the variable,
+	\item $:$ inclusion of interactions between the variables (e.g. $x:y$),
+	\item $*$ inclusion the variables as well as their interactions (e.g. $x*y$)
+	\item $|$ (conditioning) inclusion of variable x, given y (e.g. $x|y$)
+\end{itemize}
+%%
+The type of the target feature restricts the regression type.
+
+\paragraph{Linear Regression for Continuous Target.} The basic type is the linear regression, creating linear weightings for the \emph{independent} features.
+%%
+The dependent variable has to be of a continuous type.
+%%
+
+\paragraph{Logistic Regression for Dichotomous Target.} Logistic regression implies a dichotomous target variable.
+%%
+The target is described by fitting a logistic function.
+%%
+Logistic models do as opposed to linear models does not allow for extracting a R$^2$ goodness of fit value.
+%%
+Therefore, pseudo-R$^2$ values are extracted, such as the \emph{Nagelkerke R$^2$}, which mimics the behavior of the R$^2$.
+%%
+\emph{Nagelkerke R$^2$} cannot be compared to R$^2$ values extracted from linear regression model.
+
+%\com{Regression cubes are an important tool for checking statistical resilience.}
+%\com{Describe how regression cubes work (including notation).}
 \com{Move this to Regression Cube part?}
 
 \subsection{The Study of Health in Pomerania (SHIP)}
-After the pioneering Rotterdam study (started in 1990), several MR imaging study initiatives were initiated.
+The \texttt{SHIP}, located in Northern Germany aims to aims to characterize health and disease in the widest range possible \cite{Volzke2011}.
+%%
+It does not focus on a specific disease, making the data set open for many diseases.
+%%
+Unique for the \texttt{SHIP} is the acquisition of medical image data per subject.
+%%
+A second cohort, \texttt{SHIP-TREND} was introduced in 2012.
+%%
+Data for both cohorts are examined in a in a 5-year time span.
+%%
+New parameters are added in each iteration, extending the range of investigated diseases.
+%%
+For the last acquisition (\texttt{SHIP-2} and \texttt{SHIP-TREND-0}), MRI scans are included into the cohort \cite{Hegenscheid2009}.
+%%
+\com{Include Hegenscheids Breast Fat Paper}
+%%
+%Starting in 1997 with a cohort of 4,308 subjects, the \texttt{SHIP}, located in Northern Germany, aims to characterize health and disease in the widest range possible \cite{Volzke2011}.
+%After the pioneering Rotterdam study (started in 1990), several MR imaging study initiatives were initiated.
 %
-They slightly differ in clinical focus, acquired data and epidemiological research questions.
+%They slightly differ in clinical focus, acquired data and epidemiological research questions.
 %
-Starting in 1997 with a cohort of 4,308 subjects, the \texttt{SHIP}, located in Northern Germany, aims to characterize health and disease in the widest range possible \cite{Volzke2011}.
+%Starting in 1997 with a cohort of 4,308 subjects, the \texttt{SHIP}, located in Northern Germany, aims to characterize health and disease in the widest range possible \cite{Volzke2011}.
 %
-Data are collected without focus on a group of diseases.
+%Data are collected without focus on a group of diseases.
 %
-This allows to query the data regarding many diseases and conditions.
+%This allows to query the data regarding many diseases and conditions.
 %
-Subjects were examined in a 5-year time span, continuously adding new parameters including MRI scans in the last iteration \cite{Hegenscheid2009}.
 %
 \section{Prior and Related Work}
 \com{From VAST'14 Paper:}
