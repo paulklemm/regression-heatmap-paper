@@ -250,7 +250,7 @@ Their methods aim to derive hypotheses through analysis of the data and observat
 %%
 Employing \emph{hypotheses generation} requires overview visualizations of feature correlations, which are not supported by standard statistical processors.
 
-\subsection{Epidemiological Data} \label{EpidemiologicalData}
+\subsection{Epidemiological Data} \label{sec:EpidemiologicalData}
 %%
 \emph{Cohort studies} are a major epidemiological tool for gathering epidemiological features.
 %%
@@ -306,7 +306,7 @@ Another important confounder is \emph{Gender}.
 %%
 Other confounder have to be selected by epidemiologists specific to the investigated condition.
 
-\subsection{Regression Analysis}
+\subsection{Regression Analysis} \label{sec:RegressionAnalysis}
 %%
 Regression analyses are the most important statistical tool when analyzing epidemiological data.
 %%
@@ -326,6 +326,7 @@ The value is in the range [0,1], while 1 encodes a perfect fit.
 %%
 \begin{equation}
 Dependent \sim Independent_1 + Independent_2 + ... + Independent_n
+\label{eq:RegressionNotation}
 \end{equation}
 %%
 The most used regression operators comprise:
@@ -438,13 +439,103 @@ Association rules created by data mining methods can be analyzed interactively w
 % *********************** / Our own Work ***********************
 \section{Regression Cube Analysis of Cohort Study Data}
 %%
-\com{Target Group: Physicians/Epidemiologists with basic statistical background to understand regression formulas and Interaction.}
+The basic idea of our \emph{Regression Cube} is to provide a overview visualization of large cohort study data sets towards target variables.
+%% TODO BLIND
+Overview visualizations of feature relationships as presented by Klemm et al. \cite{Klemm2014VIS} are often focused on relationships between the visualized features.
+%%
+Correlation metrics, such as the \emph{Pearson product-moment correlation coefficient} or \emph{Cram\'{e}r's V} contingency values are incorporated to achieve this goal.
+%%
+In epidemiology, these relationships are also of interest, but rather towards their explanatory power towards the target feature.
+%%
+These target features often indicates the presence of the investigated disease.
+%%
+As described in Section \ref{sec:RegressionAnalysis}, regression analyses are the statistical tool of choice for analyzing these relationships.
+%%
+A regression model is based on expert knowledge, there is no unified rule on how to apply them to a given set of features, so they have to be applied with care.
+%%
+\subsection{Cube Description using Regression Formula Notation}
+%%
+Expert knowledge is introduced into regression analyses using the regression formulas.
+%%
+As described in Section~\ref{sec:RegressionAnalysis}, the formula input influences the type of the chosen regression method as well as the \emph{independent} features describing the target.
+%%
+%In order to calculate all combinations of two to three independent features, we can apply  \emph{Regression Cube} aims to 
+%%
+
+Since we want to use the regression analyses with a overview visualization, we are are interested in all possible combinations of (two or more) independent features describing a target.
+%%
+We achieve this by introducing dynamic variables $X$, $Y$ and $Z$ into the regression notation.
+%%
+The method then replaces the dynamic variables with all features in the data set.
+%%
+In a data set with 100 features, the regression formula
+\begin{equation}
+Cancer \sim X + Y
+\end{equation}
+would yield 10.000 regression models, describing all possible combinations of two features in the data describing the target $Cancer$.
+%%
+The major advantage of this notation is that it comes natural to anyone familiar with regression analysis, because it uses the same notation, all operators can be used as before.
+%%
+This allows for a fast adaptation and in the epidemiological application domain.
+%%
+With simple adjustments to the formula, different results can be achieved:
+%%
+\begin{itemize}
+	\item $Z \sim X + Y$ calculates all combinations of two features towards all possible target features.
+	\item $Cancer \sim X + Y + BodyWeight$ includes the $BodyWeight$ feature into all regression models as feature.
+	\item $Cancer \sim X + Y + Z$ calculates all combinations of three features towards the target.
+\end{itemize}
+%%
+The problem with this brute-force approach lies in its complexity.
+%%
+The number calculated regression models increases exponentially for each dynamic variable added.
+%%
+If we assume a data set with 100 features with the formula $Z \sim X + Y$ we calculate 1,000,000 regression models.
+%%
+When each regression takes about 50~ms calculation, we have to wait roughly 14 hours for the calculation to complete.
+%%
+Therefore, the computational complexity needs to be reduced.
+%%
+%\com{Regression formulas are described using standard regression formula notation by introducing variables.}
+%%
+%\com{Target Group: Physicians/Epidemiologists with basic statistical background to understand regression formulas and Interaction.}
 
 \subsection{Target-Variable-dependent Dimension Reduction}
-\com{Explain the CFS algorithm and how it is applied to reduce the number of dimensions and therefore the calculation process.}
+\com{Uli, Can you please proofread this?}
+%%
+The vast majority of features in an epidemiological data have no or a very low relation towards the target feature.
+%%
+Identifying these features und excluding them from the calculation can reduce the number of dimension significantly.
+%%
+The \emph{Correlation based Feature Selection} (CFS) algorithm is very popular in data mining for achieving this task \cite{CFS}.
+%%
+It uses information entropy to select the features which have the most explanatory power towards the target feature.
+%%
+At the same time it tries to reduce the correlation between the independent features.
+%%
+When for example the \emph{body weight} has a strong explanatory power towards the target it is likely that \emph{BMI} or \emph{waist circumference} behave similar towards it.
+%%
+They, however, correlate strongly with each other.
+%%
+The CFS algorithm would then select the feature which has the largest explanatory power and discards the other dimensions.
 
-\subsection{Cube Description using Regression Formula Notation}
-\com{Regression formulas are described using standard regression formula notation by introducing variables.}
+We apply the CFS algorithm for each target feature in a regression formula with dynamic variables.
+%%
+The formula $Cancer \sim X + Y$ would yield one initial CFS information space reduction.
+%%
+For $Z \sim X + Y$ the CFS algorithm is applied to the data every time $Z$ is replaced with another feature.
+%%
+
+The number of features calculated by the CFS algorithm is dependent on the information entropy in the data.
+%%
+In our epidemiological data we observed a usual number of 10 to 20 features.
+%%
+For features, such as age or gender, which affect most other features (Recall "Confounder" in Section~\ref{sec:EpidemiologicalData}) the number is significantly larger (about half the features in the whole data set).
+%%
+
+Now we have a method to derive the interesting regression models in a reasonable time span.
+%%
+The next section shows ways of abstracting the results to make them visually feasible.
 
 \subsection{Abstracting Regression Results using R$^2$}
 \com{R$^2$ are used to encode regression results to color spaces.}
