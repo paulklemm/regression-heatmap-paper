@@ -538,8 +538,54 @@ Now we have a method to derive the interesting regression models in a reasonable
 The next section shows ways of abstracting the results to make them visually feasible.
 
 \subsection{Abstracting Regression Results using R$^2$}
-\com{R$^2$ are used to encode regression results to color spaces.}
-\com{R$^2$ is comparable between regression results of the same type, but not in between types. Therefore it is encoded using different colours.}
+\begin{figure}[htb]
+ \centering
+ \includegraphics[width=3.0in]{figures/cube_sketch}
+ \caption{
+ (a) Overview visualization using a heatmap for the formula $Z \sim X + Y$, where $Z$ assumes feature $Age$.
+ %%
+ The R$^2$ values extracted from the regression formulas depict the goodness of fit and are mapped to color saturation.
+ %%
+ A saturated color shows a strong correlation.
+ %%
+ (b) Since $Z$ assumes all features $n$ as given by the formula, it yields $n$ heatmap visualizations.
+ %%
+ These represent the slices in our cube visualization.
+ }
+  \label{fig:Cube}
+\end{figure}
+%%
+The goal of a overview visualization is to provide a comprehensive view on the data, which is easy to understand.
+%% TODO: Cite another paper here!
+As described in \cite{Klemm2014VIS}, correlation values scaled between 0 (no correlation) and 1 (perfect correlation) can be encoded using color on a mosaic plot.
+%%
+Regression models are more complex, having many associated describing metrics.
+%%
+For the \emph{Regression Cube} analysis we are interested in the goodness of fit of the resulting model, which allows to infer about the predictive quality of the independent features included in the model.
+%%
+As described in Section~\ref{sec:RegressionAnalysis}, the R$^2$ value is the metric allowing for this kind of assessment.
+%%
+Since it is scaled between [0,1] it also allows for comparison between regression models.
+%%
+We can apply the same information mapping by translating the R$^2$ values to color saturation (Fig.~\ref{fig:Cube} (a)).
+%%
+This describes a 2D regression square for dynamic variables $X$ and $Y$ (e.g. $Age \sim X + Y$).
+%%
+Introducing $Z$ creates a 3D \emph{Regression Cube}.
+%%
+The visualization of R$^2$ values derived from different regression cubes (e.g. $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
+%%
+Therefore, the R$^2$ results of different regression methods are encoded using different colors (e.g. blue for linear regression and red for logistic regression).
+%%
+This way, the cube can easily be extended using other regression types.
+%%
+For cubes having one fixed target feature, such as $Cancer \sim X + Y + Z$ no such encodings is required and the $z$ dimension can be compared directly.
+
+The goal is to create a overview visualization for a data set, but on the other hand we also want to incorporate expert knowledge into the visualization by adapting the underlying formulas.
+%%
+These two approaches do not exclude each other, they rather underline the difference in purpose of the chosen formula.
+%%
+Different analysis approaches require different starting points using the \emph{Regression Cube}.
 
 \subsection{Analysis Workflow}
 \begin{figure}[htb]
@@ -578,7 +624,7 @@ The next section shows ways of abstracting the results to make them visually fea
  \centering
  \includegraphics[width=2.8in]{figures/placeholder}
  \caption{
- \com{Screenshot of the cube visualization embedded in the framework}
+ \com{Screenshots of Cubes from the Evaluation}
  }
   \label{fig:comparison}
 \end{figure}
