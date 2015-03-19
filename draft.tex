@@ -98,33 +98,36 @@ These data contain information (\emph{features}) about a subjects' lifestyle, me
 %%
 These features are analyzed using statistical regression analyses towards features indicating a disease (the \emph{target feature}).
 %%
-%These complex data are hard to analyze concurrently, only a few features can be considered in statistical analyses, such as regression analyses.
-These analyses usually include two to five features (\emph{independent features}) towards the disease of interest.
+Overview visualizations over a whole data sets towards a target feature are highly required, but not available to epidemiologists.
+%%
+%These analyses usually include two to five features (\emph{independent features}) towards the investigated condition.
 \com{New Solution}.
 %(New Solution).
-We propose a new analyses approach of epidemiological data sets by incorporating all dimensions in an exhaustive regression-based analyses.
+
+We propose a new analyses approach of epidemiological data sets by incorporating all features in an exhaustive regression-based analysis.
 %%
-%It takes all possible combinations of \emph{independent features} towards a \emph{target feature} into account and provides a visualization, which allows for insights into the data by showing relationships possibly unknown to the domain expert.
-This approach combines all \emph{independent features} towards a \emph{target feature} and provides a visualization, which allows for insights into the data by showing the domain expert possibly unknown relationships.
+This approach combines all \emph{independent features} towards a \emph{target feature} and provides a visualization, which allows for insights into the data by highlighting relationships. %showing the
 %%
-%The most meaningful features 
-%A 3D-visualization of all possible combinations of two to three target variables acts as overview over the whole data set.
-A 3D-visualization of all combinations of two to three target variables acts as an overview over the whole data set.
+A 3D-visualization of all combinations of two to three independent features towards a target acts as an overview over the whole data set, the \emph{Regression Cube}.
 %%
-We call it the \emph{Regression Cube}.
+%We call it the \emph{Regression Cube}.
 %%
-Slicing through the regression cube allows for the detailed analysis of features towards the target disease.
+Slicing through the \emph{Regression Cube} allows for the detailed analysis of features towards the target disease.
 %%
-The regression formula can be adjusted by the user to describe disease-specific hypotheses.
+The regression model can be adjusted by the user to describe disease-specific hypotheses.
 %%
-Influences of features can be assessed using a difference view, comparing different calculation results.
+Furthermore, the influences of features can be assessed using a difference view, comparing different calculation results.
 \com{Validation}.
 %%
 We applied our \emph{Regression Cube} method to a hepatic steatosis data set to reproduce results from a data-mining driven analysis.
 %%
 We conducted a qualitative analysis with three domain experts on a breast fat data set to derive insights into the correlation between breast lesions and non-image variables.
 %%
-\com{Results}. TODO.
+\com{Results}.
+%%
+With our technique we were able to reproduce results from a data mining analysis of a hepatic steatosis data set.
+%%
+By applying it to a breast fat data set we were able to derive new hypotheses about relations between breast fat density and breast lesions towards breast cancer.
 %%
 \com{Implications}.
 Epidemiological data sets can for the first time be visually overviewed using a regression-based analysis of all features towards a disease. 
@@ -207,7 +210,7 @@ Difference views between regression formulas allow to assess the influences of i
 
 Our contributions are:
 \begin{itemize}
-	\item An overview visualization technique describing feature interactions using target features.
+	\item A overview visualization technique describing feature interactions using target features.
 	\item Visualization techniques, which incorporate overview visualizations of all regression analyses at once as well as details on demand techniques for detailed investigations of feature relationships.
 	\item freely adjustable regression formulas provide a simple, yet powerful way to adjust the regression analysis to specific hypotheses about the data.
 	\item analysis of confounding variables by providing comparison views between different formula results
@@ -368,9 +371,7 @@ Data for both cohorts are examined in a in a 5-year time span.
 %%
 New parameters are added in each iteration, extending the range of investigated diseases.
 %%
-For the last acquisition (\texttt{SHIP-2} and \texttt{SHIP-TREND-0}), MRI scans are included into the cohort \cite{Hegenscheid2009}.
-%%
-\com{Include Hegenscheids Breast Fat Paper}
+For the last acquisition (\texttt{SHIP-2} and \texttt{SHIP-TREND-0}), MRI scans are included into the cohort \cite{Hegenscheid2009, Ivanovska2014}.
 %%
 %Starting in 1997 with a cohort of 4,308 subjects, the \texttt{SHIP}, located in Northern Germany, aims to characterize health and disease in the widest range possible \cite{Volzke2011}.
 %After the pioneering Rotterdam study (started in 1990), several MR imaging study initiatives were initiated.
