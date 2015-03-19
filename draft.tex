@@ -58,7 +58,7 @@
 %% blind reviewing process, please replace the value ``0'' below with your
 %% OnlineID. Otherwise, you may safely leave it at ``0''.
 %% TODO: Blind Review: Replace with online ID
-\onlineid{0}
+\onlineid{175}
 
 %% declare the category of your paper, only shown in review mode
 \vgtccategory{Research}
@@ -94,45 +94,37 @@
 \com{Problem}.
 Epidemiological studies comprise heterogeneous data about a subject group (a \emph{cohort}) to define disease-specific risk factors.
 %%
-These data contain information (\emph{features}) about a subjects' lifestyle, medical conditions and also medical images of the whole body.
+These data contain information (\emph{features}) about a subjects' lifestyle, medical conditions and also medical image data.
 %%
-These features are analyzed using statistical regression analyses towards features indicating a disease (the \emph{target feature}).
+These features are analyzed using statistical regression analysis to identify feature combinations indicating a disease (the \emph{target feature}).
 %%
-Overview visualizations over a whole data sets towards a target feature are highly required, but not available to epidemiologists.
-%%
-%These analyses usually include two to five features (\emph{independent features}) towards the investigated condition.
-\com{New Solution}.
-%(New Solution).
+Although there is a strong demand for overview visualizations of a whole data set towards a target feature, no suitable tool is available for epidemiological researchers.
 
-We propose a new analyses approach of epidemiological data sets by incorporating all features in an exhaustive regression-based analysis.
+\com{New Solution}.
 %%
-This approach combines all \emph{independent features} towards a \emph{target feature} and provides a visualization, which allows for insights into the data by highlighting relationships. %showing the
+We propose an analysis approach of epidemiological data sets by incorporating all features in an exhaustive regression-based analysis.
 %%
-A 3D-visualization of all combinations of two to three independent features towards a target acts as an overview over the whole data set, the \emph{Regression Cube}.
+This approach combines all \emph{independent features} with respect to a \emph{target feature} and provides a visualization, which reveals insight into the data by highlighting relationships.
 %%
-%We call it the \emph{Regression Cube}.
+A 3D-visualization of all combinations of two to three independent features towards a target acts as an overview of the whole data set, the \emph{Regression Cube}.
 %%
 Slicing through the \emph{Regression Cube} allows for the detailed analysis of features towards the target disease.
 %%
-The regression model can be adjusted by the user to describe disease-specific hypotheses.
+Expert knowledge about disease-specific hypotheses can be included into the analysis by adjusting the regression model formulas.
 %%
-Furthermore, the influences of features can be assessed using a difference view, comparing different calculation results.
-\com{Validation}.
+Furthermore, the influences of features can be assessed using a difference view comparing different calculation results.
+%%
+\com{Validation \& Results}.
 %%
 We applied our \emph{Regression Cube} method to a hepatic steatosis data set to reproduce results from a data-mining driven analysis.
 %%
-We conducted a qualitative analysis with three domain experts on a breast fat data set to derive insights into the correlation between breast lesions and non-image variables.
+A qualitative analysis with three domain experts was conducted on a breast fat data set.
 %%
-\com{Results}.
-%%
-With our technique we were able to reproduce results from a data mining analysis of a hepatic steatosis data set.
-%%
-By applying it to a breast fat data set we were able to derive new hypotheses about relations between breast fat density and breast lesions towards breast cancer.
+We were able to derive new hypotheses about relations between breast fat density and breast lesions towards breast cancer.
 %%
 \com{Implications}.
-Epidemiological data sets can for the first time be visually overviewed using a regression-based analysis of all features towards a disease. 
-%With our technique it is possible for the first time to provide a overview visualization of variables regarding a target variable.
-
+%%
+With our work, we present a visual overview of epidemiological data with the \emph{Regression Cube}, which allows for the first time a interactive regression-based analysis of large feature sets with respect to a disease.
 } % end of abstract
 
 %% Keywords that describe your work. Will show as 'Index Terms' in journal
