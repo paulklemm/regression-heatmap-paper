@@ -264,6 +264,8 @@ Many features are sparse, such as follow up questions about a medication or trea
 %%
 Other features are exclusive, such as women-specific questions, e.g. number of born children or period status.
 
+\com{Restriction of amount of data because it must not be triangulated and because the ethics committees are very restrictive}
+
 \paragraph{Data Types.}
 %%
 Medical status variables or lifestyle factors are often of \emph{dichotomous} (binary) type.
@@ -590,21 +592,39 @@ Different analysis approaches require different starting points using the \emph{
 \subsection{Analysis Workflow}
 \begin{figure}[htb]
  \centering
- \includegraphics[width=2.8in]{figures/placeholder}
+ \includegraphics[width=3.0in]{figures/workflow_sketch}
  \caption{
- \com{Workflow for different analysis approaches.}
- \com{0. Select the Variables.}
- \com{1. Select the Formulas:}
- \com{a) Analysis without hypothesis about the data set (z ~ x+y)}
- \com{b) Analysis without hypothesis with confounder (z ~ age)}
- \com{c) Analysis with hypothesis about the data set (Var ~ x+y+z)}
- \com{d) Clarify using confounder (Var ~ x)}
- \com{3. Find interesting pane.}
- \com{4. Get Details on Demand.}
+ Workflow of the analysis using \emph{Regression Cubes}.
+ %%
+ The analysis starts with a set of features given by the data set.
+ %%
+ Then, the user may specify a formula regarding to specify a hypothesis, or use a predefined formula to start a explorative analysis of the data set.
+ %%
+ The Regression Cube is then visualized, where the user has either the option to adjust the formula or to derive details on demand on a specific regression.
+ %%
+ Insights into the data yield either an adjustment of the current formula.
+ %%
+ By applying a difference view, regression cubes can be compared to each other.
+ %%
+ The analysis yields insights and hypothesis about feature relations.
+ %%
  }
   \label{fig:Workflow}
 \end{figure}
+
 \com{Different Formulas work as different steps in the analysis (Fig.~\ref{fig:Workflow})}
+ \com{Workflow for different analysis approaches.}
+ \com{0. Select the Variables.}
+ \com{1. Select the Formulas}
+ \com{a) Analysis without hypothesis about the data set (z ~ x+y)}
+ \com{b) Analysis without hypothesis with confounder (z ~ age)}
+ \com{c) Analysis with hypothesis about the data set (Var ~ x+y+z)}
+ \com{d) Use Difference View}
+ \com{d) Clarify using confounder (Var ~ x)}
+ \com{3. Find interesting pane.}
+ \com{4. Get Details on Demand.}
+%%
+Analyze first, Show Overview, Details on Demand
 %%
 \section{System Design and Implementation} \label{Interaction- and Visualization Techniques}
 %%
