@@ -91,7 +91,7 @@
 
 %% Abstract section.
 \abstract{%
-\com{Problem}.
+%\com{Problem}.
 Epidemiological studies comprise heterogeneous data about a subject group (a \emph{cohort}) to define disease-specific risk factors.
 %%
 These data contain information (\emph{features}) about a subjects' lifestyle, medical conditions and also medical image data.
@@ -100,7 +100,7 @@ These features are analyzed using statistical regression analysis to identify fe
 %%
 Although there is a strong demand for overview visualizations of a whole data set towards a target feature, no suitable tool is available for epidemiological researchers.
 
-\com{New Solution}.
+%\com{New Solution}.
 %%
 We propose an analysis approach of epidemiological data sets by incorporating all features in an exhaustive regression-based analysis.
 %%
@@ -114,7 +114,7 @@ Expert knowledge about disease-specific hypotheses can be included into the anal
 %%
 Furthermore, the influences of features can be assessed using a difference view comparing different calculation results.
 %%
-\com{Validation \& Results}.
+%\com{Validation \& Results}.
 %%
 We applied our \emph{Regression Cube} method to a hepatic steatosis data set to reproduce results from a data-mining driven analysis.
 %%
@@ -122,7 +122,7 @@ A qualitative analysis with three domain experts was conducted on a breast fat d
 %%
 We were able to derive new hypotheses about relations between breast fat density and breast lesions towards breast cancer.
 %%
-\com{Implications}.
+%\com{Implications}.
 %%
 With our work, we present a visual overview of epidemiological data with the \emph{Regression Cube}, which allows for the first time a interactive regression-based analysis of large feature sets with respect to a disease.
 } % end of abstract
@@ -545,6 +545,8 @@ The next section shows ways of abstracting the results to make them visually fea
  (b) Since $Z$ assumes all features $n$ as given by the formula, it yields $n$ heatmap visualizations.
  %%
  These represent the slices in our cube visualization.
+ %%
+ The R$^2$ values of each slice voxel is mapped on opacity in the 3D-view, reducing the occlusion of other values.
  }
   \label{fig:Cube}
 \end{figure}
@@ -559,13 +561,20 @@ For the \emph{Regression Cube} analysis we are interested in the goodness of fit
 %%
 As described in Section~\ref{sec:RegressionAnalysis}, the R$^2$ value is the metric allowing for this kind of assessment.
 %%
-Since it is scaled between [0,1] it also allows for comparison between regression models.
+\paragraph{2D (Slice) View.}
 %%
-We can apply the same information mapping by translating the R$^2$ values to color saturation (Fig.~\ref{fig:Cube} (a)).
+Since R$^2$ is scaled between [0,1] it also allows for comparison between regression models.
+%%
+We can apply the same mosaic plot mapping by translating the R$^2$ values to color saturation (Fig.~\ref{fig:Cube} a).
 %%
 This describes a 2D regression square for dynamic variables $X$ and $Y$ (e.g. $Age \sim X + Y$).
 %%
-Introducing $Z$ creates a 3D \emph{Regression Cube}.
+
+\paragraph{3D (Cube) View.}
+%%
+Introducing $Z$ creates a 3D \emph{Regression Cube} (Fig.~\ref{fig:Cube} b).
+%%
+R$^2$ values of each cube entry (\emph{voxel}) is mapped to opacity to reduce the overlap.
 %%
 The visualization of R$^2$ values derived from different regression cubes (e.g. $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
 %%
@@ -574,7 +583,8 @@ Therefore, the R$^2$ results of different regression methods are encoded using d
 This way, the cube can easily be extended using other regression types.
 %%
 For cubes having one fixed target feature, such as $Cancer \sim X + Y + Z$ no such encodings is required and the $z$ dimension can be compared directly.
-
+%%
+\\\\
 The goal is to create a overview visualization for a data set, but on the other hand we also want to incorporate expert knowledge into the visualization by adapting the underlying formulas.
 %%
 These two approaches do not exclude each other, they rather underline the difference in purpose of the chosen formula.
@@ -582,6 +592,7 @@ These two approaches do not exclude each other, they rather underline the differ
 Different analysis approaches require different starting points using the \emph{Regression Cube}.
 
 \subsection{Analysis Workflow}
+\com{I'm not satisfied with the structure in this subsection, please proofread it with focus in the train of thought!}
 \begin{figure}[htb]
  \centering
  \includegraphics[width=3.0in]{figures/workflow_sketch}
@@ -603,21 +614,64 @@ Different analysis approaches require different starting points using the \emph{
  }
   \label{fig:Workflow}
 \end{figure}
+%%
+%\com{Different Formulas work as different steps in the analysis (Fig.~\ref{fig:Workflow})}
+%\com{Workflow for different analysis approaches.}
+%\com{0. Select the Variables.}
+%\com{1. Select the Formulas}
+%\com{a) Analysis without hypothesis about the data set (z ~ x+y)}
+%\com{b) Analysis without hypothesis with confounder (z ~ age)}
+%\com{c) Analysis with hypothesis about the data set (Var ~ x+y+z)}
+%\com{d) Use Difference View}
+%\com{d) Clarify using confounder (Var ~ x)}
+%\com{3. Find interesting pane.}
+%\com{4. Get Details on Demand.}
+%%
+The analysis workflow follows the Visual Analytics Mantra of Keim et al \cite{Keim2008}:
 
-\com{Different Formulas work as different steps in the analysis (Fig.~\ref{fig:Workflow})}
- \com{Workflow for different analysis approaches.}
- \com{0. Select the Variables.}
- \com{1. Select the Formulas}
- \com{a) Analysis without hypothesis about the data set (z ~ x+y)}
- \com{b) Analysis without hypothesis with confounder (z ~ age)}
- \com{c) Analysis with hypothesis about the data set (Var ~ x+y+z)}
- \com{d) Use Difference View}
- \com{d) Clarify using confounder (Var ~ x)}
- \com{3. Find interesting pane.}
- \com{4. Get Details on Demand.}
+\textbf{Analyze First.} Choosing an initial regression formula triggers the \emph{Regression Cube} calculation on the given data set, filtering the dimensions of the dependent feature through the CFS algorithm.
+
+\textbf{Show the Important.} The 3D-cube visualization acts as overview over the whole data set.
 %%
-Analyze first, Show Overview, Details on Demand
+Regression models with large R$^2$ values can be spotted fast here, steering the attention to the respective slice.
+
+\textbf{Zoom, Filter and Analyze Further.} The slices of interest can then be analyzed using the 2D mosaic plot of the slice.
+
+\textbf{Details on Demand.} Precise information about the individual regression models (coefficients, associated confidence intervals and p-values) can be retrieved based on the data point representatives (e.g. in a hover-modal on a currently selected data point).
+\\\\
+As seen in Fig~\ref{fig:Workflow}, the workflow is highly iterative.
 %%
+Observations in the 2D-mosaic plot or simply the CFS-based features can trigger new analyses by adjusting the underlying regression formulas.
+%%
+This can be carried out either to refine the current formula based on observations, or creating a new regression cube for a difference view.
+%%
+\paragraph{Formula Types.}
+%%
+Input formulas reflect \emph{hypotheses} about the data.
+%%
+Using the operators, dynamic variables and dataset features, many different assumptions can be formulated.
+%%
+Here we show just a few examples on how formulas can serve different purposes.
+
+$Z \sim X + Y$ is the default if the user did not specify a formula.
+%%
+This cube represents all possible combinations of two independent features towards all features in the data set, since we do not know which feature(s) are of interest.
+%%
+Each slice represents a different target feature.
+%%
+It is therefore suitable for a \emph{hypothesis-free} explorative analysis to give a general impression about relationships in the data set.
+
+$Cancer \sim X + Y + Z + feature_1:feature_2$ is an example for the formulation of a hypothesis, where a specific feature is analyzed.
+%%
+The interaction between $feature_1$ and $feature_2$ is also included in all regression formulas.
+%%
+
+$Cancer \sim X + Y + Z$ subtracted with results from $Cancer \sim Age$ excludes the confounding effect age has towards the target $Cancer$ feature.
+%%
+\com{TODO: divide using analysis approaches, e.g. Hypothesis-based \& Hypothesis-free with follow up on the formulas used?}
+%%
+\paragraph{Cube Comparison.}
+
 \section{System Design and Implementation} \label{Interaction- and Visualization Techniques}
 %%
 
