@@ -951,6 +951,51 @@ By hovering over a data entry in the plot, a tooltip model displays detailed inf
   \label{fig:Implementation}
 \end{figure}
 %%
+
+\paragraph{Front-End.}
+The front end is created using \texttt{HTML5}, \texttt{CSS3} and \texttt{Javascript}.
+%%
+\texttt{Angular.js} abstracts web application into models and views, allowing for a responsive way to combine \texttt{HTML} and \texttt{Javascript}.
+%%
+\texttt{Angular.js} is forcing developers to write modularized code, which makes the components easier expandable while keeping the code maintainable by including unit tests.
+%%
+The page layout is handled using \texttt{Twitter Bootstrap}, which also provides a rich set of UI elements with proper stylings.
+%%
+The 2D mosaic plot is implemented using \texttt{Data driven Documents}(\texttt{D3.js}), which is very popular in information visualization using vector graphics.
+%%
+It provides fast and easy methods for binding data to graphical elements.
+%%
+The 3D plot is created using the WebGL-based \texttt{Threejs} library.
+%%
+We experimented with different ways for achieving the cube representation, including volume rendering, cube primitives for each data point and shader-based solutions.
+%% TODO
+Using a volume rendering algorithm for the cube \com{TODO}.
+%%
+Creating a cube primitive for each data point resulted in non-interactive framerates for data sets larger than 30 features (creating 30$^3$ cube primitives).
+%%
+We use a shader-based solution by rendering the cube as a sprite based particle system, allowing to customize color and opacity of every data point.
+%%
+It also is the fastest solution that we tested.
+
+\paragraph{Back-End.}
+Two server structures serve as back-end.
+%%
+First, the web-server is written in \texttt{Javascript} using \texttt{NodeJS}, running on Googles V8 Javascript runtime environment.
+%%
+It is hosted on \texttt{Heroku}, a cloud application platform.
+%%
+
+The statistical processors are the second structure.
+%%
+They rely on the statistical programming language \texttt{R}.
+%%
+It is widely adopted in the statistical analysis community, yielding a rich support of fast state-of-the-art statistics algorithms as well newly published methods.
+%%
+\texttt{OpenCPU} provides a API for accessing \texttt{R} via HTTP calls.
+%%
+
+\paragraph{Source and Access.}
+
 \com{Use VAST'14 as Guideline}
 \com{Cloud computing}
 \com{Volume Rendering vs Particles}
