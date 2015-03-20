@@ -628,7 +628,7 @@ Different analysis approaches require different starting points using the \emph{
 %\com{3. Find interesting pane.}
 %\com{4. Get Details on Demand.}
 %%
-The analysis workflow follows the Visual Analytics Mantra of Keim et al \cite{Keim2008}:
+The analysis workflow follows the Visual Analytics (VA) Mantra of Keim et al. \cite{Keim}:
 
 \textbf{Analyze First.} Choosing an initial regression formula triggers the \emph{Regression Cube} calculation on the given data set, filtering the dimensions of the dependent feature through the CFS algorithm.
 
@@ -698,12 +698,29 @@ Therefore the system has to be intuitive and comprehensive in order to be adapte
 \subsection{Design and Visualization Techniques} \label{Structure and Workflow}
 \begin{figure}[htb]
  \centering
- \includegraphics[width=2.8in]{figures/placeholder}
+ \includegraphics[width=3.5in]{figures/system_sketch}
  \caption{
- \com{Screenshot of the cube visualization embedded in the framework}
- \com{Also include active tooltip}
+ %%
+ \com{FIGURE NOT FINAL!}
+ %%
+ Breast fat data set loaded into the \emph{Regression Cube} prototype.
+ %%
+ (a) Using the formula input, the user specifies the dependent feature as well as its calculation rules.
+ %%
+ (b) 3D cube visualization, showing values above the cube matrix diagonal as overview.
+ %%
+ The values of the current selected slice are mirrored and represented as orange data points on the slicing plane.
+ %%
+ (c) 2D mosaic plot visualization of the selected slice.
+ %%
+ \com{TODO: Adapt formula to final image.}
+ %%
+ Context information is shown for the regression model of $Parenchym \sim Bronchitis + AlcoholLast30Days$, depicting details about the confidence intervals, coefficients and associated p-values.
+ %%
+ %\com{Screenshot of the cube visualization embedded in the framework}
+ %\com{Also include active tooltip}
  }
-  \label{fig:Cube}
+  \label{fig:System}
 \end{figure}
 %%
 Design choices and spaces are restricted by the underlying technologies and devices.
@@ -712,11 +729,19 @@ Resting collaboration and exchange about data and methods on web-based technolog
 %%
 Web technology is also inherently designed with client-server architecture in mind, making it easy to outsource computation heavy tasks on server-clusters and transferring results to the client device.
 %%
-The design space of web-technologies is different to standard WIMP-Interfaces, right click menus, modal windows and menu bars are not established UI components in this context.
+The design space of web-technologies is different to standard WIMP-applications--right click menus, modal windows and menu bars are not established UI components in this context.
 %%
 Therefore we have to adapt our design respecting the affordances of web pages.
 %%
-Our prototype consists of different components:
+\paragraph{System Paradigm and Components.}
+%%
+The \emph{Regression Cube} design focuses on a clean interface, reducing the amount of ui elements as much as possible.
+%%
+This allows for a fast learning of the individual system parts.
+%%
+More importantly, it allows the user to focus all mental resources on the analysis tasks, rather than wrangling with configuring the system to serve the current task or hypothesis.
+%%
+Therefore, our prototype consists of three components:
 \begin{itemize}
 	%%
 	\item The \emph{file upload} section starting the analysis with providing a comma separated values (CSV) data set.
@@ -728,7 +753,7 @@ Our prototype consists of different components:
 	\item The \emph{cube visualization} consisting of the 2D-mosaic view as well as a 3D-representation of the whole cube.
 	%%
 \end{itemize}
-
+%%\com{Focus on simplification and ease of use, reducing the number of UI elements as much as possible (Statistical Visualizations often tend to put all information and settings at once to the user, which is overwhelming for the user).}
 \paragraph{File-Upload and Classification.}
 %%
 Popular analytics tools, such as WEKA \cite{WEKA} owe their popularity to their support of open file types.
@@ -738,6 +763,8 @@ To allow other users even outside the epidemiological application domain access 
 The first line in a CSV file represents all features (columns) of the data set.
 %%
 Each line after that represents one subject (row) and their feature manifestations.
+
+\textbf{Classification.}
 %%
 Encoding variable types in CSV files is not standardized.
 %%
@@ -753,6 +780,8 @@ Variables with only two manifestations are classified as dichotomous, leading to
 %%
 Missing values are denoted using no character at all, a whitespace, or an empty quotation mark encapsulated string.
 
+\textbf{Data Security.}
+%%
 Security issues are raised by uploading data into a online service, such as our prototype.
 %%
 The use of epidemiological data is preceded by a detailed description on the analysis purpose and has to be approved by ethics committees.
@@ -761,7 +790,7 @@ Preventive steps have to be taken to restrict access to unauthorized subjects.
 %%
 We decided against a user account system because it reduces the ease of use largely without having a direct advantage for the user.
 %%
-Instead we apply SHA-256 hashing on the data set name using the data contents and disable directory listings on the web server to avoid data set downloads.
+Instead we apply a SHA-256 hashing on the data set name using the data contents and disable directory listings on the web server to avoid data set downloads.
 %% TODO: Implement this
 Data sets are deleted from the server after the closing a session.
 
@@ -778,7 +807,7 @@ This allows to comprehend the function of the underlying formula for users witho
 Auto-completing input variables also simplifies the approach and also works as spell-check of (sometimes hard to memorizable) variable names.
 %%
 
-The formula is checked for validity directly on input, indicating invalid formulas with a red halo around the text input, which turns to green for valid input.
+\textbf{Formula Validation and Calculation.} The formula is checked for validity directly on input, indicating invalid formulas with a red halo around the text input, which turns to green for valid input.
 %%
 This prevents processing errors on the statistical processor backend.
 %%
@@ -790,18 +819,118 @@ In theory, the calculation duration is reduced by a factor of $0.5$ by every sta
 %%
 In praxis, data transmission and differences in machine specifications always influence the speed.
 
+%%
+\textbf{Difference-Cube.}
+Adding a formula also adds it to the reference selection for a difference cube.
+%%
+If the user selects a reference formula, the absolute difference of R$^2$ values between the cube described by the reference and the currently active formula are calculated and shown.
+%%
+
 %\com{Dynamic Type Checking, Auto-Completion Analysis Trigger, Comparison between Cubes, triggering of cube calculation, parallelization of formula calculation}
 
 \paragraph{Regression Cube Visualization.}
 %%
-\com{display of skewed cube, combination of 2D to 3D, navigating between the two views, projection of current slice to the 3D-Cube, details on demand}
+The visualization and interaction with the \emph{Regression Cube} is the heart of the prototype.
+%%
+Results from the statistical processors are uploaded into the visualization by slice, allowing the assessment of the data as soon as parts of the calculations are finished while the rest is still in processing.
 
-\com{Simplicity of interface to allow for steep learning curve.}
-\com{Visualization as skewed cube to reduce visual clutter and remove double entries.}
-\com{Cube acts as visual mini map to give a global impression over the data.}
-\com{current pane shown using a heat map visualization.}
-\com{details on demand for selected regression formula.}
-\com{comparison view using reference cubes.}
+\textbf{Usage of a Regression Prism for information reduction.}
+%%
+Figure~\ref{fig:Cube} shows that all values are mirrored along the mosaic plot matrix diagonal.
+%%
+This is due to the symmetry of basic regression operators.
+%%
+$Z \sim X + Y$ produces the same result as $Z \sim Y + X$.
+%%
+Therefore we can discard half of the results to reduce visual clutter and repetition, yielding a \emph{Regression Prism}.
+%%
+This opens up space for displaying additional information.
+%%
+
+\textbf{3D-Prism as Data Mini-Map.}
+%%
+The 3D-cube representation acts overview over the whole data set, but its purpose is not to derive detailed information about data points.
+%%
+It serves a function similar to a mini-map, guiding the attention towards points of interest in the data as well as giving context information about adjacent data values when using the 2D mosaic plot.
+%%
+It serves the purpose of \emph{Show the Results} after the \emph{Analyze First} step in Keim's VA-Mantra.
+%%
+The displayed prism shows values above the matrix diagonal.
+%%
+\\\\
+%% TODO: Add reference for disadvantages of 3D information visualizations!
+\textbf{Tackling the disadvantages of 3D information visualization.}
+3D-Information visualizations are often criticized for introducing occlusion and interaction problems, which often do not balance out the advantages of using the third dimension for visual mapping.
+%%
+We aim to minimize these advantages as much as possible.
+%%
+Since the R$^2$ values are mapped on data point opacity, only large values are highlighted in the prism, guiding the focus to the respective slices.
+%%
+It also creates a very sparse representation, since the majority of regression models yield (depending on the data set and the chosen formula) low R$^2$ values.
+%%
+Also, the preceding correlation based feature selection reduces the information space significantly, leading to sparse cubes.
+%%
+Overlapping is still an issue, but this way greatly reduced in its affect to the readability of the visualization.
+%%
+
+%% INTERACTION
+Rotating with the cube is restricted to y axis, preserving the mental map of the position of the individual features.
+%%
+The cube is always oriented according to the 2D-representation, allowing for a easy mental combination of the two representations.
+%%
+Allowing more degrees of freedom was confusing to our users and also does not add value to the visualization.
+%%
+We provide also a zoom functionality using the mouse wheel input.
+%%
+\\\\
+\textbf{Cube Slice Selection.}
+%%
+In order to \emph{Zoom, Filter and Analyze Further}, the user has to navigate towards different slices of interest.
+%%
+We propose two ways to achieve this.
+\begin{itemize}
+	\item \emph{Applying the slicing metaphor from 3D volume data.}
+	%%
+	In medical volume data renderings, slicing views very common to view details on a selected plane in the scene.
+	%%
+	We employ this technique for selecting cube slices (e.g. by moving a plane via vertical mouse input while pressing the right mouse button).
+	%%
+	We, however, still display the whole 3D-object instead of cutting away information towards the slice position.
+	%%
+	\item \emph{Selecting the slice using a dropdown menu} provides fast access to plane selections when the user already knows the slices of interest.
+	%%
+\end{itemize}
+%%
+The current selected slice is denoted with a semi-transparent gray plane.
+%%
+The space available from visualizing only the prism generated from the upper half of the cube diagonal is used to display information about the current selected plane.
+%%
+the values are projected on this plane to give a overlapping-free view on the data points, which makes it easier to identify the current slice.
+%%
+%It also allows for a fast slicing through the cube and assessing the information.
+%%
+%\com{display of skewed cube, combination of 2D to 3D, navigating between the two views, projection of current slice to the 3D-Cube, details on demand}
+\\\\
+\textbf{2D Mosaic Plot Slice Visualization.}
+%%
+The 2D mosaic visualization shows all values below the matrix diagonal of the current slice, creating optical equivalence towards the 3D cube.
+%%
+To reduce visual clutter, the 2D view only shows dimensions, which are retrieved through the correlation based feature selection.
+%%
+The free space above the matrix diagonal is used to display the 3D cube.
+%%
+
+The purpose of this view is the detailed assessment of the underlying regression models.
+%%
+By hovering over a data entry in the plot, a tooltip model displays detailed information about a models coefficients, associated p values and confidence intervals.
+%%
+
+%\com{Simplicity of interface to allow for steep learning curve.}
+%\com{Visualization as skewed cube to reduce visual clutter and remove double entries.}
+%\com{Cube acts as visual mini map to give a global impression over the data.}
+%\com{current pane shown using a heat map visualization.}
+%\com{details on demand for selected regression formula.}
+%\com{comparison view using reference cubes.}
 
 \begin{figure}[htb]
  \centering
@@ -811,8 +940,6 @@ In praxis, data transmission and differences in machine specifications always in
  }
   \label{fig:comparison}
 \end{figure}
-
-\paragraph{System Layout.}
 
 \subsection{Implementation} \label{implementation}
 \begin{figure}[htb]
@@ -826,6 +953,7 @@ In praxis, data transmission and differences in machine specifications always in
 %%
 \com{Use VAST'14 as Guideline}
 \com{Cloud computing}
+\com{Volume Rendering vs Particles}
 \com{Speed is merely a matter of available server machines due to parallelization process.}
 \com{Security enabled by hashing files.}
 \com{Bootstrap/Angular/D3 Frontend, Node backend, R/OCPU Backend (Fig.~\ref{fig:Implementation})}
