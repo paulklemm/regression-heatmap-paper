@@ -432,6 +432,7 @@ Niemann et al. \cite{Niemann2014} presented an interactive data mining tool for 
 Association rules created by data mining methods can be analyzed interactively with their tool and highlight potentially overlooked variables.
 % *********************** / Our own Work ***********************
 \section{Regression Cube Analysis of Cohort Study Data}
+\com{Add Data Preprocessing Section.}
 %%
 The basic idea of our \emph{Regression Cube} is to provide a overview visualization of large cohort study data sets towards target variables.
 %% TODO BLIND
@@ -645,6 +646,20 @@ Observations in the 2D-mosaic plot or simply the CFS-based features can trigger 
 %%
 This can be carried out either to refine the current formula based on observations, or creating a new regression cube for a difference view.
 %%
+\paragraph{Cube Comparison.}
+%%
+Regression Cubes can be compared by creating difference views.
+%%
+One cube (formula) acts as reference.
+%%
+The absolute difference in R$^2$ values towards the second cube is calculated, yielding a difference cube showing only the differences between the two formulas.
+%%
+\com{TODO: divide using analysis approaches, e.g. Hypothesis-based \& Hypothesis-free with follow up on the formulas used?}
+\paragraph{Hypothesis-Free Analysis}
+%%
+\paragraph{Hypothesis-Based Analysis}
+%%
+%%
 \paragraph{Formula Types.}
 %%
 Input formulas reflect \emph{hypotheses} about the data.
@@ -668,11 +683,16 @@ The interaction between $feature_1$ and $feature_2$ is also included in all regr
 
 $Cancer \sim X + Y + Z$ subtracted with results from $Cancer \sim Age$ excludes the confounding effect age has towards the target $Cancer$ feature.
 %%
-\com{TODO: divide using analysis approaches, e.g. Hypothesis-based \& Hypothesis-free with follow up on the formulas used?}
-%%
-\paragraph{Cube Comparison.}
 
-\section{System Design and Implementation} \label{Interaction- and Visualization Techniques}
+\section{System Design and Implementation} \label{sec:SystemDesign}
+%%
+We designed our system with openness and ease of use in mind.
+%%
+Using open formats as input interfaces does not restrict the application towards non-epidemiological data sets.
+%%
+The focus lies on creating a overview visualization and gaining insight into relationships into the data, which triggers further analyses (maybe with other (statistical) tools).
+%%
+Therefore the system has to be intuitive and comprehensive in order to be adapted by domain experts.
 %%
 
 \subsection{Design and Visualization Techniques} \label{Structure and Workflow}
@@ -685,6 +705,103 @@ $Cancer \sim X + Y + Z$ subtracted with results from $Cancer \sim Age$ excludes 
  }
   \label{fig:Cube}
 \end{figure}
+%%
+Design choices and spaces are restricted by the underlying technologies and devices.
+%%
+Resting collaboration and exchange about data and methods on web-based technologies shows promising results, as there is no set-up time involved and domain experts can use the methods from any computer connected with the web.
+%%
+Web technology is also inherently designed with client-server architecture in mind, making it easy to outsource computation heavy tasks on server-clusters and transferring results to the client device.
+%%
+The design space of web-technologies is different to standard WIMP-Interfaces, right click menus, modal windows and menu bars are not established UI components in this context.
+%%
+Therefore we have to adapt our design respecting the affordances of web pages.
+%%
+Our prototype consists of different components:
+\begin{itemize}
+	%%
+	\item The \emph{file upload} section starting the analysis with providing a comma separated values (CSV) data set.
+	%%
+	\item The \emph{formula editor} allows to adjust the formula towards a current hypothesis or conducting a \emph{hypothesis-free} analysis
+	%%
+	It also allows to select a reference formula for creating a difference-cube.
+	%%
+	\item The \emph{cube visualization} consisting of the 2D-mosaic view as well as a 3D-representation of the whole cube.
+	%%
+\end{itemize}
+
+\paragraph{File-Upload and Classification.}
+%%
+Popular analytics tools, such as WEKA \cite{WEKA} owe their popularity to their support of open file types.
+%%
+To allow other users even outside the epidemiological application domain access to our tool, we choose to do this using standard ASCII-based CSV files.
+%%
+The first line in a CSV file represents all features (columns) of the data set.
+%%
+Each line after that represents one subject (row) and their feature manifestations.
+%%
+Encoding variable types in CSV files is not standardized.
+%%
+We, however, need to ensure the correct variable type classification and have to enforce some basic standards.
+%%
+All categorical values have to be enclosed by quotation marks.
+%%
+Continuous variables are denoted as digits without enclosing quotation marks.
+%%
+This seems obvious, but in fact many cohort study data sets encode categorical features using ID-values, which are denoted in a data dictionary.
+%%
+Variables with only two manifestations are classified as dichotomous, leading to three possible data types: numerical, categorical and categorical/dichotomous.
+%%
+Missing values are denoted using no character at all, a whitespace, or an empty quotation mark encapsulated string.
+
+Security issues are raised by uploading data into a online service, such as our prototype.
+%%
+The use of epidemiological data is preceded by a detailed description on the analysis purpose and has to be approved by ethics committees.
+%%
+Preventive steps have to be taken to restrict access to unauthorized subjects.
+%%
+We decided against a user account system because it reduces the ease of use largely without having a direct advantage for the user.
+%%
+Instead we apply SHA-256 hashing on the data set name using the data contents and disable directory listings on the web server to avoid data set downloads.
+%% TODO: Implement this
+Data sets are deleted from the server after the closing a session.
+
+\paragraph{Formula Editor.}
+%%
+After uploading the data, the user can specify a formula or use the default ($Z \sim X + Y$).
+%%
+Entering a formula is provided via text input.
+%%
+On entering the text are, a context modal displays all data set variables as well as the available operators and their function.
+%%
+This allows to comprehend the function of the underlying formula for users without statistical background about regression analysis and its notation.
+%%
+Auto-completing input variables also simplifies the approach and also works as spell-check of (sometimes hard to memorizable) variable names.
+%%
+
+The formula is checked for validity directly on input, indicating invalid formulas with a red halo around the text input, which turns to green for valid input.
+%%
+This prevents processing errors on the statistical processor backend.
+%%
+Confirming a formula triggers the cube calculation, which is preceded by determining all required formulas.
+%%
+These are then divided by the number of available statistical backend processors available, driving a \emph{cloud computing} based approach.
+%%
+In theory, the calculation duration is reduced by a factor of $0.5$ by every statistical processor.
+%%
+In praxis, data transmission and differences in machine specifications always influence the speed.
+
+%\com{Dynamic Type Checking, Auto-Completion Analysis Trigger, Comparison between Cubes, triggering of cube calculation, parallelization of formula calculation}
+
+\paragraph{Regression Cube Visualization.}
+%%
+\com{display of skewed cube, combination of 2D to 3D, navigating between the two views, projection of current slice to the 3D-Cube, details on demand}
+
+\com{Simplicity of interface to allow for steep learning curve.}
+\com{Visualization as skewed cube to reduce visual clutter and remove double entries.}
+\com{Cube acts as visual mini map to give a global impression over the data.}
+\com{current pane shown using a heat map visualization.}
+\com{details on demand for selected regression formula.}
+\com{comparison view using reference cubes.}
 
 \begin{figure}[htb]
  \centering
@@ -694,13 +811,6 @@ $Cancer \sim X + Y + Z$ subtracted with results from $Cancer \sim Age$ excludes 
  }
   \label{fig:comparison}
 \end{figure}
-%%
-\com{Simplicity of interface to allow for steep learning curve.}
-\com{Visualization as skewed cube to reduce visual clutter and remove double entries.}
-\com{Cube acts as visual mini map to give a global impression over the data.}
-\com{current pane shown using a heat map visualization.}
-\com{details on demand for selected regression formula.}
-\com{comparison view using reference cubes.}
 
 \paragraph{System Layout.}
 
@@ -715,6 +825,7 @@ $Cancer \sim X + Y + Z$ subtracted with results from $Cancer \sim Age$ excludes 
 \end{figure}
 %%
 \com{Use VAST'14 as Guideline}
+\com{Cloud computing}
 \com{Speed is merely a matter of available server machines due to parallelization process.}
 \com{Security enabled by hashing files.}
 \com{Bootstrap/Angular/D3 Frontend, Node backend, R/OCPU Backend (Fig.~\ref{fig:Implementation})}
@@ -756,10 +867,10 @@ The data processing follows the description in Section~\ref{Data Preprocessing}.
 \paragraph{Future Work.}
 \com{Implementing of regression analysis on the graphics card.}
 %%
-\begin{small}
-	\acknowledgments{Omitted due to blind review}
-% \acknowledgments{SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics. We thank Marko Rak and Klaus Toennies for providing the image detection data.}
-\end{small}
+% \begin{small}
+	%\acknowledgments{Omitted due to blind review}
+\acknowledgments{SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics. We thank Marko Rak and Klaus Toennies for providing the image detection data.}
+% \end{small}
 \clearpage
 \newpage
 \bibliographystyle{abbrv}
