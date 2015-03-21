@@ -383,7 +383,31 @@ For the last acquisition (\texttt{SHIP-2} and \texttt{SHIP-TREND-0}), MRI scans 
 %
 %
 \section{Prior and Related Work}
+\com{Add section on most similar publications}
+\com{TODO: Needs to be rewritten, this is only here for the references!}
 \com{From VAST'14 Paper:}
+
+\com{http://www.ii.uib.no/vis/publications/publication/2014/Angelelli14Interactive}
+%\com{http://link.springer.com/chapter/10.1007/978-3-642-39146-0_1#page-1}
+\com{Turkey Metrics Paper}
+
+\paragraph{Data Mining in Epidemiology.}
+\com{Problem: Only paper of co-authors in this section, will look one-sided!}
+\com{Uli Niemann, Tommy Hielscher, Myra Spiliopoulou, Henry Völzke, and Jens-Peter Kühn. Can we classify the participants of a longitudinal epidemiological study from their previous evolution?.}
+
+\com{Niemann, U.; Völzke, H.; Kühn, J.-P. Spiliopoulou, M. (2014), Learning and inspecting classification rules from longitudinal epidemiological data to identify predictive features on hepatic steatosis, Expert Systems with Applications 41 (11) , 5405-5415 .}
+
+\com{Glaßer, S., Niemann, U., Preim, B., and Spiliopoulou, M. (2013). Can we Distinguish Between Benign and Ma- lignant Breast Tumors in DCE-MRI}
+
+\com{Uli, can you write a short summary on these?}
+
+\paragraph{Statistical Analysis}
+\com{Regression Cube: A Technique for Multidimensional Visual Exploration and Interactive Pattern Finding}
+
+\com{[Hierarchical Brushing of High-Dimensional Data Sets Using Quality Metrics]}
+
+\com{Quality Metrics in High-Dimensional Data Visualization - An Overview and Systematization}
+
 \paragraph{Visual Analysis of Heterogenous Data.}
 Zhang et al. \cite{Zhang2012} provide a web-based system for analyzing subject groups with linked views and batch-processing capabilities for categorizing new subject entries into the data set.
 %
@@ -966,7 +990,7 @@ The ongoing transition of open-science software into the web spawned numerous pr
 %%
 The front end is created using \texttt{HTML5}, \texttt{CSS3} and \texttt{Javascript}.
 %%
-\texttt{Angular.js}\footnote{Open Source; Maintained by Google, \href{https://www.angularjs.org/}{\texttt{www.angularjs.org}}} abstracts web application into models and views, allowing for a responsive way to combine \texttt{HTML} and \texttt{Javascript}.
+\texttt{Angular.js}\footnote{Open Source; Maintained by Google, \href{https://www.angularjs.org/}{\texttt{angularjs.org}}} abstracts web application into models and views, allowing for a responsive way to combine \texttt{HTML} and \texttt{Javascript}.
 %%
 \texttt{Angular.js} is forcing developers to write modularized code, which makes the components easier expandable while keeping the code maintainable by including unit tests.
 %%
@@ -1016,7 +1040,7 @@ The server workload balances are managed by the front-end code.
 %%
 A running instance of the \emph{Regression Cube} prototype can be found under \href{http://regressioncube.herokuapp.com/}{\texttt{regressioncube.herokuapp.com}}.
 %%
-The source for the prototype is freely available at \texttt{Github}\footnote{\texttt{R}-based back-end: \href{https://github.com/paulklemm/regression-cube-r-package}{\texttt{github.com/paulklemm/regression-cube-r-package}}}\footnote{Front-End and Nodejs Webserver: \href{https://github.com/paulklemm/regression-cube-prototype}{\texttt{github.com/paulklemm/regression-cube-prototype}}}.
+The source for the prototype is freely available at \texttt{Github}\footnote{\texttt{R}-based back-end: \href{https://github.com/paulklemm/regression-cube-r-package}{\\\texttt{github.com/paulklemm/regression-cube-r-package}}}\footnote{Front-End and Nodejs Webserver: \href{https://github.com/paulklemm/regression-cube-prototype}{\texttt{\\github.com/paulklemm/regression-cube-prototype}}}.
 %%
 Instructions and code on how to create a setup running the \emph{Regression Cube} statistical backend through a \texttt{Ubuntu} server using \texttt{OpenCPU} are referenced in the repository.
 %%
@@ -1131,8 +1155,38 @@ All male subjects were removed as their data does not contribute to the analysis
 \com{Time-aspect critical, interactive analysis requires for fast response. The method needs to be speeded up.}
 
 \section{Summary and Conclusion}
-\paragraph{Future Work.}
-\com{Implementing of regression analysis on the graphics card.}
+We presented a technique for knowledge discovery in cohort study data sets with user-defined target features.
+%%
+\emph{Regression Cube} are based on eponymous regression models, which allow to model domain knowledge about the data (e.g. influencing features on a disease) using formulas.
+%%
+Alternatively, \emph{Regression Cubes} can be calculated using default formulas to assess the explanatory power towards each feature in the data set.
+%%
+These two approaches allow both for a \emph{hypothesis-free} and \emph{hypothesis-based} explorative analysis.
+%%
+Correlation based feature selection reduces the amount of calculations using the target feature by focusing on the important regression models.
+%%
+The prototype described in this work was developed using state of the art web technologies, free services and open source libraries.
+%%
+All code associated to this project is also open source.
+%%
+Two case studies revealed that the presented approach is able to reproduce knowledge extracted using decision tree based data mining methods on a hepatic steatosis data set as well as producing new hypotheses by deriving insight into influencing factors on breast fat tissue in a explorative analysis.
+%%
+
+As future work, we want to introduce more regression models to the data set, which model different correlation types.
+%%
+We also want to extend the cube to time-dependent data by expanding the difference-cube approach.
+%%
+
+The method was very well received with our project partners, allowing them for the first time to retrieve a overview visualization of features, which does not highlights their pairwise correlations, but rather their explanatory power towards a target feature.
+%%
+The observed relationship are now subject of detailed statistical analyses.
+%%
+Our provided system not restricted to the epidemiological domain, using the provided instance, everybody can upload their own data or even set up their own \emph{Regression Cube} server cluster.
+%%
+We believe in the power of opening up knowledge discovery to allow a heterogenous group of domain experts to derive insight into their data and support the notion of open science.
+%%
+%%\paragraph{Future Work.}
+%%\com{Implementing of regression analysis on the graphics card.}
 %%
 % \begin{small}
 	%\acknowledgments{Omitted due to blind review}
