@@ -1032,31 +1032,97 @@ The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{www.h
 % \com{Bootstrap/Angular/D3 Frontend, Node backend, R/OCPU Backend (Fig.~\ref{fig:Implementation})}
 
 \section{Application} \label{application}
-%
-\subsection{The Breast Fat Data Set}
-\com{Describe how the data was acquired and preprocessed}
+%%
+In this section, we describe how we applied the \emph{Regression Cube} to two epidemiological data sets.
+%%
+The hepatic steatosis data set was analyzed using data mining algorithms, yielding risk groups, which we now analyze further.
+%%
+Also, we try to reproduce the prior results from this analysis as proof-of-concept of our method.
+%%
+The breast fat data set is the foundation for a explorative analysis towards the influencing parameters of the parenchyma tissue of the female breast.
+%%
 
-\subsubsection{Data Preprocessing} \label{application:Data Preprocessing}
-The data processing follows the description in Section~\ref{Data Preprocessing}.
-%
-
-\subsection{The Hepatic Steatosis Data Set}
-\com{Uli: Describe the data set and also prior work on it.}
-
-\subsubsection{Data Preprocessing} \label{application:Data Preprocessing}
-The data processing follows the description in Section~\ref{Data Preprocessing}.
-%
-
+Both data sets are unusual for epidemiological analysis regarding their feature extend.
+%%
+Usually, only a few features depicting a hypotheses are compiled into a data set to assess them using statistical tools.
+%%
+Our method focuses on data exploration and knowledge extraction and requires a wide scope of sociodemographic, medical and lifestyle features.
+%%
 \subsection{Participants, Setup and Procedure}
 %%
-\com{Use of VDAR Technique}
-%
-\paragraph{Setup.} Due to the large geographical distance, the evaluation was done completely web-based.
+To assess the ability a system to discover knowledge discover knowledge is hard to measure.
 %%
-\paragraph{Procedure.}
+Lam et al. \cite{Lam2012} propose for this purpose the \emph{Visual Data Analysis and Reasoning} (\emph{VDAR}) technique, which is focused on the characterization of a systems ability to generate hypotheses and explore the data in order to extract information.
+%%
+\emph{VDAR} can be carried out using case studies using thinking-aloud techniques to comprehend the reasoning and thought process of the user.
+%%
+We conducted a study using two participants, who also co-authored this publication.
+%%
+UN is a data scientist who analyzed the hepatic steatosis data set by extracting decision rules.
+%%
+KH is a radiologist (10 years of experience) with specialization in epidemiological research and is also responsible for the SHIP MRI acquisition.
+%%
+\paragraph{Setup and Procedure.}
+%%
+One major advantage of focusing on web based research was the possibility to bridge the geographical gap towards the epidemiological domain experts.
+%%
+We conducted a web based research by using a online-meeting software, which features voice chat as well as screen sharing.
+%%
+Starting a analysis using these techniques take about 5-10 minutes of setup time.
+
+The sessions started with an initial overview of the system, showcasing its features and functionality.
+%%
+After that the experts use the system on their own computers.
+%%
+The screen-sharing function was still used to observe the actions of the expert.
+%%
+All sessions were video recorded to be processed later on.
+%%
+\subsection{The Breast Fat Data Set}
+The breast fat data set was compiled to find associations between parenchyma tissue proportion in the female breast towards other features in the data.
+%%
+The ratio between parenchyma and cellular connective tissue (breast density) has been shown to be associated with breast cancer.
+%%
+Studies describe a four to five times increased risk of getting breast cancer for participants with a breast density above 50\% \cite{Mccormack2006}.
+
+The data comprises 1.186 subjects (368 from \texttt{SHIP-2}, 818 from \texttt{SHIP-TREND-0} cohort).
+%%
+It contains 230 dimensions, holding information about
+\begin{itemize}
+	\item \emph{somatometric features}, e.g. body size, weight or BMI, 
+	\item \emph{lifestyle features}, e.g. alcohol/tobacco consume, 
+	\item \emph{personal history}, e.g. occupation, marital status,
+	\item \emph{medical history}, e.g. current or prior diseases or laboratory values, such as cholesterol levels,
+	\item \emph{women specific features}, e.g. number of born children, contraception type or hormone replacement therapy and
+	\item \emph{mammography features} derived from the image data.
+\end{itemize}
+%%
+The latter were derived using a level set based segmentation \cite{Ivanovska2014} of MRI image data for each subject.
+%%
+\com{Check this with Mrs. Hegenscheid, probably most of them were segmented by hand!}
+%%
+%\com{Describe Parenchym tissue and its relation to breast cancer.}
+%\com{Describe how the data was acquired and preprocessed}
+
+The data of each cohort was presented as individual \texttt{SPSS} files.
+%%
+All data related to the mammography was stored in a additional file.
+%%
+We converted the \texttt{SPSS} data sets to CSV and used \texttt{R} to merge the data sets together using their ID.
+%%
+All features were renamed to be expressive, e.g. \emph{chro\_09a} is now denoted as \emph{Disease\_Osteoporosis}.
+%%
+This avoids the need of defining a separate data dictionary file for the \emph{Regression Cube}, translating the feature names.
+%%
+All male subjects were removed as their data does not contribute to the analysis.
+%%
+\subsection{The Hepatic Steatosis Data Set}
+\com{Uli: Describe the data set and also prior work on it.}
+%%
+\subsubsection{Data Preprocessing}
 %%
 \subsection{Case 1: Hypothesis-free Analysis of the Breast Cancer Data Set}
-
+%%
 \subsection{Case 2: Hypothesis-driven Analysis of the Hepatic Steatosis Data Set}
 %%
 \subsection{Further Feedback and Lessons Learned} \label{Lessons Learned}
