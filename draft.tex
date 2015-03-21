@@ -684,18 +684,7 @@ The interaction between $feature_1$ and $feature_2$ is also included in all regr
 $Cancer \sim X + Y + Z$ subtracted with results from $Cancer \sim Age$ excludes the confounding effect age has towards the target $Cancer$ feature.
 %%
 
-\section{System Design and Implementation} \label{sec:SystemDesign}
-%%
-We designed our system with openness and ease of use in mind.
-%%
-Using open formats as input interfaces does not restrict the application towards non-epidemiological data sets.
-%%
-The focus lies on creating a overview visualization and gaining insight into relationships into the data, which triggers further analyses (maybe with other (statistical) tools).
-%%
-Therefore the system has to be intuitive and comprehensive in order to be adapted by domain experts.
-%%
-
-\subsection{Design and Visualization Techniques} \label{Structure and Workflow}
+\section{System Design} \label{sec:SystemDesign}
 \begin{figure}[htb]
  \centering
  \includegraphics[width=3.5in]{figures/system_sketch}
@@ -723,7 +712,18 @@ Therefore the system has to be intuitive and comprehensive in order to be adapte
   \label{fig:System}
 \end{figure}
 %%
-Design choices and spaces are restricted by the underlying technologies and devices.
+We designed our system with openness and ease of use in mind.
+%%
+Using open formats as input interfaces does not restrict the application towards non-epidemiological data sets.
+%%
+The focus lies on creating a overview visualization and gaining insight into relationships into the data, which triggers further analyses (maybe with other (statistical) tools).
+%%
+Therefore the system has to be intuitive and comprehensive in order to be adapted by domain experts.
+%%
+\\\\
+% \subsection{Design and Visualization Techniques}
+%%
+\noindent Design choices and spaces are restricted by the underlying technologies and devices.
 %%
 Resting collaboration and exchange about data and methods on web-based technologies shows promising results, as there is no set-up time involved and domain experts can use the methods from any computer connected with the web.
 %%
@@ -733,7 +733,7 @@ The design space of web-technologies is different to standard WIMP-applications-
 %%
 Therefore we have to adapt our design respecting the affordances of web pages.
 %%
-\paragraph{System Paradigm and Components.}
+\subsection{System Paradigm and Components}
 %%
 The \emph{Regression Cube} design focuses on a clean interface, reducing the amount of ui elements as much as possible.
 %%
@@ -828,13 +828,13 @@ If the user selects a reference formula, the absolute difference of R$^2$ values
 
 %\com{Dynamic Type Checking, Auto-Completion Analysis Trigger, Comparison between Cubes, triggering of cube calculation, parallelization of formula calculation}
 
-\paragraph{Regression Cube Visualization.}
+\subsection{Regression Cube Visualization.}
 %%
 The visualization and interaction with the \emph{Regression Cube} is the heart of the prototype.
 %%
 Results from the statistical processors are uploaded into the visualization by slice, allowing the assessment of the data as soon as parts of the calculations are finished while the rest is still in processing.
 
-\textbf{Usage of a Regression Prism for information reduction.}
+\paragraph{Usage of a Regression Prism for information reduction.}
 %%
 Figure~\ref{fig:Cube} shows that all values are mirrored along the mosaic plot matrix diagonal.
 %%
@@ -847,7 +847,7 @@ Therefore we can discard half of the results to reduce visual clutter and repeti
 This opens up space for displaying additional information.
 %%
 
-\textbf{3D-Prism as Data Mini-Map.}
+\paragraph{3D-Prism as Data Mini-Map.}
 %%
 The 3D-cube representation acts overview over the whole data set, but its purpose is not to derive detailed information about data points.
 %%
@@ -859,7 +859,7 @@ The displayed prism shows values above the matrix diagonal.
 %%
 \\\\
 %% TODO: Add reference for disadvantages of 3D information visualizations!
-\textbf{Tackling the disadvantages of 3D information visualization.}
+\paragraph{Tackling the disadvantages of 3D information visualization.}
 3D-Information visualizations are often criticized for introducing occlusion and interaction problems, which often do not balance out the advantages of using the third dimension for visual mapping.
 %%
 We aim to minimize these advantages as much as possible.
@@ -882,8 +882,8 @@ Allowing more degrees of freedom was confusing to our users and also does not ad
 %%
 We provide also a zoom functionality using the mouse wheel input.
 %%
-\\\\
-\textbf{Cube Slice Selection.}
+%\\\\
+\paragraph{Cube Slice Selection.}
 %%
 In order to \emph{Zoom, Filter and Analyze Further}, the user has to navigate towards different slices of interest.
 %%
@@ -910,8 +910,8 @@ the values are projected on this plane to give a overlapping-free view on the da
 %It also allows for a fast slicing through the cube and assessing the information.
 %%
 %\com{display of skewed cube, combination of 2D to 3D, navigating between the two views, projection of current slice to the 3D-Cube, details on demand}
-\\\\
-\textbf{2D Mosaic Plot Slice Visualization.}
+%\\\\
+\paragraph{2D Mosaic Plot Slice Visualization.}
 %%
 The 2D mosaic visualization shows all values below the matrix diagonal of the current slice, creating optical equivalence towards the 3D cube.
 %%
@@ -941,7 +941,7 @@ By hovering over a data entry in the plot, a tooltip model displays detailed inf
   \label{fig:comparison}
 \end{figure}
 
-\subsection{Implementation} \label{implementation}
+\section{Implementation} \label{implementation}
 \begin{figure}[htb]
  \centering
  \includegraphics[width=2.8in]{figures/placeholder}
@@ -1014,13 +1014,13 @@ The server workload balances are managed by the front-end code.
 %%
 A running instance of the \emph{Regression Cube} prototype can be found under \href{http://regressioncube.herokuapp.com/}{\texttt{regressioncube.herokuapp.com}}.
 %%
-The source for the prototype is freely available at \texttt{Github}.
+The source for the prototype is freely available at \texttt{Github}\footnote{\texttt{R}-based back-end: \href{https://github.com/paulklemm/regression-cube-r-package}{\texttt{github.com/paulklemm/regression-cube-r-package}}}\footnote{Front-End and Nodejs Webserver: \href{https://github.com/paulklemm/regression-cube-prototype}{\texttt{github.com/paulklemm/regression-cube-prototype}}}.
 %%
-Instructions and code on how to create a setup running the \emph{Regression Cube} statistical backend through a \texttt{Ubuntu} server using \texttt{OpenCPU} can be found here: \href{https://github.com/paulklemm/regression-cube-r-package}{\texttt{github.com/paulklemm/regression-cube-r-package}}.
+Instructions and code on how to create a setup running the \emph{Regression Cube} statistical backend through a \texttt{Ubuntu} server using \texttt{OpenCPU} are referenced in the repository.
 %%
-The front-end source as well as the \texttt{Nodejs} backend can be found here: \href{https://github.com/paulklemm/regression-cube-prototype}{\texttt{github.com/paulklemm/regression-cube-prototype}}.
+The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{www.heroku.com}} by cloning the repository into a Heroku homepage. 
 %%
-Using \href{https://www.heroku.com/}{\texttt{www.heroku.com}}, the front-end setup is as easy as cloning the repository into a Heroku homepage. 
+%The front-end source as well as the \texttt{Nodejs} backend can be found here: .
 %%
 % \com{Use VAST'14 as Guideline}
 % \com{Cloud computing}
