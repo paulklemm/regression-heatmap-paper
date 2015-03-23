@@ -220,7 +220,7 @@ Epidemiology unites experts from different academic disciplines, such as physici
 %%
 Their goal is derive disease-specific risk factors by assessing epidemiological features using statistical methods.
 %%
-As described by \cite{Thew2009} is divided into three different steps:
+As described by Thew et al. \cite{Thew2009} it is divided into these different steps:
 \begin{itemize}
 	\item Clinicians make observations in the daily practice which are translated into hypotheses.
 	\item Epidemiologists compile a list of variables depicting the hypothesis and include confounding variables.
@@ -383,15 +383,72 @@ For the last acquisition (\texttt{SHIP-2} and \texttt{SHIP-TREND-0}), MRI scans 
 %
 %
 \section{Prior and Related Work}
-\com{Add section on most similar publications}
-\com{TODO: Needs to be rewritten, this is only here for the references!}
-\com{From VAST'14 Paper:}
-
-\com{http://www.ii.uib.no/vis/publications/publication/2014/Angelelli14Interactive}
+%% https://en.wikipedia.org/wiki/Exploratory_data_analysis#cite_note-Tukey1977-4
+Tukey already stated in 1977 that data if too often only analyzed using confirmatory data analysis \cite{Tukey}.
+%%
+He emphasized the need to use data to derive hypotheses, which can then be tested again.
+%%
+In this section we present prior and related work trying to achieve this goal.
+%%
 %\com{http://link.springer.com/chapter/10.1007/978-3-642-39146-0_1#page-1}
 \com{Turkey Metrics Paper}
+\\\\
+The work of Piringer et al. \cite{Piringer}, Angelelli et al. \cite{Angelelli} and Zhang et al. \cite{Zhang2014} is closest to ours regarding different aspects.
+%% HyperMoVal: Interactive Visual Validation of Regression Models for Real-Time Simulation
+%%
+Akin to our approach, Piringer et al. \cite{Piringer} propose methods for visualizing regression analysis results and properties for developing car engines.
+%%
+Their main goal is to pairwise assess the influence of independent features towards the target.
+%%
+This is achieved by using a plot matrix displaying models as contours towards the target feature.
+%%
+They also incorporate 3D visualizations for each pairwise combination, but mainly because it is popular with the engineers in their target domains.
+%%
+Linked views of model deviations allow to select outlier residuals.
+%%
+Comparison of models is also included by mapping model values on line-style (e.g. solid for $model_a$ and dashed for $model_b$).
+%%
+This limits the method to comparing a few models at once.
+%%
+The plot matrix representation however gets complex and harder to understand with increasing number of independent features.
+%%
+The main difference is their focus on analyzing one complex model in detail, yielding in extensive plots, while we analyze a large amount of simpler models towards \emph{different} features.
+%%
+They also focus on metric features, while we process also categorical data.
+%%
+We share the matrix-arrangement of results depicting relationships between independent features in a model.
 
-\paragraph{Data Mining in Epidemiology.}
+Zhang et al. \cite{Zhang2014} is closest to ours regarding the application of visual analysis on cohort study data.
+%%
+Their work present \emph{Cohort Analysis via Visual Analytics} (\emph{CAVA}), a framework that distinguishes three major elements of cohort study data analysis: \emph{cohort data} and its manipulation using operations - \emph{views} and \emph{analytics}.
+%%
+They use the system to find longitudinal pathways for diseases using subject health records.
+%%
+Sub-groups are created automatically by applying \emph{analytics} and expert-guided using \emph{views}.
+%%
+Unfortunately, they do not go into the detail into the analytics used, they seem to not incorporate confounder analysis (other than dividing groups by gender) and the user study lacks concrete goals.
+%%
+Their data differs strongly from ours, having multiple moments for each subject, yielding a approach focused on finding pathways of interest.
+%%
+We use their requirements as guidelines, which incorporate \emph{flexible} and \emph{iterative analysis}, meaning that the system has to adapt to different requirements in different analysis steps.
+%%
+We implement this by supporting both hypothesis-based and hypothesis-free analysis.
+
+Angelelli et al. \cite{Angelelli} is similar to ours as they visualize both image-derived an non image data using cube data structures with focus on comparison and knowledge extraction.
+%%
+Their proposed engine represents multiple heterogenous cohort study data sets as multiple normalized data cubes to eliminate data redundancy between them and perform runtime measure aggregation when measures of the different cubes have to be combined.
+%%
+This allows for saving memory space.
+%%
+Their presented aggregation functions allow for a fast data calculation to map it using different linked visualizations, such as scatter plots, bar charts or histograms.
+%%
+They use \emph{pearssons R} to depict relationships towards target features and employ list views and scatter plots to visualize and rank them.
+%%
+We use regression models and associated $R^2$ values to depict relationships between a target feature and multiple independent features instead of one and employ the information into one global visualization.
+%%
+We employ the idea of fast conducting large scale correlation analysis between many features to derive insight into the data.
+
+\paragraph{Visual Analysis in Public Health.}
 \com{Problem: Only paper of co-authors in this section, will look one-sided!}
 \com{Uli Niemann, Tommy Hielscher, Myra Spiliopoulou, Henry Völzke, and Jens-Peter Kühn. Can we classify the participants of a longitudinal epidemiological study from their previous evolution?.}
 
@@ -401,8 +458,43 @@ For the last acquisition (\texttt{SHIP-2} and \texttt{SHIP-TREND-0}), MRI scans 
 
 \com{Uli, can you write a short summary on these?}
 
+In their survey on interactive information visualizations for health record data, Rind el al. \cite{Rind} identified future work addressing the usability of such frameworks.
+%%
+They recommend in opening up analysis systems to a diverse target group, e.g. including patients, who also can observe information about their own lifestyle and associated risks.
+%%
+We follow their recommendation in designing an open system available to everyone, applicable to a various data sets.
+
+Shneiderman et al. \cite{Shneiderman2013} highlight the necessity of interactive visualizations in healthcare data, e.g. using \emph{Health 2.0}, which is an umbrella for web-based health-informatics frameworks.
+%%
+They divide Health 2.0 in three domains, \emph{Personal health information}, \emph{clinical health information}, and \emph{public health information}.
+%%
+We focus on the latter.
+%%
+%Shneiderman and colleagues also present challenges, 
+The presented challenges in this application comprise custom tailoring the systems to be comprehensible and intuitive to fit into the short time span clinicians have when analyzing data.
+%%
+Futhermore, the systems should provide comparative relationship visualization, characterization of similarity and presenting risks.
+%%
+We use the challenges as design guidelines for our web-based prototype, focusing on functional clean designs to allow fast insight into relationships towards diseases.
+
+Schreck and Keim \cite{Schreck} presented a method for analyzing social media data with focus on characterization and cause of an epidemic.
+%%
+They employ data aggregation techniques and use geographical data to map social media events, focusing on word clouds to derive insight into possible causes.
+%%
+They derive hypotheses using their high variation average message density algorithms, steering the users focus on particular events.
+%%
+The focus remains on geolocated social media data rather than subjects with multiple dimensions.
+%%
+These and similar systems follow the same analysis work as we do to derive insight into data.
+
+Perer et al. divide cohort analysis in three major parts, present \emph{CAVA}, a system which allows 
+
+\com{Steenwijk: Integrated Visual Analysis for Heterogeneous Datasets in Cohort Studies}
+
 \paragraph{Statistical Analysis}
+
 \com{Regression Cube: A Technique for Multidimensional Visual Exploration and Interactive Pattern Finding}
+\com{The Sparse Regression Cube: A Reliable Modeling Technique for Open Cyber-physical Systems}
 
 \com{[Hierarchical Brushing of High-Dimensional Data Sets Using Quality Metrics]}
 
