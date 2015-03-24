@@ -465,24 +465,7 @@ We use regression models and associated $R^2$ values to depict relationships bet
 We employ the idea of fast conducting large scale correlation analysis between many features to derive insight into the data.
 
 \paragraph{Visual Analysis in Public Health.}
-\com{Uli Niemann, Tommy Hielscher, Myra Spiliopoulou, Henry Völzke, and Jens-Peter Kühn. Can we classify the participants of a longitudinal epidemiological study from their previous evolution?.}
-%% Learning and inspecting classification rules from longitudinal epidemiological data to identify predictive features on hepatic steatosis
-Niemann et al. \cite{Niemann2014} investigate risk factors of the hepatic steatosis (fatty liver disease) using decision trees with a interactive data mining tools.
-%%
-They extracted association rules, which serve as basis for this works proof-of-concept evaluation.
-%%
-We try to reproduce their results and investigate their findings further.
-%%
-\com{Glaßer, S., Niemann, U., Preim, B., and Spiliopoulou, M. (2013). Can we Distinguish Between Benign and Ma- lignant Breast Tumors in DCE-MRI}
-
-\com{Uli, can you write a short summary on these?}
-
-In their survey on interactive information visualizations for health record data, Rind el al. \cite{Rind} identified future work addressing the usability of such frameworks.
-%%
-They recommend in opening up analysis systems to a diverse target group, e.g. including patients, who also can observe information about their own lifestyle and associated risks.
-%%
-We follow their recommendation in designing an open system available to everyone, applicable to a various data sets.
-
+%%--
 Shneiderman et al. \cite{Shneiderman2013} highlight the necessity of interactive visualizations in healthcare data, e.g. using \emph{Health 2.0}, which is an umbrella for web-based health-informatics frameworks.
 %%
 They divide Health 2.0 in three domains, \emph{Personal health information}, \emph{clinical health information}, and \emph{public health information}.
@@ -496,6 +479,14 @@ Futhermore, the systems should provide comparative relationship visualization, c
 %%
 We use the challenges as design guidelines for our web-based prototype, focusing on functional clean designs to allow fast insight into relationships towards diseases.
 
+%%
+In their survey on interactive information visualizations for health record data, Rind el al. \cite{Rind} identified future work addressing the usability of such frameworks.
+%%
+They recommend in opening up analysis systems to a diverse target group, e.g. including patients, who also can observe information about their own lifestyle and associated risks.
+%%
+We follow their recommendation in designing an open system available to everyone, applicable to a various data sets.
+
+%%
 Schreck and Keim \cite{Schreck} presented a method for analyzing social media data with focus on characterization and cause of an epidemic.
 %%
 They employ data aggregation techniques and use geographical data to map social media events, focusing on word clouds to derive insight into possible causes.
@@ -519,38 +510,6 @@ Medical image data can be incorporated to investigate potentially interesting in
 %%
 We distinguish to this and other linked-view analysis based approaches by showing abstracted information derived from a preceding analyze-first step to highlight relationships rather than displaying the actual data using various information visualization techniques.
 
-\paragraph{Statistical Analysis}
-
-%\com{The Sparse Regression Cube: A Reliable Modeling Technique for Open Cyber-physical Systems}
-Ahmadi et al. \cite{Ahmadi} define the \emph{Sparse Regression Cube}, which partitions sparse high-dimensional into subspaces, which are then described using by their most reliable linear regression model.
-%%
-In their application, they try to find most fuel-efficient roads connecting two user-defined landmarks.
-%%
-They focus on presenting a algebraic for efficient regression-model calculation to find the best fit for a subspace.
-%%
-The dimensions for the calculations are fixed, while we assess different features for each model calculation and can therefore not benefit from a hierarchical calculation approach.
-
-%% Hierarchical Brushing of High-Dimensional Data Sets Using Quality Metrics
-Albuquerque et al. \cite{Albuquerque} present a interactive exploration framework displaying quality metrics of high dimensional data sets with brushing facilities to create subsets.
-%%
-These subsets are then analyzed in detail, following a drilling-down approach.
-%%
-They incorporate scatter plot matrices (SPLOMs) of quality metrics describing the features.
-%%
-We incorporate the idea of abstracting features for comparison.
-%%
-Turkay et al. \cite{Turkay} follow a similar approach by using both descriptive metrics for features as well as the features themselves and incorporate them into linked plots.
-%%
-The approach was applied to a cognitive aging studies, where new hypotheses could be derived.
-
-% Quality Metrics in High-Dimensional Data Visualization - An Overview and Systematization
-Bertini et al. \cite{Bertini} present a overview over quality metrics describing high dimensional data.
-%%
-%According to their systematization we analyze correlations.
-%%
-Their research agenda acts as guideline for our design, comprising application using domain-experts, perceptual tuning towards human pattern recognition of important aspects and scalability between different data set sizes.
-
-\paragraph{Visual Analysis of Heterogenous Data.}
 %%
 Generalized Pairs plots (\texttt{GPLOM´S}) extend the idea of scatter plot matrices by pairwise visualizing heterogeneous data using type-combination-dependent visualizations \cite{GPLOMS, Francois2013}.
 %%
@@ -564,6 +523,51 @@ Time-dependent epidemiological data is visualized by Chui et al. \cite{Chui2011}
 %%
 We also include confounder features (age, gender) into the analysis while focusing on non-time-dependent cohort study data sets.
 %%
+
+\paragraph{Statistical based Analysis.}
+%%
+Statistical analysis are an inherent part of Visual Analysis.
+%%
+Here we present work showing a strong focus on statistical analysis in this context.
+%% Quality Metrics in High-Dimensional Data Visualization - An Overview and Systematization
+Bertini et al. \cite{Bertini} present a overview over quality metrics describing high dimensional data.
+%%
+Their research agenda acts as guideline for our design, comprising application using domain-experts, perceptual tuning towards human pattern recognition of important aspects and scalability between different data set sizes.
+%%
+%% TODO: Use this one? "Statistical resilience of random populations to random perturbations" - http://www.ncbi.nlm.nih.gov/pubmed/19256997 - wie eine Variable sich ändert, wenn man per Zufall die Populationen verändert, um zu schauen wie zuverlässig diese Statistik ist.
+%% The Sparse Regression Cube: A Reliable Modeling Technique for Open Cyber-physical Systems
+Ahmadi et al. \cite{Ahmadi} define the \emph{Sparse Regression Cube}, which partitions sparse high-dimensional into subspaces, which are then described using by their most reliable linear regression model.
+%%
+In their application, they try to find most fuel-efficient roads connecting two user-defined landmarks.
+%%
+They focus on presenting a algebraic for efficient regression-model calculation to find the best fit for a subspace.
+%%
+The dimensions for the calculations are fixed, while we assess different features for each model calculation and can therefore not benefit from a hierarchical calculation approach.
+
+%% Hierarchical Brushing of High-Dimensional Data Sets Using Quality Metrics
+Albuquerque et al. \cite{Albuquerque} present a interactive exploration framework displaying quality metrics of high dimensional data sets with brushing facilities to create subsets.
+%%
+These subsets are then analyzed in detail, following a drilling-down approach.
+%%
+They incorporate scatter plot matrices (\texttt{SPLOM´S}) of quality metrics describing the features.
+%%
+We incorporate the idea of abstracting features for comparison.
+%%
+Turkay et al. \cite{Turkay} follow a similar approach by using both descriptive metrics for features as well as the features themselves and incorporate them into linked plots.
+%%
+The approach was applied to a cognitive aging studies, where new hypotheses could be derived.
+
+Hielscher et al. \cite{Hielscher} assess subject similarity towards hepatic steatosis (fatty liver disease) to identify common risk factors using [...]?
+\com{Uli, can you please complete this, I do not have the pdf available!}
+%% Learning and inspecting classification rules from longitudinal epidemiological data to identify predictive features on hepatic steatosis
+Niemann et al. \cite{Niemann2014} investigate risk factors of the hepatic steatosis using decision trees with a interactive data mining tools.
+%%
+They extracted association rules, which serve as basis for this works proof-of-concept evaluation.
+%%
+We try to reproduce their results and investigate their findings further.
+%%
+%\com{Glaßer, S., Niemann, U., Preim, B., and Spiliopoulou, M. (2013). Can we Distinguish Between Benign and Ma- lignant Breast Tumors in DCE-MRI}
+
 \paragraph{Prior Work.}
 In recent publications, we focused on analysis on characterization of the healthy aging process of the lumbar spine.
 %%
@@ -587,7 +591,7 @@ These measures were analyzed using a novel decision tree quality plot towards no
 %%
 We concluded that the model quality is not enough to characterize back pain.
 \\\\
-The difference of our presented approach towards our previous and other herein presented work is twofold:
+The difference of the presented approach towards our previous and other herein presented work is twofold:
 \begin{enumerate}
 	\item We focus on large scale analysis of a vast number of linear and logistic regression-models by assessing their quality-of-fit using descriptive metrics.
 	\item The analysis is conducted towards a target feature and incorporates expert knowledge via the regression model definition rather than subdividing the underlying data.
