@@ -70,6 +70,7 @@
 %\preprinttext{To appear in an IEEE VGTC sponsored conference.}
 
 %% Paper title.
+%% TODO: Replace towards with regarding?
 
 \title{Regression Cube Analysis of Cohort Study Data}
 
@@ -170,12 +171,13 @@ We were able to derive new hypotheses about relations between breast fat density
 \firstsection{Introduction}
 
 \maketitle
+\com{Bernhard: Comment on prior occurrences of "Regression Cube" and how we differ}
 %%
 Epidemiology aims to characterize health and disease conditions in defined populations (\emph{Cohorts}).
 %%
 Insights about risk factors allow to characterize disease-specific high-risk groups and act as important diagnostic key figures \cite{Fletcher2012}.
 %%
-They can also be used to give recommendations regarding a healthy lifestyle and provide information about wide spread diseases.
+They can also be used to give recommendations regarding a healthy lifestyle and provide information about wide-spread diseases.
 %%
 In the standard workflow, physicians translate observations into hypotheses, which are depicted using epidemiological features and then assessed using regression analyses.
 
@@ -183,18 +185,18 @@ An important epidemiological tool for deriving such features are \emph{Cohort st
 %%
 To reduce any selection bias, subjects are invited at random and without a focus on a specific disease.
 %%
-The acquired features range from social and lifestyle factors to prior or current diseases and medications as well as medical parameters, such as blood pressure and also comprises of non-radiating medical image data. e.g. magnetic resonance imaging (MRI).
+The acquired features range from social and lifestyle factors to prior or current diseases and medications as well as medical parameters, such as blood pressure and also comprises non-radiating medical image data. e.g. magnetic resonance imaging (MRI).
 %%
-Medical image data quantified using user-defined landmarks, describing for example shape, volume or diameter of a structure.
+Medical image data may be quantified using user-defined landmarks, describing for example shape, volume or diameter of a structure.
 %%
 
 To assess the statistical resilience of a hypotheses using regression analyses rarely involves more than three features due to the required subject count.
 %%
-Due to missing overview techniques, possibly interesting correlations lie within the data, but are not made apparent.
+Due to missing overview techniques, possibly interesting correlations lie within the data, but are not apparent.
 %%
-Explorative analyses and first overview visualizations of the data set as presented by Klemm et al. \cite{Klemm2014VIS} are not custom tailored to a specific target variable and mostly highlights correlations between variables, which are known to the domain expert (e.g. correlation between body size and spine shape).
+Explorative analyses and overview visualizations of the data set as presented by Klemm et al. \cite{Klemm2014VIS} are not tailored to a specific target variable and mostly highlight correlations between variables, which are known to the domain expert (e.g. correlation between body size and spine shape).
 %%
-We incorporate the regression analysis, which is familiar to the domain experts into a overview visualizations, which can either be used for an hypothesis-free analysis or a analysis towards a specific disease or hypotheses.
+We incorporate the regression analysis, which is familiar to the domain experts into overview visualizations, which can either be used for an hypothesis-free analysis or an analysis towards a specific disease or hypotheses.
 %%
 This is achieved by providing template regression formulas, which are applied to all potential variable combinations.
 %%
@@ -204,8 +206,8 @@ Difference views between regression formulas allow to assess the influences of i
 
 Our contributions are:
 \begin{itemize}
-	\item A overview visualization technique describing feature interactions using target features.
-	\item Visualization techniques, which incorporate overview visualizations of all regression analyses at once as well as details on demand techniques for detailed investigations of feature relationships.
+	\item An overview visualization technique representing feature interactions using target features.
+	\item Visualization techniques, which incorporate overview visualizations of all regression analyses at once as well as details on demand techniques for in-depth investigations of feature relationships.
 	\item freely adjustable regression formulas provide a simple, yet powerful way to adjust the regression analysis to specific hypotheses about the data.
 	\item analysis of confounding variables by providing comparison views between different formula results
 	\item The open and web based approach of the system allows for analysis of any data using the presented method.
@@ -216,11 +218,11 @@ Our contributions are:
 This section covers the epidemiological workflow and requirements.
 %%
 \subsection{Epidemiological Workflow} \label{EpidemiologicalWorkflow}
-Epidemiology unites experts from different academic disciplines, such as physicians, statisticians and medical computer scientists focusing on biometrics and image segmentation.
+Epidemiological research is performed by experts from different academic disciplines, such as physicians, statisticians and medical computer scientists focusing on biometrics and image segmentation.
 %%
-Their goal is derive disease-specific risk factors by assessing epidemiological features using statistical methods.
+Their goal is to derive disease-specific risk factors by assessing epidemiological features using statistical methods.
 %%
-As described by Thew et al. \cite{Thew2009} it is divided into these different steps:
+As described by Thew et al. \cite{Thew2009} the epidemiological workflow is divided into these different steps:
 \begin{itemize}
 	\item Clinicians make observations in the daily practice which are translated into hypotheses.
 	\item Epidemiologists compile a list of variables depicting the hypothesis and include confounding variables.
@@ -231,14 +233,14 @@ Relative risks can be determined if a statistical resilient association of featu
 %%
 They indicate the per-subject chance of developing the disease.
 %%
-Reproducibility of results is a epidemiological key requirement and guides all analyses steps.
+Reproducibility of results is an epidemiological key requirement and guides all analyses steps.
 %%
-Statistical programs, such as \texttt{SPSS} are used to analyzed the data using the classical sequential epidemiological workflow, which uses images largely only to communicate results, rather than providing insight.
+Statistical programs, such as \texttt{SPSS} are used to analyze the data using the classical sequential epidemiological workflow, which uses images largely only to communicate results, rather than providing insight.
 %%
-A alternative data driven approach is described as follows.
+An alternative data-driven approach is described as follows.
 
-\subsubsection{Data Driven Hypothesis-Generation-based Analysis}
-Klemm et al. describe an approach for a Interactive Visual Analysis approach for image-centric cohort study data, which connects to the variable listing step \cite{Klemm2014VIS}.
+\paragraph{Data Driven Hypothesis-Generation-based Analysis.}
+We already described an Interactive Visual Analysis approach for image-centric cohort study data, which connects to the variable listing step \cite{Klemm2014VIS}.
 %%
 Their methods aim to derive hypotheses through analysis of the data and observations about previously unknown feature correlations.
 %%
@@ -246,17 +248,22 @@ Employing \emph{hypotheses generation} requires overview visualizations of featu
 
 \subsection{Epidemiological Data} \label{sec:EpidemiologicalData}
 %%
+\com{Bernhard: Due to overlaps to VIS'14 paper in this section, this can be shortened. E.g. "More discussion of data types and characteristics can be found in [...]"}
+%%
 \emph{Cohort studies} are a major epidemiological tool for gathering epidemiological features.
 %%
 They yield a highly heterogenous and incomplete information space.
 %%
-Subject data are collected with the widest range possible, allowing the data set to be assessed towards different diseases.
+Subject data are collected either towards a specific disease or with the widest range possible.
 %%
-The feature space comprises information about lifestyle, somatometric variables, medical parameters, genetic data as well as medical image data derived through different modalities, such as questionnaires or medical examinations or laboratory analyses.
+The latter allows the data set to be assessed towards different diseases.
+%%
+The feature space comprises information about lifestyle, somatometric variables, medical parameters, genetic data as well as medical image data.
+These features are derived through different modalities, such as questionnaires or medical examinations or laboratory analyses.
 %%
 Many features are sparse, such as follow up questions about a medication or treatment of a certain disease.
 %%
-Other features are exclusive, such as women-specific questions, e.g. number of born children or period status.
+Other features are exclusive for a sub-group, such as women-specific questions, e.g. number of born children or period status.
 
 \com{Restriction of amount of data because it must not be triangulated and because the ethics committees are very restrictive}
 
@@ -274,18 +281,19 @@ This is however avoided if possible, since it reduces the information space and 
 %%
 
 \paragraph{Image Data.}
+\com{Can probably be cut (reference to Klaus' Paper for more details on this) (see Bernhards comment above)}
 %%
 Since the Rotterdam study, many modern cohort studies include medical image data.
 %%
-For ethical reasons, the imaging modalities must not include ionizing radiation.
+For ethical reasons, the imaging modalities usually not include ionizing radiation.
 %%
-The image quality is often inferior to clinical standard, which is a tradeoff between time and cost \cite{Preim2014}.
+The image quality is often inferior to clinical standards, which is a tradeoff between time and cost \cite{Preim2014}.
 %%
 These data are hard to analyze as they require segmentation highlighting the structures of interest.
 %%
 This process is prone to inter and intra-observer variability when carried out manually.
 %%
-Automatic or semi-automatic solutions bypass this problem, but are costly and need to be custom tailored to the structure of interest \cite{Toennies2015}.
+Automatic or semi-automatic solutions are a remedy for this problem, but are costly and need to be tailored to the structure of interest \cite{Toennies2015}.
 %%
 Image-derived variables are either dichotomous variables indicating a medical finding by a radiologist or continuous, describing the shape of segmented structures (e.g. volume or diameter).
 
@@ -294,7 +302,7 @@ Features influencing the exposure as well as the outcome of a analysis are calle
 %%
 The analysis model has to be adjusted by normalizing all included features towards the confounding feature.
 %%
-\emph{Age} is included as confounder in almost any epidemiological analysis, since most diseases (such as different cancer types) are more likely to happen with increasing age.
+\emph{Age} is included as confounder in almost any epidemiological analysis, since most diseases (such as different cancer types) are more likely with increasing age.
 %%
 It also influences the general body condition and therefore almost all features acquired through cohort studies.
 %%
@@ -304,7 +312,7 @@ Other confounder have to be selected by epidemiologists specific to the investig
 
 \subsection{Regression Analysis} \label{sec:RegressionAnalysis}
 %%
-Regression analyses are the most important statistical tool when analyzing epidemiological data.
+Regression analysis is the most important statistical tool when analyzing epidemiological data.
 %%
 They are also the foundation of this work.
 %%
@@ -369,6 +377,8 @@ Data for both cohorts are examined in a in a 5-year time span.
 New parameters are added in each iteration, extending the range of investigated diseases.
 %%
 For the last acquisition (\texttt{SHIP-2} and \texttt{SHIP-TREND-0}), MRI scans are included into the cohort \cite{Hegenscheid2009, Ivanovska2014}.
+%%
+However, most examinations occur in all stages and are performed according to the same instructions to enable comparisons over the different stages of the study ("\emph{method loyality}").
 %%
 %Starting in 1997 with a cohort of 4,308 subjects, the \texttt{SHIP}, located in Northern Germany, aims to characterize health and disease in the widest range possible \cite{Volzke2011}.
 %After the pioneering Rotterdam study (started in 1990), several MR imaging study initiatives were initiated.
@@ -600,13 +610,13 @@ The difference of the presented approach towards our previous and other herein p
 \section{Regression Cube Analysis of Cohort Study Data}
 \com{Add Data Preprocessing Section.}
 %%
-The basic idea of our \emph{Regression Cube} is to provide a overview visualization of large cohort study data sets towards target variables.
-%% TODO BLIND
-Overview visualizations of feature relationships as presented by Klemm et al. \cite{Klemm2014VIS} are often focused on relationships between the visualized features.
+The basic idea of our \emph{Regression Cube} is to provide an overview visualization of large cohort study data sets towards target variables.
+%%
+Overview visualizations of feature relationships as presented by Angelelli et al. \cite{Angelelli} are often focused on relationships between the visualized features.
 %%
 Correlation metrics, such as the \emph{Pearson product-moment correlation coefficient} or \emph{Cram\'{e}r's V} contingency values are incorporated to achieve this goal.
 %%
-In epidemiology, these relationships are also of interest, but rather towards their explanatory power towards the target feature.
+In epidemiology, these relationships are also of interest, but rather w.r.t. their explanatory power towards the target feature.
 %%
 These target features often indicates the presence of the investigated disease.
 %%
@@ -623,17 +633,17 @@ As described in Section~\ref{sec:RegressionAnalysis}, the formula input influenc
 %In order to calculate all combinations of two to three independent features, we can apply  \emph{Regression Cube} aims to 
 %%
 
-Since we want to use the regression analyses with a overview visualization, we are are interested in all possible combinations of (two or more) independent features describing a target.
+Since we want to use the regression analyses with an overview visualization, we are are interested in all possible combinations of (two or more) independent features describing a target.
 %%
 We achieve this by introducing dynamic variables $X$, $Y$ and $Z$ into the regression notation.
 %%
 The method then replaces the dynamic variables with all features in the data set.
 %%
-In a data set with 100 features, the regression formula
+In a data set with $n$ (e.g. 100) features, the regression formula
 \begin{equation}
 Cancer \sim X + Y
 \end{equation}
-would yield 10.000 regression models, describing all possible combinations of two features in the data describing the target $Cancer$.
+would yield $n^2$ (10.000) regression models, describing all possible combinations of two features in the data describing the target $Cancer$.
 %%
 The major advantage of this notation is that it comes natural to anyone familiar with regression analysis, because it uses the same notation, all operators can be used as before.
 %%
@@ -649,7 +659,7 @@ With simple adjustments to the formula, different results can be achieved:
 %%
 The problem with this brute-force approach lies in its complexity.
 %%
-The number calculated regression models increases exponentially for each dynamic variable added.
+The number of calculated regression models increases exponentially for each dynamic variable added.
 %%
 If we assume a data set with 100 features with the formula $Z \sim X + Y$ we calculate 1,000,000 regression models.
 %%
@@ -668,13 +678,13 @@ The vast majority of features in an epidemiological data have no or a very low r
 %%
 Identifying these features und excluding them from the calculation can reduce the number of dimension significantly.
 %%
-The \emph{Correlation based Feature Selection} (CFS) algorithm is very popular in data mining for achieving this task \cite{CFS}.
+The \emph{Correlation based Feature Selection} (CFS) algorithm is very popular in data mining for this task \cite{CFS}.
 %%
 It uses information entropy to select the features which have the most explanatory power towards the target feature.
 %%
 At the same time it tries to reduce the correlation between the independent features.
 %%
-When for example the \emph{body weight} has a strong explanatory power towards the target it is likely that \emph{BMI} or \emph{waist circumference} behave similar towards it.
+When for example the \emph{body weight} has a strong explanatory power towards the target, it is likely that \emph{BMI} or \emph{waist circumference} behave similar towards it.
 %%
 They, however, correlate strongly with each other.
 %%
@@ -692,6 +702,10 @@ The number of features calculated by the CFS algorithm is dependent on the infor
 In our epidemiological data we observed a usual number of 10 to 20 features.
 %%
 For features, such as age or gender, which affect most other features (Recall "Confounder" in Section~\ref{sec:EpidemiologicalData}) the number is significantly larger (about half the features in the whole data set).
+%%
+The number of features extracted is not directly associated with the overall number, but rather on their information entropy towards each other.
+%%
+\com{Uli, is this correct this way?}
 %%
 
 Now we have a method to derive the interesting regression models in a reasonable time span.
@@ -718,7 +732,7 @@ The next section shows ways of abstracting the results to make them visually fea
   \label{fig:Cube}
 \end{figure}
 %%
-The goal of a overview visualization is to provide a comprehensive view on the data, which is easy to understand.
+The goal of an overview visualization is to provide a comprehensive view on the data (raw or using descriptive metrics \cite{Bertini}), which is easy to understand.
 %% TODO: Cite another paper here!
 As described in \cite{Klemm2014VIS}, correlation values scaled between 0 (no correlation) and 1 (perfect correlation) can be encoded using color on a mosaic plot.
 %%
@@ -749,7 +763,7 @@ Therefore, the R$^2$ results of different regression methods are encoded using d
 %%
 This way, the cube can easily be extended using other regression types.
 %%
-For cubes having one fixed target feature, such as $Cancer \sim X + Y + Z$ no such encodings is required and the $z$ dimension can be compared directly.
+For cubes having one fixed target feature, such as $Cancer \sim X + Y + Z$ no such encodings are required and the $z$ dimension can be compared directly.
 %%
 \\\\
 The goal is to create a overview visualization for a data set, but on the other hand we also want to incorporate expert knowledge into the visualization by adapting the underlying formulas.
@@ -890,18 +904,18 @@ Therefore the system has to be intuitive and comprehensive in order to be adapte
 % \subsection{Design and Visualization Techniques}
 %%
 \noindent Design choices and spaces are restricted by the underlying technologies and devices.
-%%
+%% TODO: Umschreiben
 Resting collaboration and exchange about data and methods on web-based technologies shows promising results, as there is no set-up time involved and domain experts can use the methods from any computer connected with the web.
 %%
 Web technology is also inherently designed with client-server architecture in mind, making it easy to outsource computation heavy tasks on server-clusters and transferring results to the client device.
 %%
-The design space of web-technologies is different to standard WIMP-applications--right click menus, modal windows and menu bars are not established UI components in this context.
+The design space spanned by web-technologies is different to standard WIMP-applications--right click menus, modal windows and menu bars are not established UI components in this context.
 %%
 Therefore we have to adapt our design respecting the affordances of web pages.
 %%
 \subsection{System Paradigm and Components}
 %%
-The \emph{Regression Cube} design focuses on a clean interface, reducing the amount of ui elements as much as possible.
+The \emph{Regression Cube} design focuses on a clean interface, reducing the amount of user-interface elements as much as possible.
 %%
 This allows for a fast learning of the individual system parts.
 %%
@@ -924,7 +938,7 @@ Therefore, our prototype consists of three components:
 %%
 Popular analytics tools, such as WEKA \cite{WEKA} owe their popularity to their support of open file types.
 %%
-To allow other users even outside the epidemiological application domain access to our tool, we choose to do this using standard ASCII-based CSV files.
+To allow other users even outside the epidemiological application domain to access to our tool, we choose to do this using standard ASCII-based CSV files.
 %%
 The first line in a CSV file represents all features (columns) of the data set.
 %%
@@ -948,9 +962,9 @@ Missing values are denoted using no character at all, a whitespace, or an empty 
 
 \textbf{Data Security.}
 %%
-Security issues are raised by uploading data into a online service, such as our prototype.
+Security issues are raised by uploading data into an online service, such as our prototype.
 %%
-The use of epidemiological data is preceded by a detailed description on the analysis purpose and has to be approved by ethics committees.
+The use of epidemiological data is preceded by a detailed description of the analysis purpose and has to be approved by ethics committees.
 %%
 Preventive steps have to be taken to restrict access to unauthorized subjects.
 %%
@@ -1028,7 +1042,7 @@ The displayed prism shows values above the matrix diagonal.
 \paragraph{Tackling the disadvantages of 3D information visualization.}
 3D-Information visualizations are often criticized for introducing occlusion and interaction problems, which often do not balance out the advantages of using the third dimension for visual mapping.
 %%
-We aim to minimize these advantages as much as possible.
+We aim to minimize these problems as much as possible.
 %%
 Since the R$^2$ values are mapped on data point opacity, only large values are highlighted in the prism, guiding the focus to the respective slices.
 %%
@@ -1067,7 +1081,7 @@ We propose two ways to achieve this.
 	%%
 \end{itemize}
 %%
-The current selected slice is denoted with a semi-transparent gray plane.
+The currently selected slice is denoted with a semi-transparent gray plane.
 %%
 The space available from visualizing only the prism generated from the upper half of the cube diagonal is used to display information about the current selected plane.
 %%
@@ -1214,13 +1228,13 @@ Our method focuses on data exploration and knowledge extraction and requires a w
 %%
 \subsection{Participants, Setup and Procedure}
 %%
-To assess the ability a system to discover knowledge discover knowledge is hard to measure.
+To assess the ability of a system to discover knowledge is hard to measure.
 %%
 Lam et al. \cite{Lam2012} propose for this purpose the \emph{Visual Data Analysis and Reasoning} (\emph{VDAR}) technique, which is focused on the characterization of a systems ability to generate hypotheses and explore the data in order to extract information.
 %%
 \emph{VDAR} can be carried out using case studies using thinking-aloud techniques to comprehend the reasoning and thought process of the user.
 %%
-We conducted a study using two participants, who also co-authored this publication.
+We conducted a study with two participants, who also co-authored this publication.
 %%
 UN is a data scientist who analyzed the hepatic steatosis data set by extracting decision rules.
 %%
@@ -1303,13 +1317,13 @@ Alternatively, \emph{Regression Cubes} can be calculated using default formulas 
 %%
 These two approaches allow both for a \emph{hypothesis-free} and \emph{hypothesis-based} explorative analysis.
 %%
-Correlation based feature selection reduces the amount of calculations using the target feature by focusing on the important regression models.
+Correlation-based feature selection reduces the amount of calculations using the target feature by focusing on the important regression models.
 %%
 The prototype described in this work was developed using state of the art web technologies, free services and open source libraries.
 %%
 All code associated to this project is also open source.
 %%
-Two case studies revealed that the presented approach is able to reproduce knowledge extracted using decision tree based data mining methods on a hepatic steatosis data set as well as producing new hypotheses by deriving insight into influencing factors on breast fat tissue in a explorative analysis.
+Two case studies revealed that the presented approach enables to reproduce knowledge extracted using decision-tree-based data mining methods on a hepatic steatosis data set as well as producing new hypotheses by deriving insight into influencing factors on breast fat tissue in a explorative analysis.
 %%
 
 As future work, we want to introduce more regression models to the data set, which model different correlation types.
@@ -1330,7 +1344,7 @@ We believe in the power of opening up knowledge discovery to allow a heterogenou
 %%
 % \begin{small}
 	%\acknowledgments{Omitted due to blind review}
-\acknowledgments{SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics. We thank Marko Rak and Klaus Toennies for providing the image detection data.}
+\acknowledgments{SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics.}
 % \end{small}
 \clearpage
 \newpage
