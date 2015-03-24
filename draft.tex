@@ -211,7 +211,7 @@ Our contributions are:
 	\item The open and web based approach of the system allows for analysis of any data using the presented method.
 \end{itemize}
 
-\section{Epidemiological Background} \label{MedicalAndTechnicalBackground}
+\section{Epidemiological Background} \label{sec:Background}
 %%
 This section covers the epidemiological workflow and requirements.
 %%
@@ -390,12 +390,11 @@ He emphasized the need to use data to derive hypotheses, which can then be teste
 %%
 In this section we present prior and related work trying to achieve this goal.
 %%
-%\com{http://link.springer.com/chapter/10.1007/978-3-642-39146-0_1#page-1}
-\com{Turkey Metrics Paper}
-\\\\
-The work of Piringer et al. \cite{Piringer}, Angelelli et al. \cite{Angelelli} and Zhang et al. \cite{Zhang2014} is closest to ours regarding different aspects.
-%% HyperMoVal: Interactive Visual Validation of Regression Models for Real-Time Simulation
+We put each paper in relation to our work, derive ideas and point out differences, starting with the works closest to ours:
 %%
+\\\\
+The work of Piringer et al. \cite{Piringer}, Chan et al. \cite{Chan}, Angelelli et al. \cite{Angelelli} and Zhang et al. \cite{Zhang2014} is closest to ours regarding different aspects.
+%% HyperMoVal: Interactive Visual Validation of Regression Models for Real-Time Simulation
 Akin to our approach, Piringer et al. \cite{Piringer} propose methods for visualizing regression analysis results and properties for developing car engines.
 %%
 Their main goal is to pairwise assess the influence of independent features towards the target.
@@ -417,6 +416,23 @@ The main difference is their focus on analyzing one complex model in detail, yie
 They also focus on metric features, while we process also categorical data.
 %%
 We share the matrix-arrangement of results depicting relationships between independent features in a model.
+
+%% Regression Cube: A Technique for Multidimensional Visual Exploration and Interactive Pattern Finding
+We use the term Regression Cube to refer to a comparative 3D representation of multiple regression models.
+%%
+Chan et al. \cite{Chan} use the same term to describe an extension of the 2D-Scatterplot representation of a linear regression models (incorporating solely metric features) to a 3D-Cube.
+%%
+They group subjects using a set of interaction techniques as well as clustering algorithms to calculate sub-groups, which can then be compared using their cube representation.
+%%
+Similar to \cite{Piringer}, they focus on highlighting details of the included models, rather than comparing models consisting of different features.
+%%
+Insight is derived by subject grouping, which spawns new cube correlations and therefore allows drilling down to the data.
+%%
+In contrast to this approach, we focus on comparing models using quality-of-fit measures and do not focus on subdividing the data sets to gain insight.
+%%
+We model expert knowledge through the definition of regression formulas, which is not the focus of Chan et al.
+%%
+\com{Does this suffice as reason on why we use the same term "Regression Cube" for different things?}
 
 Zhang et al. \cite{Zhang2014} is closest to ours regarding the application of visual analysis on cohort study data.
 %%
@@ -442,18 +458,21 @@ This allows for saving memory space.
 %%
 Their presented aggregation functions allow for a fast data calculation to map it using different linked visualizations, such as scatter plots, bar charts or histograms.
 %%
-They use \emph{pearssons R} to depict relationships towards target features and employ list views and scatter plots to visualize and rank them.
+They use \emph{Pearsson's r} to depict relationships towards target features and employ list views and scatter plots to visualize and rank them.
 %%
 We use regression models and associated $R^2$ values to depict relationships between a target feature and multiple independent features instead of one and employ the information into one global visualization.
 %%
 We employ the idea of fast conducting large scale correlation analysis between many features to derive insight into the data.
 
 \paragraph{Visual Analysis in Public Health.}
-\com{Problem: Only paper of co-authors in this section, will look one-sided!}
 \com{Uli Niemann, Tommy Hielscher, Myra Spiliopoulou, Henry Völzke, and Jens-Peter Kühn. Can we classify the participants of a longitudinal epidemiological study from their previous evolution?.}
-
-\com{Niemann, U.; Völzke, H.; Kühn, J.-P. Spiliopoulou, M. (2014), Learning and inspecting classification rules from longitudinal epidemiological data to identify predictive features on hepatic steatosis, Expert Systems with Applications 41 (11) , 5405-5415 .}
-
+%% Learning and inspecting classification rules from longitudinal epidemiological data to identify predictive features on hepatic steatosis
+Niemann et al. \cite{Niemann2014} investigate risk factors of the hepatic steatosis (fatty liver disease) using decision trees with a interactive data mining tools.
+%%
+They extracted association rules, which serve as basis for this works proof-of-concept evaluation.
+%%
+We try to reproduce their results and investigate their findings further.
+%%
 \com{Glaßer, S., Niemann, U., Preim, B., and Spiliopoulou, M. (2013). Can we Distinguish Between Benign and Ma- lignant Breast Tumors in DCE-MRI}
 
 \com{Uli, can you write a short summary on these?}
@@ -489,66 +508,91 @@ These and similar systems follow the same analysis work as we do to derive insig
 
 Perer et al. divide cohort analysis in three major parts, present \emph{CAVA}, a system which allows 
 
-\com{Steenwijk: Integrated Visual Analysis for Heterogeneous Datasets in Cohort Studies}
+%% Steenwijk: Integrated Visual Analysis for Heterogeneous Datasets in Cohort Studies
+Steenwijk et al. \cite{Steenwijk} focus on \emph{hypothesis-free} exploration of cohort data.
+%%
+They employ a framework consisting of feature extraction and visualization to derive dependencies between image- and non-image features.
+%%
+They incorporate linked views using scatter plots, bar charts, parallel coordinates and time plots to display and select data.
+%%
+Medical image data can be incorporated to investigate potentially interesting individuals.
+%%
+We distinguish to this and other linked-view analysis based approaches by showing abstracted information derived from a preceding analyze-first step to highlight relationships rather than displaying the actual data using various information visualization techniques.
 
 \paragraph{Statistical Analysis}
 
-\com{Regression Cube: A Technique for Multidimensional Visual Exploration and Interactive Pattern Finding}
-\com{The Sparse Regression Cube: A Reliable Modeling Technique for Open Cyber-physical Systems}
+%\com{The Sparse Regression Cube: A Reliable Modeling Technique for Open Cyber-physical Systems}
+Ahmadi et al. \cite{Ahmadi} define the \emph{Sparse Regression Cube}, which partitions sparse high-dimensional into subspaces, which are then described using by their most reliable linear regression model.
+%%
+In their application, they try to find most fuel-efficient roads connecting two user-defined landmarks.
+%%
+They focus on presenting a algebraic for efficient regression-model calculation to find the best fit for a subspace.
+%%
+The dimensions for the calculations are fixed, while we assess different features for each model calculation and can therefore not benefit from a hierarchical calculation approach.
 
-\com{[Hierarchical Brushing of High-Dimensional Data Sets Using Quality Metrics]}
+%% Hierarchical Brushing of High-Dimensional Data Sets Using Quality Metrics
+Albuquerque et al. \cite{Albuquerque} present a interactive exploration framework displaying quality metrics of high dimensional data sets with brushing facilities to create subsets.
+%%
+These subsets are then analyzed in detail, following a drilling-down approach.
+%%
+They incorporate scatter plot matrices (SPLOMs) of quality metrics describing the features.
+%%
+We incorporate the idea of abstracting features for comparison.
+%%
+Turkay et al. \cite{Turkay} follow a similar approach by using both descriptive metrics for features as well as the features themselves and incorporate them into linked plots.
+%%
+The approach was applied to a cognitive aging studies, where new hypotheses could be derived.
 
-\com{Quality Metrics in High-Dimensional Data Visualization - An Overview and Systematization}
+% Quality Metrics in High-Dimensional Data Visualization - An Overview and Systematization
+Bertini et al. \cite{Bertini} present a overview over quality metrics describing high dimensional data.
+%%
+%According to their systematization we analyze correlations.
+%%
+Their research agenda acts as guideline for our design, comprising application using domain-experts, perceptual tuning towards human pattern recognition of important aspects and scalability between different data set sizes.
 
 \paragraph{Visual Analysis of Heterogenous Data.}
-Zhang et al. \cite{Zhang2012} provide a web-based system for analyzing subject groups with linked views and batch-processing capabilities for categorizing new subject entries into the data set.
-%
-Their definition of a cohort differs from the understanding of the term in an epidemiological context by denoting every parameter-divided subject group as individual cohort.
-%
-Due to the short paper length, detail is missing on the data types and their algorithms of identifying similar subjects or whether they employ statistical measures.
-%
-We employ the idea of adding variables via drag and drop into a canvas area.
-
-Generalized Pairs Plots (\texttt{GPLOM´S}) are an information visualization technique comparing heterogenous variables pairwise using a plot-matrix grouped by type \cite{GPLOMS, Francois2013}.
 %%
-They are useful to gain an overview over numerous variables and their distributions.
+Generalized Pairs plots (\texttt{GPLOM´S}) extend the idea of scatter plot matrices by pairwise visualizing heterogeneous data using type-combination-dependent visualizations \cite{GPLOMS, Francois2013}.
 %%
-Histograms, bar charts, scatter plots and heat maps are used to visualize variable combinations with regard to their type.
+The techniques are useful for selected features or a data set with a small number of features due to their increase in complexity with every additional parameter.
 %%
-The resulting matrix provides an \emph{overview visualization}, but requires a lot of screen space for many variables (127 in our application scenario).
+Dai et al. \cite{Dai2005} incorporate small multiples using a \texttt{GPLOM}-like visualization using choropleth maps mapping spatial data, such as mortality rates together with scatter plots augmented with Pearsson's r values.
 %%
-We incorporate the idea of adaptive type-dependent visualizations.
+A \emph{concept map} summarized features related to a specified disease.
 %%
-Dai et al. \cite{Dai2005} explored risk factors by incorporating choropleth maps of epidemiological variables (e.g., mortality rates in a region) with parallel coordinates, bar charts and scatter plots with integrated regression lines.
+Time-dependent epidemiological data is visualized by Chui et al. \cite{Chui2011} using multi-panel graphs highlighting risk factor differences with age and gender towards influenza- and salmonellosis-associated hospitalizations.
 %%
-Their findings yielded a \emph{Concept Map}, which linked cancer-related associations via graph edges.
+We also include confounder features (age, gender) into the analysis while focusing on non-time-dependent cohort study data sets.
 %%
-While their goal to identify possible risk factors using socio-economic and health data is similar to ours, they focus on iteratively refining defined hypotheses and on geographical data.
-%%
-We employ the use of small multiples for incorporating heterogenous data types for comparability.
-%%
-Chui et al. \cite{Chui2011} visualized associations in time-dependent epidemiological data using time-series plots highlighting risk factor differences in age and gender.
-%%
-%The connection of time series plots with histograms and heat maps allows for fast insight into complex relationships and 
-While the work shows how different visualization techniques provide insight into these data sets, it focuses on the time aspect, which is not present for our data.
-%%
-% *********************** Our own Work ***********************
-% Prior Work
 \paragraph{Prior Work.}
-We visualized lumbar spine variabilities based on a semi-automatic shape detection algorithm of 490 participants of the \texttt{SHIP-2} cohort \cite{Klemm2013VMV}.
-%
-Hierarchical agglomerative clustering divided the population into shape-related groups.
-%
-As proof of concept, a relation between the size of the segmented shape and the measured size of the subjects was shown.
-%
-This work focuses on incorporating these derived data as new variables, enabling to include it into the hypothesis validation and generation process.
-%
-When applying clustering techniques to the non-image data it was found that \texttt{k-Prototypes} and \texttt{DBSCAN} are appropriate, but are strongly dependent on the chosen variables and distance measures \cite{Klemm2014BVM}.
-%
-Niemann et al. \cite{Niemann2014} presented an interactive data mining tool for the assessment of risk factors of hepatic steatosis, the fatty liver disease.
-%
-Association rules created by data mining methods can be analyzed interactively with their tool and highlight potentially overlooked variables.
-% *********************** / Our own Work ***********************
+In recent publications, we focused on analysis on characterization of the healthy aging process of the lumbar spine.
+%%
+Therefore, we utilized semiautomatic detection algorithm do detect the lumbar spine shape \cite{Klemm2013VMV}.
+%%
+The reliable part of the presented models are represented by the shape of the lumbar spine canal, which was extracted and described using line representation.
+%%
+
+We defined a Interactive Visual Analysis workflow for image-centric cohort study data, by extending the feature selection step (see \ref{sec:Background}) with a iterative analysis loop incorporating group selection and visualization using expert-input as well as clustering methods \cite{Klemm2014VIS}.
+%%
+Information visualizations of cohort study features were augmented with extracted image data, yielding linked views with both image-and non-image information.
+%%
+The popularity of the mosaic plot depicting \emph{Cram\'{e}r's V} contingency values with our domain experts was the inspiration for this work.
+%%
+The representation presented in \cite{Klemm2014VIS} only highlights pairwise correlation between features without a target disease.
+
+%% TODO: Check DLPD for correct page numbers
+While the presented techniques were well received with epidemiological experts, the explanatory power towards back pain was limited, yielding a analysis based on image-derived features, such as extracting and analyzing curvature, torsion and angle of the lumbar spine \cite{Klemm2015}.
+%%
+These measures were analyzed using a novel decision tree quality plot towards non-image data.
+%%
+We concluded that the model quality is not enough to characterize back pain.
+\\\\
+The difference of our presented approach towards our previous and other herein presented work is twofold:
+\begin{enumerate}
+	\item We focus on large scale analysis of a vast number of linear and logistic regression-models by assessing their quality-of-fit using descriptive metrics.
+	\item The analysis is conducted towards a target feature and incorporates expert knowledge via the regression model definition rather than subdividing the underlying data.
+\end{enumerate}
+\com{Main Difference to our and other related work}
 \section{Regression Cube Analysis of Cohort Study Data}
 \com{Add Data Preprocessing Section.}
 %%
@@ -1118,7 +1162,7 @@ They rely on the statistical programming language \texttt{R}\footnote{Open Sourc
 %%
 It is widely adopted in the statistical analysis community, yielding a rich support of fast state-of-the-art statistics algorithms as well newly published methods.
 %%
-\texttt{OpenCPU} is a \texttt{R} package and provides a API for accessing it via HTTP calls.
+\texttt{OpenCPU} is a \texttt{R} package and provides a API for accessing it via HTTP calls \cite{Ooms}.
 %%
 This way, any computer, which runs \texttt{R} can be turned into a statistical processor for our project.
 %%
