@@ -585,12 +585,14 @@ Turkay et al. \cite{Turkay} follow a similar approach by using both descriptive 
 %%
 The approach was applied to a cognitive aging studies, where new hypotheses could be derived.
 
-Hielscher et al. \cite{Hielscher} assess subject similarity towards hepatic steatosis (fatty liver disease) to identify common risk factors using [...]?
-\com{Uli, can you please complete this, I do not have the pdf available!}
+%Hielscher et al. \cite{Hielscher} assess subject similarity towards hepatic steatosis (fatty liver disease) to identify common risk factors using [...]?
+%\com{Uli, can you please complete this, I do not have the pdf available!}
 %% Learning and inspecting classification rules from longitudinal epidemiological data to identify predictive features on hepatic steatosis
 Niemann et al. \cite{Niemann2014} investigate risk factors of the hepatic steatosis using decision trees with a interactive data mining tools.
 %%
 They extracted association rules, which serve as basis for this works proof-of-concept evaluation.
+%%
+In \cite{Niemann2015}, Niemann et al. improve on classification performance by generating features (called \emph{Evolution Features}) that describe latent temporal information across the study waves.
 %%
 We try to reproduce their results and investigate their findings further.
 %%
@@ -691,17 +693,29 @@ Therefore, the computational complexity needs to be reduced.
 %\com{Target Group: Physicians/Epidemiologists with basic statistical background to understand regression formulas and Interaction.}
 
 \subsection{Target-Variable-dependent Dimension Reduction}
-\com{Uli, Can you please proofread this?}
+% \com{Uli, Can you please proofread this?}
+% %%
+% The vast majority of features in an epidemiological data have no or a very low relation towards the target feature.
+% %%
+% Identifying these features und excluding them from the calculation can reduce the number of dimension significantly.
+% %%
+% The \emph{Correlation based Feature Selection} (CFS) algorithm is very popular in data mining for this task \cite{CFS}.
+% %%
+% It uses information entropy to select the features which have the most explanatory power towards the target feature.
+% %%
+% At the same time it tries to reduce the correlation between the independent features.
+% %%
+In epidemiological studies, manifold recordings lead to an abundance of features.
 %%
-The vast majority of features in an epidemiological data have no or a very low relation towards the target feature.
+Generally many of them exhibit low or none correlation towards the target feature.
 %%
-Identifying these features und excluding them from the calculation can reduce the number of dimension significantly.
+Identifying irrelevant features and excluding them from the feature space considerably reduces computational costs and contributes to presentiveness of the Regression Cube.
 %%
-The \emph{Correlation based Feature Selection} (CFS) algorithm is very popular in data mining for this task \cite{CFS}.
+The Correlation-based feature selection (CFS) \cite{CFS} aims to find a feature subset that maximizes the \emph{merit value} $M_F$ which is the ratio between the average feature-class and feature-feature dependencies of features in F.
 %%
-It uses information entropy to select the features which have the most explanatory power towards the target feature.
+The dependency of a set of features utilizes the entropy-based information gain to measure the explanatory power towards the target feature.
 %%
-At the same time it tries to reduce the correlation between the independent features.
+Beginning with an empty set of features $F$ the CFS algorithm iteratively adds the feature $f$ to $F$ that leads to the highest new merit-value $M_{F\cup f}$ and halts when adding any feature does not increase the merit.
 %%
 When for example the \emph{body weight} has a strong explanatory power towards the target, it is likely that \emph{BMI} or \emph{waist circumference} behave similar towards it.
 %%
@@ -1349,9 +1363,31 @@ This avoids the need of defining a separate data dictionary file for the \emph{R
 All male subjects were removed as their data does not contribute to the analysis.
 %%
 \subsection{The Hepatic Steatosis Data Set}
-\com{Uli: Describe the data set and also prior work on it.}
+We employ a subset of the data set which was used in \cite{Niemann2014} to identify predictive features with respect to the reversible disorder hepatic steatosis (fatty liver).
 %%
-\subsubsection{Data Preprocessing}
+The binary target feature is derived from the liver fat concentration which was measured with Magnetic Resonance Imaging (MRI).
+%%
+In particular, participants with a liver fat concentration of no more than 10\% are mapped to the 'negative' class; values greater than 10\% are mapped to the 'positive' class.
+%%
+The data set contains labels for 578 participants for which the MRI data was available to that point.
+%%
+Note that MRI was performed only in SHIP-2, so the target feature is present for just one of three study waves.
+
+%%
+Apart from the target feature, the data set contains 199 features extracted from participants' questionnaire answers and medical tests.
+%%
+They are features on socio-demographics (sex, age, etc.), features on consumption behavior (e.g. alcohol and cigarettes), SNPs, features extracted from laboratory data (e.g. sera concentrations), and two features on the results of the liver ultrasound.
+%%
+The names of 85 features have the suffix \emph{s0} meaning that their values have been recorded in SHIP-0 (first study moment), 50 features exhibit the suffix \emph{s1} and 55 features have the suffix \emph{s2}, alongside 10 time-independent SNPs.
+%%
+
+In \cite{Niemann2014}, the authors show that women and men exhibit differences in the class distribution of the liver fat concentration.
+%%
+Also, for women they identify that there is a association between age and liver fat concentration.
+%%
+They compute an appropriate cut-off value of 52 years for which the class distribution is most homogeneous within the resulting subsets.
+%%
+Based on this observations, we perform our analysis on three sub-populations, $PartitionF$, $PartitionM$ and \emph{$F:age\>52$}.
 %%
 \subsection{Case 1: Hypothesis-free Analysis of the Breast Cancer Data Set}
 %%
