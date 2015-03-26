@@ -1400,7 +1400,7 @@ Also, for women they identify that there is a association between age and liver 
 %%
 They compute an appropriate cut-off value of 52 years for which the class distribution is most homogeneous within the resulting subsets.
 %%
-Based on this observations, we perform our analysis on three sub-populations, $PartitionF$, $PartitionM$ and \emph{$F:age\>52$}.
+Based on this observations, we perform our analysis on three sub-populations, \emph{females}, \emph{males} and \emph{females} older than 52 years.
 %%
 \subsection{Case 1: Hypothesis-free Analysis of the Breast Cancer Data Set}
 %%
@@ -1411,9 +1411,50 @@ Relationships between the share of parenchyma tissue on the overall breast volum
 
 \subsection{Case 2: Hypothesis-driven Analysis of the Hepatic Steatosis Data Set}
 %%
+The goal at the beginning of the analysis was to reproduce results based on the prior analysis.
+%%
+Subjects with a fatty liver could be identified using somatometric features, hepatic steatosis indicator-features as well as creatinine (\com{important for kidney}) and uric acid (\com{gout, diabetes}) magnitudes.
+%%
+The analysis was started with the target feature \emph{liver fat content} (\emph{mrt\_liverfat\_s2}), which was derived from the MRI data analysis.
+%%
+UN therefore started the calculation using the formula $mrt\_liverfat\_s2 \sim X + Y + Z$.
+%%
+The data set containing all \emph{males} showed broad consensus with the expected results.
+%%
+The 3D-cube showed highlighted features at the end of the cube (Fig.~\ref{fig:application} a).
+%%
+Using the mouse-slicing allowed for fast navigation to the respective features.
+%%
+They include indicators hepatic steatosis ($R^2$:XX) as well as somatometric features, such as \emph{body mass index} (\emph{BMI}) and waist circumference.
+%%
+Feature correlations with \emph{gamma-glutamyl transpeptidase} (\emph{GGT}, indicating damaged livers if elevated) were found, but with low $R^2$ of XX.
+
+%%
+UN analyzed both \emph{female} groups in the same manner, concluding with the same findings regarding \emph{somatometric} features as well as \emph{hepatic steatosis} indicators.
+%%
+Using the mosaic plot, relationships incorporating enzyme used for the diagnosis of liver dysfunctions were found, e.g. aspartate aminotransferase.
+%%
+
+For most features, UN found at least tendencies using our approach.
+%%
+Due to the difference between our regression-model approach and the decision-tree approach presented in \cite{Niemann2014}, a complete matching set of correlating features are not expected.
+
+%Regression cube calculations were carried out for
+
+\textbf{Analysis of non-discretized target feature.}
+The target feature derived from the MRI image data was discretized in \cite{Niemann2014} as decision trees algorithms require a categorical target feature.
+%%
+Since the \emph{regression cubes} analysis is not restricted in this way, UN applied the same analysis for \emph{males} and the two female group using its whole data range.
+%%
+
+Using the \emph{Regression Cube}, UN 
+\textbf{Interleukin-6 correlation with liver fat.}
+
+\com{ToDo: Reflect on the different methods - one is used to define subsets which define the target feature very well, the other looks how good the features describe the target itself}
 \com{1. Can we reconstruct relationships based on the regression cube?}
 
-\com{2. How does the numeric target feature influence the result?}
+\com{2. Does discretization of the numeric target feature influence the result?}
+
 
 \subsection{Further Feedback and Lessons Learned} \label{Lessons Learned}
 %%
@@ -1440,6 +1481,9 @@ By observing expected correlations matching the expert knowledge strengthens the
 %%
 \com{Comment on the lesson learned from the last VAST Paper - "Usage of different categorizations depending on expected outcome." Now we have continuos data.}
 %%
+
+\textbf{Attention steering is crucial.}
+\com{Bring important events to the users attention, otherwise it might be overlooked!}
 
 \textbf{Support for different subject groups.}
 \com{Include this?}
