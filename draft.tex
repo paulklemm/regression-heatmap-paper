@@ -81,7 +81,7 @@
 \authorfooter{
 %% insert punctuation at end of each item
 \item
- Paul Klemm, Kai Lawonn, Sylvia Gla{\ss}er, Uli Niemann, Bernhard Preim are with Otto-von-Guericke University Magdeburg, Germany. E-mail: \{klemm,lawonn,niemann,preim\}@ovgu.de
+ Paul Klemm, Kai Lawonn, Sylvia Gla{\ss}er, Uli Niemann, Bernhard Preim are with Otto-von-Guericke University Magdeburg, Germany. E-mail: \{klemm,lawonn,glasser,niemann,preim\}@ovgu.de
 \item
  Katrin Hegenscheid, Henry V{\"o}lzke are with Ernst-Moritz-Arndt University Greifswald, Germany. E-mail: \{katrin.hegenscheid,voelzke\}@uni-greifswald.de
 }
@@ -95,7 +95,7 @@
 %\com{Problem}.
 Epidemiological studies comprise heterogeneous data about a subject group (a \emph{cohort}) to define disease-specific risk factors.
 %%
-These data contain information (\emph{features}) about a subjects' lifestyle, medical conditions and also medical image data.
+These data contain information (\emph{features}) about a subject's lifestyle, medical condition as well as medical image data.
 %%
 %These features are analyzed using statistical regression analysis to identify feature combinations indicating a disease (the \emph{target feature}).
 %%
@@ -127,7 +127,7 @@ We were able to derive new hypotheses about relations between breast fat density
 %%
 %\com{Implications}.
 %%
-%With our work, we present a visual overview of epidemiological data with the \emph{Regression Cube}, which allows for the first time a interactive regression-based analysis of large feature sets with respect to a disease.
+%With our work, we present a visual overview of epidemiological data with the \emph{Regression Cube}, which allows for the first time an interactive regression-based analysis of large feature sets with respect to a disease.
 } % end of abstract
 
 %% Keywords that describe your work. Will show as 'Index Terms' in journal
@@ -176,51 +176,53 @@ Epidemiology aims to characterize health and disease conditions in defined popul
 %%
 Insights about risk factors allow to characterize disease-specific high-risk groups and act as important diagnostic key figures \cite{Fletcher2012}.
 %%
-They can also be used to give recommendations regarding a healthy lifestyle and provide information about wide-spread diseases.
+Furthermore, they can be used to derive recommendations regarding a healthy lifestyle or to provide information about wide-spread diseases.
 %%
-In the standard workflow, physicians translate observations into hypotheses, which are depicted using epidemiological features and then assessed using regression analyses.
+During the standard workflow, physicians transform observations into hypotheses, which are depicted using epidemiological features and then assessed using regression analyses.
 
-An important epidemiological tool for deriving such features are \emph{cohort studies}, such as the Study of Health in Pomerania (SHIP) \cite{Volzke2011}.
+An important epidemiological tool for deriving such features is the evaluation of a \emph{cohort study}, such as the Study of Health in Pomerania (SHIP) \cite{Volzke2011}.
 %%
-To reduce any selection bias, subjects are invited at random and without a focus on a specific disease.
+To reduce any selection bias, subjects are randomly invited without a focus on a specific disease.
 %%
-The acquired features comprise a wide range.
+Hence, a wide range of features is acquired.
 %
-Social and lifestyle factors, prior or current diseases and medications as well as medical parameters, such as blood pressure are gathered.
+Social and lifestyle factors, prior or current diseases and medications as well as medical parameters, such as blood pressure, are gathered.
 %%
-Medical image data from non-radiating modalities. e.g. from magnetic resonance imaging (MRI) is also acquired in modern studies.
+Medical image data from non-radiating modalities, e.g., magnetic resonance imaging (MRI), is also acquired in modern studies.
 %%
-These data may be quantified using user-defined landmarks, describing for example shape, volume or diameter of a structure.
+These data may be quantified using user-defined landmarks, which describe attributes like the shape, the volume or the diameter of a structure.
 %%
 
 Testing features for association with diseases using regression analysis is one of the most important epidemiological tools.
 %%
-Using it to assess the statistical resilience of a hypotheses rarely involves \emph{more than three features} due to the required subject count.
+Using it to assess the statistical resilience of a hypothesis rarely involves \emph{more than three features} due to the required subject count.
 %%
-Due to missing overview techniques, possibly interesting correlations may be missed.
+% missing overview techniques ist zu hart; es gibt ja techniken (eine scatterplot matrix zb.)
+Due to the amount of data and only limited overview techniques, possible correlations may be missed.
 %%
-Explorative analyses and overview visualizations of the data set as presented by Klemm et al. \cite{Klemm2014VIS} are not tailored to a specific target variable and mostly highlight correlations between variables, which are known to the domain expert (e.g. correlation between body size and spine shape).
+Explorative analyses and overview visualizations of the data set as presented by Klemm et al. \cite{Klemm2014VIS} are not tailored to a specific target variable and mostly highlight correlations between variables, which are known to the domain expert (e.g., correlation between body size and spine shape).
 %%
-We incorporate the regression analysis, which is familiar to the domain experts into overview visualizations, which can be used for a hypothesis-free analysis or an analysis towards a specific disease or hypotheses.
+We incorporate the regression analysis, which is familiar to the domain experts, into overview visualizations, which can be used for a hypothesis-free analysis or an analysis towards a specific disease or hypothesis.
 %%
 This is achieved by providing template regression formulas, which are applied to all potential variable combinations.
 %%
 Since the notation is familiar to epidemiologists, they can rapidly include their domain knowledge into the analysis process.
 %%
-Difference views between regression formulas allow to assess the influences of individual variables in the process.
+Difference views between regression formulas allow to assess the influences of individual variables on the process.
 
 Our contributions are:
 \begin{itemize}
 	\item An overview visualization technique representing feature interactions using target features.
 	\item Visualization techniques, which incorporate overview visualizations of all regression analyses at once as well as details on demand techniques for in-depth investigations of feature relationships.
 	\item Freely adjustable regression formulas provide a simple, yet powerful way to adjust the regression analysis to specific hypotheses about the data.
-	\item Analysis of confounding variables by providing comparison views between different formula results
-	\item The open and web-based approach of the system allows for analysis of any data using the presented method.
+	\item The analysis of confounding variables by providing comparison views between different formula results.
+%	\item The open and web-based approach of the system allows for analysis of any data using the presented method.
+	\item The expansion and adaption of our method to any data with our open and web-based system.
 \end{itemize}
 %%
-The term Regression Cube was used before to define for the detailed analysis of one or a small number of regression models \cite{Chan, Ahmadi}.
+The term Regression Cube has been used for the detailed analysis of one or a small number of regression models \cite{Chan, Ahmadi}.
 %%
-We refer to it using as visualization technique for comparing and analyzing a large number of different regression models with different input features.
+In behalf of that, we declare our visualization technique for comparing and analyzing a large number of different regression models with different input features as Regression Cube.
 %%
 \com{Bernhard, does this suffice as reasoning?}
 
@@ -240,13 +242,13 @@ As described by Thew et al. \cite{Thew2009} the epidemiological workflow is divi
 	\item Statisticians assess the association of the derived features towards the investigated disease.
 \end{itemize}
 %%
-Relative risks can be determined if a statistical resilient association of features towards a condition are extracted.
+Relative risks can be determined if a statistical resilient association of features towards a condition is extracted.
 %%
 They indicate the per-subject chance of developing the disease.
 %%
 Reproducibility of results is an epidemiological key requirement and guides all analyses steps.
 %%
-Statistical programs, such as \texttt{SPSS} are used to analyze the data using the classical sequential epidemiological workflow, which uses images largely only to communicate results, rather than providing insight.
+Statistical programs, such as \texttt{SPSS}, are used to analyze the data using the classical sequential epidemiological workflow. Hence, images are mostly used for the communication of results, rather than for providing insight into the data.
 %%
 An alternative data-driven approach is described as follows.
 
@@ -270,7 +272,8 @@ Subject data are collected either towards a specific disease or with the widest 
 The latter allows the data set to be assessed towards different diseases.
 %%
 The feature space comprises information about lifestyle, somatometric variables, medical parameters, genetic data as well as medical image data.
-These features are derived through different modalities, such as questionnaires or medical examinations or laboratory analyses.
+%%
+These features are derived through different modalities, such as questionnaires, medical examinations or laboratory analyses.
 %%
 Many features are sparse, such as follow up questions about a medication or treatment of a certain disease.
 %%
@@ -288,7 +291,7 @@ The data heterogeneity has to be taken into account when the analysis method is 
 %%
 Continuous data are often discretized (e.g. 10 year steps for age) to equalize the variable types and to simplify the method selection.
 %%
-This is however avoided if possible, since it reduces the information space and also introduces a new information bias, as assumptions are modeled through the discretization.
+However, this should be avoided, since it reduces the information space and also introduces a new information bias, as assumptions are modeled through the discretization.
 %%
 
 Medical image data is also acquired and analyzed in modern cohort studies.
@@ -314,7 +317,7 @@ More discussion of data types and characteristics can be found in \cite{Klemm201
 % %%
 % Image-derived variables are either dichotomous variables indicating a medical finding by a radiologist or continuous, describing the shape of segmented structures (e.g. volume or diameter).
 
-\paragraph{Confounding Features}
+\paragraph{Confounding Features.}
 Features influencing the exposure as well as the outcome of an analysis are called confounders.
 %%
 The analysis model has to be adjusted by normalizing all included features towards the confounding feature.
@@ -331,7 +334,7 @@ Other confounders have to be selected by epidemiologists specific to the investi
 %%
 Regression analysis is the most important statistical tool when analyzing epidemiological data.
 %%
-They are also the foundation of this work.
+The presented work is based on regression analysis as well.
 %%
 A regression analysis assesses the influence of one or more (\emph{independent}) features to one target (\emph{dependent}) feature.
 %%
@@ -339,7 +342,7 @@ The regression model yields a function describing the target feature by weightin
 %%
 Different metrics, such as the weightings itself and associated $p$ values describe the resulting function (the \emph{model}).
 %%
-$R^2$ values describe the goodness of fit; in other words how well the dependent features describe the target feature.
+$R^2$ values describe the quality of the fit; in other words how well the dependent features describe the target feature.
 %%
 The value is in the range [0,1], where 1 encodes a perfect fit.
 
@@ -382,11 +385,11 @@ Therefore, pseudo-$R^2$ values are extracted, such as the \emph{Nagelkerke $R^2$
 %\com{Move this to Regression Cube part?}
 
 \subsection{The Study of Health in Pomerania (SHIP)}
-The \texttt{SHIP}, located in Northern Germany aims to characterize health and disease in the widest range possible \cite{Volzke2011}.
+The \texttt{SHIP}, located in Northern Germany, aims to characterize health and disease in the widest range possible \cite{Volzke2011}.
 %%
 It does not focus on a specific disease, making the data set open for many diseases.
 %%
-Unique for the \texttt{SHIP} is the acquisition of medical image data per subject.
+Unique for the \texttt{SHIP} is the acquisition of medical image data per cohort subject.
 %%
 A second cohort, \texttt{SHIP-TREND} was introduced in 2012.
 %%
@@ -394,7 +397,7 @@ Data for both cohorts are examined in a 5-year time span.
 %%
 New parameters are added in each iteration, extending the range of investigated diseases.
 %%
-For the last acquisition (\texttt{SHIP-2} and \texttt{SHIP-TREND-0}), MRI scans are included into the cohort \cite{Hegenscheid2009, Ivanovska2014}.
+For the latest two acquisitions (\texttt{SHIP-2} and \texttt{SHIP-TREND-0}), MRI scans are included into the cohort \cite{Hegenscheid2009, Ivanovska2014}.
 %%
 However, most examinations occur in all stages and are performed according to the same instructions to enable comparisons over the different stages of the study ("\emph{method loyality}").
 %%
@@ -412,7 +415,7 @@ However, most examinations occur in all stages and are performed according to th
 %
 \section{Prior and Related Work}
 %% https://en.wikipedia.org/wiki/Exploratory_data_analysis#cite_note-Tukey1977-4
-Tukey already stated in 1977 that data if too often only analyzed using confirmatory data analysis \cite{Tukey}.
+In 1977, Tukey already stated that data is too often only analyzed using confirmatory data analysis \cite{Tukey}.
 %%
 He emphasized the need to use data to derive hypotheses, which can then be tested again.
 %%
