@@ -1330,12 +1330,12 @@ All sessions were video recorded to be processed later on.
 
 Domain expert for the breast fat data set analysis is KH, a clinician (10 years of experience) with focus on epidemiological research.
 %%
-KH is a radiologist, responsible for the SHIP-MRI acquisition and also responsible of the mammography analysis.
+\emph{KH} is a radiologist, responsible for the SHIP-MRI acquisition and also responsible of the mammography analysis.
 
-The hepatic steatosis data set is analyzed by UN, a data scientists responsible for prior analysis of the data with.
+The hepatic steatosis data set is analyzed by \emph{UN}, a data scientists responsible for prior analysis of the data with.
 %%
 
-TI, a statistician with focus on epidemiology (\com{TODO} years of experience) assesses the statistical reliability of the tool and the underlying methods without a focus on a specific data set.
+\emph{TI}, a statistician with focus on epidemiology (\com{TODO} years of experience) assesses the statistical reliability of the tool and the underlying methods without a focus on a specific data set.
 %%
 \subsection{The Breast Fat Data Set}
 The breast fat data set was compiled to find associations between parenchyma tissue proportion in the female breast towards other features in the data.
@@ -1404,6 +1404,7 @@ Based on this observations, we perform our analysis on three sub-populations, \e
 %%
 \subsection{Case 1: Hypothesis-free Analysis of the Breast Cancer Data Set}
 %%
+%%
 The analysis goal is to find relationships on the breast cancer data using features derived from the mammography analysis.
 %%
 Relationships between the share of parenchyma tissue on the overall breast volume are of high interest \cite{Mccormack2006}.
@@ -1411,51 +1412,80 @@ Relationships between the share of parenchyma tissue on the overall breast volum
 
 \subsection{Case 2: Hypothesis-driven Analysis of the Hepatic Steatosis Data Set}
 %%
-The goal at the beginning of the analysis was to reproduce results based on the prior analysis.
+We refer to each analysis step regarding to their belonging in the VA-Mantra (Subsec.~\ref{sec:Workflow}).
 %%
-Subjects with a fatty liver could be identified using somatometric features, hepatic steatosis indicator-features as well as creatinine (\com{important for kidney}) and uric acid (\com{gout, diabetes}) magnitudes.
+The analysis goal is reproducing results based \cite{Niemann2014}.
 %%
-The analysis was started with the target feature \emph{liver fat content} (\emph{mrt\_liverfat\_s2}), which was derived from the MRI data analysis.
+Therefore, \emph{UN} started the \textbf{AF} step using the dichotomized MRI fat liver concentration using the formula $mrt\_liverfat\_s2 \sim X + Y + Z$ for \emph{male} subjects.
 %%
-UN therefore started the calculation using the formula $mrt\_liverfat\_s2 \sim X + Y + Z$.
+The \emph{SI} step using the 3D cube representations hotspots at the end of the cube (Fig.~\ref{fig:application} a).
 %%
-The data set containing all \emph{males} showed broad consensus with the expected results.
+\textbf{ZF} by slicing through the cube using the mouse input to inspect the hotspots using the mosaic plot (\textbf{DD}) revealed high correlations for somatometric features, hepatic steatosis indicator-features as well as laboratory values, such as creatinine (\com{important for kidney}) and uric acid (\com{gout, diabetes}) magnitudes.
 %%
-The 3D-cube showed highlighted features at the end of the cube (Fig.~\ref{fig:application} a).
+Similar results present for analyzing the \emph{female} groups.
 %%
-Using the mouse-slicing allowed for fast navigation to the respective features.
+\emph{UN} could reproduce most results, some features features exhibit lower correlations though, e.g., creatinine magnitudes.
 %%
-They include indicators hepatic steatosis ($R^2$:XX) as well as somatometric features, such as \emph{body mass index} (\emph{BMI}) and waist circumference.
-%%
-Feature correlations with \emph{gamma-glutamyl transpeptidase} (\emph{GGT}, indicating damaged livers if elevated) were found, but with low $R^2$ of XX.
-
-%%
-UN analyzed both \emph{female} groups in the same manner, concluding with the same findings regarding \emph{somatometric} features as well as \emph{hepatic steatosis} indicators.
-%%
-Using the mosaic plot, relationships incorporating enzyme used for the diagnosis of liver dysfunctions were found, e.g. aspartate aminotransferase.
-%%
-
-For most features, UN found at least tendencies using our approach.
+Relationships not described in \cite{Niemann2014} were found, such as enzymes indicating liver dysfunctions, e.g. \emph{aspartate aminotransferase}.
 %%
 Due to the difference between our regression-model approach and the decision-tree approach presented in \cite{Niemann2014}, a complete matching set of correlating features are not expected.
 
-%Regression cube calculations were carried out for
+% %%
+% The goal at the beginning of the analysis was to reproduce results based on the prior analysis.
+% %%
+% Subjects with a fatty liver could be identified using somatometric features, hepatic steatosis indicator-features as well as creatinine (\com{important for kidney}) and uric acid (\com{gout, diabetes}) magnitudes.
+% %%
+% The analysis was started with the target feature \emph{liver fat content} (\emph{mrt\_liverfat\_s2}), which was derived from the MRI data analysis.
+% %%
+% \emph{UN} therefore started the calculation using the formula $mrt\_liverfat\_s2 \sim X + Y + Z$ for \emph{male} subects.
+% %%
+% %%
+% %%
+% The data set containing all \emph{males} showed broad consensus with the expected results.
+% %%
+% The 3D-cube showed highlighted features at the end of the cube (Fig.~\ref{fig:application} a).
+% %%
+% Using the mouse-slicing allowed for fast navigation to the respective features.
+% %%
+% They include indicators hepatic steatosis ($R^2$:XX) as well as somatometric features, such as \emph{body mass index} (\emph{BMI}) and waist circumference.
+% %%
+% Feature correlations with \emph{gamma-glutamyl transpeptidase} (\emph{GGT}, indicating damaged livers if elevated) were found, but with low $R^2$ of XX.
+%
+% %%
+% UN analyzed both \emph{female} groups in the same manner, concluding with the same findings regarding \emph{somatometric} features as well as \emph{hepatic steatosis} indicators.
+% %%
+% Using the mosaic plot, relationships incorporating enzyme used for the diagnosis of liver dysfunctions were found, e.g. aspartate aminotransferase.
+% %%
+%
+% For most features, UN found at least tendencies using our approach.
+% %%
+% Due to the difference between our regression-model approach and the decision-tree approach presented in \cite{Niemann2014}, a complete matching set of correlating features are not expected.
+%
+% %Regression cube calculations were carried out for
 
 \textbf{Analysis of non-discretized target feature.}
-The target feature derived from the MRI image data was discretized in \cite{Niemann2014} as decision trees algorithms require a categorical target feature.
 %%
-Since the \emph{regression cubes} analysis is not restricted in this way, UN applied the same analysis for \emph{males} and the two female group using its whole data range.
+Since our method can analyze numerical target features, as opposed to decision trees used by \emph{UN} before, the analysis was conducted again for the not-dichotomized target using the same formula.
+%%
+The 3D-cube representation already showed generally lower $R^2$ values, but since the analysis is now based on linear regression, the $R^2$ values can not be directly compared.
+%%
+Correlation hot spots matched with the ones from the dichotomous target, but were generally lower ($R^2$ of XX for somatometric features as opposed to XX).
+%%
+We conclude that the bias introduced by dichotomizing the fat liver content enforces the findings towards liver diseases, while using the numerical features is less expressive.
 %%
 
-Using the \emph{Regression Cube}, UN 
 \textbf{Interleukin-6 correlation with liver fat.}
-
-\com{ToDo: Reflect on the different methods - one is used to define subsets which define the target feature very well, the other looks how good the features describe the target itself}
-\com{1. Can we reconstruct relationships based on the regression cube?}
-
-\com{2. Does discretization of the numeric target feature influence the result?}
-
-
+%%
+During the analysis, one hotspot was always observed in the \emph{SI} and \emph{ZF} incorporating a high \emph{Interleukin-6} (\emph{IL-6}) correlation with liver fat values (Fig.~\ref{fig:Application} b).
+%%
+The correlation was high for both the dichotomized and continuous target feature.
+%%
+In the literature, relations between liver cancer \cite{He2013} and also chronic liver diseases \cite{Streetz2003}.
+%%
+Strong effects of \emph{IL-6} with hepatic steatosis were also prior described with mice \cite{Hong2004}.
+%%
+The finding is subject of further analysis.
+%%
 \subsection{Further Feedback and Lessons Learned} \label{Lessons Learned}
 %%
 \textbf{Extracted Hypotheses have to investigated further.}
