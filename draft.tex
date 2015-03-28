@@ -751,17 +751,17 @@ The next section shows ways of abstracting the results to make them visually fea
  \centering
  \includegraphics[width=3.5in]{figures/cube}
  \caption{
- (a) Overview visualization using a heatmap for the formula $Z \sim X + Y$, where $Z$ assumes feature $Age$.
+ (left) Overview visualization using a mosaic plot for the formula $Z \sim X + Y$, where $Z$ assumes feature $Age$.
  %%
  The $R^2$ values extracted from the regression formulas depict the goodness of fit and are mapped to color saturation.
  %%
  A saturated color shows a strong correlation.
  %%
- (b) Since $Z$ assumes all features $n$ as given by the formula, it yields $n$ heatmap visualizations.
+ (right) Since $Z$ assumes all features $n$ as given by the formula, it yields $n$ mosaic plot visualizations.
  %%
- These represent the slices in our cube visualization.
+ These represent the slices in our cube.
  %%
- The $R^2$ values of each slice voxel is mapped on opacity in the 3D-view, reducing the occlusion of other values.
+ The $R^2$ values of each slice voxel is mapped on opacity in the 3D-view later on, reducing the occlusion of other values.
  }
   \label{fig:Cube}
 \end{figure}
@@ -806,7 +806,7 @@ These two approaches do not exclude each other, they rather underline the differ
 %%
 Different analysis approaches require different starting points using the \emph{Regression Cube}.
 
-\subsection{Analysis Workflow}
+\subsection{Analysis Workflow} \label{sec:Workflow}
 %%
 \begin{figure}[htb]
  \centering
@@ -814,17 +814,19 @@ Different analysis approaches require different starting points using the \emph{
  \caption{
  Workflow of the analysis using \emph{Regression Cubes}.
  %%
- [\textbf{1.AF}] The analysis starts with a set of features given by the data set.
+ % The analysis starts with a set of features given by the data set.
  %%
- Then, the user may specify a formula regarding to specify a hypothesis, or use a predefined formula to start a explorative analysis of the data set.
+ [\textbf{1.AF}] The workflow starts by declaring formula regarding to specify a hypothesis, or use a predefined formula for a hypothesis-free analysis.
  %%
- [\textbf{2.SI}] The Regression Cube is then visualized, where the user has either the option to adjust the formula or to derive details on demand on a specific regression.
+ [\textbf{2.SI}] The \emph{Regression Cube} is then visualized.
  %%
- [\textbf{3.ZF}] Insights into the data yield either an adjustment of the current formula.
+ The user has the option to either adjust the formula or to derive details on demand on a specific regression.
  %%
- By applying a difference view, regression cubes can be compared to each other.
+ [\textbf{3.ZF}] Insights into the data yield either an adjustment of the current formula or selecting a difference view.
  %%
- [\textbf{4.DD}] Details about features using the 2D-heatmap representation yields insights and hypothesis about feature relations.
+ The latter is used to compare regression cubes.
+ %%
+ [\textbf{4.DD}] Details about features using the 2D mosaic plot representation yields insights and hypothesis about feature relations.
  }
   \label{fig:Workflow}
 \end{figure}
@@ -940,11 +942,11 @@ It can for example be utilized for comparing the influence of one feature toward
  %%
  The values of the currently selected slice are mirrored and represented as orange data points on the slicing plane.
  %%
- (c) 2D mosaic plot visualization of the selected slice.
+ (c) 2D mosaic plot visualization of the selected slice for feature \emph{Pain/Discomfort}.
  %%
- \com{TODO: Adapt formula to final image.}
+ %\com{TODO: Adapt formula to final image.}
  %%
- Context information is shown for the regression model of $Parenchym \sim Bronchitis + AlcoholLast30Days$, depicting details about the confidence intervals, coefficients and associated p-values.
+ %Context information is shown for the regression model of $Parenchym \sim Bronchitis + AlcoholLast30Days$, depicting details about the confidence intervals, coefficients and associated p-values.
  %%
  %\com{Screenshot of the cube visualization embedded in the framework}
  %\com{Also include active tooltip}
@@ -1095,6 +1097,7 @@ Along the diagonal, $X$ and $Y$ assume the same feature, $Z ~ X + Y$ turns into 
 The diagonal therefore acts as reference on how strong the correlation for the given row (or column) feature is.
 
 \paragraph{3D-Prism as Data Mini-Map.}
+\com{Add section about difference view for static target features.}
 %%
 The 3D-cube representation acts as an overview over the whole data set, but its purpose is not to derive detailed information about data points.
 %%
@@ -1184,7 +1187,15 @@ By hovering over a data entry in the plot, a tooltip model displays detailed inf
  \centering
  \includegraphics[width=3.5in]{figures/implementation}
  \caption{
- \com{Describe the Bootstrap/Angular/D3 Frontend, Node backend, R/OCPU Backend.}
+ The front-end (left) is written in \emph{HTML5}/\emph{CSS3}/\emph{Javascript} and uses different Javascript libraries, such as \emph{Angularjs}, \emph{Three.js} and D3js.
+ %%
+ The web-server back-end (right) is written in \emph{Nodejs}, hosting is carried out using \emph{Heroku}.
+ %%
+ \emph{R} and \emph{OpenCPU} constitute the statistical back-end (top) to compute the \emph{Regression Cubes}.
+ %%
+ Additional statistical back-ends can be attached to the system to decrease the computation time.
+% The number of attached machines to the system 
+%    the  the  Describe the Bootstrap/Angular/D3 Frontend, Node backend, R/OCPU Backend.}
  }
   \label{fig:Implementation}
 \end{figure}
@@ -1276,7 +1287,15 @@ The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{www.h
  \centering
  \includegraphics[width=7.0in]{figures/application}
  \caption{
- \com{Screenshots of Cubes from the Evaluation}
+ The analysis of the numerical and dichotomized target feature depicting liver-fat values yields similar results (left).
+ %%
+ In (a), hotspots for somatometrical features with high correlations were found.
+ %%
+ High correlations were also found for features depicting \emph{hepatic steatosis} (b).
+ %%
+ A high correlations between \emph{Interleukin-6}, \emph{hepatic steatosis}, \emph{GGT} and \emph{Lipase} (highlighted using arrows) was found during the analysis using the 2D mosaic plot.
+ %%
+ \com{Caption Breast Fat Data}
  }
   \label{fig:Application}
 \end{figure*}
@@ -1409,14 +1428,15 @@ Relationships between the share of parenchyma tissue on the overall breast volum
 %%
 
 \subsection{Case 2: Hypothesis-driven Analysis of the Hepatic Steatosis Data Set}
+\com{Add R$^2$ values}
 %%
-We refer to each analysis step regarding to their belonging in the VA-Mantra (Subsec.~\ref{sec:Workflow}).
+We refer to each analysis step regarding to their belonging in the VA-Mantra (Sec.~\ref{sec:Workflow}).
 %%
-The analysis goal is reproducing results based \cite{Niemann2014}.
+The analysis goal is reproducing results based on \cite{Niemann2014}.
 %%
 Therefore, \emph{UN} started the \textbf{AF} step using the dichotomized MRI fat liver concentration using the formula $mrt\_liverfat\_s2 \sim X + Y + Z$ for \emph{male} subjects.
 %%
-The \emph{SI} step using the 3D cube representations hotspots at the end of the cube (Fig.~\ref{fig:application} a).
+The \emph{SI} step using the 3D cube representations locates hotspots at the end of the cube (Fig.~\ref{fig:Application} a).
 %%
 \textbf{ZF} by slicing through the cube using the mouse input to inspect the hotspots using the mosaic plot (\textbf{DD}) revealed high correlations for somatometric features, hepatic steatosis indicator-features as well as laboratory values, such as creatinine (\com{important for kidney}) and uric acid (\com{gout, diabetes}) magnitudes.
 %%
@@ -1486,8 +1506,23 @@ The finding is subject of further analysis.
 %%
 \subsection{Further Feedback and Lessons Learned} \label{Lessons Learned}
 %%
+Our method was well received among the domain experts.
+%%
+The novel way of modeling expert knowledge to derive hypothesis driven overview visualizations allow for detailed analysis of target features, either disease indicators or even image-derived features.
+%%
+%TI commented on the 
+
 \textbf{Extracted Hypotheses have to investigated further.}
-\com{Tills Feedback - Regression analysis also incorporates assumptions about the data, }
+%%
+Agreeing with TI's feedback, each finding and hypotheses has to be confirmed using dedicated statistical analysis.
+%%
+This incorporated investigating all potential confounding features as well as looking for outlier subjects.
+%%
+TI commented on the possibility of adding even more regression types to model different correlation types to customize the cube even more.
+%%
+%TI hinted the neccissity of different regression types, which also model non-linear relationships, but do not comprise of comparable quality of fit measures, such as the $R^2$.
+%%
+%\com{Tills Feedback - Regression analysis also incorporates assumptions about the data, }
 %%
 
 \textbf{Overview Visualizations are preferred over Black-box Methods.}
@@ -1507,17 +1542,40 @@ By observing expected correlations matching the expert knowledge strengthens the
 %%
 \textbf{Using non-discretized features reduces information bias.}
 %%
-\com{Comment on the lesson learned from the last VAST Paper - "Usage of different categorizations depending on expected outcome." Now we have continuos data.}
+Discretization reduces the information space and introduces bias into the data and is therefore avoided in epidemiological research when possible.
+%%
+In contrast to many data mining algorithms, our method allows to use the concurrent analysis of heterogeneous data types.
+%%
+Investigations of the the hepatic steatosis data set with both numerical and dichotomized liver fat values showed comparable results differing in detail.%, but differences  %differing in detail.
+%%
+The overall explanatory power towards the numerical feature was lower.
+%Our investigation regarding the hepatic steatosis data set confirms differences in results
+%%
+%\com{Comment on the lesson learned from the last VAST Paper - "Usage of different categorizations depending on expected outcome." Now we have continuos data.}
 %%
 
 \textbf{Attention steering is crucial.}
-\com{Bring important events to the users attention, otherwise it might be overlooked!}
-
-\textbf{Support for different subject groups.}
-\com{Include this?}
 %%
-\com{Feedback from the evaluation goes here.}
-\com{Time-aspect critical, interactive analysis requires for fast response. The method needs to be speeded up.}
+Important events have to be highlighted in overview visualizations to steer the users attention to interesting parts of the data.
+%%
+Poor guidance lead to potentially overlooked relationships.
+%%
+We found supporting mini-map visualizations, such as the 3D cube, most useful for this purpose.
+%%
+Foe example, formulas with a static target feature (e.g. $Breast\_Cancer ~ X + Y + Z$) are rendered by highlighting differences rather than absolute values in the 3D cube visualizations (see Fig.~\ref{fig:Application} left) by comparing local values with the mean along the z ray.
+%%
+
+%This allows for fast parsing through the data 
+
+%In order to benefit most from the human pattern recognition, interesting events have to highlighted in order to steer the users attention to important parts of the data.
+%Using overview visualizations is associated with important 
+%\com{Bring important events to the users attention, otherwise it might be overlooked!}
+
+%\textbf{Support for different subject groups.}
+%\com{Include this?}
+%%
+%\com{Feedback from the evaluation goes here.}
+%\com{Time-aspect critical, interactive analysis requires for fast response. The method needs to be speeded up.}
 
 \section{Summary and Conclusion}
 %%
