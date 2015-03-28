@@ -190,7 +190,7 @@ Social and lifestyle factors, prior or current diseases and medications as well 
 %%
 Medical image data from non-radiating modalities, e.g., magnetic resonance imaging (MRI), is also acquired in modern studies.
 %%
-These data may be quantified using user-defined landmarks, which describe attributes like the shape, the volume or the diameter of a structure.
+These data may be quantified based on user-defined landmarks, which describe attributes like the shape, the volume or the diameter of a structure.
 %%
 
 Testing features for association with diseases using regression analysis is one of the most important epidemiological tools.
@@ -202,7 +202,7 @@ Due to the amount of data and only limited overview techniques, possible correla
 %%
 Explorative analyses and overview visualizations of the data set as presented by Klemm et al. \cite{Klemm2014VIS} are not tailored to a specific target variable and mostly highlight correlations between variables, which are known to the domain expert (e.g., correlation between body size and spine shape).
 %%
-We incorporate the regression analysis, which is familiar to the domain experts, into overview visualizations, which can be used for a hypothesis-free analysis or an analysis towards a specific disease or hypothesis.
+We incorporate the regression analysis, which is familiar to the domain experts, into overview visualizations to support a hypothesis-free analysis or an analysis towards a specific disease or hypothesis.
 %%
 This is achieved by providing template regression formulas, which are applied to all potential variable combinations.
 %%
@@ -222,10 +222,10 @@ Our contributions are:
 %%
 The term Regression Cube has been used for the detailed analysis of one or a small number of regression models \cite{Chan, Ahmadi}.
 %%
+They extend 2D scatter plots to display detailed information about a regression model.
+%%
 In behalf of that, we declare our visualization technique for comparing and analyzing a large number of different regression models with different input features as Regression Cube.
 %%
-\com{Bernhard, does this suffice as reasoning?}
-
 \section{Epidemiological Background} \label{sec:Background}
 %%
 This section covers the epidemiological workflow and requirements.
@@ -285,7 +285,7 @@ Other features are exclusive for a sub-group, such as women-specific questions, 
 %%
 Medical status variables or lifestyle factors are often of \emph{dichotomous} (binary) type.
 %%
-The data space comprises continuous variables (somatometric variables, such as body weight or BMI or laboratory values) as well as categorical variables (e.g. graduation type).
+The data space comprises continuous variables (somatometric variables, such as body weight) as well as categorical variables (e.g. graduation type).
 %%
 The data heterogeneity has to be taken into account when the analysis method is chosen.
 %%
@@ -391,7 +391,7 @@ It does not focus on a specific disease, making the data set open for many disea
 %%
 Unique for the \texttt{SHIP} is the acquisition of medical image data per cohort subject.
 %%
-A second cohort, \texttt{SHIP-TREND} was introduced in 2012.
+A second cohort, \texttt{SHIP-TREND} was started in 2012.
 %%
 Data for both cohorts are examined in a 5-year time span.
 %%
