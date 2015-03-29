@@ -771,11 +771,11 @@ The next section shows ways of abstracting the results to make them visually fea
  \centering
  \includegraphics[width=3.5in]{figures/cube}
  \caption{
- (left) Overview visualization using a mosaic plot for the formula $Z \sim X + Y$, where $Z$ assumes the feature $Age$.
+ (a) Overview visualization using a mosaic plot for the formula $Z \sim X + Y$, where $Z$ assumes the feature $Age$.
  %%
  The $R^2$ values extracted from the regression formulas depict the quality-of-fit and are mapped to color saturation (a saturated color shows a strong correlation).
  %%
- (right) Now, $Z$ is set to all features $n$ and yields $n$ mosaic plot visualizations.
+ (b) Now, $Z$ is set to all features $n$ and yields $n$ mosaic plot visualizations.
  %%
  These represent the slices in our cube.
  %%
@@ -875,7 +875,7 @@ Regression models with large $R^2$ values can be spotted here fast, steering the
 
 \textbf{Details on Demand} [\textbf{4.DD}]. Precise information about the individual regression models (coefficients, associated confidence intervals and p-values) can be retrieved based on the data point representatives (e.g. in a hover-modal on a currently selected data point).
 \\\\
-We use the squared bracket abbreviation for each step to denote the affiliation the system design section later on.
+We use the squared bracket abbreviation for each step to denote the affiliation in the system design section later on.
 %%
 As seen in Fig~\ref{fig:Workflow}, the workflow is highly iterative.
 %%
@@ -930,7 +930,9 @@ One cube (extracted with one formula) acts as reference.
 %%
 The absolute difference in $R^2$ values towards the second cube is calculated, yielding a difference cube showing only the differences between the two formulas.
 %%
-For example, it can be utilized for comparing the influence of a single feature towards the complete result (e.g., $Z \sim X + Y$ and $Z \sim X + Y + Income$)
+For example, it can be utilized for comparing the influence of a single feature towards the complete result (e.g., $Z \sim X + Y$ and $Z \sim X + Y + Income$).
+%%
+Figure~\ref{fig:Application} (right) shows a comparison cube with subtracted effects of age ($Z \sim Age$).
 %%
 % \paragraph{Formula Types.}
 % %%
@@ -1605,7 +1607,7 @@ Dimension reduction using the target restricts the analysis to most important fe
 %%
 \emph{Hypothesis-free} analysis employs default regression models.
 %%
-Model expert knowledge using regression formulas allow for \emph{hypothesis-based} investigation.
+Modeling expert knowledge using regression formulas allow for \emph{hypothesis-based} investigation.
 %%
 A 3D \emph{Regression Cube} allows to assess hotspots in the analysis by abstracting regression models using a quality-of-fit measure.
 %%
