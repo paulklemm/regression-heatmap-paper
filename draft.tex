@@ -127,7 +127,7 @@ We were able to derive new hypotheses about relations between breast fat density
 %%
 %\com{Implications}.
 %%
-%With our work, we present a visual overview of epidemiological data with the \emph{Regression Cube}, which allows for the first time an interactive regression-based analysis of large feature sets with respect to a disease.
+With the \emph{Regression Cube}, we present a visual overview of epidemiological data that allows for the first time an interactive regression-based analysis of large feature sets with respect to a disease.
 } % end of abstract
 
 %% Keywords that describe your work. Will show as 'Index Terms' in journal
@@ -417,41 +417,46 @@ However, most examinations occur in all stages and are performed according to th
 %% https://en.wikipedia.org/wiki/Exploratory_data_analysis#cite_note-Tukey1977-4
 In 1977, Tukey already stated that data is too often only analyzed using confirmatory data analysis \cite{Tukey}.
 %%
-He emphasized the need to use data to derive hypotheses, which can then be tested again.
+He emphasized the need to use data to derive hypotheses instead, which can then be tested again.
 %%
 In this section we present prior and related work trying to achieve this goal.
 %%
-We put each paper in relation to our work, derive ideas and point out differences, starting with the works closest to ours:
+% der Satz kann raus. 1. Teil ist wirklich "common sense", 2. Teil wird im n�chsten Satz mit "...closest to ours" nochmal genannt.
+%We put each paper in relation to our work, derive ideas and point out differences, starting with the works closest to ours:
 %%
 \\\\
-The work of Piringer et al. \cite{Piringer}, Chan et al. \cite{Chan}, Angelelli et al. \cite{Angelelli} and Zhang et al. \cite{Zhang2014} is closest to ours regarding different aspects.
+The work of Piringer et al. \cite{Piringer}, Chan et al. \cite{Chan}, Angelelli et al. \cite{Angelelli} and Zhang et al. \cite{Zhang2014} are closest related to ours regarding different aspects.
 %% HyperMoVal: Interactive Visual Validation of Regression Models for Real-Time Simulation
 Akin to our approach, Piringer et al. \cite{Piringer} propose methods for visualizing regression analysis results and properties for developing car engines.
 %%
-Their main goal is to assess the influence of independent features towards the target pairwise.
+Their main goal is to assess the pairwise influence of independent features towards the target feature.
 %%
-This is achieved by using a plot matrix displaying models as contours towards the target feature.
+This is achieved with a plot matrix displaying models as contours towards the target feature.
 %%
-They also incorporate 3D visualizations for each pairwise combination, but mainly because it is popular with the engineers in their target domains.
+%
+They also incorporate 3D visualizations for each pairwise combination, 
+%...  zu umgangssprachlich: but mainly because it is popular with the engineers in their target domains.
+%... lieber so?
+but without any additional statistical information.
 %%
-Linked views of model deviations allow to select outlier residuals.
+Linked views of model deviations allow to select outliers.
 %%
-Comparison of models is also included by mapping model values on line-style (e.g. solid for $model_a$ and dashed for $model_b$).
+%... ein bisschen zusammengefasst, da imho zu detailliert.
+Comparison of models is also included by mapping model values on line-style (e.g., solid or dashed) which limits the method to comparing only a few models at once.
 %%
-This limits the method to comparing a few models at once.
+Furthermore, the plot matrix representation gets too complex and harder to understand with increasing number of independent features.
 %%
-The plot matrix representation however gets complex and harder to understand with increasing number of independent features.
+The main difference is their focus on analyzing one complex model in detail, yielding extensive plots, while we analyze a large amount of simpler models towards \emph{different} features.
 %%
-The main difference is their focus on analyzing one complex model in detail, yielding in extensive plots, while we analyze a large amount of simpler models towards \emph{different} features.
+% 2x also entfernt
+They also focus on metric features, while we process categorical data as well.
 %%
-They also focus on metric features, while we process also categorical data.
-%%
-We share the matrix-arrangement of results depicting relationships between independent features in a model.
+We share the matrix arrangement of results depicting relationships between independent features in a model.
 
 %% Regression Cube: A Technique for Multidimensional Visual Exploration and Interactive Pattern Finding
-We use the term Regression Cube to refer to a comparative 3D representation of multiple regression models.
-%%
-Chan et al. \cite{Chan} use the same term to describe an extension of the 2D-Scatterplot representation of a linear regression models (incorporating solely metric features) to a 3D-Cube.
+We use the term Regression Cube for a comparative 3D representation of multiple regression models.
+%% einheitlich 2D-XXX oder 2D XXX, meist ist es 2D XXX
+Chan et al. \cite{Chan} use the same term to describe an extension of the 2D Scatterplot representation of a linear regression models (incorporating solely metric features) to a 3D Cube.
 %%
 They group subjects using a set of interaction techniques as well as clustering algorithms to calculate sub-groups, which can then be compared using their cube representation.
 %%
@@ -467,23 +472,23 @@ We model expert knowledge through the definition of regression formulas, which i
 
 Zhang et al. \cite{Zhang2014} is closest to our work regarding the application of visual analysis on cohort study data.
 %%
-They present \emph{Cohort Analysis via Visual Analytics} (\emph{CAVA}), a framework that distinguishes three major elements of cohort study data analysis: \emph{cohort data} and its manipulation using operations - \emph{views} and \emph{analytics}.
+They present \emph{Cohort Analysis via Visual Analytics} (\emph{CAVA}), a framework that distinguishes three major elements of cohort study data analysis: \emph{cohort data} (and its manipulation using operations), \emph{views} and \emph{analytics}.
 %%
 They use the system to find longitudinal pathways for diseases using subject health records.
 %%
-Sub-groups are created automatically by applying \emph{analytics} and expert-guided \emph{views}.
+Sub-groups are automatically created by applying \emph{analytics} and expert-guided \emph{views}.
 %%
-They do not go into the detail w.r.t the analytics used, they seem to not incorporate confounder analysis (other than dividing groups by gender) and the user study lacks concrete goals.
+They do not go into detail w.r.t the analytics used. They also seem to not incorporate confounder analysis (other than dividing groups by gender) and the user study lacks concrete goals.
 %%
-Their data differs strongly from ours, having multiple moments for each subject, yielding a approach focused on finding pathways of interest.
+Their data differs strongly from ours, having multiple moments for each subject, yielding an approach focused on finding pathways of interest.
 %%
 We use their requirements as guidelines, which incorporate \emph{flexible} and \emph{iterative analysis}, meaning that the system has to adapt to different requirements in different analysis steps.
 %%
-We implement this by supporting both hypothesis-based and hypothesis-free analysis.
+We implement this by supporting both: hypothesis-based and hypothesis-free analyses.
 
-Angelelli et al. \cite{Angelelli} visualize both image-derived an non image data using cube data structures with focus on comparison and knowledge extraction.
+Angelelli et al. \cite{Angelelli} visualize image-derived an non-image data using cube data structures with focus on comparison and knowledge extraction.
 %%
-Their proposed engine represents multiple heterogenous cohort study data sets as multiple normalized data cubes to eliminate data redundancy between them and perform runtime measure aggregation when measures of the different cubes have to be combined.
+Their proposed engine represents multiple heterogenous cohort study data sets as multiple normalized data cubes. Thus, data redundancy can be reduced and runtime measure aggregation can be carried out when measures of the different cubes have to be combined.
 %%
 %This allows for saving memory space.
 %%
@@ -491,38 +496,38 @@ Their proposed engine represents multiple heterogenous cohort study data sets as
 %%
 They use \emph{Pearsson's r} to depict relationships towards target features and employ list views and scatter plots to visualize and rank them.
 %%
-We use regression models and associated $R^2$ values to depict relationships between a target feature and multiple independent features instead of one and employ the information into one global visualization.
+In contrast, we use regression models and associated $R^2$ values to depict relationships between a target feature and multiple independent features instead of one and employ the information into one global visualization.
 %%
-We employ the idea of fast conducting large scale correlation analysis between many features to derive insight into the data.
+Also, we aim at a fast conducting large scale correlation analysis between many features to derive insight into the data.
 
 \paragraph{Visual Analysis in Public Health.}
 %%--
-Shneiderman et al. \cite{Shneiderman2013} highlight the necessity of interactive visualizations in healthcare data, e.g. using \emph{Health 2.0}, which is an umbrella for web-based health-informatics frameworks.
+Shneiderman et al. \cite{Shneiderman2013} highlight the necessity of interactive visualizations in healthcare data, e.g., using \emph{Health 2.0}, which is an umbrella for web-based health-informatics frameworks.
 %%
-They divide Health 2.0 in three domains, \emph{Personal health information}, \emph{clinical health information}, and \emph{public health information}.
+They divide Health 2.0 in three domains: \emph{personal health information}, \emph{clinical health information}, and \emph{public health information}.
 %%
 We focus on the latter.
 %%
 %Shneiderman and colleagues also present challenges, 
-The presented challenges in this application comprise custom tailoring the systems to be comprehensible and intuitive to fit into the short time span clinicians have when analyzing data.
+The presented challenges in this application comprise the systems to be sufficiently comprehensible and intuitive to fit into the short time span clinicians have when analyzing data.
 %%
 Furthermore, the systems should provide comparative relationship visualization, characterization of similarity and presenting risks.
 %%
 %We use the challenges as design guidelines for our web-based prototype, focusing on functional clean designs to allow fast insight into relationships towards diseases.
 
 %%
-In their survey on interactive information visualizations for health record data, Rind el al. \cite{Rind} identified future work addressing the usability of such frameworks.
+In their survey on interactive information visualizations for health record data, Rind et al. \cite{Rind} identified future work addressing the usability of such frameworks.
 %%
-They recommend in opening up analysis systems to a diverse target group, e.g. including patients, who also can observe information about their own lifestyle and associated risks.
+They recommend an opening up analysis system to a diverse target group, e.g., including patients, who can also observe information about their own lifestyle and associated risks.
 %%
-We follow their recommendation in designing an open system available to everyone, applicable to a various data sets.
+We follow their recommendation to design an open system available to everyone and applicable to various data sets.
 
 %%
 Schreck and Keim \cite{Schreck} presented a method for analyzing social media data with focus on characterization and cause of an epidemic.
 %%
 They employ data aggregation techniques and use geographical data to map social media events, focusing on word clouds to derive insight into possible causes.
 %%
-They derive hypotheses using their high variation average message density algorithms, steering the users focus on particular events.
+They derive hypotheses using their high variation average message density algorithms, steering the user's focus on particular events.
 %%
 %The focus remains on geolocated social media data rather than subjects with multiple dimensions.
 %%
@@ -533,20 +538,20 @@ Steenwijk et al. \cite{Steenwijk} focus on \emph{hypothesis-free} exploration of
 %%
 They employ a framework consisting of feature extraction and visualization to derive dependencies between image- and non-image features.
 %%
-They incorporate linked views using scatter plots, bar charts, parallel coordinates and time plots to display and select data.
+They incorporate linked views using scatter plots, bar charts, parallel coordinates and time plots to display and select the data.
 %%
 %Medical image data can be incorporated to investigate potentially interesting individuals.
 %%
-We distinguish to this and other linked-view analysis based approaches by showing abstracted information derived from a preceding analyze-first step to highlight relationships rather than displaying the actual data using various information visualization techniques.
+In contrast to their method and other linked-view analysis based approaches, we show abstract information derived from a preceding analyze step to highlight relationships rather than displaying the actual data with various information visualization techniques.
 
 %%
-Generalized Pairs plots (\texttt{GPLOM´S}) extend the idea of scatter plot matrices by pairwise visualizing heterogeneous data using type-combination-dependent visualizations \cite{GPLOMS, Francois2013}.
+Generalized Pairs plots (\texttt{GPLOM´S}) extend the idea of scatter plot matrices by the pairwise depiction of heterogeneous data using type-combination-dependent visualizations \cite{GPLOMS, Francois2013}.
 %%
-The techniques are useful for selected features or a data set with a small number of features due to their increase in complexity with every additional parameter and are therefore suitable for small epidemiological data sets.
+The techniques are useful for selected features or a data set with a small number of features due to their increase in complexity with every additional parameter and are therefore only suitable for small epidemiological data sets.
 %%
 Dai et al. \cite{Dai2005} incorporate small multiples using a \texttt{GPLOM}-like visualization using choropleth maps mapping spatial data, such as mortality rates together with scatter plots augmented with Pearsson's r values.
 %%
-A \emph{concept map} summarized features related to a specified disease.
+A \emph{concept map} summarizes features related to a specified disease.
 %%
 Time-dependent epidemiological data is visualized by Chui et al. \cite{Chui2011} using multi-panel graphs highlighting risk factor differences with age and gender towards influenza- and salmonellosis-associated hospitalizations.
 %%
@@ -557,21 +562,21 @@ We also include confounder features (age, gender) into the analysis while focusi
 %%
 Statistical analysis is an inherent part of Visual Analysis.
 %%
-Here we present work showing a strong focus on statistical analysis in this context.
+Here, we present work showing a strong focus on statistical analysis in this context.
 %% Quality Metrics in High-Dimensional Data Visualization - An Overview and Systematization
-Bertini et al. \cite{Bertini} present a overview over quality metrics describing high dimensional data.
+Bertini et al. \cite{Bertini} present an overview over quality metrics describing high dimensional data.
 %%
-Their research agenda acts as guideline for our design, comprising applications using domain-experts, perceptual tuning towards human pattern recognition of important aspects and scalability between different data set sizes.
+Their research agenda acts as guideline for our design, comprising applications using domain experts, perceptual tuning towards human pattern recognition of important aspects and scalability between different data set sizes.
 %%
 %% TODO: Use this one? "Statistical resilience of random populations to random perturbations" - http://www.ncbi.nlm.nih.gov/pubmed/19256997 - wie eine Variable sich ändert, wenn man per Zufall die Populationen verändert, um zu schauen wie zuverlässig diese Statistik ist.
 %% The Sparse Regression Cube: A Reliable Modeling Technique for Open Cyber-physical Systems
-Ahmadi et al. \cite{Ahmadi} define the \emph{Sparse Regression Cube}, which partitions sparse high-dimensional into subspaces, which are then described using by their most reliable linear regression model.
+Ahmadi et al. \cite{Ahmadi} define the \emph{Sparse Regression Cube}, which partitions sparse high-dimensional into subspaces, which are then described by their most reliable linear regression model.
 %%
 %In their application, they try to find most fuel-efficient roads connecting two user-defined landmarks.
 %%
-They focus on presenting a algebraic for efficient regression-model calculation to find the best fit for a subspace.
+They focus on presenting an algebraic for efficient regression-model calculation to find the best fit for a subspace.
 %%
-The dimensions for the calculations are fixed, while we assess different features for each model calculation and can therefore not benefit from a hierarchical calculation approach.
+The dimensions for the calculations are fixed. In contrast, we assess different features for each model calculation and can therefore not benefit from a hierarchical calculation approach.
 
 %% Hierarchical Brushing of High-Dimensional Data Sets Using Quality Metrics
 Albuquerque et al. \cite{Albuquerque} present an interactive exploration framework displaying quality metrics of high dimensional data sets with brushing facilities to create subsets.
@@ -589,9 +594,9 @@ The approach was applied to a cognitive aging studies, where new hypotheses coul
 %Hielscher et al. \cite{Hielscher} assess subject similarity towards hepatic steatosis (fatty liver disease) to identify common risk factors using [...]?
 %\com{Uli, can you please complete this, I do not have the pdf available!}
 %% Learning and inspecting classification rules from longitudinal epidemiological data to identify predictive features on hepatic steatosis
-Niemann et al. \cite{Niemann2014} investigate risk factors of the hepatic steatosis using decision trees with a interactive data mining tools.
+Niemann et al. \cite{Niemann2014} investigate risk factors of the hepatic steatosis using decision trees with interactive data mining tools.
 %%
-They extracted association rules, which serve as basis for this works proof-of-concept evaluation.
+They extracted association rules that serve as basis for a proof-of-concept evaluation.
 %%
 In \cite{Niemann2015}, Niemann et al. improve on classification performance by generating features (called \emph{Evolution Features}) that describe latent temporal information across the study waves.
 %%
@@ -600,27 +605,30 @@ We try to reproduce their results and investigate their findings further.
 %\com{Glaßer, S., Niemann, U., Preim, B., and Spiliopoulou, M. (2013). Can we Distinguish Between Benign and Ma- lignant Breast Tumors in DCE-MRI}
 
 \paragraph{Prior Work.}
-In recent publications, we analyzed the healthy aging process of the lumbar spine.
+In our prior work, we analyzed the healthy aging process of the lumbar spine.
 %%
-Therefore, we utilized semiautomatic detection algorithm do detect the lumbar spine shape \cite{Klemm2013VMV}.
+Therefore, we utilized semiautomatic detection algorithms to analyze the lumbar spine shape \cite{Klemm2013VMV}.
 %%
-The reliable part of the presented models are represented by the shape of the lumbar spine canal, which was extracted and described using line representation.
+The presented models focussed on the lumbar spine canal and its shape, which was approximated and described with a line representation.
 %%
 
-We defined an Interactive Visual Analysis workflow for image-centric cohort study data, by extending the feature selection step (see \ref{sec:Background}) with an iterative analysis loop incorporating group selection and visualization using expert-input as well as clustering methods \cite{Klemm2014VIS}.
+We defined an Interactive Visual Analysis workflow for image-centric cohort study data, by extending the feature selection step (recall \ref{sec:Background}) with an iterative analysis loop incorporating group selection and visualization using expert input as well as clustering methods \cite{Klemm2014VIS}.
 %%
-Information visualizations of cohort study features were augmented with extracted image data, yielding linked views with both image-and non-image information.
+Information visualizations of cohort study features were augmented with extracted image data, yielding linked views with both image and non-image information.
+%% 
+% erst die Erkl�rung, dann die Folge daraus =)
+The mosaic plot presented in \cite{Klemm2014VIS} highlights the pairwise correlation between features without a target disease by depicting the \emph{Cram\'{e}r's V} contingency values.
 %%
-The popularity of the mosaic plot depicting \emph{Cram\'{e}r's V} contingency values among our domain experts was the inspiration for this work.
+Its great popularity among our domain experts was the inspiration for this work.
 %%
-The mosaic plot presented in \cite{Klemm2014VIS} only highlights pairwise correlation between features without a target disease.
+
 
 %% TODO: Check DLPD for correct page numbers
-While the presented techniques were well received with epidemiological experts, the explanatory power towards back pain was limited, yielding an analysis based on image-derived features, such as extracting and analyzing curvature, torsion and angle of the lumbar spine \cite{Klemm2015}.
+While the presented techniques were well received by the epidemiological experts, the explanatory power towards back pain was limited, yielding an analysis based on image-derived features, such as extracting and analyzing curvature, torsion and angle of the lumbar spine \cite{Klemm2015}.
 %%
 %These measures were analyzed using a novel decision tree quality plot towards non-image data.
 %%
-We concluded that the model quality is not enough to characterize back pain.
+We concluded that the model quality is insufficient to characterize back pain.
 \\\\
 The difference of the presented approach towards our previous and related work is twofold:
 \begin{enumerate}
