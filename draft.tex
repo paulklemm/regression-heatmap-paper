@@ -176,9 +176,9 @@ Epidemiology aims to characterize health and disease conditions in defined popul
 %%
 Insights about risk factors allow to characterize disease-specific high-risk groups and act as important diagnostic key figures \cite{Fletcher2012}.
 %%
-Furthermore, they can be used to derive recommendations regarding a healthy lifestyle or to provide information about wide-spread diseases.
+Furthermore, the insights can be used to derive recommendations regarding a healthy lifestyle or to provide information about wide-spread diseases.
 %%
-During the standard workflow, physicians transform observations into hypotheses, which are depicted using epidemiological features and then assessed using regression analyses.
+During the standard workflow, physicians transform observations into hypotheses, which are depicted using epidemiological features and then statistically analyzed.
 
 An important epidemiological tool for deriving such features is the evaluation of a \emph{cohort study}, such as the Study of Health in Pomerania (SHIP) \cite{Volzke2011}.
 %%
@@ -195,7 +195,8 @@ These data may be quantified based on user-defined landmarks, which describe att
 
 Testing features for association with diseases using regression analysis is one of the most important epidemiological tools.
 %%
-Using it to assess the statistical resilience of a hypothesis rarely involves \emph{more than three features} due to the required subject count.
+%Using it to assess the statistical resilience of a hypothesis rarely involves \emph{more than three features} due to the required subject count.
+Using it to assess the statistical resilience of a hypothesis rarely involves \emph{more than three features} due to the higher dimensional problem and required subject count.
 %%
 % missing overview techniques ist zu hart; es gibt ja techniken (eine scatterplot matrix zb.)
 Due to the amount of data and only limited overview techniques, possible correlations may be missed.
@@ -250,22 +251,31 @@ Reproducibility of results is an epidemiological key requirement and guides all 
 %%
 Statistical programs, such as \texttt{SPSS}, are used to analyze the data using the classical sequential epidemiological workflow. Hence, images are mostly used for the communication of results, rather than for providing insight into the data.
 %%
-An alternative data-driven approach is described as follows.
 
-\paragraph{Data Driven Hypothesis-Generation-based Analysis.}
-We already described an Interactive Visual Analysis approach for image-centric cohort study data, which connects to the variable listing step \cite{Klemm2014VIS}.
+In \cite{Klemm2014VIS} we described an Interactive Visual Analysis approach for image-centric cohort study data, which connects to the variable listing step.
 %%
-Their methods aim to derive hypotheses through analysis of the data and observations about previously unknown feature correlations.
+The methods aim to derive hypotheses through analysis of the data and observations about previously unknown feature correlations.
 %%
 Employing \emph{hypotheses generation} requires overview visualizations of feature correlations, which are not supported by standard statistical processors.
+%%
+In this work, we focus on a similar approach to deriving insight and even new hypotheses through the data rather than using it just for confirmatory analysis.
+%An alternative data-driven approach is described as follows.
+%%
+% \paragraph{Data Driven Hypothesis-Generation-based Analysis.}
+% We already described an Interactive Visual Analysis approach for image-centric cohort study data, which connects to the variable listing step \cite{Klemm2014VIS}.
+% %%
+% The methods aim to derive hypotheses through analysis of the data and observations about previously unknown feature correlations.
+% %%
+% Employing \emph{hypotheses generation} requires overview visualizations of feature correlations, which are not supported by standard statistical processors.
 
 \subsection{Epidemiological Data} \label{sec:EpidemiologicalData}
 %%
 %\com{Bernhard: Due to overlaps to VIS'14 paper in this section, this can be shortened. E.g. "More discussion of data types and characteristics can be found in [...]"}
 %%
-\emph{Cohort studies} are a major epidemiological tool for gathering epidemiological features.
+There are many data acquisition modalities available to epidemiologists, which are suitable for different analysis types.
 %%
-They yield a highly heterogenous and incomplete information space.
+%We focus on cohort studies are a major epidemiological tool for gathering epidemiological features.
+We focus on cohort studies, which impose the largest data sets and yield a highly heterogenous and incomplete information space.
 %%
 Subject data are collected either towards a specific disease or with the widest range possible.
 %%
@@ -280,7 +290,7 @@ Many features are sparse, such as follow up questions about a medication or trea
 Other features are exclusive for a sub-group, such as women-specific questions, e.g., number of born children or period status.
 %%
 %\com{Restriction of amount of data because it must not be triangulated and because the ethics committees are very restrictive}
-\\\\
+
 %\paragraph{Data Types.}
 %%
 Medical status variables or lifestyle factors are often of \emph{dichotomous} (binary) type.
@@ -298,8 +308,8 @@ Medical image data is also acquired and analyzed in modern cohort studies.
 %%
 We incorporate image-derived features, but do not put focus on analyzing image data.
 %%
-More discussion of data types and characteristics can be found in \cite{Klemm2014VIS, Toennies2015, Preim2014}.
-
+More discussion of cohort study data types and characteristics can be found in \cite{Klemm2014VIS, Toennies2015, Preim2014}.
+%%
 %\paragraph{Image Data.}
 % \com{Can probably be cut (reference to Klaus' Paper for more details on this) (see Bernhards comment above)}
 % %%
@@ -316,11 +326,14 @@ More discussion of data types and characteristics can be found in \cite{Klemm201
 % Automatic or semi-automatic solutions are a remedy for this problem, but are costly and need to be tailored to the structure of interest \cite{Toennies2015}.
 % %%
 % Image-derived variables are either dichotomous variables indicating a medical finding by a radiologist or continuous, describing the shape of segmented structures (e.g. volume or diameter).
-
-\paragraph{Confounding Features.}
-Features influencing the exposure as well as the outcome of an analysis are called confounders.
+\\\\
+%\paragraph{Confounding Features.}
+Features influencing the exposure as well as the outcome of an analysis are called \emph{confounders} and have to be specially treated.
+%Confounding features have to be considered in epidemiological analysis, as they influence both the exposure as well as the outcome of an analysis.
 %%
-The analysis model has to be adjusted by normalizing all included features towards the confounding feature.
+%Features influencing the exposure as well as the outcome of an analysis are called confounders.
+%%
+The analysis model has to be adjusted by normalizing all included features towards the confounder.
 %%
 \emph{Age} is included as confounder in almost any epidemiological analysis, since most diseases (such as different cancer types) are more likely with increasing age.
 %%
@@ -354,17 +367,20 @@ Dependent \sim Independent_1 + ... + Independent_n
 \label{eq:RegressionNotation}
 \end{equation}
 %%
+A example of a regression formula would be $Kidney\_Disorder ~ Smoking + Obesity$.
 The most used regression operators comprise:
 %%
 \begin{itemize}
-	\item \fbox{$+,-$} inclusion/exclusion of the variable,
+	\item $+,-$ inclusion/exclusion of the variable,
 	\item $:$ inclusion of interactions between the variables (e.g. $x:y$),
 	\item $*$ inclusion the variables as well as their interactions (e.g. $x*y$)
 	\item $|$ (conditioning) inclusion of variable x, given y (e.g. $x|y$)
 \end{itemize}
 %%
 The type of the target feature restricts the regression type.
-
+%%
+Different regression types are available, we focus on the following:
+%%
 \paragraph{Linear Regression for Continuous Target.} The basic type is the linear regression, creating a linear map from the space comprising the \emph{independent} features to the \emph{dependent} features.
 %%
 The \emph{dependent} variable has to be of a continuous type.
@@ -374,7 +390,7 @@ The \emph{dependent} variable has to be of a continuous type.
 %%
 The target is described by fitting a logistic function.
 %%
-Logistic models as opposed to linear models do not allow for extracting an $R^2$ goodness of fit value.
+Logistic models as opposed to linear models do not allow for extracting an $R^2$ quality of fit value.
 %%
 Therefore, pseudo-$R^2$ values are extracted, such as the \emph{Nagelkerke $R^2$}, which mimics the behavior of the $R^2$.
 %%
@@ -442,16 +458,16 @@ but without any additional statistical information.
 Linked views of model deviations allow to select outliers.
 %%
 %... ein bisschen zusammengefasst, da imho zu detailliert.
-Comparison of models is also included by mapping model values on line-style (e.g., solid or dashed) which limits the method to comparing only a few models at once.
+This limits the method to comparing a few models at once as the plot matrix gets complex with increasing feature number.
 %%
-Furthermore, the plot matrix representation gets too complex and harder to understand with increasing number of independent features.
+%The plot matrix representation however gets complex and harder to understand with increasing number of independent features.
 %%
 The main difference is their focus on analyzing one complex model in detail, yielding extensive plots, while we analyze a large amount of simpler models towards \emph{different} features.
 %%
 % 2x also entfernt
 They also focus on metric features, while we process categorical data as well.
 %%
-We share the matrix arrangement of results depicting relationships between independent features in a model.
+%We share the matrix-arrangement of results depicting relationships between independent features in a model.
 
 %% Regression Cube: A Technique for Multidimensional Visual Exploration and Interactive Pattern Finding
 We use the term Regression Cube for a comparative 3D representation of multiple regression models.
@@ -478,13 +494,13 @@ They use the system to find longitudinal pathways for diseases using subject hea
 %%
 Sub-groups are automatically created by applying \emph{analytics} and expert-guided \emph{views}.
 %%
-They do not go into detail w.r.t the analytics used. They also seem to not incorporate confounder analysis (other than dividing groups by gender) and the user study lacks concrete goals.
+%They do not go into the detail w.r.t the analytics used, they seem to not incorporate confounder analysis (other than dividing groups by gender) and the user study lacks concrete goals.
 %%
-Their data differs strongly from ours, having multiple moments for each subject, yielding an approach focused on finding pathways of interest.
+%Their data differs strongly from ours, having multiple moments for each subject, yielding a approach focused on finding pathways of interest.
 %%
-We use their requirements as guidelines, which incorporate \emph{flexible} and \emph{iterative analysis}, meaning that the system has to adapt to different requirements in different analysis steps.
+We use their requirements as guidelines, which incorporate \emph{flexible} and \emph{iterative analysis}. %, meaning that the system has to adapt to different requirements in different analysis steps.
 %%
-We implement this by supporting both: hypothesis-based and hypothesis-free analyses.
+%We implement this by supporting both hypothesis-based and hypothesis-free analysis.
 
 Angelelli et al. \cite{Angelelli} visualize image-derived an non-image data using cube data structures with focus on comparison and knowledge extraction.
 %%
@@ -494,19 +510,19 @@ Their proposed engine represents multiple heterogenous cohort study data sets as
 %%
 %Their presented aggregation functions allow for a fast data calculation to map it using different linked visualizations, such as scatter plots, bar charts or histograms.
 %%
-They use \emph{Pearsson's r} to depict relationships towards target features and employ list views and scatter plots to visualize and rank them.
+They use \emph{Pearsson's} $r$ to depict relationships towards target features and employ list views and scatter plots to visualize and rank them.
 %%
-In contrast, we use regression models and associated $R^2$ values to depict relationships between a target feature and multiple independent features instead of one and employ the information into one global visualization.
+%We use regression models and associated $R^2$ values to depict relationships between a target feature and multiple independent features instead of one and employ the information into one global visualization.
 %%
 Also, we aim at a fast conducting large scale correlation analysis between many features to derive insight into the data.
 
 \paragraph{Visual Analysis in Public Health.}
 %%--
-Shneiderman et al. \cite{Shneiderman2013} highlight the necessity of interactive visualizations in healthcare data, e.g., using \emph{Health 2.0}, which is an umbrella for web-based health-informatics frameworks.
+Shneiderman et al. \cite{Shneiderman2013} highlight the necessity of interactive visualizations in healthcare data. %, e.g. using \emph{Health 2.0}, which is an umbrella for web-based health-informatics frameworks.
 %%
-They divide Health 2.0 in three domains: \emph{personal health information}, \emph{clinical health information}, and \emph{public health information}.
+%They divide Health 2.0 in three domains, \emph{Personal health information}, \emph{clinical health information}, and \emph{public health information}.
 %%
-We focus on the latter.
+%We focus on the latter.
 %%
 %Shneiderman and colleagues also present challenges, 
 The presented challenges in this application comprise the systems to be sufficiently comprehensible and intuitive to fit into the short time span clinicians have when analyzing data.
@@ -514,11 +530,13 @@ The presented challenges in this application comprise the systems to be sufficie
 Furthermore, the systems should provide comparative relationship visualization, characterization of similarity and presenting risks.
 %%
 %We use the challenges as design guidelines for our web-based prototype, focusing on functional clean designs to allow fast insight into relationships towards diseases.
+%%
+%%
 
 %%
 In their survey on interactive information visualizations for health record data, Rind et al. \cite{Rind} identified future work addressing the usability of such frameworks.
 %%
-They recommend an opening up analysis system to a diverse target group, e.g., including patients, who can also observe information about their own lifestyle and associated risks.
+%We follow their recommendation in designing an open system available to everyone, applicable to a various data sets.
 %%
 We follow their recommendation to design an open system available to everyone and applicable to various data sets.
 
@@ -542,27 +560,25 @@ They incorporate linked views using scatter plots, bar charts, parallel coordina
 %%
 %Medical image data can be incorporated to investigate potentially interesting individuals.
 %%
-In contrast to their method and other linked-view analysis based approaches, we show abstract information derived from a preceding analyze step to highlight relationships rather than displaying the actual data with various information visualization techniques.
-
+%%We distinguish to this and other linked-view analysis based approaches by showing abstracted information derived from a preceding analyze-first step to highlight relationships rather than displaying the actual data using various information visualization techniques.
 %%
 Generalized Pairs plots (\texttt{GPLOM´S}) extend the idea of scatter plot matrices by the pairwise depiction of heterogeneous data using type-combination-dependent visualizations \cite{GPLOMS, Francois2013}.
 %%
-The techniques are useful for selected features or a data set with a small number of features due to their increase in complexity with every additional parameter and are therefore only suitable for small epidemiological data sets.
+The techniques are useful for selected features or a data set with a small number of features due to their increase in complexity with every additional parameter and are therefore suitable for \emph{small} epidemiological data sets.
 %%
-Dai et al. \cite{Dai2005} incorporate small multiples using a \texttt{GPLOM}-like visualization using choropleth maps mapping spatial data, such as mortality rates together with scatter plots augmented with Pearsson's r values.
+Dai et al. \cite{Dai2005} incorporate a \texttt{GPLOM}-like visualization using choropleth maps mapping spatial data, such as mortality rates together with scatter plots augmented with \emph{Pearsson's} $r$ values.
 %%
 A \emph{concept map} summarizes features related to a specified disease.
 %%
 Time-dependent epidemiological data is visualized by Chui et al. \cite{Chui2011} using multi-panel graphs highlighting risk factor differences with age and gender towards influenza- and salmonellosis-associated hospitalizations.
 %%
-We also include confounder features (age, gender) into the analysis while focusing on non-time-dependent cohort study data sets.
+%We also include confounder features (age, gender) into the analysis while focusing on non-time-dependent cohort study data sets.
 %%
-
 \paragraph{Statistical Analysis.}
 %%
-Statistical analysis is an inherent part of Visual Analysis.
+%Statistical analysis is an inherent part of Visual Analysis.
 %%
-Here, we present work showing a strong focus on statistical analysis in this context.
+%Here we present work showing a strong focus on statistical analysis in this context.
 %% Quality Metrics in High-Dimensional Data Visualization - An Overview and Systematization
 Bertini et al. \cite{Bertini} present an overview over quality metrics describing high dimensional data.
 %%
@@ -576,16 +592,16 @@ Ahmadi et al. \cite{Ahmadi} define the \emph{Sparse Regression Cube}, which part
 %%
 They focus on presenting an algebraic for efficient regression-model calculation to find the best fit for a subspace.
 %%
-The dimensions for the calculations are fixed. In contrast, we assess different features for each model calculation and can therefore not benefit from a hierarchical calculation approach.
+%The dimensions for the calculations are fixed, while we assess different features for each model calculation and can therefore not benefit from a hierarchical calculation approach.
 
 %% Hierarchical Brushing of High-Dimensional Data Sets Using Quality Metrics
 Albuquerque et al. \cite{Albuquerque} present an interactive exploration framework displaying quality metrics of high dimensional data sets with brushing facilities to create subsets.
 %%
-These subsets are then analyzed in detail, following a drilling-down approach.
+%These subsets are then analyzed in detail, following a drilling-down approach.
 %%
-They incorporate scatter plot matrices (\texttt{SPLOM´S}) of quality metrics describing the features.
+They analyzing subsets using a drilling-down approach by incorporating scatter plot matrices (\texttt{SPLOM�S}) of quality metrics. %describing the features.
 %%
-We incorporate the idea of abstracting features for comparison.
+%We incorporate the idea of abstracting features for comparison.
 %%
 Turkay et al. \cite{Turkay} follow a similar approach by using both descriptive metrics for features as well as the features themselves and incorporate them into linked plots.
 %%
@@ -607,9 +623,9 @@ We try to reproduce their results and investigate their findings further.
 \paragraph{Prior Work.}
 In our prior work, we analyzed the healthy aging process of the lumbar spine.
 %%
-Therefore, we utilized semiautomatic detection algorithms to analyze the lumbar spine shape \cite{Klemm2013VMV}.
+We utilized semiautomatic detection algorithm do detect the lumbar spine shape \cite{Klemm2013VMV}.
 %%
-The presented models focussed on the lumbar spine canal and its shape, which was approximated and described with a line representation.
+%The reliable part of the presented models are represented by the shape of the lumbar spine canal, which was extracted and described using line representation.
 %%
 
 We defined an Interactive Visual Analysis workflow for image-centric cohort study data, by extending the feature selection step (recall \ref{sec:Background}) with an iterative analysis loop incorporating group selection and visualization using expert input as well as clustering methods \cite{Klemm2014VIS}.
@@ -761,7 +777,7 @@ The next section shows ways of abstracting the results to make them visually fea
  \caption{
  (left) Overview visualization using a mosaic plot for the formula $Z \sim X + Y$, where $Z$ assumes feature $Age$.
  %%
- The $R^2$ values extracted from the regression formulas depict the goodness of fit and are mapped to color saturation.
+ The $R^2$ values extracted from the regression formulas depict the quality of fit and are mapped to color saturation.
  %%
  A saturated color shows a strong correlation.
  %%
@@ -780,7 +796,7 @@ As described in our previous work \cite{Klemm2014VIS}, correlation values scaled
 %%
 Regression models are more complex, having many associated describing metrics.
 %%
-For the \emph{Regression Cube} analysis we are interested in the goodness of fit of the resulting model, which allows to infer about the predictive quality of the independent features included in the model.
+For the \emph{Regression Cube} analysis we are interested in the quality of fit of the resulting model, which allows to infer about the predictive quality of the independent features included in the model.
 %%
 As described in Section~\ref{sec:RegressionAnalysis}, the $R^2$ value is the metric allowing for this kind of assessment.
 %%
