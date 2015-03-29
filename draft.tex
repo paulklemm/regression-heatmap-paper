@@ -1194,14 +1194,15 @@ the values are projected on this plane to give an overlapping-free view on the d
 %%
 The 2D mosaic visualization (Fig.~\ref{fig:System} c) shows all values below the matrix diagonal of the current slice, creating optical equivalence towards the 3D cube.
 %%
-To reduce visual clutter, the 2D view only shows dimensions, which are retrieved through the correlation based feature selection.
+To reduce visual clutter, the 2D view only shows dimensions, which are retrieved through the correlation-based feature selection.
 %%
 The free space above the matrix diagonal is used to display the 3D cube.
 %%
 
 The purpose of this view is the detailed assessment of the underlying regression models.
 %%
-By hovering over a data entry in the plot, a tooltip model displays detailed information about a models coefficients, associated $p$ values and confidence intervals.
+% TODO: p values kurz nennen? woher kommen die confidence intervals?
+By hovering over a data entry in the plot, a tooltip model displays detailed information about a model's coefficients, associated $p$ values and confidence intervals.
 %%
 
 %\com{Simplicity of interface to allow for steep learning curve.}
@@ -1216,7 +1217,7 @@ By hovering over a data entry in the plot, a tooltip model displays detailed inf
  \centering
  \includegraphics[width=3.5in]{figures/implementation}
  \caption{
- The front-end (left) is written in \emph{HTML5}/\emph{CSS3}/\emph{Javascript} and uses different Javascript libraries, such as \emph{Angularjs}, \emph{Three.js} and D3js.
+ The front-end (left) is realized with \emph{HTML5}/\emph{CSS3}/\emph{Javascript} and different Javascript libraries, such as \emph{Angularjs}, \emph{Three.js} and D3js.
  %%
  The web-server back-end (right) is written in \emph{Nodejs}, hosting is carried out using \emph{Heroku}.
  %%
@@ -1238,7 +1239,7 @@ By hovering over a data entry in the plot, a tooltip model displays detailed inf
 % %%
 %%
 We rely on web-based technologies for our prototype.
-%%
+%% TODO: nochmal Hinweis auf High dimensionality of data?!
 The ongoing transition of open-science software into the web spawned numerous projects, making state-of-the-art algorithms available in this domain.
 %%
 \paragraph{Front-End.}
@@ -1249,6 +1250,7 @@ The front-end is created using \texttt{HTML5}, \texttt{CSS3} and \texttt{Javascr
 %%
 \texttt{Angular.js} is forcing developers to write modularized code, which makes the components easier expandable while keeping the code maintainable by including unit tests.
 %%
+% UI muss mal erklärt ewrden, tauchte schon weiter vorn im Paper auf
 The page layout is handled using \texttt{Twitter Bootstrap}\footnote{Open Source; Maintained by Twitter, \href{http://getbootstrap.com}{\texttt{getbootstrap.com}}}, which also provides a rich set of UI elements with proper stylings.
 %%
 The 2D mosaic plot is implemented using \texttt{Data driven Documents} (\texttt{D3.js}), which is popular in information visualization using vector graphics \cite{D3}.
@@ -1263,7 +1265,7 @@ Open source volume rendering methods are available but do not satisfy our requir
 %%
 Creating a cube primitive for each data point resulted in non-interactive frame-rates for data sets larger than 30 features (creating 30$^3$ cube primitives).
 %%
-We use a shader-based solution by rendering the cube as a sprite based particle system, allowing to customize color and opacity of every data point.
+Therefore, we decided to use a shader-based solution by rendering the cube as a sprite-based particle system, allowing to customize color and opacity of every data point.
 %%
 It also is the fastest solution that we tested.
 
@@ -1281,7 +1283,7 @@ They rely on the statistical programming language \texttt{R}.\footnote{Open Sour
 %%
 It is widely adopted in the statistical analysis community, yielding a rich support of fast state-of-the-art statistics algorithms as well newly published methods.
 %%
-\texttt{OpenCPU} is a \texttt{R} package and provides a API for accessing it via HTTP calls \cite{Ooms}.
+\texttt{OpenCPU} is an \texttt{R} package and provides an API for accessing it via HTTP calls \cite{Ooms}.
 %%
 This way, any computer, which runs \texttt{R} can be turned into a statistical processor for our project.
 %%
@@ -1318,11 +1320,11 @@ The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{www.h
  \caption{
  The analysis of the numerical and dichotomized target feature depicting liver-fat values yields similar results (left).
  %%
- In (a), hotspots for somatometrical features with high correlations were found.
+ In (a), hot spots for somatometrical features with high correlations were found.
  %%
  High correlations were also found for features depicting \emph{hepatic steatosis} (b).
  %%
- A high correlations between \emph{Interleukin-6}, \emph{hepatic steatosis}, \emph{GGT} and \emph{Lipase} (highlighted using arrows) was found during the analysis using the 2D mosaic plot.
+ A high correlation between \emph{Interleukin-6}, \emph{hepatic steatosis}, \emph{GGT} and \emph{Lipase} (highlighted using arrows) was revealed during the analysis using the 2D mosaic plot.
  %%
  \com{Caption Breast Fat Data}
  }
