@@ -121,7 +121,7 @@ Furthermore, the influences of features can be assessed using a difference view 
 %%
 We applied our \emph{Regression Cube} method to a hepatic steatosis data set to reproduce results from a data-mining driven analysis.
 %%
-A qualitative analysis with three domain experts was conducted on a breast fat data set.
+A qualitative analysis was conducted on a breast fat data set.
 %%
 We were able to derive new hypotheses about relations between breast fat density and breast lesions towards breast cancer.
 %%
@@ -196,12 +196,12 @@ These data may be quantified based on user-defined landmarks, which describe att
 Testing features for association with diseases using regression analysis is one of the most important epidemiological tools.
 %%
 %Using it to assess the statistical resilience of a hypothesis rarely involves \emph{more than three features} due to the required subject count.
-Using it to assess the statistical resilience of a hypothesis rarely involves \emph{more than three features} due to the higher dimensional problem and required subject count.
+Using it to assess the statistical resilience of a hypothesis rarely involves \emph{more than three features} due to the higher dimensional problem and the required subject count.
 %%
 % missing overview techniques ist zu hart; es gibt ja techniken (eine scatterplot matrix zb.)
 Due to the amount of data and only limited overview techniques, possible correlations may be missed.
 %%
-Explorative analyses and overview visualizations of the data set as presented by Klemm et al. \cite{Klemm2014VIS} are not tailored to a specific target variable and mostly highlight correlations between variables, which are known to the domain expert (e.g., correlation between body size and spine shape).
+Explorative analyses and overview visualizations of the data set as presented in prior work \cite{Klemm2014VIS} are not tailored to a specific target variable and mostly highlight correlations between variables, which are known to the domain expert (e.g., correlation between body size and spine shape).
 %%
 We incorporate the regression analysis, which is familiar to the domain experts, into overview visualizations to support a hypothesis-free analysis or an analysis towards a specific disease or hypothesis.
 %%
@@ -218,10 +218,10 @@ Our contributions are:
 	\item Freely adjustable regression formulas provide a simple, yet powerful way to adjust the regression analysis to specific hypotheses about the data.
 	\item The analysis of confounding variables by providing comparison views between different formula results.
 %	\item The open and web-based approach of the system allows for analysis of any data using the presented method.
-	\item The expansion and adaption of our method to any data with our open and web-based system.
+	\item The expansion and adaption of our method to any data with our open web-based system.
 \end{itemize}
 %%
-The term Regression Cube has been used for the detailed analysis of one or a small number of regression models \cite{Chan, Ahmadi}.
+The term `Regression Cube' has been used for the detailed analysis of one or a small number of regression models \cite{Chan, Ahmadi}.
 %%
 They extend 2D scatter plots to display detailed information about a regression model.
 %%
@@ -752,14 +752,14 @@ For $Z \sim X + Y$ the CFS algorithm is applied to the data every time $Z$ is re
 
 The number of features calculated by the CFS algorithm is dependent on the information entropy in the data.
 %%
-In our epidemiological data, we usually observed a number of 10 to 20 features.
+In our epidemiological data, we usually observed a number of 10 to 30 features.
+%For features, which affect the most other features (Recall "Confounder" in Section~\ref{sec:EpidemiologicalData}), e.g., age or gender,  the number is significantly larger (about half the features in the whole data set).
 %%
-% Was heißt der Termin in Klammern? 1. Weg; 2. "ca. 50% of the feature set 
-For features, which affect the most other features (Recall "Confounder" in Section~\ref{sec:EpidemiologicalData}), e.g., age or gender,  the number is significantly larger (about half the features in the whole data set).
+The number of selected features using the CFS algorithm reflects their information entropy on the target.
 %%
-The number of features extracted is not directly associated with the overall number, but rather on their information entropy towards each other.
+A large list of features is an expression of low correlation to the target feature.
 %%
-\com{Uli, is this correct this way?}
+%The number of features extracted is not directly associated with the overall number, but rather on their information entropy towards each other.
 %%
 
 With this method, we are able to derive the interesting regression models in a reasonable time span.
@@ -912,7 +912,7 @@ All combinations of three independent features towards the target are analyzed t
 
 $Cancer \sim X + Y + Z + feature_1:feature_2$ encodes more assumptions.
 %%
-This formula models the hypothesis of an interaction between $feature_1$ and $feature_2$ (denoted with $:$) being relevant for the target feature, but it is not clear how other feature combination influence the result.
+This formula models the hypothesis of an interaction between $feature_1$ and $feature_2$ (denoted with `$:$') being relevant for the target feature, but it is not clear how other feature combination influence the result.
 %%
 Therefore, the cube incorporates this interaction for all $X$,$Y$ and $Z$ values as independent features.
 %%
@@ -1119,15 +1119,22 @@ Along the diagonal, $X$ and $Y$ assume the same feature, $Z ~ X + Y$ turns into 
 The diagonal therefore acts as reference on how strong the correlation for the given row (or column) feature is.
 
 \paragraph{3D-Prism as Data Mini-Map.}
-\com{Add section about difference view for static target features.}
 %%
 The 3D-cube representation acts as an overview over the whole data set, but its purpose is not to derive detailed information about data points.
 %%
 It serves an function similar to a mini-map, guiding the attention towards points of interest in the data, as well as giving context information about adjacent data values when using the 2D mosaic plot.
 %%
-It serves the purpose of \emph{Show the Results} after the \emph{Analyze First} step in Keim's VA-Mantra.
+%It serves the purpose of \emph{Show the Results} after the \emph{Analyze First} step in Keim's VA-Mantra.
 %%
 The displayed prism shows values above the matrix diagonal.
+%%
+For formulas with a dynamic target feature (e.g. exploratory analysis using $Z \sim X + Y$), the color encodes absolute $R^2$ values (Fig.~\ref{fig:System} b).
+%%
+Applying this strategy to a formula containing a static target (e.g. $Cancer \sim X + Y + Z$) yields many occlusions, since the CFS algorithm creates the same feature space for every slice.
+%%
+For such formulas, the 3D view encodes every data element as absolute difference between its $R^2$ features and the global mean along the z-axis.
+%%
+This highlights slices with unusually low or high results (Fig.~\ref{fig:Application}).
 %%
 %% TODO: Add reference for disadvantages of 3D information visualizations!
 \paragraph{Tackling the disadvantages of 3D information visualization.}
@@ -1183,9 +1190,8 @@ the values are projected on this plane to give an overlapping-free view on the d
 %\com{display of skewed cube, combination of 2D to 3D, navigating between the two views, projection of current slice to the 3D-Cube, details on demand}
 %\\\\
 \paragraph{2D Mosaic Plot Slice Visualization [4.DD].}
-\com{Add Figure reference!}
 %%
-The 2D mosaic visualization shows all values below the matrix diagonal of the current slice, creating optical equivalence towards the 3D cube.
+The 2D mosaic visualization (Fig.~\ref{fig:System} c) shows all values below the matrix diagonal of the current slice, creating optical equivalence towards the 3D cube.
 %%
 To reduce visual clutter, the 2D view only shows dimensions, which are retrieved through the correlation based feature selection.
 %%
@@ -1367,14 +1373,42 @@ All sessions were video recorded to be processed later on.
 %%
 We conducted a study with two participants, who also co-authored this publication.
 %%
-Domain expert for the breast fat data set analysis is KH, a clinician (10 years of experience) with focus on epidemiological research.
+Domain expert for the breast fat data set analysis is \emph{KH}, a clinician (10 years of experience) with focus on epidemiological research.
 %%
 \emph{KH} is a radiologist, responsible for the SHIP-MRI acquisition and also responsible of the mammography analysis.
 
 The hepatic steatosis data set is analyzed by \emph{UN}, a data scientists responsible for prior analysis of the data with.
 %%
 
-\emph{TI}, a statistician with focus on epidemiology (\com{TODO} years of experience) assesses the statistical reliability of the tool and the underlying methods without a focus on a specific data set.
+\emph{TI}, a statistician with focus on epidemiology (8 years of experience) assesses the statistical reliability of the tool and the underlying methods without a focus on a specific data set.
+%%
+\subsection{The Hepatic Steatosis Data Set}
+We employ the data set used in \cite{Niemann2014} to identify predictive features w.r.t. the reversible hepatic steatosis disorder.
+%%
+The dichotomous target feature is derived from the liver fat concentration measured using MRI scans.
+%%
+Liver fat concentrations of no more than 10\% are mapped to the 'negative' class; values greater than 10\% are mapped to the 'positive' class.
+%%
+The data set contains labels for 578 participants for which the MRI data was available to that point.
+%%
+The MRI scans for each subject were introduced in SHIP-2, so the target feature is present for just one of three study waves.
+
+%%
+Apart from the target feature, the data set contains 199 features, comprising socio-demographic features (gender, age), consumption behavior (e.g. alcohol or tobacco), laboratory data (e.g. sera concentrations), and two features depicting the liver ultrasound.
+%%
+%The acquisition wave is denoted using the appendix; 85 for S0 (SHIP-0), 55 for S1, 55 for S2 and 10 time-independent SNPs (DNA base pairs).
+%%
+The acquisition wave is denoted using the appendix; \emph{s0} meaning that their values have been recorded in SHIP-0 (first study moment), 50 features for \emph{s1} and 55 for \emph{s2}, alongside with 10 time-independent SNPs (DNA base pairs).
+%%
+
+In \cite{Niemann2014}, the authors show different class distribution of liver fat concentrations of women and men.
+%%
+For women a association between age and liver fat was identified.
+%Also, for women they identify that there is a association between age and liver fat concentration.
+%%
+An appropriate cut-off value of 52 years was set, yielding the most homogeneous class distribution within the resulting subsets.
+%%
+Based on these observations, we perform our analysis on three sub-populations: \emph{females}, \emph{males} and \emph{females} older than 52 years.
 %%
 \subsection{The Breast Fat Data Set}
 The breast fat data set was compiled to find associations between parenchyma tissue proportion in the female breast towards other features in the data.
@@ -1383,21 +1417,21 @@ The ratio between parenchyma and cellular connective tissue (breast density) has
 %%
 Studies describe a four to five times increased risk of getting breast cancer for participants with a breast density above 50\% \cite{Mccormack2006}.
 
-The data comprises 1.186 subjects (368 from \texttt{SHIP-2}, 818 from \texttt{SHIP-TREND-0} cohort).
+The data comprises 1.186 female subjects (368 from \texttt{SHIP-2}, 818 from \texttt{SHIP-TREND-0} cohort).
 %%
-It contains 231 dimensions, holding information about
-\begin{itemize}
-	\item \emph{somatometric features}, e.g., body size, weight or BMI, 
-	\item \emph{lifestyle features}, e.g., alcohol/tobacco consume, 
-	\item \emph{personal history}, e.g., occupation, marital status,
-	\item \emph{medical history}, e.g., current or prior diseases or laboratory values, such as cholesterol levels,
-	\item \emph{women specific features}, e.g., number of born children, contraception type or hormone replacement therapy and
-	\item \emph{mammography features} derived from the image data.
-\end{itemize}
+It contains 231 dimensions, holding information about somatometric features (e.g. body size or weight) consumption behavior (e.g. alcohol or tobacco), personal and medical history (e.g., occupation or prior diseases), women specific features (e.g., number of born children or contraception type) as well as mammography features.
+% It contains 231 dimensions, holding information about
+% \begin{itemize}
+% 	\item \emph{somatometric features}, e.g., body size, weight or BMI,
+% 	\item \emph{lifestyle features}, e.g., alcohol/tobacco consume,
+% 	\item \emph{personal history}, e.g., occupation, marital status,
+% 	\item \emph{medical history}, e.g., current or prior diseases or laboratory values, such as cholesterol levels,
+% 	\item \emph{women specific features}, e.g., number of born children, contraception type or hormone replacement therapy and
+% 	\item \emph{mammography features} derived from the image data.
+% \end{itemize}
 %%
-The latter were derived using a level set based segmentation \cite{Ivanovska2014} of MRI image data for each subject.
+The latter were derived using manual segmentation of MRI image data for each subject carried out by radiologists.
 %%
-\com{Check this with Mrs. Hegenscheid, probably most of them were segmented by hand!}
 %%
 %\com{Describe Parenchym tissue and its relation to breast cancer.}
 %\com{Describe how the data was acquired and preprocessed}
@@ -1410,66 +1444,32 @@ We converted the \texttt{SPSS} data sets to CSV and used \texttt{R} to merge the
 %%
 All features were renamed to be expressive, e.g., \emph{chro\_09a} is now denoted as \emph{Disease\_Osteoporosis}.
 %%
-This avoids the need of defining a separate data dictionary file for the \emph{Regression Cube}, translating the feature names.
+This avoids the need of defining a separate data dictionary file for translating the feature names.
 %%
-All male subjects were removed as their data does not contribute to the analysis.
+%All male subjects were removed as their data does not contribute to the analysis.
 %%
-\subsection{The Hepatic Steatosis Data Set}
-We employ a subset of the data set which was used in \cite{Niemann2014} to identify predictive features with respect to the reversible disorder hepatic steatosis (fatty liver).
-%%
-The binary target feature is derived from the liver fat concentration which was measured with Magnetic Resonance Imaging (MRI).
-%%
-In particular, participants with a liver fat concentration of no more than 10\% are mapped to the 'negative' class; values greater than 10\% are mapped to the 'positive' class.
-%%
-The data set contains labels for 578 participants for which the MRI data was available to that point.
-%%
-Note that MRI was performed only in SHIP-2, so the target feature is present for just one of three study waves.
-
-%%
-Apart from the target feature, the data set contains 199 features extracted from participants' questionnaire answers and medical tests.
-%%
-They are features on socio-demographics (sex, age, etc.), features on consumption behavior (e.g. alcohol and cigarettes), SNPs, features extracted from laboratory data (e.g. sera concentrations), and two features on the results of the liver ultrasound.
-%%
-The names of 85 features have the suffix \emph{s0} meaning that their values have been recorded in SHIP-0 (first study moment), 50 features exhibit the suffix \emph{s1} and 55 features have the suffix \emph{s2}, alongside 10 time-independent SNPs.
-%%
-
-In \cite{Niemann2014}, the authors show that women and men exhibit differences in the class distribution of the liver fat concentration.
-%%
-Also, for women they identify that there is a association between age and liver fat concentration.
-%%
-They compute an appropriate cut-off value of 52 years for which the class distribution is most homogeneous within the resulting subsets.
-%%
-Based on this observations, we perform our analysis on three sub-populations, \emph{females}, \emph{males} and \emph{females} older than 52 years.
-%%
-\subsection{Case 1: Hypothesis-free Analysis of the Breast Cancer Data Set}
-%%
-%%
-The analysis goal is to find relationships on the breast cancer data using features derived from the mammography analysis.
-%%
-Relationships between the share of parenchyma tissue on the overall breast volume are of high interest \cite{Mccormack2006}.
-%%
-
-\subsection{Case 2: Hypothesis-driven Analysis of the Hepatic Steatosis Data Set}
-\com{Add R$^2$ values}
+\subsection{Case 1: Hypothesis-driven Analysis of the Hepatic Steatosis Data Set}
 %%
 We refer to each analysis step regarding to their belonging in the VA-Mantra (Sec.~\ref{sec:Workflow}).
 %%
 The analysis goal is reproducing results based on \cite{Niemann2014}.
 %%
-Therefore, \emph{UN} started the \textbf{AF} step using the dichotomized MRI fat liver concentration using the formula $mrt\_liverfat\_s2 \sim X + Y + Z$ for \emph{male} subjects.
+Therefore, \emph{UN} started the \textbf{1.AF} step using the dichotomized MRI fat liver concentration using the formula $mrt\_liverfat\_s2 \sim X + Y + Z$ for \emph{male} subjects.
 %%
-The \emph{SI} step using the 3D cube representations locates hotspots at the end of the cube (Fig.~\ref{fig:Application} a).
+The \textbf{2.SI} step using the 3D cube representations locates hotspots at the end of the cube (Fig.~\ref{fig:Application} a).
 %%
-\textbf{ZF} by slicing through the cube using the mouse input to inspect the hotspots using the mosaic plot (\textbf{DD}) revealed high correlations for somatometric features, hepatic steatosis indicator-features as well as laboratory values, such as creatinine (\com{important for kidney}) and uric acid (\com{gout, diabetes}) magnitudes.
+\textbf{3.ZF} by slicing through the cube using the mouse input to inspect the hotspots using the mosaic plot (\textbf{4.DD}) revealed high correlations for somatometric features, hepatic steatosis indicator-features as well as laboratory values, such as creatinine (used renal retention parameter) and uric acid (among others used as gout and diabetes risk factors) magnitudes.
 %%
 Similar results present for analyzing the \emph{female} groups.
 %%
 \emph{UN} could reproduce most results, some features features exhibit lower correlations though, e.g., creatinine magnitudes.
 %%
+A slight influence of age on the target feature could be observed for women ($R^2$ of $0.09$ for females compared to $0.02$ for males).
+%%
 Relationships not described in \cite{Niemann2014} were found, such as enzymes indicating liver dysfunctions, e.g. \emph{aspartate aminotransferase}.
 %%
 Due to the difference between our regression-model approach and the decision-tree approach presented in \cite{Niemann2014}, a complete matching set of correlating features are not expected.
-
+%%
 % %%
 % The goal at the beginning of the analysis was to reproduce results based on the prior analysis.
 % %%
@@ -1509,7 +1509,7 @@ Since our method can analyze numerical target features, as opposed to decision t
 %%
 The 3D-cube representation already showed generally lower $R^2$ values, but since the analysis is now based on linear regression, the $R^2$ values can not be directly compared.
 %%
-Correlation hot spots matched with the ones from the dichotomous target, but were generally lower ($R^2$ of XX for somatometric features as opposed to XX).
+Correlation hot spots matched with the ones from the dichotomous target, but were generally lower ($R^2$ of $0.37$ for somatometric features as opposed to $0.58$).
 %%
 We conclude that the bias introduced by dichotomizing the fat liver content enforces the findings towards liver diseases, while using the numerical features is less expressive.
 %%
@@ -1526,38 +1526,54 @@ Strong effects of \emph{IL-6} with hepatic steatosis were also prior described w
 %%
 The finding is subject of further analysis.
 %%
+\subsection{Case 2: Hypothesis-free Analysis of the Breast Cancer Data Set}
+%%
+The analysis goal is to find relationships on the breast cancer data using features derived from the mammography analysis.
+%%
+Relationships between the share of parenchyma tissue on the overall breast volume are of high interest \cite{Mccormack2006}.
+%%
 \subsection{Further Feedback and Lessons Learned} \label{Lessons Learned}
 %%
 Our method was well received among the domain experts.
 %%
-The novel way of modeling expert knowledge to derive hypothesis driven overview visualizations allow for detailed analysis of target features, either disease indicators or even image-derived features.
+For the first time, they were able to derive a overview visualization custom tailored to underlying assumptions.
+%%
+In this context, \emph{TI} highlighted the ability to simultaneously analyze thousands of regression models while maintaining little time expenses for rating them.
+%The novel way of modeling knowledge to derive hypothesis driven overview visualizations allow for detailed analysis of target features, either disease indicators or even image-derived features.
 %%
 %TI commented on the 
 
-\textbf{Extracted Hypotheses have to investigated further.}
+\textbf{Extracted Hypotheses have to be investigated further.}
 %%
-Agreeing with TI's feedback, each finding and hypotheses has to be confirmed using dedicated statistical analysis.
+Agreeing with \emph{TI}'s feedback, each finding and hypothesis has to be confirmed using a dedicated statistical analysis.
 %%
-This incorporated investigating all potential confounding features as well as looking for outlier subjects.
+A accompanying search for correlations potentially highlighting confounders can be carried out using our method.
 %%
-TI commented on the possibility of adding even more regression types to model different correlation types to customize the cube even more.
+%This incorporates detailed investigation of potential confounder features as well as looking for outlier subjects.
+%%
+\emph{TI} commented on the possibility of adding more regression types to model different correlation types.% to customize the cube even more.
 %%
 %TI hinted the neccissity of different regression types, which also model non-linear relationships, but do not comprise of comparable quality-of-fit measures, such as the $R^2$.
 %%
 %\com{Tills Feedback - Regression analysis also incorporates assumptions about the data, }
 %%
 
-\textbf{Overview Visualizations are preferred over Black-box Methods.}
+\textbf{Overview Visualizations are Preferred over Black-box Methods.}
 %%
-While the classical epidemiological workflow (see Sec.~\ref{sec:Background}) represents the foundation of the research in this area, explorative analysis based on the data gains importance.
+Explorative analysis based on the data gains importance in epidemiology as the data set complexity increases.
+%While the classical epidemiological workflow represents the foundation of the research in this area, explorative analysis based on the data gains importance.
+Results from automatic `black-box' methods, such as data mining algorithm are more often obscure to the expert.
 %%
-Incorporating data mining algorithms with statistically established and overview visualizations allow for reasoning about risk factors using underlying epidemiological data sets.
+Findings and hypotheses derived through overview visualizations, however, are met with more confidence, because the user actually observed the behavior himself.
 %%
-One major advantage we observed is the confidence of an expert in the results he or she actually observe.
+The participation and steering of the analysis using human pattern-detection and expert knowledge is preferred.
 %%
-Their participation in the analysis using human pattern-detection and expert knowledge is for experts preferred over results derived using a black-box method.
+%Incorporating data mining algorithms with overview visualizations of statistical measures allow for reasoning about risk factors using underlying epidemiological data sets rather than predefined hypotheses.
 %%
-By observing expected correlations matching the expert knowledge strengthens the confidence in the method and subsequently in the hypothesis generated from unexpected relationships.
+%We  a higher confidence of an expert in a result he or she actually observed in the data rather 
+%One major advantage we observed is the confidence of an expert in the results he or she actually observe.
+%%
+Observing \emph{expected} correlations, which match the expert knowledge, strengthens the confidence in the method and, subsequently, in the hypothesis generated from unanticipated relationships.
 %%
 %\com{Include the human into the analysis provides more confidence into the result than data mining algorithms. People believe more in what they see, rather than in what they are presented by an algorithm. Regression cubes incorporate this by showing known associations as well as new ones. Preattentive feature display (either through fast slicing through a cube or by showing hot spots) helps.}
 
@@ -1568,9 +1584,10 @@ Discretization reduces the information space and introduces bias into the data a
 %%
 In contrast to many data mining algorithms, our method allows to use the concurrent analysis of heterogeneous data types.
 %%
-Investigations of the the hepatic steatosis data set with both numerical and dichotomized liver fat values showed comparable results differing in detail.%, but differences  %differing in detail.
+Investigations of the the hepatic steatosis data set with both numerical and dichotomized liver fat values showed comparable results differing in detail. %, but differences  %differing in detail.
 %%
-The overall explanatory power towards the numerical feature was lower.
+The overall explanatory power towards the numerical feature was lower, supporting the hypothesis that the dichotomized target feature already models knowledge to bias the results towards the expected result.
+%%
 %Our investigation regarding the hepatic steatosis data set confirms differences in results
 %%
 %\com{Comment on the lesson learned from the last VAST Paper - "Usage of different categorizations depending on expected outcome." Now we have continuos data.}
@@ -1580,11 +1597,11 @@ The overall explanatory power towards the numerical feature was lower.
 %%
 Important events have to be highlighted in overview visualizations to steer the users attention to interesting parts of the data.
 %%
-Poor guidance lead to potentially overlooked relationships.
+Poor guidance potentially leads to overlooked relationships.
 %%
-We found supporting mini-map visualizations, such as the 3D cube, most useful for this purpose.
+We found supporting mini-map visualizations, such as the 3D cube, most useful for this purpose, e.g., for highlighting differences rather than displaying absolute values (Fig.~\ref{fig:Application}).
 %%
-Foe example, formulas with a static target feature (e.g. $Breast\_Cancer ~ X + Y + Z$) are rendered by highlighting differences rather than absolute values in the 3D cube visualizations (see Fig.~\ref{fig:Application} left) by comparing local values with the mean along the z ray.
+%Foe example, formulas with a static target feature (e.g. $Breast\_Cancer ~ X + Y + Z$) are rendered by highlighting differences rather than absolute values in the 3D cube visualizations (see Fig.~\ref{fig:Application} left) by comparing local values with the mean along the z-ray.
 %%
 
 %This allows for fast parsing through the data 
