@@ -249,14 +249,14 @@ They indicate the per-subject chance of developing the disease.
 %%
 Reproducibility of results is an epidemiological key requirement and guides all analyses steps.
 %%
-Statistical programs, such as \texttt{SPSS}, are used to analyze the data using the classical sequential epidemiological workflow. Hence, images are mostly used for the communication of results, rather than for providing insight into the data.
+Statistical programs, such as \texttt{SPSS}, are used to analyze the data regarding the classical sequential epidemiological workflow. Hence, images are mostly used for the communication of results, rather than for providing insight into the data.
 %%
 
 In \cite{Klemm2014VIS} we described an Interactive Visual Analysis approach for image-centric cohort study data, which connects to the variable listing step.
 %%
 The methods aim to derive hypotheses through analysis of the data and observations about previously unknown feature correlations.
 %%
-Employing \emph{hypotheses generation} requires overview visualizations of feature correlations, which are not supported by standard statistical processors.
+Employing \emph{hypothesis generation} requires overview visualizations of feature correlations, which are not supported by standard statistical processors.
 %%
 In this work, we focus on a similar approach to deriving insight and even new hypotheses through the data rather than using it just for confirmatory analysis.
 %An alternative data-driven approach is described as follows.
@@ -281,7 +281,7 @@ Subject data are collected either towards a specific disease or with the widest 
 %%
 The latter allows the data set to be assessed towards different diseases.
 %%
-The feature space comprises information about lifestyle, somatometric variables, medical parameters, genetic data as well as medical image data.
+The feature space comprises information about lifestyle, somatometric variables, medical parameters, genetic data as well as medical images.
 %%
 These features are derived through different modalities, such as questionnaires, medical examinations or laboratory analyses.
 %%
@@ -290,14 +290,14 @@ Many features are sparse, such as follow up questions about a medication or trea
 Other features are exclusive for a sub-group, such as women-specific questions, e.g., number of born children or period status.
 %%
 %\com{Restriction of amount of data because it must not be triangulated and because the ethics committees are very restrictive}
-
+%%
 %\paragraph{Data Types.}
 %%
-Medical status variables or lifestyle factors are often of \emph{dichotomous} (binary) type.
+Medical status features or lifestyle factors are often of \emph{dichotomous} (binary) type.
 %%
-The data space comprises continuous variables (somatometric variables, such as body weight) as well as categorical variables (e.g. graduation type).
+%The data space comprises continuous variables (somatometric variables, such as body weight) as well as categorical variables (e.g. graduation type).
 %%
-The data heterogeneity has to be taken into account when the analysis method is chosen.
+%The data heterogeneity has to be taken into account when the analysis method is chosen.
 %%
 Continuous data are often discretized (e.g. 10 year steps for age) to equalize the variable types and to simplify the method selection.
 %%
@@ -339,7 +339,7 @@ The analysis model has to be adjusted by normalizing all included features towar
 %%
 It also influences the general body condition and thereby almost all features acquired through cohort studies.
 %%
-Another important confounder is \emph{Gender}.
+Another important confounder is \emph{gender}.
 %%
 Other confounders have to be selected by epidemiologists specific to the investigated condition.
 
@@ -367,7 +367,7 @@ Dependent \sim Independent_1 + ... + Independent_n
 \label{eq:RegressionNotation}
 \end{equation}
 %%
-A example of a regression formula would be $Kidney\_Disorder ~ Smoking + Obesity$.
+A example of a regression formula would be $KidneyDisorder \sim Smoking + Obesity$.
 The most used regression operators comprise:
 %%
 \begin{itemize}
@@ -394,7 +394,9 @@ Logistic models as opposed to linear models do not allow for extracting an $R^2$
 %%
 Therefore, pseudo-$R^2$ values are extracted, such as the \emph{Nagelkerke $R^2$}, which mimics the behavior of the $R^2$.
 %%
-\emph{Nagelkerke $R^2$} cannot be compared to $R^2$ values extracted from linear regression model.
+\emph{Nagelkerke $R^2$} behave different than $R^2$ values extracted from linear regression model.
+%%
+Comparisons have to be handled with care.
 
 %\com{Regression cubes are an important tool for checking statistical resilience.}
 %\com{Describe how regression cubes work (including notation).}
@@ -415,7 +417,7 @@ New parameters are added in each iteration, extending the range of investigated 
 %%
 For the latest two acquisitions (\texttt{SHIP-2} and \texttt{SHIP-TREND-0}), MRI scans are included into the cohort \cite{Hegenscheid2009, Ivanovska2014}.
 %%
-However, most examinations occur in all stages and are performed according to the same instructions to enable comparisons over the different stages of the study ("\emph{method loyality}").
+However, most examinations occur in all stages and are performed according to the same instructions to enable comparisons over the different stages of the study. % ("\emph{method loyality}").
 %%
 %Starting in 1997 with a cohort of 4,308 subjects, the \texttt{SHIP}, located in Northern Germany, aims to characterize health and disease in the widest range possible \cite{Volzke2011}.
 %After the pioneering Rotterdam study (started in 1990), several MR imaging study initiatives were initiated.
@@ -645,7 +647,7 @@ The difference of the presented approach towards our previous and related work i
 % TODO: Do we need a preprocessing section?
 %\com{Add Data Preprocessing Section.}
 %%
-The basic idea of our \emph{Regression Cube} is to provide an overview visualization of large cohort study data sets towards target variables.
+The basic idea of our \emph{Regression Cube} is to provide an overview visualization of large cohort study data sets towards target features.
 %%
 Overview visualizations of feature relationships as presented by Angelelli et al. \cite{Angelelli} are often focused on relationships between the visualized features.
 %%
@@ -681,7 +683,7 @@ Cancer \sim X + Y
 \end{equation}
 would yield $n^2$ (10,000) regression models, describing all possible combinations of two features in the data describing the target feature  $Cancer$.
 %%
-The major advantage of this notation is that it comes natural to anyone familiar with regression analysis since it is the standard way of expression 
+The major advantage of this notation is that it comes natural to anyone familiar with regression analysis since it is the standard way of expression.
 %%
 %This allows for a fast adaptation and in the epidemiological application domain.
 %%
