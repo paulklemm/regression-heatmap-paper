@@ -658,30 +658,32 @@ These target features often indicate the presence of the investigated disease.
 %%
 As described in Section \ref{sec:RegressionAnalysis}, regression analysis is the statistical tool of choice for analyzing these relationships.
 %%
-A regression model is based on expert knowledge, there is no unified rule on how to apply them to a given set of features, so they have to be applied with care.
+% unified -> singular [Steffi?]
+A regression model is based on expert knowledge, there is no singular rule how to apply them to a given set of features. Thus, they have to be applied with care.
 %%
-\subsection{Cube Description using Regression Formula Notation}
+% Verben in Überschriften immer groß
+\subsection{Cube Description Using Regression Formula Notation}
 %%
-Expert knowledge is introduced into regression analyses using the regression formulas.
+Expert knowledge is integrated into regression analysis by the regression formulas.
 %%
 As described in Section~\ref{sec:RegressionAnalysis}, the formula input influences the type of the chosen regression method as well as the \emph{independent} features describing the target.
 %%
 %In order to calculate all combinations of two to three independent features, we can apply  \emph{Regression Cube} aims to 
 %%
 
-Since we want to use the regression analyses with an overview visualization, we are are interested in all possible combinations of (two or more) independent features describing a target.
+Since we want to associate the regression analyses with an overview visualization, we are interested in all possible combinations of (two or more) independent features describing a target.
 %%
 We achieve this by introducing dynamic variables $X$, $Y$ and $Z$ into the regression notation.
 %%
 Our method replaces the dynamic variables with all features in the data set.
 %%
-In a data set with $n$ (e.g. 100) features, the regression formula
+In a data set with $n$ (e.g., 100) features, the regression formula
 \begin{equation}
 Cancer \sim X + Y
 \end{equation}
-would yield $n^2$ (10.000) regression models, describing all possible combinations of two features in the data describing the target $Cancer$.
+would yield $n^2$ (10,000) regression models, describing all possible combinations of two features in the data describing the target feature  $Cancer$.
 %%
-The major advantage of this notation is that it comes natural to anyone familiar with regression analysis, because it uses the same notation. 
+The major advantage of this notation is that it comes natural to anyone familiar with regression analysis since it is the standard way of expression 
 %%
 %This allows for a fast adaptation and in the epidemiological application domain.
 %%
@@ -695,11 +697,12 @@ With simple adjustments to the formula, different results can be achieved:
 %%
 The problem with this approach lies in its complexity.
 %%
-The number of calculated regression models increases exponentially for each dynamic variable added.
+The number of calculated regression models exponentially increases for each dynamic variable added.
 %%
-If we assume a data set with 100 features with the formula $Z \sim X + Y$ we calculate 1,000,000 regression models.
+If we assume a data set with 100 features and the formula $Z \sim X + Y$, we obtain 1,000,000 regression models.
 %%
-When each regression takes about 50~ms calculation, we have to wait roughly 14 hours for the calculation to complete.
+% hours -> h da ms ja auch benutzt wird.
+When each regression takes about 50~ms calculation, we have to roughly wait 14~h for the calculation to complete.
 %%
 Therefore, the computational complexity needs to be reduced.
 %%
@@ -707,7 +710,9 @@ Therefore, the computational complexity needs to be reduced.
 %%
 %\com{Target Group: Physicians/Epidemiologists with basic statistical background to understand regression formulas and Interaction.}
 
-\subsection{Target-Variable-dependent Dimension Reduction}
+% -Dependent & -Based in Überschriften groß, sicherheitshalber nochmal Steffi fragen
+% oder: Dimension Reduction Depending on the Target Variable
+\subsection{Target-Variable-Dependent Dimension Reduction}
 % \com{Uli, Can you please proofread this?}
 % %%
 % The vast majority of features in an epidemiological data have no or a very low relation towards the target feature.
@@ -720,23 +725,25 @@ Therefore, the computational complexity needs to be reduced.
 % %%
 % At the same time it tries to reduce the correlation between the independent features.
 % %%
-In epidemiological studies, manifold recordings lead to an abundance of features.
+In epidemiological studies, manifold recordings lead to an abundance of features and thus a high-dimensional feature space.
 %%
-Generally many of them exhibit low or none correlation towards the target feature.
+In general, many of them exhibit low or none correlation at all towards the target feature.
 %%
 Identifying irrelevant features and excluding them from the feature space considerably reduces computational costs and yields a comprehensible \emph{Regression Cube} representation.
 %%
-The Correlation-based feature selection (CFS) \cite{CFS} aims to find a feature subset that maximizes the \emph{merit value} $M_F$ which is the ratio between the average feature-class and feature-feature dependencies of features in F.
+% nochmal checken wo $F$ eingeführt wird, hier oder im übernächsten Satz?
+The correlation-based feature selection (CFS) \cite{CFS} aims to find a feature subset that maximizes the \emph{merit value} $M_F$ which is the ratio between the average feature-class and feature-feature dependencies of features in the feature set $F$.
 %%
 The dependency of a set of features utilizes the entropy-based information gain to measure the explanatory power towards the target feature.
 %%
-Beginning with an empty set of features $F$ the CFS algorithm iteratively adds the feature $f$ to $F$ that leads to the highest new merit-value $M_{F\cup f}$ and halts when adding any feature does not increase the merit.
+% Ggf. wurde $F$ schon oben eingeführt, TODO
+Starting with an empty set of features $F$, the CFS algorithm iteratively adds the feature $f$ to $F$ that leads to the highest new merit-value $M_{F\cup f}$ and halts when no feature is left that would increase the merit.
 %%
-When for example the \emph{body weight} has a strong explanatory power towards the target, it is likely that \emph{BMI} or \emph{waist circumference} exhibit similar correlations to the target.
+For example, if the \emph{body weight} has a strong explanatory power towards the target, it is likely that \emph{BMI} or \emph{waist circumference} exhibit similar correlations to the target.
 %%
-They, however, correlate strongly with each other.
+However, they strongly correlate with each other.
 %%
-The CFS algorithm would then select the feature which has the largest explanatory power and discards the other dimensions.
+The CFS algorithm will select the feature which has the largest explanatory power and discards the other dimensions.
 
 We apply the CFS algorithm for each target feature in a regression formula with dynamic variables.
 %%
@@ -747,31 +754,30 @@ For $Z \sim X + Y$ the CFS algorithm is applied to the data every time $Z$ is re
 
 The number of features calculated by the CFS algorithm is dependent on the information entropy in the data.
 %%
-In our epidemiological data we observed a usual number of 10 to 20 features.
+In our epidemiological data, we usually observed a number of 10 to 20 features.
 %%
-For features, such as age or gender, which affect most other features (Recall "Confounder" in Section~\ref{sec:EpidemiologicalData}) the number is significantly larger (about half the features in the whole data set).
+% Was heißt der Termin in Klammern? 1. Weg; 2. "ca. 50% of the feature set 
+For features, which affect the most other features (Recall "Confounder" in Section~\ref{sec:EpidemiologicalData}), e.g., age or gender,  the number is significantly larger (about half the features in the whole data set).
 %%
 The number of features extracted is not directly associated with the overall number, but rather on their information entropy towards each other.
 %%
 \com{Uli, is this correct this way?}
 %%
 
-Now we have a method to derive the interesting regression models in a reasonable time span.
+With this method, we are able to derive the interesting regression models in a reasonable time span.
 %%
 The next section shows ways of abstracting the results to make them visually feasible.
 
-\subsection{Abstracting Regression Results using $R^2$}
+\subsection{Abstracting Regression Results Using $R^2$}
 \begin{figure}[htb]
  \centering
  \includegraphics[width=3.5in]{figures/cube}
  \caption{
- (left) Overview visualization using a mosaic plot for the formula $Z \sim X + Y$, where $Z$ assumes feature $Age$.
+ (left) Overview visualization using a mosaic plot for the formula $Z \sim X + Y$, where $Z$ assumes the feature $Age$.
  %%
- The $R^2$ values extracted from the regression formulas depict the quality-of-fit and are mapped to color saturation.
+ The $R^2$ values extracted from the regression formulas depict the quality-of-fit and are mapped to color saturation (a saturated color shows a strong correlation).
  %%
- A saturated color shows a strong correlation.
- %%
- (right) Since $Z$ assumes all features $n$ as given by the formula, it yields $n$ mosaic plot visualizations.
+ (right) Now, $Z$ is set to all features $n$ and yields $n$ mosaic plot visualizations.
  %%
  These represent the slices in our cube.
  %%
@@ -782,7 +788,7 @@ The next section shows ways of abstracting the results to make them visually fea
 %%
 The goal of an overview visualization is to provide a comprehensive view on the data (raw or using descriptive metrics \cite{Bertini}), which is easy to understand.
 %% TODO: Cite another paper here!
-As described in our previous work \cite{Klemm2014VIS}, correlation values scaled between 0 (no correlation) and 1 (perfect correlation) can be encoded using color on a mosaic plot.
+As described in our previous work \cite{Klemm2014VIS}, correlation values scaled between 0 (no correlation) and 1 (perfect correlation) can be encoded with color in a mosaic plot.
 %%
 Regression models are more complex, having many associated describing metrics.
 %%
@@ -796,7 +802,7 @@ Since $R^2$ is scaled between [0,1], it allows for comparison between regression
 %%
 We can apply the same mosaic plot mapping by translating the $R^2$ values to color saturation (Fig.~\ref{fig:Cube} a).
 %%
-This describes a 2D regression square for dynamic variables $X$ and $Y$ (e.g. $Age \sim X + Y$).
+This describes a 2D regression square for dynamic variables $X$ and $Y$ (e.g., $Age \sim X + Y$).
 %%
 
 \paragraph{3D (Cube) View.}
@@ -805,20 +811,23 @@ Introducing $Z$ creates a 3D \emph{Regression Cube} (Fig.~\ref{fig:Cube} b).
 %%
 $R^2$ values of each cube entry (\emph{voxel}) is mapped to opacity to reduce the overlap.
 %%
-The visualization of $R^2$ values derived from different regression cubes (e.g. $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
+The visualization of $R^2$ values derived from different regression cubes (e.g., $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
 %%
-Therefore, the $R^2$ results of different regression methods are encoded using different colors (e.g. blue for linear regression and red for logistic regression).
+% e.g. wenn man es wählen kann
+% i.e. wenn es so ist
+Therefore, the $R^2$ results of different regression methods are encoded using different colors (i.e., blue for linear regression and red for logistic regression).
 %%
-This way, the cube can easily be extended using other regression types.
+% Adverb immer vors Hauptverb oder Satzende
+Thus, the cube can be easily extended using other regression types.
 %%
-For cubes having one fixed target feature, such as $Cancer \sim X + Y + Z$ no such encodings are required and the $z$ dimension can be compared directly.
+For cubes with a fixed target feature, e.g., $Cancer \sim X + Y + Z$, no such encodings are required and the $z$ dimension can be compared directly.
 %%
 \\\\
-Our goal is to create an overview visualization for a data set, but on the other hand we also want to incorporate expert knowledge into the visualization by adapting the underlying formulas.
+Our goal is to create an overview visualization for a data set, but we also want to incorporate expert knowledge into the visualization by adapting the underlying formulas.
 %%
 These two approaches do not exclude each other, they rather underline the difference in purpose of the chosen formula.
 %%
-Different analysis approaches require different starting points using the \emph{Regression Cube}.
+The different analysis approaches require different starting points using the \emph{Regression Cube}.
 
 \subsection{Analysis Workflow} \label{sec:Workflow}
 %%
@@ -826,11 +835,11 @@ Different analysis approaches require different starting points using the \emph{
  \centering
  \includegraphics[width=3.0in]{figures/workflow}
  \caption{
- Workflow of the analysis using \emph{Regression Cubes}.
+ Different workflow types of the analysis using \emph{Regression Cubes} (based on~\cite{Keim}).
  %%
  % The analysis starts with a set of features given by the data set.
  %%
- [\textbf{1.AF}] The workflow starts by declaring formula regarding to specify a hypothesis, or use a predefined formula for a hypothesis-free analysis.
+ [\textbf{1.AF}] The workflow starts by declaring a formula regarding to specify a hypothesis, or use a predefined formula for a hypothesis-free analysis.
  %%
  [\textbf{2.SI}] The \emph{Regression Cube} is then visualized.
  %%
@@ -857,7 +866,8 @@ Different analysis approaches require different starting points using the \emph{
 %\com{3. Find interesting pane.}
 %\com{4. Get Details on Demand.}
 %%
-The analysis workflow follows the Visual Analytics (VA) Mantra of Keim et al. \cite{Keim}:
+% Übergang ist recht holprig gewesen
+Our Regression Cube models is well-suited for different workflow analysis techniques, based on the Visual Analytics (VA) Mantra of Keim et al. \cite{Keim}:
 
 \textbf{Analyze First} [\textbf{1.AF}]. Choosing an initial regression formula triggers the \emph{Regression Cube} calculation on the given data set, filtering the dimensions of the dependent feature through the CFS algorithm.
 
@@ -873,7 +883,7 @@ We use the squared bracket abbreviation for each step to denote the affiliation 
 %%
 As seen in Fig~\ref{fig:Workflow}, the workflow is highly iterative.
 %%
-Observations in the 2D-mosaic plot or simply the CFS-based features can trigger new analyses by adjusting the underlying regression formulas.
+Observations in the 2D mosaic plot or simply the CFS-based features can trigger new analyses by adjusting the underlying regression formulas.
 %%
 This can be carried out either to refine the current formula based on observations, or creating a new regression cube for a difference view.
 %%
@@ -881,26 +891,27 @@ This can be carried out either to refine the current formula based on observatio
 %%
 Input formulas reflect \emph{hypotheses} about the data.
 %%
-Using the operators, dynamic variables and dataset features, many different assumptions can be formulated.
+Using the operators, the dynamic variables and the dataset features, many different assumptions can be expressed.
 %%
-To support \emph{hypothesis-free} analysis we provide a default formula:
+To support \emph{hypothesis-free} analysis, we provide a default formula:
 
 $Z \sim X + Y$.
 %%
-This cube represents all possible combinations of two independent features towards all features in the data set, since we do not know which feature(s) are of interest.
+This cube represents all possible combinations of two independent features towards all features in the data set, since we do not know which features are of interest.
 %%
 Each slice represents a different target feature.
 %%
 It is therefore suitable for an explorative analysis to give a general impression about relationships in the data set.
 
-Hypotheses about the data are reflected in either how dynamic variables are related using the regression operators.
+% warum war da ein "either", sollte der Satz etwas anderes ausdrücken?
+Hypotheses about the data are easily built up by relating dynamic variables with the regression operators.
 %%
-Also, static features can be added for each regression formula.
+Furthermore, static features can be added for each regression formula.
 %%
 Here are a few examples:
 
 %%
-$Cancer \sim X + Y + Z$ is an example for the formulation of a hypothesis, where a specific feature is analyzed.
+$Cancer \sim X + Y + Z$ is an example for the formulation of a hypothesis, where the specific feature \textit{Cancer} is analyzed.
 %%
 All combinations of three independent features towards the target are analyzed through the cube.
 
@@ -920,11 +931,11 @@ This is achieved through cube comparison.
 %%
 Regression Cubes can be compared by creating difference views.
 %%
-One cube (formula) acts as reference.
+One cube (extracted with one formula) acts as reference.
 %%
 The absolute difference in $R^2$ values towards the second cube is calculated, yielding a difference cube showing only the differences between the two formulas.
 %%
-It can for example be utilized for comparing the influence of one feature towards the complete result (e.g., $Z \sim X + Y$ and $Z \sim X + Y + Income$)
+For example, it can be utilized for comparing the influence of a single feature towards the complete result (e.g., $Z \sim X + Y$ and $Z \sim X + Y + Income$)
 %%
 % \paragraph{Formula Types.}
 % %%
