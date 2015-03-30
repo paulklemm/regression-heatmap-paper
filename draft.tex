@@ -1029,17 +1029,17 @@ The first line in a CSV file represents all features (columns) of the data set.
 %%
 Each line after that represents one subject (row) and their feature manifestations.
 
-\textbf{Classification.}
+\textbf{Encoding via CSV files.}
 %%
 Encoding variable types in CSV files is not standardized.
 %%
-We, however, need to ensure the correct variable type classification and have to enforce some basic standards.
+However, we need to ensure the correct variable type classification and have to enforce some basic standards.
 %%
 All categorical values have to be enclosed by quotation marks.
 %%
 Continuous variables are denoted as digits without enclosing quotation marks.
 %%
-This seems obvious, but in fact many cohort study data sets encode categorical features using ID-values, which are denoted in a data dictionary.
+Although this seems obvious, many cohort study data sets encode categorical features using ID-values, which are denoted in a data dictionary.
 %%
 Variables with only two manifestations are classified as dichotomous, leading to three possible data types: numerical, categorical and categorical/dichotomous.
 %%
@@ -1342,7 +1342,7 @@ The breast fat data set is the foundation for an explorative analysis towards th
 
 Both data sets are unusual for epidemiological analysis regarding their feature extent.
 %%
-Usually, only a few features depicting a hypotheses are compiled into a data set to assess them using statistical tools.
+Usually, only a few features depicting a hypothesis are compiled into a data set to assess them using statistical tools.
 %%
 The herein used data sets comprise several hundred features.
 %%
@@ -1350,11 +1350,14 @@ Our method focuses on data exploration and knowledge extraction and requires a w
 %%
 \subsection{Participants, Setup and Procedure}
 %%
-To assess the ability of a system to discover knowledge is difficult to measure.
+The ability of a system to discover knowledge is difficult to measure.
 %%
 Lam et al. \cite{Lam2012} propose the \emph{Visual Data Analysis and Reasoning} (\emph{VDAR}) technique, which is focused on the characterization of a systems' ability to generate hypotheses and explore the data in order to extract information.
 %%
 \emph{VDAR} can be carried out using case studies using thinking-aloud techniques to comprehend the reasoning and thought process of the user.
+%
+% folgend ist doch korrekt oder?
+We employ \emph{VDAR} for the evaluation of our system.
 %%
 \paragraph{Participants, Setup and Procedure.}
 %%
@@ -1362,11 +1365,11 @@ Lam et al. \cite{Lam2012} propose the \emph{Visual Data Analysis and Reasoning} 
 %%
 We conducted a web-based analysis by using an online-meeting software, which features voice chat as well as screen sharing.
 %%
-Starting an analysis using these techniques take about 5-10 minutes of setup time.
+Starting an analysis using these techniques takes about 5-10 minutes of setup time.
 
 The sessions started with an initial overview of the system, showcasing its features and functionality.
 %%
-After that the experts use the system on their own computers.
+Afterwards, the experts use the system on their own computers.
 %%
 The screen-sharing function was still used to observe the actions of the expert.
 %%
@@ -1374,15 +1377,18 @@ All sessions were video recorded to be processed later on.
 %%
 
 %%
+% TODO du stellst aber 3 vor...
 We conducted a study with two participants, who also co-authored this publication.
 %%
 Domain expert for the breast fat data set analysis is \emph{KH}, a clinician (10 years of experience) with focus on epidemiological research.
 %%
 \emph{KH} is a radiologist, responsible for the SHIP-MRI acquisition and also responsible of the mammography analysis.
 
-The hepatic steatosis data set is analyzed by \emph{UN}, a data scientists responsible for prior analysis of the data with.
+The hepatic steatosis data set is analyzed by \emph{UN}, a data scientists responsible for prior analysis of the data.
 %%
 
+% OK so?
+The third participant was 
 \emph{TI}, a statistician with focus on epidemiology (8 years of experience) assesses the statistical reliability of the tool and the underlying methods without a focus on a specific data set.
 %%
 \subsection{The Hepatic Steatosis Data Set}
@@ -1390,27 +1396,29 @@ We employ the data set used in \cite{Niemann2014} to identify predictive feature
 %%
 The dichotomous target feature is derived from the liver fat concentration measured using MRI scans.
 %%
-Liver fat concentrations of no more than 10\% are mapped to the 'negative' class; values greater than 10\% are mapped to the 'positive' class.
+% ok?  to indicate absence or presence of the disease.
+Liver fat concentrations of no more than 10\% are mapped to the 'negative' class; values greater than 10\% are mapped to the 'positive' class to indicate absence or presence of the disease.
 %%
 The data set contains labels for 578 participants for which the MRI data was available to that point.
 %%
-The MRI scans for each subject were introduced in SHIP-2, so the target feature is present for just one of three study waves.
+The MRI scans for each subject have been introduced in SHIP-2, so the target feature is only present for one of three study waves.
 
 %%
-Apart from the target feature, the data set contains 199 features, comprising socio-demographic features (gender, age), consumption behavior (e.g. alcohol or tobacco), laboratory data (e.g. sera concentrations), and two features depicting the liver ultrasound.
+Apart from the target feature, the data set contains 199 features, comprising sociodemographic features (gender, age), consumption behavior (e.g. alcohol or tobacco), laboratory data (e.g. sera concentrations), and two features depicting the liver ultrasound.
 %%
 %The acquisition wave is denoted using the appendix; 85 for S0 (SHIP-0), 55 for S1, 55 for S2 and 10 time-independent SNPs (DNA base pairs).
 %%
 The acquisition wave is denoted using the appendix; \emph{s0} meaning that their values have been recorded in SHIP-0 (first study moment), 50 features for \emph{s1} and 55 for \emph{s2}, alongside with 10 time-independent SNPs (DNA base pairs).
 %%
 
-In \cite{Niemann2014}, the authors show different class distribution of liver fat concentrations of women and men.
+In \cite{Niemann2014}, the authors show different class distributions of liver fat concentrations of women and men.
 %%
-For women a association between age and liver fat was identified.
+For women an association between age and liver fat was identified.
 %Also, for women they identify that there is a association between age and liver fat concentration.
 %%
 An appropriate cut-off value of 52 years was set, yielding the most homogeneous class distribution within the resulting subsets.
 %%
+% ist das richtig? nicht female<52,male, female>52?
 Based on these observations, we perform our analysis on three sub-populations: \emph{females}, \emph{males} and \emph{females} older than 52 years.
 %%
 \subsection{The Breast Fat Data Set}
@@ -1420,7 +1428,7 @@ The ratio between parenchyma and cellular connective tissue (breast density) has
 %%
 Studies describe a four to five times increased risk of getting breast cancer for participants with a breast density above 50\% \cite{Mccormack2006}.
 
-The data comprises 1.186 female subjects (368 from \texttt{SHIP-2}, 818 from \texttt{SHIP-TREND-0} cohort).
+The data comprises 1,186 female subjects (368 from \texttt{SHIP-2}, 818 from \texttt{SHIP-TREND-0} cohort).
 %%
 It contains 231 dimensions, holding information about somatometric features (e.g. body size or weight) consumption behavior (e.g. alcohol or tobacco), personal and medical history (e.g., occupation or prior diseases), women specific features (e.g., number of born children or contraception type) as well as mammography features.
 % It contains 231 dimensions, holding information about
@@ -1433,7 +1441,7 @@ It contains 231 dimensions, holding information about somatometric features (e.g
 % 	\item \emph{mammography features} derived from the image data.
 % \end{itemize}
 %%
-The latter were derived using manual segmentation of MRI image data for each subject carried out by radiologists.
+The latter were derived from manual segmented MRI data for each subject carried out by radiologists.
 %%
 %%
 %\com{Describe Parenchym tissue and its relation to breast cancer.}
@@ -1441,35 +1449,38 @@ The latter were derived using manual segmentation of MRI image data for each sub
 
 The data of each cohort was presented as individual \texttt{SPSS} files.
 %%
-All data related to the mammography was stored in a additional file.
+All features related to the mammography attributes were stored in a additional file.
 %%
 We converted the \texttt{SPSS} data sets to CSV and used \texttt{R} to merge the data sets together using their ID.
 %%
-All features were renamed to be expressive, e.g., \emph{chro\_09a} is now denoted as \emph{Disease\_Osteoporosis}.
+All features were renamed to be self-explaining, e.g., \emph{chro\_09a} is now denoted as \emph{Disease\_Osteoporosis}.
 %%
 This avoids the need of defining a separate data dictionary file for translating the feature names.
 %%
 %All male subjects were removed as their data does not contribute to the analysis.
 %%
-\subsection{Case 1: Hypothesis-driven Analysis of the Hepatic Steatosis Data Set}
+\subsection{Case 1: Hypothesis-Driven Analysis of the Hepatic Steatosis Data Set}
 %%
-We refer to each analysis step regarding to their belonging in the VA-Mantra (Sec.~\ref{sec:Workflow}).
+We refer to each analysis step regarding to their belonging in the VA-Mantra (recall Sec.~\ref{sec:Workflow}).
 %%
-The analysis goal is reproducing results based on \cite{Niemann2014}.
+The analysis goal is reproducing results with our visual analysis framework that are in accordance to the data mining-based results presented in \cite{Niemann2014}.
 %%
 Therefore, \emph{UN} started the \textbf{1.AF} step using the dichotomized MRI fat liver concentration using the formula $mrt\_liverfat\_s2 \sim X + Y + Z$ for \emph{male} subjects.
 %%
 The \textbf{2.SI} step using the 3D cube representations locates hotspots at the end of the cube (Fig.~\ref{fig:Application} a).
 %%
-\textbf{3.ZF} by slicing through the cube using the mouse input to inspect the hotspots using the mosaic plot (\textbf{4.DD}) revealed high correlations for somatometric features, hepatic steatosis indicator-features as well as laboratory values, such as creatinine (used renal retention parameter) and uric acid (among others used as gout and diabetes risk factors) magnitudes.
+% nicht mit 3.ZF anfangen, das klingt niht gut.
+The Zoom, Filter and Analyze Further Step (\textbf{3.ZF}) was realised by slicing through the cube using the mouse input to inspect the hot spots. Anaylzing the mosaic plot (\textbf{4.DD}) revealed high correlations for somatometric features, hepatic steatosis indicator-features as well as laboratory values, such as creatinine (used renal retention parameter) and uric acid (among others used as gout and diabetes risk factors) magnitudes.
 %%
-Similar results present for analyzing the \emph{female} groups.
+% da fehlte was im satz
+Similar results were present for analyzing the \emph{female} groups.
 %%
-\emph{UN} could reproduce most results, some features features exhibit lower correlations though, e.g., creatinine magnitudes.
+\emph{UN} could reproduce most results, some featuresexhibit lower correlations though, e.g., creatinine magnitudes.
 %%
 A slight influence of age on the target feature could be observed for women ($R^2$ of $0.09$ for females compared to $0.02$ for males).
 %%
 Relationships not described in \cite{Niemann2014} were found, such as enzymes indicating liver dysfunctions, e.g. \emph{aspartate aminotransferase}.
+% das ist doch super. Hier noch ein Satz ob die Radiologen das gut finden. ist das nicht richtig geil? Mehr Infos!!!
 %%
 Due to the difference between our regression-model approach and the decision-tree approach presented in \cite{Niemann2014}, a complete matching set of correlating features are not expected.
 %%
@@ -1510,28 +1521,29 @@ Due to the difference between our regression-model approach and the decision-tre
 %%
 Since our method can analyze numerical target features, as opposed to decision trees used by \emph{UN} before, the analysis was conducted again for the not-dichotomized target using the same formula.
 %%
-The 3D-cube representation already showed generally lower $R^2$ values, but since the analysis is now based on linear regression, the $R^2$ values can not be directly compared.
+The 3D cube representation already showed lower $R^2$ values in general. However, the analysis is now based on linear regression and the $R^2$ values cannot be directly compared.
 %%
-Correlation hot spots matched with the ones from the dichotomous target, but were generally lower ($R^2$ of $0.37$ for somatometric features as opposed to $0.58$).
+The correlation hot spots matched with the ones from the dichotomous target, but were generally lower ($R^2$ of $0.37$ for somatometric features as opposed to $0.58$).
 %%
 We conclude that the bias introduced by dichotomizing the fat liver content enforces the findings towards liver diseases, while using the numerical features is less expressive.
 %%
 
 \textbf{Interleukin-6 correlation with liver fat.}
 %%
-During the analysis, one hotspot was always observed in the \emph{SI} and \emph{ZF} incorporating a high \emph{Interleukin-6} (\emph{IL-6}) correlation with liver fat values (Fig.~\ref{fig:Application} b).
+During the analysis, one hot spot was always observable in the \emph{SI} and \emph{ZF} incorporating a high \emph{Interleukin-6} (\emph{IL-6}) correlation with liver fat values (Fig.~\ref{fig:Application} b).
 %%
 The correlation was high for both the dichotomized and continuous target feature.
 %%
-In the literature, relations between liver cancer \cite{He2013} and also chronic liver diseases \cite{Streetz2003}.
+% hier fehlt was
+In literature, relations between liver cancer \cite{He2013} and also chronic liver diseases \cite{Streetz2003}.
 %%
-Strong effects of \emph{IL-6} with hepatic steatosis were also prior described with mice \cite{Hong2004}.
+For mice, strong effects of \emph{IL-6} with hepatic steatosis were described \cite{Hong2004}.
 %%
 The finding is subject of further analysis.
 %%
 \subsection{Case 2: Hypothesis-free Analysis of the Breast Cancer Data Set}
 %%
-The analysis goal is to find relationships on the breast cancer data using features derived from the mammography analysis.
+The analysis aims to find relationships on the breast cancer data using features derived from the mammography analysis.
 %%
 Relationships between the share of parenchyma tissue on the overall breast volume are of high interest \cite{Mccormack2006}.
 %%
@@ -1539,7 +1551,7 @@ Relationships between the share of parenchyma tissue on the overall breast volum
 %%
 Our method was well received among the domain experts.
 %%
-For the first time, they were able to derive a overview visualization custom tailored to underlying assumptions.
+For the first time, they were able to derive an overview visualization custom tailored to underlying assumptions.
 %%
 In this context, \emph{TI} highlighted the ability to simultaneously analyze thousands of regression models while maintaining little time expenses for rating them.
 %The novel way of modeling knowledge to derive hypothesis driven overview visualizations allow for detailed analysis of target features, either disease indicators or even image-derived features.
@@ -1550,7 +1562,7 @@ In this context, \emph{TI} highlighted the ability to simultaneously analyze tho
 %%
 Agreeing with \emph{TI}'s feedback, each finding and hypothesis has to be confirmed using a dedicated statistical analysis.
 %%
-A accompanying search for correlations potentially highlighting confounders can be carried out using our method.
+An accompanying search for correlations potentially highlighting confounders can be carried out using our method.
 %%
 %This incorporates detailed investigation of potential confounder features as well as looking for outlier subjects.
 %%
@@ -1567,7 +1579,7 @@ Explorative analysis based on the data gains importance in epidemiology as the d
 %While the classical epidemiological workflow represents the foundation of the research in this area, explorative analysis based on the data gains importance.
 Results from automatic `black-box' methods, such as data mining algorithm are more often obscure to the expert.
 %%
-Findings and hypotheses derived through overview visualizations, however, are met with more confidence, because the user actually observed the behavior himself.
+Findings and hypotheses derived through overview visualizations, however, are met with more confidence, because the user actually observed the behavior herself/himself.
 %%
 The participation and steering of the analysis using human pattern-detection and expert knowledge is preferred.
 %%
@@ -1587,7 +1599,7 @@ Discretization reduces the information space and introduces bias into the data a
 %%
 In contrast to many data mining algorithms, our method allows to use the concurrent analysis of heterogeneous data types.
 %%
-Investigations of the the hepatic steatosis data set with both numerical and dichotomized liver fat values showed comparable results differing in detail. %, but differences  %differing in detail.
+Investigations of the the hepatic steatosis data set with both numerical and dichotomized liver fat values showed comparable results but slightly differing when it comes to details. %, but differences  %differing in detail.
 %%
 The overall explanatory power towards the numerical feature was lower, supporting the hypothesis that the dichotomized target feature already models knowledge to bias the results towards the expected result.
 %%
