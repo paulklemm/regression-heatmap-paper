@@ -573,7 +573,7 @@ Time-dependent epidemiological data is visualized by Chui et al. \cite{Chui2011}
 %% Quality Metrics in High-Dimensional Data Visualization - An Overview and Systematization
 Bertini et al. \cite{Bertini} present an overview over quality metrics describing high dimensional data.
 %%
-Their research agenda acts as guideline for our design, comprising perceptual tuning towards human pattern recognition of important aspects, scalability between different data set sizes and application evaluation with domain experts.
+Their research agenda acts as guideline for our design, comprising perceptual tuning towards human pattern recognition of important aspects, scalability between different data set sizes and application testing with domain experts.
 %%
 %% TODO: Use this one? "Statistical resilience of random populations to random perturbations" - http://www.ncbi.nlm.nih.gov/pubmed/19256997 - wie eine Variable sich √É¬§ndert, wenn man per Zufall die Populationen ver√É¬§ndert, um zu schauen wie zuverl√É¬§ssig diese Statistik ist.
 %% The Sparse Regression Cube: A Reliable Modeling Technique for Open Cyber-physical Systems
@@ -603,7 +603,7 @@ The approach was applied to a cognitive aging studies, where new hypotheses coul
 %% Learning and inspecting classification rules from longitudinal epidemiological data to identify predictive features on hepatic steatosis
 Niemann et al. \cite{Niemann2014} investigate risk factors of hepatic steatosis using decision trees with interactive data mining tools.
 %%
-They extracted association rules that serve as basis for a proof-of-concept evaluation.
+They extracted association rules that serve as basis for our proof-of-concept tests.
 %%
 In \cite{Niemann2015}, Niemann et al. improve on classification performance by generating features (called \emph{evolution features}) that describe latent temporal information across the study waves.
 %%
@@ -1357,7 +1357,7 @@ Lam et al. \cite{Lam2012} propose the \emph{Visual Data Analysis and Reasoning} 
 \emph{VDAR} can be carried out using case studies using thinking-aloud techniques to comprehend the reasoning and thought process of the user.
 %
 % folgend ist doch korrekt oder?
-We employ \emph{VDAR} for the evaluation of our system.
+We employ the \emph{VDAR} technique for analyzing our system.
 %%
 \paragraph{Participants, Setup and Procedure.}
 %%
@@ -1377,8 +1377,7 @@ All sessions were video recorded to be processed later on.
 %%
 
 %%
-% TODO du stellst aber 3 vor...
-We conducted a study with two participants, who also co-authored this publication.
+We conducted a three with two participants. %, who also co-authored this publication.
 %%
 Domain expert for the breast fat data set analysis is \emph{KH}, a clinician (10 years of experience) with focus on epidemiological research.
 %%
@@ -1388,8 +1387,7 @@ The hepatic steatosis data set is analyzed by \emph{UN}, a data scientists respo
 %%
 
 % OK so?
-The third participant was 
-\emph{TI}, a statistician with focus on epidemiology (8 years of experience) assesses the statistical reliability of the tool and the underlying methods without a focus on a specific data set.
+The third participant is \emph{TI}, a statistician with focus on epidemiology (8 years of experience) assesses the statistical reliability of the tool and the underlying methods without a focus on a specific data set.
 %%
 \subsection{The Hepatic Steatosis Data Set}
 We employ the data set used in \cite{Niemann2014} to identify predictive features w.r.t. the reversible hepatic steatosis disorder.
@@ -1430,7 +1428,7 @@ Studies describe a four to five times increased risk of getting breast cancer fo
 
 The data comprises 1,186 female subjects (368 from \texttt{SHIP-2}, 818 from \texttt{SHIP-TREND-0} cohort).
 %%
-It contains 231 dimensions, holding information about somatometric features (e.g. body size or weight) consumption behavior (e.g. alcohol or tobacco), personal and medical history (e.g., occupation or prior diseases), women specific features (e.g., number of born children or contraception type) as well as mammography features.
+It contains 231 dimensions, holding information about somatometric features (e.g. body size or weight) consumption behavior (e.g. alcohol or tobacco), personal and medical history (e.g., occupation or prior diseases), women specific features (e.g., number of born children or contraception type) as well as mammography features (e.g., fat content or parenchyma tissue proportion to volume).
 % It contains 231 dimensions, holding information about
 % \begin{itemize}
 % 	\item \emph{somatometric features}, e.g., body size, weight or BMI,
@@ -1469,18 +1467,18 @@ Therefore, \emph{UN} started the \textbf{1.AF} step using the dichotomized MRI f
 %%
 The \textbf{2.SI} step using the 3D cube representations locates hotspots at the end of the cube (Fig.~\ref{fig:Application} a).
 %%
-% nicht mit 3.ZF anfangen, das klingt niht gut.
-The Zoom, Filter and Analyze Further Step (\textbf{3.ZF}) was realised by slicing through the cube using the mouse input to inspect the hot spots. Anaylzing the mosaic plot (\textbf{4.DD}) revealed high correlations for somatometric features, hepatic steatosis indicator-features as well as laboratory values, such as creatinine (used renal retention parameter) and uric acid (among others used as gout and diabetes risk factors) magnitudes.
+The Zoom, Filter and Analyze Further Step (\textbf{3.ZF}) was realized by slicing through the cube using the mouse input to inspect the hot spots.
 %%
-% da fehlte was im satz
+Analyzing the mosaic plot (\textbf{4.DD}) revealed high correlations for somatometric features, hepatic steatosis indicator-features as well as laboratory values, such as creatinine (used renal retention parameter) and uric acid (among others used as gout and diabetes risk factors) magnitudes.
+%%
 Similar results were present for analyzing the \emph{female} groups.
 %%
-\emph{UN} could reproduce most results, some featuresexhibit lower correlations though, e.g., creatinine magnitudes.
+\emph{UN} could reproduce most results, some features exhibit lower correlations though, e.g., creatinine magnitudes.
 %%
 A slight influence of age on the target feature could be observed for women ($R^2$ of $0.09$ for females compared to $0.02$ for males).
-%%
+%% TODO Ergebnisse nachfragen: das ist doch super. Hier noch ein Satz ob die Radiologen das gut finden. ist das nicht richtig geil? Mehr Infos!!!
 Relationships not described in \cite{Niemann2014} were found, such as enzymes indicating liver dysfunctions, e.g. \emph{aspartate aminotransferase}.
-% das ist doch super. Hier noch ein Satz ob die Radiologen das gut finden. ist das nicht richtig geil? Mehr Infos!!!
+% 
 %%
 Due to the difference between our regression-model approach and the decision-tree approach presented in \cite{Niemann2014}, a complete matching set of correlating features are not expected.
 %%
@@ -1534,8 +1532,7 @@ During the analysis, one hot spot was always observable in the \emph{SI} and \em
 %%
 The correlation was high for both the dichotomized and continuous target feature.
 %%
-% hier fehlt was
-In literature, relations between liver cancer \cite{He2013} and also chronic liver diseases \cite{Streetz2003}.
+The literature described relations between \emph{IL-6} and liver cancer \cite{He2013} as well as chronic liver diseases \cite{Streetz2003}.
 %%
 For mice, strong effects of \emph{IL-6} with hepatic steatosis were described \cite{Hong2004}.
 %%
@@ -1543,10 +1540,61 @@ The finding is subject of further analysis.
 %%
 \subsection{Case 2: Hypothesis-free Analysis of the Breast Cancer Data Set}
 %%
-The analysis aims to find relationships on the breast cancer data using features derived from the mammography analysis.
+The analysis aims to find relationships on the breast fat data using features derived from the mammography analysis.
 %%
 Relationships between the share of parenchyma tissue on the overall breast volume are of high interest \cite{Mccormack2006}.
 %%
+
+The \textbf{1.AF} was started by \emph{KH} using the default formula for hypothesis-free analysis ($Z \sim X + Y$).
+%%
+At first, she was interested in correlations with the parenchyma tissue segmentations, which was selected through the drop-down for the z-axis (\textbf{2.SI}).
+%%
+She observed expected strong correlations with age, body fat percentage, hip and waist circumference
+as well as menstrual period or pregnancy status.
+%%
+Fat women also have a larger breast fat percentage, which also correlates with other somatometric features.
+%%
+Age is a strong influencing factor, as breast tissue degrades over time and subsequently the parenchyma tissue.
+%%
+\emph{KH} proceeded using [\textbf{2.SI}] and [\textbf{3.DD}] to check for relationships for different target features, such as current hormone replacement therapy, BI-RADS (classification of the mammography findings) as well as different diseases, such as diabetes or gout.
+%%
+She observed relationships matching her expectations and expert knowledge.
+%%
+One unexpected relationship was observed between mammography lesions and menstruation cycle towards spiral contraception were observed ($R^2$ of $0.77$).
+%%
+\emph{KH} proceeded with a detailed analysis of the parenchyma tissue.
+%\emph{KH} derived at the hypotheses: \emph{Somatometric features impose the major influences on the parenchyma tissue.}
+%%
+
+\textbf{Detailed Breast Parenchyma Analysis.}
+%%
+The analysis was conducted by calculating the cube $Parenchyma-Percentage \sim X + Y + Z$.
+%%
+Using the 3D cube, \emph{KH} observed several hotspots.
+%%
+Navigating to them using the slicing facility of the 3D visualization highlighted several features of high influence, such as image-derived features, as glandular tissue density, parenchyma segmentation metrics.
+%%
+Also, strong correlations were observed in the diabetes slice, confirming expectations of \emph{KH} w.r.t. to its strong influence to the parenchyma tissue.
+%%
+A surprising find were the strong correlations with kidney disorder ($R^2$ values around $0.9$).
+%%
+The \textbf{3.DD} analysis however showed only 8 subjects with kidney disorder.
+%%
+The finding was noted and investigated further in the near future using a extensive data set.
+%%
+Lastly \emph{KH} assessed the influence of contraception related features, such as use birth control pills or the spiral, but found no significant correlations with the parenchyma.
+%%
+Features, such as alcohol intake yield no elevated $R^2$ values.
+%%
+\emph{KH} remarked that these features are believed to have an impact on the parenchyma tissue, but they are less reliability since they are self-reported.
+%%
+%mamma anamnesis breast fed, contraception (spirale, pille), alcohol intake
+%Lastly, \emph{KH} assessed the influence of image-derived features on the parenchyma tissue.
+%%
+%She observed expected results 
+%Using the slicing mode to fast 
+%Hypotheses
+%Detailed analysis: Cholesterin, influence of image-derived feautres, classification of the BI-Rads (how well did the manual segmentation perform)
 \subsection{Further Feedback and Lessons Learned} \label{Lessons Learned}
 %%
 Our method was well received among the domain experts.
