@@ -201,22 +201,22 @@ Using it to assess the statistical resilience of a hypothesis rarely involves \e
 % missing overview techniques ist zu hart; es gibt ja techniken (eine scatterplot matrix zb.)
 Due to the amount of data and only limited overview techniques, possible correlations may be missed.
 %%
-Explorative analyses and overview visualizations of the data set as presented in prior work \cite{Klemm2014VIS} are not tailored to a specific target variable and mostly highlight correlations between variables, which are known to the domain expert (e.g., correlation between body size and spine shape).
+Explorative analyses and overview visualizations of the data set as presented in prior work \cite{Klemm2014VIS} are not tailored to a specific target feature and mostly highlight correlations between features, which are known to the domain expert (e.g., correlation between body size and spine shape).
 %%
 We incorporate the regression analysis, which is familiar to the domain experts, into overview visualizations to support a hypothesis-free analysis or an analysis towards a specific disease or hypothesis.
 %%
-This is achieved by providing template regression formulas, which are applied to all potential variable combinations.
+This is achieved by providing template regression formulas, which are applied to all potential feature combinations.
 %%
 Since the notation is familiar to epidemiologists, they can rapidly include their domain knowledge into the analysis process.
 %%
-Difference views between regression formulas allow to assess the influences of individual variables on the process.
+Difference views between regression formulas allow to assess the influences of individual features on the process.
 
 Our contributions are:
 \begin{itemize}
 	\item An overview visualization technique representing feature interactions using target features.
 	\item Visualization techniques, which incorporate overview visualizations of all regression analyses at once as well as details on demand techniques for in-depth investigations of feature relationships.
 	\item Freely adjustable regression formulas provide a simple, yet powerful way to adjust the regression analysis to specific hypotheses about the data.
-	\item The analysis of confounding variables by providing comparison views between different formula results.
+	\item The analysis of confounding features by providing comparison views between different formula results.
 %	\item The open and web-based approach of the system allows for analysis of any data using the presented method.
 	\item The expansion and adaption of our method to any data with our open web-based system.
 \end{itemize}
@@ -225,7 +225,7 @@ The term `Regression Cube' has been used for the detailed analysis of one or a s
 %%
 They extend 2D scatter plots to display detailed information about a regression model.
 %%
-In behalf of that, we declare our visualization technique for comparing and analyzing a large number of different regression models with different input features as Regression Cube.
+In behalf of that, we declare our visualization technique for comparing and analyzing a large number of different regression models with different input features as \emph{Regression Cube}.
 %%
 \section{Epidemiological Background} \label{sec:Background}
 %%
@@ -239,7 +239,7 @@ Their goal is to derive disease-specific risk factors by assessing epidemiologic
 As described by Thew et al. \cite{Thew2009} the epidemiological workflow is divided into these different steps:
 \begin{itemize}
 	\item Clinicians make observations in the daily practice, which are translated into hypotheses.
-	\item Epidemiologists compile a list of variables depicting the hypothesis and include confounding variables.
+	\item Epidemiologists compile a list of features depicting the hypothesis and include confounding features.
 	\item Statisticians assess the association of the derived features towards the investigated disease.
 \end{itemize}
 %%
@@ -252,7 +252,7 @@ Reproducibility of results is an epidemiological key requirement and guides all 
 Statistical programs, such as \texttt{SPSS}, are used to analyze the data regarding the classical sequential epidemiological workflow. Hence, images are mostly used for the communication of results, rather than for providing insight into the data.
 %%
 
-In \cite{Klemm2014VIS} we described an Interactive Visual Analysis approach for image-centric cohort study data, which connects to the variable listing step.
+In \cite{Klemm2014VIS} we described an Interactive Visual Analysis approach for image-centric cohort study data, which connects to the feature listing step.
 %%
 The methods aim to derive hypotheses through analysis of the data and observations about previously unknown feature correlations.
 %%
@@ -281,7 +281,7 @@ Subject data are collected either towards a specific disease or with the widest 
 %%
 The latter allows the data set to be assessed towards different diseases.
 %%
-The feature space comprises information about lifestyle, somatometric variables, medical parameters, genetic data as well as medical images.
+The feature space comprises information about lifestyle, somatometric features, medical parameters, genetic data as well as medical images.
 %%
 These features are derived through different modalities, such as questionnaires, medical examinations or laboratory analyses.
 %%
@@ -299,7 +299,7 @@ Medical status features or lifestyle factors are often of \emph{dichotomous} (bi
 %%
 %The data heterogeneity has to be taken into account when the analysis method is chosen.
 %%
-Continuous data are often discretized (e.g. 10 year steps for age) to equalize the variable types and to simplify the method selection.
+Continuous data are often discretized (e.g. 10 year steps for age) to equalize the feature types and to simplify the method selection.
 %%
 However, this should be avoided, since it reduces the information space and also introduces a new information bias, as assumptions are modeled through the discretization.
 %%
@@ -461,7 +461,7 @@ They also focus on metric features, while we process categorical data as well.
 %We share the matrix-arrangement of results depicting relationships between independent features in a model.
 
 %% Regression Cube: A Technique for Multidimensional Visual Exploration and Interactive Pattern Finding
-We use the term Regression Cube for a comparative 3D representation of multiple regression models.
+We use the term `Regression Cube' for a comparative 3D representation of multiple regression models.
 %% einheitlich 2D-XXX oder 2D XXX, meist ist es 2D XXX
 Chan et al. \cite{Chan} use the same term to describe an extension of the 2D scatter plot representation of a linear regression model (incorporating solely metric features) to a 3D Cube.
 %%
@@ -821,7 +821,10 @@ Thus, the cube can be easily extended using other regression types.
 %%
 For cubes with a fixed target feature, e.g., $Cancer \sim X + Y + Z$, no such encodings are required and the $z$ dimension can be compared directly.
 %%
+The color for both 2D and 3D view encodes the type of the regression analysis (blue for logistic regressions, orange for linear regressions).
+%%
 \\\\
+%%
 Our goal is to create an overview visualization for a data set, but we also want to incorporate expert knowledge into the visualization by adapting the underlying formulas.
 %%
 These two approaches do not exclude each other, they rather underline the difference in purpose of the chosen formula.
@@ -866,7 +869,7 @@ The different analysis approaches require different starting points using the \e
 %\com{4. Get Details on Demand.}
 %%
 % â¹bergang ist recht holprig gewesen
-Our Regression Cube model is well-suited for different workflow analysis techniques, based on the Visual Analytics (VA) Mantra of Keim et al. \cite{Keim}:
+Our \emph{Regression Cube} model is well-suited for different workflow analysis techniques, based on the Visual Analytics (VA) Mantra of Keim et al. \cite{Keim}:
 
 \textbf{Analyze First} [\textbf{1.AF}]. Choosing an initial regression formula triggers the \emph{Regression Cube} calculation on the given data set, filtering the dimensions of the dependent feature through the CFS algorithm.
 
@@ -928,7 +931,7 @@ This is achieved through cube comparison.
 
 \paragraph{Cube Comparison.}
 %%
-Regression Cubes can be compared by creating difference views.
+\emph{Regression Cubes} can be compared by creating difference views.
 %%
 One cube (extracted with one formula) acts as reference.
 %%
@@ -1065,11 +1068,11 @@ After uploading the data, the user can specify a formula or use the default ($Z 
 %%
 Entering a formula is provided via text input.
 %%
-On formula input, a context modal displays all data set variables as well as the available operators and their function.
+On formula input, a context modal displays all data set features as well as the available operators and their function.
 %%
 This allows to comprehend the function of the underlying formula for users without statistical background about regression analysis and its notation.
 %%
-Auto-completing input variables also simplifies the approach and works as spell check of variable names.
+Auto-completing input features also simplifies the approach and works as spell check of feature names.
 %%
 
 \textbf{Formula Validation and Calculation.} The formula is checked for validity directly on input.
@@ -1463,13 +1466,13 @@ We refer to each analysis step regarding to their belonging in the VA-Mantra (re
 %%
 The analysis goal is reproducing results with our visual analysis framework that are in accordance to the data mining-based results presented in \cite{Niemann2014}.
 %%
-Therefore, \emph{UN} started the \textbf{1.AF} step using the dichotomized MRI fat liver concentration using the formula $mrt\_liverfat\_s2 \sim X + Y + Z$ for \emph{male} subjects.
+Therefore, \emph{UN} started the [\textbf{1.AF}] step using the dichotomized MRI fat liver concentration using the formula $mrt\_liverfat\_s2 \sim X + Y + Z$ for \emph{male} subjects.
 %%
-The \textbf{2.SI} step using the 3D cube representations locates hotspots at the end of the cube (Fig.~\ref{fig:Application} a).
+The [\textbf{2.SI}] step using the 3D cube representations locates hotspots at the end of the cube (Fig.~\ref{fig:Application} a).
 %%
-The Zoom, Filter and Analyze Further Step (\textbf{3.ZF}) was realized by slicing through the cube using the mouse input to inspect the hot spots.
+The Zoom, Filter and Analyze Further Step [\textbf{3.ZF}] was realized by slicing through the cube using the mouse input to inspect the hot spots.
 %%
-Analyzing the mosaic plot (\textbf{4.DD}) revealed high correlations for somatometric features, hepatic steatosis indicator-features as well as laboratory values, such as creatinine (used renal retention parameter) and uric acid (among others used as gout and diabetes risk factors) magnitudes.
+Analyzing the mosaic plot [\textbf{4.DD}] revealed high correlations for somatometric features, hepatic steatosis indicator-features as well as laboratory values, such as creatinine (used renal retention parameter) and uric acid (among others used as gout and diabetes risk factors) magnitudes.
 %%
 Similar results were present for analyzing the \emph{female} groups.
 %%
@@ -1525,10 +1528,10 @@ The 3D cube representation already showed lower $R^2$ values in general. However
 The correlation hot spots matched with the ones from the dichotomous target, but were generally lower ($R^2$ of $0.37$ for somatometric features as opposed to $0.58$).
 %%
 We assume that the bias introduced by dichotomizing the fat liver content enforces the findings towards liver diseases, while using the numerical features is less expressive.
-%%
+
 \textbf{Interleukin-6 correlation with liver fat.}
 %%
-During the analysis, one hot spot was always observable in the \emph{SI} and \emph{ZF} incorporating a high \emph{Interleukin-6} (\emph{IL-6}) correlation with liver fat values (Fig.~\ref{fig:Application} b).
+During the analysis, one hot spot was always observable in the [\textbf{2.SI}] and [\textbf{3.ZF}] incorporating a high \emph{Interleukin-6} (\emph{IL-6}) correlation with liver fat values (Fig.~\ref{fig:Application} b).
 %%
 The correlation was high for both the dichotomized and continuous target feature.
 %%
@@ -1545,9 +1548,9 @@ The analysis aims to find relationships on the breast fat data using features de
 Relationships between the share of parenchyma tissue on the overall breast volume are of high interest \cite{Mccormack2006}.
 %%
 
-The \textbf{1.AF} was started by \emph{KH} using the default formula for hypothesis-free analysis ($Z \sim X + Y$).
+The [\textbf{1.AF}] was started by \emph{KH} using the default formula for hypothesis-free analysis ($Z \sim X + Y$).
 %%
-At first, she was interested in correlations with the \emph{parenchyma tissue} percentage, which was selected through the drop-down for the z-axis (\textbf{2.SI}).
+At first, she was interested in correlations with the \emph{parenchyma tissue} percentage, which was selected through the drop-down for the z-axis [\textbf{2.SI}].
 %%
 She observed strong correlations with \emph{age}, \emph{body fat percentage}, \emph{hip} and \emph{waist circumference} as well as \emph{menstrual period} or \emph{pregnancy status} as expected (Fig.~\ref{fig:Application} right).
 %%
@@ -1555,7 +1558,7 @@ Women with higher \emph{body fat} also have a larger \emph{breast fat percentage
 %%
 \emph{Age} is a strong influencing factor, as breast tissue and subsequently the parenchyma tissue degrades over time.
 %%
-\emph{KH} proceeded using \textbf{2.SI} and \textbf{3.DD} to check for relationships for different target features, such as current \emph{hormone replacement therapy}, \emph{BI-RADS} (classification of the mammography findings) as well as different diseases, such as \emph{diabetes} or \emph{gout}.
+\emph{KH} proceeded using [\textbf{3.ZF}] and [\textbf{4.DD}] to check for relationships for different target features, such as current \emph{hormone replacement therapy}, \emph{BI-RADS} (classification of the mammography findings) as well as different diseases, such as \emph{diabetes} or \emph{gout}.
 %%
 She observed relationships matching her expectations and expert knowledge.
 %%
@@ -1567,17 +1570,17 @@ One unexpected relationship was observed between \emph{breast lesions} and \emph
 
 \textbf{Detailed Breast Parenchyma Analysis.}
 %%
-The analysis was conducted by calculating the cube $Parenchyma\_Percentage \sim X + Y + Z$.
+The analysis was conducted by calculating the cube $Parenchyma\_Percentage \sim X + Y + Z$ [\textbf{1.AF}].
 %%
-Using the 3D cube, \emph{KH} observed several hotspots.
+Using the 3D cube, \emph{KH} observed several hotspots [\textbf{2.SI}].
 %%
-Navigating to them using the slicing facility of the 3D visualization highlighted features of high influence, such as image-derived features, as \emph{glandular tissue density} and \emph{parenchyma segmentation} metrics.
+Navigating to them using the slicing facility of the 3D visualization [\textbf{3.ZF}] highlighted features of high influence, such as image-derived features, as \emph{glandular tissue density} and \emph{parenchyma segmentation} metrics.
 %%
 Also, strong correlations were observed in the \emph{diabetes} slice, confirming expectations of \emph{KH} w.r.t. to its strong influence to the parenchyma tissue.
 %%
 A surprising find were the strong correlations with \emph{kidney disorder} ($R^2$ values around $0.9$).
 %%
-The \textbf{3.DD} analysis however showed only 8 subjects with \emph{kidney disorder}.
+The [\textbf{4.DD}] analysis however showed only 8 subjects with \emph{kidney disorder}.
 %%
 Too few subjects impose the risk of a biased finding.
 %%
