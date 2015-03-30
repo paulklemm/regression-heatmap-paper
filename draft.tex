@@ -1450,7 +1450,7 @@ This avoids the need of defining a separate data dictionary file for translating
 %%
 We refer to each analysis step regarding to their belonging in the VA-Mantra (recall Sec.~\ref{sec:Workflow}).
 %%
-The analysis goal is reproducing results with our visual analysis framework that are in accordance to the data mining-based results presented in \cite{Niemann2014}.
+The analysis goal was reproducing results with our visual analysis framework that are in accordance to the data mining-based results presented in \cite{Niemann2014}.
 %%
 Therefore, \emph{UN} started the [\textbf{1.AF}] step using the dichotomized MRI fat liver concentration using the formula $mrt\_liverfat\_s2 \sim X + Y + Z$ for \emph{male} subjects.
 %%
@@ -1458,13 +1458,13 @@ The [\textbf{2.SI}] step using the 3D cube representations locates hotspots at t
 %%
 The Zoom, Filter and Analyze Further Step [\textbf{3.ZF}] was realized by slicing through the cube using the mouse input to inspect the hot spots.
 %%
-Analyzing the mosaic plot [\textbf{4.DD}] revealed high correlations for somatometric features, hepatic steatosis indicator-features as well as laboratory values, such as creatinine (used renal retention parameter) and uric acid (among others used as gout and diabetes risk factors) magnitudes.
+Analyzing the mosaic plot [\textbf{4.DD}] revealed high correlations for somatometric features, hepatic steatosis indicator-features as well as laboratory values, such as \emph{creatinine} (used renal retention parameter) and \emph{uric acid} (among others used as gout and diabetes risk factors) magnitudes.
 %%
 Similar results were present for analyzing the \emph{female} groups.
 %%
-\emph{UN} could reproduce most results, some features exhibit lower correlations though, e.g., creatinine magnitudes.
+\emph{UN} could reproduce most results, some features exhibit lower correlations though, e.g., \emph{creatinine} magnitudes.
 %%
-A slight influence of age on the target feature could be observed for women ($R^2$ of $0.09$ for females compared to $0.02$ for males).
+A slight influence of \emph{age} on the target feature could be observed for women ($R^2$ of $0.09$ for females compared to $0.02$ for males).
 %% TODO Feedback of Henry!
 Relationships not described in \cite{Niemann2014} were found, such as enzymes indicating liver dysfunctions, e.g., \emph{aspartate aminotransferase}.
 % 
@@ -1529,11 +1529,10 @@ The finding is subject of further analysis.
 %%
 \subsection{Case 2: Hypothesis-free Analysis of the Breast Cancer Data Set}
 %%
-The analysis aims to find relationships on the breast fat data using features derived from the mammography analysis.
+The analysis aims to find relationships on the breast fat data using mammography analysis features.
 %%
-Relationships between the share of parenchyma tissue on the overall breast volume are of high interest \cite{Mccormack2006}.
+Relationships between the share parenchyma tissue on the overall breast volume are of high interest \cite{Mccormack2006}.
 %%
-
 The [\textbf{1.AF}] was started by \emph{KH} using the default formula for hypothesis-free analysis ($Z \sim X + Y$).
 %%
 At first, she was interested in correlations with the \emph{parenchyma tissue} percentage, which was selected through the drop-down for the z-axis [\textbf{2.SI}].
@@ -1595,7 +1594,7 @@ For the first time, they were able to derive an overview visualization custom ta
 %%
 She highlighted the efficiency of combining fast target feature selection with visually highlighting interesting results, enabling rapid analysis cycles.
 %%
-To get nearly similar results she would had to spend hours using \texttt{SPSS} and also might have missed many interesting hot spots during this process.
+To get nearly similar results she would had to spend hours using \texttt{SPSS} and potentially missed interesting hot spots during this process.
 %She noted that she usually would have to spend hours using \texttt{SPSS} to assess the data in the detail we presented.
 %%
 \emph{TI} highlighted the ability to simultaneously analyze thousands of regression models while maintaining little time expenses for rating them.
@@ -1625,11 +1624,11 @@ Statistical validation of an epidemiological end result still has to be carried 
 
 \textbf{Overview Visualizations are Preferred over Black-box Methods.}
 %%
-Explorative analysis based on the data gains importance in epidemiology as the data set complexity increases.
+Explorative analysis based on the data gains importance in epidemiology with increasing data set complexity.
 %While the classical epidemiological workflow represents the foundation of the research in this area, explorative analysis based on the data gains importance.
 Results from automatic `black-box' methods, such as data mining algorithm are more often obscure to the expert.
 %%
-Findings and hypotheses derived through overview visualizations, however, are met with more confidence, because the user actually observed the behavior herself/himself.
+Findings and hypotheses derived through overview visualizations, however, are met with more confidence, because the users actually observed the behavior themselves.
 %%
 The participation and steering of the analysis using human pattern-detection and expert knowledge is preferred.
 %%
@@ -1638,7 +1637,8 @@ The participation and steering of the analysis using human pattern-detection and
 %We  a higher confidence of an expert in a result he or she actually observed in the data rather 
 %One major advantage we observed is the confidence of an expert in the results he or she actually observe.
 %%
-Observing \emph{expected} correlations, which match the expert knowledge, strengthens the confidence in the method and, subsequently, in the hypothesis generated from unanticipated relationships.
+Observing \emph{expected} correlations matching the expert knowledge strengthens the confidence in the method and, subsequently, in the hypotheses generated from unanticipated relationships.
+%Observing \emph{expected} correlations, which match the expert knowledge, strengthens the confidence in the method and, subsequently, in the hypothesis generated from unanticipated relationships.
 %%
 %\com{Include the human into the analysis provides more confidence into the result than data mining algorithms. People believe more in what they see, rather than in what they are presented by an algorithm. Regression cubes incorporate this by showing known associations as well as new ones. Preattentive feature display (either through fast slicing through a cube or by showing hot spots) helps.}
 
@@ -1744,10 +1744,10 @@ We believe in the power of opening up knowledge discovery to allow a heterogenou
 %%\paragraph{Future Work.}
 %%\com{Implementing of regression analysis on the graphics card.}
 %%
-% \begin{small}
+\begin{small}
 	%\acknowledgments{Omitted due to blind review}
 \acknowledgments{SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics. This work was supported by the federal state of Saxony-Anhalt under grant number 'I 60' within the Forschungscampus STIMULATE.}
-% \end{small}
+\end{small}
 \clearpage
 \newpage
 \bibliographystyle{abbrv}
