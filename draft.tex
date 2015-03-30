@@ -221,7 +221,7 @@ Our contributions are:
 	\item The expansion and adaption of our method to any data with our open web-based system.
 \end{itemize}
 %%
-The term `Regression Cube' has been used for the detailed analysis of one or a small number of regression models \cite{Chan, Ahmadi}.
+The term `Regression Cube' has been used for the detailed analysis of one or a small number of regression models \cite{Ahmadi, Chan}.
 %%
 They extend 2D scatter plots to display detailed information about a regression model.
 %%
@@ -308,7 +308,7 @@ Medical image data is also acquired and analyzed in modern cohort studies.
 %%
 We incorporate image-derived features, but do not focus on analyzing image data.
 %%
-More discussions of cohort study data types and characteristics can be found in \cite{Klemm2014VIS, Toennies2015, Preim2014}.
+More discussions of cohort study data types and characteristics can be found in \cite{Klemm2014VIS, Preim2014, Toennies2015}.
 %%
 %\paragraph{Image Data.}
 % \com{Can probably be cut (reference to Klaus' Paper for more details on this) (see Bernhards comment above)}
@@ -371,7 +371,7 @@ An example of a regression formula would be $KidneyDisorder \sim Smoking + Obesi
 The most commonly used regression operators comprise:
 %%
 \begin{itemize}
-	\item $+,-$ inclusion/exclusion of the variable,
+	\item $+,-$ inclusion/exclusion of the variable (e.g. $x\pm y$),
 	\item $:$ inclusion of interactions between the variables (e.g. $x:y$),
 	\item $*$ inclusion of the variables as well as their interactions (e.g. $x*y$)
 	\item $|$ (conditioning) inclusion of variable x, given y (e.g. $x|y$)
@@ -532,7 +532,7 @@ In their survey on interactive information visualizations for health record data
 %%
 We follow their recommendation to design an open system available to everyone and applicable to various data sets.
 %%
-Schreck and Keim \cite{Schreck} presented a method for analyzing social media data with focus on characterization and cause of an epidemic.
+Schreck and Keim \cite{Schreck} present a method for analyzing social media data with focus on characterization and cause of an epidemic.
 %%
 They employ data aggregation techniques and use geographical data to map social media events, focusing on word clouds to derive insight into possible causes.
 %%
@@ -691,8 +691,8 @@ With simple adjustments to the formula, different results can be achieved:
 %%
 \begin{itemize}
 	\item $Z \sim X + Y$ calculates all combinations of two features w.r.t. all possible target features.
-	\item $Cancer \sim X + Y + BodyWeight$ includes the $BodyWeight$ feature into all regression models as feature.
-	\item $Cancer \sim X + Y + Z$ calculates all combinations of three features towards the target.
+	\item $Cancer \sim X + Y + BodyWeight$ includes the $BodyWeight$ feature into all regression models as feature with $Cancer$ as target.
+	\item $Cancer \sim X + Y + Z$ calculates all combinations of three features towards the $Cancer$ target.
 \end{itemize}
 %%
 The problem with this approach lies in its complexity.
@@ -706,6 +706,7 @@ When each regression takes about 50~ms calculation, we roughly have to wait 14~h
 %%
 Therefore, the computational complexity needs to be reduced.
 %%
+An approach for this is presented in the following section.
 %\com{Regression formulas are described using standard regression formula notation by introducing variables.}
 %%
 %\com{Target Group: Physicians/Epidemiologists with basic statistical background to understand regression formulas and Interaction.}
@@ -771,7 +772,7 @@ The next section shows ways of abstracting the results to make them visually fea
  \centering
  \includegraphics[width=3.5in]{figures/cube}
  \caption{
- (left) Overview visualization using a mosaic plot for the formula $Z \sim X + Y$, where $Z$ assumes the feature $Age$.
+ (left) Overview visualization using a mosaic plot for the formula $Z \sim X + Y$, where $Z$ assumes the feature $age$.
  %%
  The $R^2$ values extracted from the regression formulas depict the quality-of-fit and are mapped to color saturation (a saturated color shows a strong correlation).
  %%
@@ -917,7 +918,7 @@ $Cancer \sim X + Y + Z + feature_1:feature_2$ encodes more assumptions.
 %%
 This formula models the hypothesis of an interaction between $feature_1$ and $feature_2$ (denoted with `$:$') being relevant for the target feature, but it is not clear how other feature combinations influence the result.
 %%
-Therefore, the cube incorporates this interaction for all $X$,$Y$ and $Z$ values as independent features.
+Therefore, the cube incorporates this interaction for all $X$, $Y$ and $Z$ values as independent features.
 %%
 
 $Cancer \sim X + Y + Z$ subtracted with the $R^2$ from $Cancer \sim Age$ excludes the confounding effect that age has in view of the target $Cancer$ feature.
@@ -1114,7 +1115,7 @@ Therefore, we can discard half of the results to reduce visual clutter and repet
 %%
 This opens up space for displaying additional information.
 %%
-Along the diagonal, $X$ and $Y$ assume the same feature, $Z ~ X + Y$ turns into $Z ~ X$ because the regression automatically ignores doublings.
+Along the diagonal, $X$ and $Y$ assume the same feature, $Z \sim X + Y$ turns into $Z \sim X$ because the regression automatically ignores doublings.
 %%
 The diagonal therefore acts as reference on how strong the correlation for the given row (or column) feature is.
 
@@ -1142,7 +1143,7 @@ This highlights slices with unusually low or high results (Fig.~\ref{fig:Applica
 %%
 We aim to minimize these problems as much as possible.
 %%
-Since the $R^2$ values are mapped on data point opacity, only large values are highlighted in the prism, guiding the focus to the respective slices.
+Since the $R^2$ values are mapped on data point opacity, large values are highlighted in the prism, guiding the focus to the respective slices.
 %%
 It also creates a very sparse representation, since the majority of regression models yield (depending on the data set and the chosen formula) low $R^2$ values.
 %%
@@ -1216,9 +1217,9 @@ By hovering over a data entry in the plot, a tooltip model displays detailed inf
  \centering
  \includegraphics[width=3.5in]{figures/implementation}
  \caption{
- The front-end (left) is realized with \emph{HTML5}/\emph{CSS3}/\emph{Javascript} and different Javascript libraries, such as \emph{Angularjs}, \emph{Three.js} and D3js.
+ The front-end (left) is realized with \emph{HTML5}/\emph{CSS3}/\emph{Javascript} and different Javascript libraries, such as \emph{Angular.js}, \emph{Three.js} and D3.js.
  %%
- The web-server back-end (right) is written in \emph{Nodejs}, hosting is carried out using \emph{Heroku}.
+ The web-server back-end (right) is written in \emph{Node.js}, hosting is carried out using \emph{Heroku}.
  %%
  \emph{R} and \emph{OpenCPU} constitute the statistical back-end (top) to compute the \emph{Regression Cubes}.
  %%
@@ -1271,7 +1272,7 @@ It also is the fastest solution that we tested.
 \paragraph{Back-End.}
 Two server structures serve as back-end.
 %%
-The first one is the web-server, which is written in \texttt{Javascript} using \texttt{NodeJS}\footnote{Open Source; Maintained by Joyent Inc, \href{http://nodejs.org}{\texttt{nodejs.org}}}, running on Googles V8 Javascript runtime environment.
+The first one is the web-server, which is written in \texttt{Javascript} using \texttt{Node.js}\footnote{Open Source; Maintained by Joyent Inc, \href{http://nodejs.org}{\texttt{nodejs.org}}}, running on Googles V8 Javascript runtime environment.
 %%
 It is hosted on \texttt{Heroku}\footnote{Owned by Salesforce.com, \href{https://www.heroku.com/}{\texttt{heroku.com}}}, a cloud application platform.
 %%
@@ -1296,7 +1297,7 @@ The server workload balances are managed by the front-end code.
 %%
 A running instance of the \emph{Regression Cube} prototype can be found under \href{http://regressioncube.herokuapp.com/}{\texttt{regressioncube.herokuapp.com}}.
 %%
-The source for the prototype is freely available at \texttt{Github}.\footnote{\texttt{R}-based back-end: \href{https://github.com/paulklemm/regression-cube-r-package}{\\\texttt{github.com/paulklemm/regression-cube-r-package}}}$^{,}$\footnote{Front-End and Nodejs Webserver: \href{https://github.com/paulklemm/regression-cube-prototype}{\texttt{\\github.com/paulklemm/regression-cube-prototype}}}
+The source for the prototype is freely available at \texttt{Github}.\footnote{\texttt{R}-based back-end: \href{https://github.com/paulklemm/regression-cube-r-package}{\\\texttt{github.com/paulklemm/regression-cube-r-package}}}$^{,}$\footnote{Front-End and Node.js Webserver: \href{https://github.com/paulklemm/regression-cube-prototype}{\texttt{\\github.com/paulklemm/regression-cube-prototype}}}
 %%
 Instructions and code on how to create a setup running the \emph{Regression Cube} statistical back-end through a \texttt{Ubuntu} server using \texttt{OpenCPU} are referenced in the repository.
 %%
