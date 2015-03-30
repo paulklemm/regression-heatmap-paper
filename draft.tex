@@ -77,7 +77,7 @@
 %% This is how authors are specified in the journal style
 
 %% indicate IEEE Member or Student Member in form indicated below
-\author{Paul Klemm, Kai Lawonn, Sylvia Gla{\ss}er, Uli Niemann, Katrin Hegenscheid, Henry V{\"o}lzke, Bernard Preim}
+\author{Paul Klemm, Kai Lawonn, Sylvia Gla{\ss}er, Uli Niemann, Katrin Hegenscheid, Henry V{\"o}lzke, Bernhard Preim}
 \authorfooter{
 %% insert punctuation at end of each item
 \item
@@ -107,9 +107,9 @@ Although there is a strong demand for overview visualizations of a whole data se
 %%
 We propose an analysis approach of epidemiological data sets by incorporating all features in an exhaustive regression-based analysis.
 %%
-This approach combines all \emph{independent features} with respect to a \emph{target feature} and provides a visualization, which reveals insights into the data by highlighting relationships.
+This approach combines all \emph{independent features} with respect to a \emph{target feature} and provides a visualization that reveals insights into the data by highlighting relationships.
 %%
-A 3D-visualization of all combinations of two to three independent features towards a target acts as an overview of the whole data set, the \emph{Regression Cube}.
+A 3D visualization of all combinations of two to three independent features towards a target acts as an overview of the whole data set, the \emph{Regression Cube}.
 %%
 Slicing through the \emph{Regression Cube} allows for the detailed analysis of features towards the target disease.
 %%
@@ -119,7 +119,7 @@ Furthermore, the influences of features can be assessed using a difference view 
 %%
 %\com{Validation \& Results}.
 %%
-We applied our \emph{Regression Cube} method to a hepatic steatosis data set to reproduce results from a data-mining driven analysis.
+We applied our \emph{Regression Cube} method to a hepatic steatosis data set to reproduce results from a data mining-driven analysis.
 %%
 A qualitative analysis was conducted on a breast fat data set.
 %%
@@ -178,7 +178,7 @@ Insights about risk factors allow to characterize disease-specific high-risk gro
 %%
 Furthermore, the insights can be used to derive recommendations regarding a healthy lifestyle or to provide information about wide-spread diseases.
 %%
-During the standard workflow, physicians transform observations into hypotheses, which are depicted using epidemiological features and then statistically analyzed.
+During the standard workflow, physicians transform observations into hypotheses, which are depicted using epidemiological features and then are statistically analyzed.
 
 An important epidemiological tool for deriving such features is the evaluation of a \emph{cohort study}, such as the Study of Health in Pomerania (SHIP) \cite{Volzke2011}.
 %%
@@ -190,7 +190,7 @@ Social and lifestyle factors, prior or current diseases and medications as well 
 %%
 Medical image data from non-radiating modalities, e.g., magnetic resonance imaging (MRI), is also acquired in modern studies.
 %%
-These data may be quantified based on user-defined landmarks, which describe attributes like the shape, the volume or the diameter of a structure.
+These data may be quantified based on user-defined landmarks, which describe attributes like the shape, volume or diameter of a structure.
 %%
 
 Testing features for association with diseases using regression analysis is one of the most important epidemiological tools.
@@ -258,7 +258,7 @@ The methods aim to derive hypotheses through analysis of the data and observatio
 %%
 Employing \emph{hypothesis generation} requires overview visualizations of feature correlations, which are not supported by standard statistical processors.
 %%
-In this work, we focus on a similar approach to deriving insight and even new hypotheses through the data rather than using it just for confirmatory analysis.
+In this work, we focus on a similar approach to derive insight and even new hypotheses through the data rather than only using it for a confirmatory analysis.
 %An alternative data-driven approach is described as follows.
 %%
 % \paragraph{Data Driven Hypothesis-Generation-based Analysis.}
@@ -285,7 +285,7 @@ The feature space comprises information about lifestyle, somatometric variables,
 %%
 These features are derived through different modalities, such as questionnaires, medical examinations or laboratory analyses.
 %%
-Many features are sparse, such as follow up questions about a medication or treatment of a certain disease.
+Many features are sparse, such as follow-up questions about a medication or treatment of a certain disease.
 %%
 Other features are exclusive for a sub-group, such as women-specific questions, e.g., number of born children or period status.
 %%
@@ -306,9 +306,9 @@ However, this should be avoided, since it reduces the information space and also
 
 Medical image data is also acquired and analyzed in modern cohort studies.
 %%
-We incorporate image-derived features, but do not put focus on analyzing image data.
+We incorporate image-derived features, but do not focus on analyzing image data.
 %%
-More discussion of cohort study data types and characteristics can be found in \cite{Klemm2014VIS, Toennies2015, Preim2014}.
+More discussions of cohort study data types and characteristics can be found in \cite{Klemm2014VIS, Toennies2015, Preim2014}.
 %%
 %\paragraph{Image Data.}
 % \com{Can probably be cut (reference to Klaus' Paper for more details on this) (see Bernhards comment above)}
@@ -353,7 +353,7 @@ A regression analysis assesses the influence of one or more (\emph{independent})
 %%
 The regression model yields a function describing the target feature by weighting the independent features.
 %%
-Different metrics, such as the weightings itself and associated $p$ values describe the resulting function (the \emph{model}).
+Different metrics, such as the weightings itself and associated $p$ values, describe the resulting function (the \emph{model}).
 %%
 $R^2$ values describe the quality of the fit; in other words how well the dependent features describe the target feature.
 %%
@@ -367,13 +367,13 @@ Dependent \sim Independent_1 + ... + Independent_n
 \label{eq:RegressionNotation}
 \end{equation}
 %%
-A example of a regression formula would be $KidneyDisorder \sim Smoking + Obesity$.
-The most used regression operators comprise:
+An example of a regression formula would be $KidneyDisorder \sim Smoking + Obesity$.
+The most commonly used regression operators comprise:
 %%
 \begin{itemize}
 	\item $+,-$ inclusion/exclusion of the variable,
 	\item $:$ inclusion of interactions between the variables (e.g. $x:y$),
-	\item $*$ inclusion the variables as well as their interactions (e.g. $x*y$)
+	\item $*$ inclusion of the variables as well as their interactions (e.g. $x*y$)
 	\item $|$ (conditioning) inclusion of variable x, given y (e.g. $x|y$)
 \end{itemize}
 %%
@@ -390,11 +390,11 @@ The \emph{dependent} variable has to be of a continuous type.
 %%
 The target is described by fitting a logistic function.
 %%
-Logistic models as opposed to linear models do not allow for extracting an $R^2$ quality of fit value.
+Logistic models, as opposed to linear models, do not allow for extracting an $R^2$ quality of fit value.
 %%
 Therefore, pseudo-$R^2$ values are extracted, such as the \emph{Nagelkerke $R^2$}, which mimics the behavior of the $R^2$.
 %%
-\emph{Nagelkerke $R^2$} behave different than $R^2$ values extracted from linear regression model.
+\emph{Nagelkerke $R^2$} behaves different than $R^2$ values extracted from the linear regression model.
 %%
 Comparisons have to be handled with care.
 
@@ -448,13 +448,13 @@ Akin to our approach, Piringer et al. \cite{Piringer} propose methods for visual
 %%
 Their main goal is to assess the pairwise influence of independent features towards the target feature using a plot matrix displaying models as contours.
 %%
-They also incorporate 3D visualizations for each pairwise combination, but mainly because its popularity with their target domain engineers.
+They also incorporate 3D visualizations for each pairwise combination, but mainly because of its popularity with the target domain engineers.
 %%
 Linked views of model deviations allow to select outliers.
 %%
 This limits the method to comparing a few models at once as the plot matrix gets complex with increasing feature number.
 %%
-The main difference is their focus on analyzing one complex model in detail, yielding extensive plots, while we analyze a large amount of simpler models towards \emph{different} features.
+The main difference is their focus on analyzing one complex model in detail, yielding extensive plots, while we analyze a large amount of simpler models in terms of \emph{different} features.
 %%
 They also focus on metric features, while we process categorical data as well.
 %%
@@ -463,11 +463,11 @@ They also focus on metric features, while we process categorical data as well.
 %% Regression Cube: A Technique for Multidimensional Visual Exploration and Interactive Pattern Finding
 We use the term Regression Cube for a comparative 3D representation of multiple regression models.
 %% einheitlich 2D-XXX oder 2D XXX, meist ist es 2D XXX
-Chan et al. \cite{Chan} use the same term to describe an extension of the 2D Scatterplot representation of a linear regression models (incorporating solely metric features) to a 3D Cube.
+Chan et al. \cite{Chan} use the same term to describe an extension of the 2D scatter plot representation of a linear regression model (incorporating solely metric features) to a 3D Cube.
 %%
 They group subjects using a set of interaction techniques as well as clustering algorithms to calculate sub-groups, which can then be compared using their cube representation.
 %%
-Similar to \cite{Piringer}, they focus on highlighting details of the included models, rather than comparing models consisting of different features.
+Similar to \cite{Piringer}, they focus on highlighting details of the included models rather than comparing models consisting of different features.
 %%
 Insight is derived by subject grouping, which spawns new cube correlations and therefore allows drilling down to the data.
 %%
@@ -517,7 +517,7 @@ Shneiderman et al. \cite{Shneiderman2013} highlight the necessity of interactive
 %We focus on the latter.
 %%
 %Shneiderman and colleagues also present challenges, 
-The presented challenges in this application comprise the systems to be sufficiently comprehensible and intuitive to fit into the short time span clinicians have when analyzing data.
+The presented challenges in this application comprise the systems to be sufficiently comprehensible and intuitive to fit into the short time span that clinicians have for analyzing data.
 %%
 Furthermore, the systems should provide comparative relationship visualization, characterization of similarity and presenting risks.
 %%
@@ -561,7 +561,7 @@ Dai et al. \cite{Dai2005} incorporate a \texttt{GPLOM}-like visualization using 
 %%
 A \emph{concept map} summarizes features related to a specified disease.
 %%
-Time-dependent epidemiological data is visualized by Chui et al. \cite{Chui2011} using multi-panel graphs highlighting risk factor differences with age and gender towards influenza- and salmonellosis-associated hospitalizations.
+Time-dependent epidemiological data is visualized by Chui et al. \cite{Chui2011} using multi-panel graphs highlighting risk factor differences with age and gender with regard to influenza- and salmonellosis-associated hospitalizations.
 %%
 %We also include confounder features (age, gender) into the analysis while focusing on non-time-dependent cohort study data sets.
 %%
@@ -571,13 +571,13 @@ Time-dependent epidemiological data is visualized by Chui et al. \cite{Chui2011}
 %%
 %Here we present work showing a strong focus on statistical analysis in this context.
 %% Quality Metrics in High-Dimensional Data Visualization - An Overview and Systematization
-Bertini et al. \cite{Bertini} present an overview over quality metrics describing high dimensional data.
+Bertini et al. \cite{Bertini} present an overview of quality metrics describing high dimensional-data.
 %%
 Their research agenda acts as guideline for our design, comprising perceptual tuning towards human pattern recognition of important aspects, scalability between different data set sizes and application testing with domain experts.
 %%
 %% TODO: Use this one? "Statistical resilience of random populations to random perturbations" - http://www.ncbi.nlm.nih.gov/pubmed/19256997 - wie eine Variable sich âÃÂ¬Â§ndert, wenn man per Zufall die Populationen verâÃÂ¬Â§ndert, um zu schauen wie zuverlâÃÂ¬Â§ssig diese Statistik ist.
 %% The Sparse Regression Cube: A Reliable Modeling Technique for Open Cyber-physical Systems
-Ahmadi et al. \cite{Ahmadi} define the \emph{Sparse Regression Cube}, which partitions sparse high-dimensional data into subspaces, which are then described by their most reliable linear regression model.
+Ahmadi et al. \cite{Ahmadi} define the \emph{Sparse Regression Cube} that partitions sparse high dimensional data into subspaces, which are then described by their most reliable linear regression model.
 %%
 %In their application, they try to find most fuel-efficient roads connecting two user-defined landmarks.
 %%
@@ -596,7 +596,7 @@ They analyze subsets using a drilling-down approach by incorporating scatter plo
 %%
 Turkay et al. \cite{Turkay} follow a similar approach by using both descriptive metrics for features as well as the features themselves and incorporate them into linked plots.
 %%
-The approach was applied to a cognitive aging studies, where new hypotheses could be derived.
+The approach was applied to a cognitive aging study, where new hypotheses could be derived.
 
 %Hielscher et al. \cite{Hielscher} assess subject similarity towards hepatic steatosis (fatty liver disease) to identify common risk factors using [...]?
 %\com{Uli, can you please complete this, I do not have the pdf available!}
@@ -605,7 +605,7 @@ Niemann et al. \cite{Niemann2014} investigate risk factors of hepatic steatosis 
 %%
 They extracted association rules that serve as basis for our proof-of-concept tests.
 %%
-In \cite{Niemann2015}, Niemann et al. improve on classification performance by generating features (called \emph{evolution features}) that describe latent temporal information across the study waves.
+In \cite{Niemann2015}, Niemann et al. improve the classification performance by generating features (called \emph{evolution features}) that describe latent temporal information across the study waves.
 %%
 We try to reproduce their results and investigate their findings further.
 %%
@@ -614,7 +614,7 @@ We try to reproduce their results and investigate their findings further.
 \paragraph{Prior Work.}
 In our prior work, we analyzed the healthy aging process of the lumbar spine.
 %%
-We utilized semiautomatic detection algorithm do detect the lumbar spine shape \cite{Klemm2013VMV}.
+We utilized semi-automatic detection algorithm do detect the lumbar spine shape \cite{Klemm2013VMV}.
 %%
 %The reliable part of the presented models are represented by the shape of the lumbar spine canal, which was extracted and described using line representation.
 %%
@@ -639,8 +639,8 @@ We concluded that the model quality is insufficient to characterize back pain.
 \\\\
 The difference of the presented approach towards our previous and related work is twofold:
 \begin{enumerate}
-	\item We focus on large scale analysis of a vast number of linear and logistic regression-models by assessing their quality-of-fit using descriptive metrics.
-	\item The analysis is conducted towards a target feature and incorporates expert knowledge via the regression model definition rather than subdividing the underlying data.
+	\item We focus on the large-scale analysis of a vast number of linear and logistic regression-models by assessing their quality-of-fit using descriptive metrics.
+	\item The analysis is conducted w.r.t. a target feature and incorporates expert knowledge via the regression model definition rather than subdividing the underlying data.
 \end{enumerate}
 %%
 \section{Regression Cube Analysis of Cohort Study Data}
@@ -660,7 +660,7 @@ These target features often indicate the presence of the investigated disease.
 As described in Section \ref{sec:RegressionAnalysis}, regression analysis is the statistical tool of choice for analyzing these relationships.
 %%
 % unified -> singular [Steffi?]
-A regression model is based on expert knowledge, there is no singular rule how to apply them to a given set of features. Thus, they have to be applied with care.
+A regression model is based on expert knowledge; there is no singular rule how to apply models to a given set of features. Thus, they have to be applied with care.
 %%
 \subsection{Cube Description Using Regression Formula Notation}
 %%
@@ -683,14 +683,14 @@ Cancer \sim X + Y
 \end{equation}
 would yield $n^2$ (10,000) regression models, describing all possible combinations of two features in the data describing the target feature  $Cancer$.
 %%
-The major advantage of this notation is that it comes natural to anyone familiar with regression analysis since it is the standard way of expression.
+The major advantage of this notation is that it comes natural to anyone familiar with regression analysis, since it is the standard way of expression.
 %%
 %This allows for a fast adaptation and in the epidemiological application domain.
 %%
 With simple adjustments to the formula, different results can be achieved:
 %%
 \begin{itemize}
-	\item $Z \sim X + Y$ calculates all combinations of two features towards all possible target features.
+	\item $Z \sim X + Y$ calculates all combinations of two features w.r.t. all possible target features.
 	\item $Cancer \sim X + Y + BodyWeight$ includes the $BodyWeight$ feature into all regression models as feature.
 	\item $Cancer \sim X + Y + Z$ calculates all combinations of three features towards the target.
 \end{itemize}
@@ -702,7 +702,7 @@ The number of calculated regression models exponentially increases for each dyna
 If we assume a data set with 100 features and the formula $Z \sim X + Y$, we obtain 1,000,000 regression models.
 %%
 % hours -> h da ms ja auch benutzt wird.
-When each regression takes about 50~ms calculation, we have to roughly wait 14~h for the calculation to complete.
+When each regression takes about 50~ms calculation, we roughly have to wait 14~h for the calculation to complete.
 %%
 Therefore, the computational complexity needs to be reduced.
 %%
@@ -725,17 +725,17 @@ Therefore, the computational complexity needs to be reduced.
 % %%
 In epidemiological studies, manifold recordings lead to an abundance of features and thus a high-dimensional feature space.
 %%
-In general, many of them exhibit low or none correlation at all towards the target feature.
+In general, many of them exhibit a low or no correlation at all in view of the target feature.
 %%
 Identifying irrelevant features and excluding them from the feature space considerably reduces computational costs and yields a comprehensible \emph{Regression Cube} representation.
 %%
 % nochmal checken wo $F$ eingefÂ¸hrt wird, hier oder im Â¸bernâ°chsten Satz?
-The correlation-based feature selection (CFS) \cite{CFS} aims to find a feature subset that maximizes the \emph{merit value} $M_F$ which is the ratio between the average feature-class and feature-feature dependencies of features in the feature set $F$.
+The correlation-based feature selection (CFS) \cite{CFS} aims to find a feature subset that maximizes the \emph{merit value} $M_F$, which is the ratio between the average feature-class and feature-feature dependencies of features in the feature set $F$.
 %%
 The dependency of a set of features utilizes the entropy-based information gain to measure the explanatory power towards the target feature.
 %%
 % Ggf. wurde $F$ schon oben eingefÂ¸hrt, TODO
-Starting with an empty set of features $F$, the CFS algorithm iteratively adds the feature $f$ to $F$ that leads to the highest new merit-value $M_{F\cup f}$ and halts when no feature is left that would increase the merit.
+Starting with an empty set of features $F$, the CFS algorithm iteratively adds the feature $f$ to $F$ that leads to the highest new merit value $M_{F\cup f}$ and halts when no feature is left that would increase the merit.
 %%
 For example, if the \emph{body weight} has a strong explanatory power towards the target, it is likely that \emph{BMI} or \emph{waist circumference} exhibit similar correlations to the target.
 %%
@@ -779,7 +779,7 @@ The next section shows ways of abstracting the results to make them visually fea
  %%
  These represent the slices in our cube.
  %%
- The $R^2$ values of each slice voxel is mapped on opacity in the 3D-view later on, reducing the occlusion of other values.
+ The $R^2$ value of each slice voxel is mapped on opacity in the 3D view later on, reducing the occlusion of other values.
  }
   \label{fig:Cube}
 \end{figure}
@@ -807,7 +807,7 @@ This describes a 2D regression square for dynamic variables $X$ and $Y$ (e.g., $
 %%
 Introducing $Z$ creates a 3D \emph{Regression Cube} (Fig.~\ref{fig:Cube} b).
 %%
-$R^2$ values of each cube entry (\emph{voxel}) is mapped to opacity to reduce the overlap.
+$R^2$ values of each cube entry (\emph{voxel}) are mapped to opacity to reduce the overlap.
 %%
 The visualization of $R^2$ values derived from different regression cubes (e.g., $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
 %%
@@ -837,17 +837,17 @@ The different analysis approaches require different starting points using the \e
  %%
  % The analysis starts with a set of features given by the data set.
  %%
- [\textbf{1.AF}] The workflow starts by declaring a formula regarding to specify a hypothesis, or use a predefined formula for a hypothesis-free analysis.
+ [\textbf{1.AF}] The workflow starts by declaring a formula to specify a hypothesis, or to use a predefined formula for a hypothesis-free analysis.
  %%
  [\textbf{2.SI}] The \emph{Regression Cube} is then visualized.
  %%
  The user has the option to either adjust the formula or to derive details on demand on a specific regression.
  %%
- [\textbf{3.ZF}] Insights into the data yield either an adjustment of the current formula or selecting a difference view.
+ [\textbf{3.ZF}] Insights into the data yield either an adjustment of the current formula or a selection of a difference view.
  %%
  The latter is used to compare regression cubes.
  %%
- [\textbf{4.DD}] Details about features using the 2D mosaic plot representation yields insights and hypothesis about feature relations.
+ [\textbf{4.DD}] Details about features using the 2D mosaic plot representation yield insights and hypotheses about feature relations.
  }
   \label{fig:Workflow}
 \end{figure}
@@ -865,33 +865,33 @@ The different analysis approaches require different starting points using the \e
 %\com{4. Get Details on Demand.}
 %%
 % â¹bergang ist recht holprig gewesen
-Our Regression Cube models is well-suited for different workflow analysis techniques, based on the Visual Analytics (VA) Mantra of Keim et al. \cite{Keim}:
+Our Regression Cube model is well-suited for different workflow analysis techniques, based on the Visual Analytics (VA) Mantra of Keim et al. \cite{Keim}:
 
 \textbf{Analyze First} [\textbf{1.AF}]. Choosing an initial regression formula triggers the \emph{Regression Cube} calculation on the given data set, filtering the dimensions of the dependent feature through the CFS algorithm.
 
-\textbf{Show the Important} [\textbf{2.SI}]. The 3D-cube visualization acts as an overview over the whole data set.
+\textbf{Show the Important} [\textbf{2.SI}]. The 3D cube visualization acts as an overview over the whole data set.
 %%
-Regression models with large $R^2$ values can be spotted here fast, steering the users attention to the respective slice.
+Here, regression models with large $R^2$ values can be spotted fast, steering the user's attention to the respective slice.
 
 \textbf{Zoom, Filter and Analyze Further} [\textbf{3.ZF}]. The slices of interest can then be analyzed using the 2D mosaic plot of the slice.
 
-\textbf{Details on Demand} [\textbf{4.DD}]. Precise information about the individual regression models (coefficients, associated confidence intervals and p-values) can be retrieved based on the data point representatives (e.g. in a hover-modal on a currently selected data point).
+\textbf{Details on Demand} [\textbf{4.DD}]. Precise information about the individual regression models (coefficients, associated confidence intervals and p-values) can be retrieved based on the data point representatives (e.g. in a hover modal on a currently selected data point).
 \\\\
-We use the squared bracket abbreviation for each step to denote the affiliation the system design section later on.
+We use the squared bracket abbreviation for each step to denote the affiliation to the system design section later on.
 %%
-As seen in Fig~\ref{fig:Workflow}, the workflow is highly iterative.
+As seen in Fig.~\ref{fig:Workflow}, the workflow is highly iterative.
 %%
 Observations in the 2D mosaic plot or simply the CFS-based features can trigger new analyses by adjusting the underlying regression formulas.
 %%
-This can be carried out either to refine the current formula based on observations, or creating a new regression cube for a difference view.
+This can be carried out either to refine the current formula based on observations, or to create a new regression cube for a difference view.
 %%
 \paragraph{Hypothesis-Free and Hypothesis-Based Analysis.}
 %%
 Input formulas reflect \emph{hypotheses} about the data.
 %%
-Using the operators, the dynamic variables and the dataset features, many different assumptions can be expressed.
+Using the operators, dynamic variables and dataset features, many different assumptions can be expressed.
 %%
-To support \emph{hypothesis-free} analysis, we provide a default formula:
+To support the \emph{hypothesis-free} analysis, we provide a default formula:
 
 $Z \sim X + Y$.
 %%
@@ -915,12 +915,12 @@ All combinations of three independent features towards the target are analyzed t
 
 $Cancer \sim X + Y + Z + feature_1:feature_2$ encodes more assumptions.
 %%
-This formula models the hypothesis of an interaction between $feature_1$ and $feature_2$ (denoted with `$:$') being relevant for the target feature, but it is not clear how other feature combination influence the result.
+This formula models the hypothesis of an interaction between $feature_1$ and $feature_2$ (denoted with `$:$') being relevant for the target feature, but it is not clear how other feature combinations influence the result.
 %%
 Therefore, the cube incorporates this interaction for all $X$,$Y$ and $Z$ values as independent features.
 %%
 
-$Cancer \sim X + Y + Z$ subtracted with the $R^2$ from $Cancer \sim Age$ excludes the confounding effect age has towards the target $Cancer$ feature.
+$Cancer \sim X + Y + Z$ subtracted with the $R^2$ from $Cancer \sim Age$ excludes the confounding effect that age has in view of the target $Cancer$ feature.
 %%
 This is achieved through cube comparison.
 %%
@@ -980,8 +980,7 @@ For example, it can be utilized for comparing the influence of a single feature 
 We designed our system to be freely accessible and easy to use.
 With open formats as input interfaces, the application can be extended to non-epidemiological data sets.
 %%
-%%
-The focus lies on creating an overview visualization and gaining insight into relationships into the data, which triggers further analyses (maybe with other (statistical) tools).
+The focus lies on creating an overview visualization and gaining insight into relationships of the data, which triggers further analyses, maybe with other (statistical) tools.
 %%
 Therefore, the system has to be intuitive and comprehensive in order to be adapted by domain experts.
 %%
@@ -992,9 +991,9 @@ Therefore, the system has to be intuitive and comprehensive in order to be adapt
 %% TODO: Umschreiben
 Resting collaboration and exchange about data and methods on web-based technologies shows promising results, as there is no set-up time involved and domain experts can use the methods from any computer connected with the web.
 %%
-Web technology is by design based on a client-server architecture, making it easy to outsource computationally heavy tasks on server-clusters and transferring results to the client device.
+By design, web technology is based on a client-server architecture, making it easy to outsource computationally heavy tasks on server clusters and transferring results to the client device.
 %%
-The design space spanned by web-technologies is different to standard WIMP-applications: right click menus, modal windows and menu bars are not established UI components in this context.
+The design space spanned by web technologies is different to standard WIMP applications: right-click menus, modal windows and menu bars are no established user interface components in this context.
 %%
 Therefore, we have to adapt our design respecting the affordances of web pages.
 %%
@@ -1009,17 +1008,17 @@ This allows for a fast learning of the individual system parts.
 Our prototype consists of three components:
 \begin{itemize}
 	%%
-	\item The \emph{file upload} section starting the analysis with providing a comma separated value (CSV) file [1.AF].
+	\item The \emph{file upload} section starting the analysis with providing a comma-separated value (CSV) file [1.AF].
 	%%
-	\item The \emph{cube visualization} consisting of the 2D-mosaic view as well as a 3D-representation of the whole cube [2.SI].
+	\item The \emph{cube visualization} consisting of the 2D mosaic view as well as a 3D representation of the whole cube [2.SI].
 	%%
-	\item The \emph{formula editor} allows to adjust the formula w.r.t. a hypothesis or conducting a \emph{hypothesis-free} analysis.
+	\item The \emph{formula editor} allows to adjust the formula w.r.t. a hypothesis or to conduct a \emph{hypothesis-free} analysis.
 	%%
-	It also allows to select a reference formula for creating a difference-cube [3.ZF].
+	It also allows to select a reference formula for creating a difference cube [3.ZF].
 	%%
 \end{itemize}
 %%\com{Focus on simplification and ease of use, reducing the number of UI elements as much as possible (Statistical Visualizations often tend to put all information and settings at once to the user, which is overwhelming for the user).}
-\paragraph{File-Upload and Classification [1.AF].}
+\paragraph{File Upload and Classification [1.AF].}
 %%
 Popular analytics tools, such as WEKA \cite{WEKA}, owe their popularity to their support of open file types.
 %%
@@ -1027,7 +1026,7 @@ To allow other users even outside the epidemiological application domain to acce
 %%
 The first line in a CSV file represents all features (columns) of the data set.
 %%
-Each line after that represents one subject (row) and their feature manifestations.
+Each line after that represents one subject (row) and its feature manifestations.
 
 \textbf{Encoding via CSV files.}
 %%
@@ -1039,7 +1038,7 @@ All categorical values have to be enclosed by quotation marks.
 %%
 Continuous variables are denoted as digits without enclosing quotation marks.
 %%
-Although this seems obvious, many cohort study data sets encode categorical features using ID-values, which are denoted in a data dictionary.
+Although this seems obvious, many cohort study data sets encode categorical features using ID values that are denoted in a data dictionary.
 %%
 Variables with only two manifestations are classified as dichotomous, leading to three possible data types: numerical, categorical and categorical/dichotomous.
 %%
@@ -1047,7 +1046,7 @@ Missing values are denoted by using no character at all, a whitespace, or an emp
 
 \textbf{Data Security.}
 %%
-Security issues are raised by uploading data into an online service, such as our prototype.
+Security issues are raised by uploading data into an online service such as our prototype.
 %%
 The use of epidemiological data is preceded by a detailed description of the analysis purpose and has to be approved by ethics committees.
 %%
@@ -1065,11 +1064,11 @@ After uploading the data, the user can specify a formula or use the default ($Z 
 %%
 Entering a formula is provided via text input.
 %%
-On formula input, a context modal displays all data set variables, as well as the available operators and their function.
+On formula input, a context modal displays all data set variables as well as the available operators and their function.
 %%
 This allows to comprehend the function of the underlying formula for users without statistical background about regression analysis and its notation.
 %%
-Auto-completing input variables also simplifies the approach and also works as spell-check of variable names.
+Auto-completing input variables also simplifies the approach and works as spell check of variable names.
 %%
 
 \textbf{Formula Validation and Calculation.} The formula is checked for validity directly on input.
@@ -1080,14 +1079,14 @@ This prevents processing errors on the statistical processor back-end.
 %%
 Confirming a formula triggers the cube calculation, which is preceded by determining all required formulas.
 %%
-These are then divided by the number of available statistical back-end processors available, driving a \emph{cloud-computing}-based approach.
+These are then divided by the number of available statistical back-end processors, driving a \emph{cloud-computing}-based approach.
 %%
 In theory, the calculation duration is reduced by a factor of $0.5$ by every statistical processor.
 %%
-In praxis, data transmission and differences in machine specifications always influence the speed.
+In practice, data transmission and differences in machine specifications always influence the speed.
 
 %%
-\textbf{Difference-Cube.}
+\textbf{Difference Cube.}
 Adding a formula also adds it to the reference selection for a difference cube.
 %%
 Since all cells in the cube are represented using $R^2$ values, a difference cube is calculated by denoting the absolute difference of $R^2$ for each cell.
@@ -1101,7 +1100,7 @@ Since all cells in the cube are represented using $R^2$ values, a difference cub
 %%
 The visualization and interaction with the \emph{Regression Cube} is the prototype core.
 %%
-Results from the statistical processors are uploaded into the visualization slice by slice, allowing the assessment of the data as soon as parts of the calculations are finished while the rest is still in processing.
+Results from the statistical processors are uploaded into the visualization slice by slice, allowing the assessment of the data as soon as parts of the calculations are finished while the rest is still in progress.
 
 \paragraph{Usage of a Regression Prism for information reduction.}
 %%
@@ -1111,7 +1110,7 @@ This is due to the symmetry of basic regression operators.
 %%
 $Z \sim X + Y$ produces the same result as $Z \sim Y + X$.
 %%
-Therefore we can discard half of the results to reduce visual clutter and repetition, yielding a \emph{Regression Prism}.
+Therefore, we can discard half of the results to reduce visual clutter and repetition, yielding a \emph{Regression Prism}.
 %%
 This opens up space for displaying additional information.
 %%
@@ -1119,11 +1118,11 @@ Along the diagonal, $X$ and $Y$ assume the same feature, $Z ~ X + Y$ turns into 
 %%
 The diagonal therefore acts as reference on how strong the correlation for the given row (or column) feature is.
 
-\paragraph{3D-Prism as Data Mini-Map.}
+\paragraph{3D Prism as Data Mini-Map.}
 %%
-The 3D-cube representation acts as an overview over the whole data set, but its purpose is not to derive detailed information about data points.
+The 3D cube representation acts as an overview over the whole data set, but its purpose is not to derive detailed information about data points.
 %%
-It serves an function similar to a mini-map, guiding the attention towards points of interest in the data, as well as giving context information about adjacent data values when using the 2D mosaic plot.
+It serves as a function similar to a mini-map, guiding the attention towards points of interest in the data, as well as giving context information about adjacent data values when using the 2D mosaic plot.
 %%
 %It serves the purpose of \emph{Show the Results} after the \emph{Analyze First} step in Keim's VA-Mantra.
 %%
@@ -1139,7 +1138,7 @@ This highlights slices with unusually low or high results (Fig.~\ref{fig:Applica
 %%
 %% TODO: Add reference for disadvantages of 3D information visualizations!
 \paragraph{Tackling the disadvantages of 3D information visualization.}
-3D-Information visualizations are often criticized for introducing occlusions and interaction problems, which often do not balance out the advantages of using the third dimension for visual mapping.
+3D information visualizations are often criticized for introducing occlusions and interaction problems, which often do not balance out the advantages of using the third dimension for visual mapping.
 %%
 We aim to minimize these problems as much as possible.
 %%
@@ -1147,7 +1146,7 @@ Since the $R^2$ values are mapped on data point opacity, only large values are h
 %%
 It also creates a very sparse representation, since the majority of regression models yield (depending on the data set and the chosen formula) low $R^2$ values.
 %%
-Also, the preceding correlation based feature selection reduces the information space significantly, leading to sparse cubes.
+Also, the preceding correlation-based feature selection reduces the information space significantly, leading to sparse cubes.
 %%
 Overlapping is still an issue, but this way greatly reduced in its affect to the readability of the visualization.
 %%
@@ -1155,11 +1154,11 @@ Overlapping is still an issue, but this way greatly reduced in its affect to the
 %% INTERACTION
 Rotating with the cube is restricted to the y-axis, preserving the mental map to position individual features.
 %%
-The cube is always oriented according to the 2D-representation, allowing for an easy mental combination of the two representations.
+The cube is always oriented according to the 2D representation, allowing for an easy mental combination of the two representations.
 %%
 Allowing more degrees of freedom was confusing to our users and also did not add value to the visualization.
 %%
-We provide also a zoom functionality using the mouse wheel input.
+Also we provide a zoom functionality using the mouse wheel input.
 %%
 %\\\\
 \paragraph{Cube Slice Selection [3.ZF].}
@@ -1170,11 +1169,11 @@ We propose two ways to achieve this.
 \begin{itemize}
 	\item \emph{Applying the slicing metaphor from 3D volume data.}
 	%%
-	In medical volume data renderings, slicing views very common to view details on a selected plane in the scene.
+	In medical volume data renderings, slicing views are very common to view details on a selected plane in the scene.
 	%%
-	We employ this technique for selecting cube slices (e.g. by moving a plane via vertical mouse input while pressing the right mouse button).
+	We employ this technique for selecting cube slices (e.g., by moving a plane via vertical mouse input while pressing the right mouse button).
 	%%
-	We, however, still display the whole 3D-object instead of cutting away information towards the slice position.
+	We, however, still display the whole 3D object instead of cutting away information towards the slice position.
 	%%
 	\item \emph{Selecting the slice using a dropdown menu} provides fast access to plane selections when the user already knows the slices of interest.
 	%%
@@ -1184,7 +1183,7 @@ The currently selected slice is denoted with a semi-transparent gray plane.
 %%
 The space available from visualizing only the prism generated from the upper half of the cube diagonal is used to display information about the current selected plane.
 %%
-the values are projected on this plane to give an overlapping-free view on the data points, which makes it easier to identify the current slice.
+The values are projected on this plane to give an overlapping-free view on the data points, which makes it easier to identify the current slice.
 %%
 %It also allows for a fast slicing through the cube and assessing the information.
 %%
@@ -1402,7 +1401,7 @@ The data set contains labels for 578 participants for which the MRI data was ava
 The MRI scans for each subject have been introduced in SHIP-2, so the target feature is only present for one of three study waves.
 
 %%
-Apart from the target feature, the data set contains 199 features, comprising sociodemographic features (gender, age), consumption behavior (e.g. alcohol or tobacco), laboratory data (e.g. sera concentrations), and two features depicting the liver ultrasound.
+Apart from the target feature, the data set contains 199 features, comprising sociodemographic features (gender, age), consumption behavior (e.g., alcohol or tobacco), laboratory data (e.g., sera concentrations), and two features depicting the liver ultrasound.
 %%
 %The acquisition wave is denoted using the appendix; 85 for S0 (SHIP-0), 55 for S1, 55 for S2 and 10 time-independent SNPs (DNA base pairs).
 %%
@@ -1428,7 +1427,7 @@ Studies describe a four to five times increased risk of getting breast cancer fo
 
 The data comprises 1,186 female subjects (368 from \texttt{SHIP-2}, 818 from \texttt{SHIP-TREND-0} cohort).
 %%
-It contains 231 dimensions, holding information about somatometric features (e.g. body size or weight) consumption behavior (e.g. alcohol or tobacco), personal and medical history (e.g., occupation or prior diseases), women specific features (e.g., number of born children or contraception type) as well as mammography features (e.g., fat content or parenchyma tissue proportion to volume).
+It contains 231 dimensions, holding information about somatometric features (e.g., body size or weight) consumption behavior (e.g., alcohol or tobacco), personal and medical history (e.g., occupation or prior diseases), women specific features (e.g., number of born children or contraception type) as well as mammography features (e.g., fat content or parenchyma tissue proportion to volume).
 % It contains 231 dimensions, holding information about
 % \begin{itemize}
 % 	\item \emph{somatometric features}, e.g., body size, weight or BMI,
@@ -1477,7 +1476,7 @@ Similar results were present for analyzing the \emph{female} groups.
 %%
 A slight influence of age on the target feature could be observed for women ($R^2$ of $0.09$ for females compared to $0.02$ for males).
 %% TODO Ergebnisse nachfragen: das ist doch super. Hier noch ein Satz ob die Radiologen das gut finden. ist das nicht richtig geil? Mehr Infos!!!
-Relationships not described in \cite{Niemann2014} were found, such as enzymes indicating liver dysfunctions, e.g. \emph{aspartate aminotransferase}.
+Relationships not described in \cite{Niemann2014} were found, such as enzymes indicating liver dysfunctions, e.g., \emph{aspartate aminotransferase}.
 % 
 %%
 Due to the difference between our regression-model approach and the decision-tree approach presented in \cite{Niemann2014}, a complete matching set of correlating features are not expected.
@@ -1714,7 +1713,7 @@ The method was well received by our clinical partners, triggering detailed inves
 
 As next step, we want to introduce more regression types, which model different kinds of correlations.
 %%
-We also want to extend the cube to time-dependent data by expanding the difference-cube approach.
+We also want to extend the cube to time-dependent data by expanding the difference cube approach.
 %%
 
 We published all associated code and provide an analysis platform open to heterogenous data types.
