@@ -575,7 +575,7 @@ Bertini et al. \cite{Bertini} present an overview over quality metrics describin
 %%
 Their research agenda acts as guideline for our design, comprising perceptual tuning towards human pattern recognition of important aspects, scalability between different data set sizes and application testing with domain experts.
 %%
-%% TODO: Use this one? "Statistical resilience of random populations to random perturbations" - http://www.ncbi.nlm.nih.gov/pubmed/19256997 - wie eine Variable sich √É¬§ndert, wenn man per Zufall die Populationen ver√É¬§ndert, um zu schauen wie zuverl√É¬§ssig diese Statistik ist.
+%% TODO: Use this one? "Statistical resilience of random populations to random perturbations" - http://www.ncbi.nlm.nih.gov/pubmed/19256997 - wie eine Variable sich âÃÂ¬Â§ndert, wenn man per Zufall die Populationen verâÃÂ¬Â§ndert, um zu schauen wie zuverlâÃÂ¬Â§ssig diese Statistik ist.
 %% The Sparse Regression Cube: A Reliable Modeling Technique for Open Cyber-physical Systems
 Ahmadi et al. \cite{Ahmadi} define the \emph{Sparse Regression Cube}, which partitions sparse high-dimensional data into subspaces, which are then described by their most reliable linear regression model.
 %%
@@ -590,7 +590,7 @@ Albuquerque et al. \cite{Albuquerque} present an interactive exploration framewo
 %%
 %These subsets are then analyzed in detail, following a drilling-down approach.
 %%
-They analyze subsets using a drilling-down approach by incorporating scatter plot matrices (\texttt{SPLOMÂ«S}) of quality metrics. %describing the features.
+They analyze subsets using a drilling-down approach by incorporating scatter plot matrices (\texttt{SPLOMÃÂ«S}) of quality metrics. %describing the features.
 %%
 %We incorporate the idea of abstracting features for comparison.
 %%
@@ -609,7 +609,7 @@ In \cite{Niemann2015}, Niemann et al. improve on classification performance by g
 %%
 We try to reproduce their results and investigate their findings further.
 %%
-%\com{Gla√É¬üer, S., Niemann, U., Preim, B., and Spiliopoulou, M. (2013). Can we Distinguish Between Benign and Ma- lignant Breast Tumors in DCE-MRI}
+%\com{GlaâÃÂ¬Ã¼er, S., Niemann, U., Preim, B., and Spiliopoulou, M. (2013). Can we Distinguish Between Benign and Ma- lignant Breast Tumors in DCE-MRI}
 
 \paragraph{Prior Work.}
 In our prior work, we analyzed the healthy aging process of the lumbar spine.
@@ -623,7 +623,7 @@ We defined an Interactive Visual Analysis workflow for image-centric cohort stud
 %%
 Information visualizations of cohort study features were augmented with extracted image data, yielding linked views with both image and non-image information.
 %% 
-% erst die Erkl√§rung, dann die Folge daraus =)
+% erst die ErklâÂ§rung, dann die Folge daraus =)
 The mosaic plot presented in \cite{Klemm2014VIS} highlights the pairwise correlation between features without a target disease by depicting the \emph{Cram\'{e}r's V} contingency values.
 %%
 Its great popularity among our domain experts was the inspiration for this work.
@@ -729,12 +729,12 @@ In general, many of them exhibit low or none correlation at all towards the targ
 %%
 Identifying irrelevant features and excluding them from the feature space considerably reduces computational costs and yields a comprehensible \emph{Regression Cube} representation.
 %%
-% nochmal checken wo $F$ eingef¸hrt wird, hier oder im ¸bern‰chsten Satz?
+% nochmal checken wo $F$ eingefÂ¸hrt wird, hier oder im Â¸bernâ°chsten Satz?
 The correlation-based feature selection (CFS) \cite{CFS} aims to find a feature subset that maximizes the \emph{merit value} $M_F$ which is the ratio between the average feature-class and feature-feature dependencies of features in the feature set $F$.
 %%
 The dependency of a set of features utilizes the entropy-based information gain to measure the explanatory power towards the target feature.
 %%
-% Ggf. wurde $F$ schon oben eingef¸hrt, TODO
+% Ggf. wurde $F$ schon oben eingefÂ¸hrt, TODO
 Starting with an empty set of features $F$, the CFS algorithm iteratively adds the feature $f$ to $F$ that leads to the highest new merit-value $M_{F\cup f}$ and halts when no feature is left that would increase the merit.
 %%
 For example, if the \emph{body weight} has a strong explanatory power towards the target, it is likely that \emph{BMI} or \emph{waist circumference} exhibit similar correlations to the target.
@@ -811,7 +811,7 @@ $R^2$ values of each cube entry (\emph{voxel}) is mapped to opacity to reduce th
 %%
 The visualization of $R^2$ values derived from different regression cubes (e.g., $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
 %%
-% e.g. wenn man es w‰hlen kann
+% e.g. wenn man es wâ°hlen kann
 % i.e. wenn es so ist
 Therefore, the $R^2$ results of different regression methods are encoded using different colors (i.e., blue for linear regression and red for logistic regression).
 %%
@@ -864,7 +864,7 @@ The different analysis approaches require different starting points using the \e
 %\com{3. Find interesting pane.}
 %\com{4. Get Details on Demand.}
 %%
-% ‹bergang ist recht holprig gewesen
+% â¹bergang ist recht holprig gewesen
 Our Regression Cube models is well-suited for different workflow analysis techniques, based on the Visual Analytics (VA) Mantra of Keim et al. \cite{Keim}:
 
 \textbf{Analyze First} [\textbf{1.AF}]. Choosing an initial regression formula triggers the \emph{Regression Cube} calculation on the given data set, filtering the dimensions of the dependent feature through the CFS algorithm.
@@ -901,7 +901,7 @@ Each slice represents a different target feature.
 %%
 It is therefore suitable for an explorative analysis to give a general impression about relationships in the data set.
 
-% warum war da ein "either", sollte der Satz etwas anderes ausdr¸cken?
+% warum war da ein "either", sollte der Satz etwas anderes ausdrÂ¸cken?
 Hypotheses about the data are easily built up by relating dynamic variables with the regression operators.
 %%
 Furthermore, static features can be added for each regression formula.
@@ -1250,7 +1250,7 @@ The front-end is created using \texttt{HTML5}, \texttt{CSS3} and \texttt{Javascr
 %%
 \texttt{Angular.js} is forcing developers to write modularized code, which makes the components easier expandable while keeping the code maintainable by including unit tests.
 %%
-% UI muss mal erkl�rt ewrden, tauchte schon weiter vorn im Paper auf
+% UI muss mal erklärt ewrden, tauchte schon weiter vorn im Paper auf
 The page layout is handled using \texttt{Twitter Bootstrap}\footnote{Open Source; Maintained by Twitter, \href{http://getbootstrap.com}{\texttt{getbootstrap.com}}}, which also provides a rich set of UI elements with proper stylings.
 %%
 The 2D mosaic plot is implemented using \texttt{Data driven Documents} (\texttt{D3.js}), which is popular in information visualization using vector graphics \cite{D3}.
@@ -1326,7 +1326,7 @@ The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{www.h
  %%
  A high correlation between \emph{Interleukin-6}, \emph{hepatic steatosis}, \emph{GGT} and \emph{Lipase} (highlighted using arrows) was revealed during the analysis using the 2D mosaic plot.
  %%
- \com{Caption Breast Fat Data}
+ The hypothesis-free analysis of the breast fat data set (right) towards the \emph{parenchyma tissue percentage} of the breast displays correlations between \emph{age}, \emph{body fat}, \emph{hip circumference} as well as \emph{menstrual period}.
  }
   \label{fig:Application}
 \end{figure*}
@@ -1547,20 +1547,19 @@ Relationships between the share of parenchyma tissue on the overall breast volum
 
 The \textbf{1.AF} was started by \emph{KH} using the default formula for hypothesis-free analysis ($Z \sim X + Y$).
 %%
-At first, she was interested in correlations with the parenchyma tissue segmentations, which was selected through the drop-down for the z-axis (\textbf{2.SI}).
+At first, she was interested in correlations with the \emph{parenchyma tissue} percentage, which was selected through the drop-down for the z-axis (\textbf{2.SI}).
 %%
-She observed expected strong correlations with age, body fat percentage, hip and waist circumference
-as well as menstrual period or pregnancy status.
+She observed strong correlations with \emph{age}, \emph{body fat percentage}, \emph{hip} and \emph{waist circumference} as well as \emph{menstrual period} or \emph{pregnancy status} as expected (Fig.~\ref{fig:Application} right).
 %%
-Fat women also have a larger breast fat percentage, which also correlates with other somatometric features.
+Women with higher \emph{body fat} also have a larger \emph{breast fat percentage}, which also correlates with other somatometric features.
 %%
-Age is a strong influencing factor, as breast tissue degrades over time and subsequently the parenchyma tissue.
+\emph{Age} is a strong influencing factor, as breast tissue and subsequently the parenchyma tissue degrades over time.
 %%
-\emph{KH} proceeded using [\textbf{2.SI}] and [\textbf{3.DD}] to check for relationships for different target features, such as current hormone replacement therapy, BI-RADS (classification of the mammography findings) as well as different diseases, such as diabetes or gout.
+\emph{KH} proceeded using \textbf{2.SI} and \textbf{3.DD} to check for relationships for different target features, such as current \emph{hormone replacement therapy}, \emph{BI-RADS} (classification of the mammography findings) as well as different diseases, such as \emph{diabetes} or \emph{gout}.
 %%
 She observed relationships matching her expectations and expert knowledge.
 %%
-One unexpected relationship was observed between mammography lesions and menstruation cycle towards spiral contraception were observed ($R^2$ of $0.77$).
+One unexpected relationship was observed between \emph{breast lesions} and \emph{menstruation cycle} towards \emph{spiral contraception} ($R^2$ of $0.77$).
 %%
 \emph{KH} proceeded with a detailed analysis of the parenchyma tissue.
 %\emph{KH} derived at the hypotheses: \emph{Somatometric features impose the major influences on the parenchyma tissue.}
@@ -1568,23 +1567,25 @@ One unexpected relationship was observed between mammography lesions and menstru
 
 \textbf{Detailed Breast Parenchyma Analysis.}
 %%
-The analysis was conducted by calculating the cube $Parenchyma-Percentage \sim X + Y + Z$.
+The analysis was conducted by calculating the cube $Parenchyma\_Percentage \sim X + Y + Z$.
 %%
 Using the 3D cube, \emph{KH} observed several hotspots.
 %%
-Navigating to them using the slicing facility of the 3D visualization highlighted several features of high influence, such as image-derived features, as glandular tissue density, parenchyma segmentation metrics.
+Navigating to them using the slicing facility of the 3D visualization highlighted features of high influence, such as image-derived features, as \emph{glandular tissue density} and \emph{parenchyma segmentation} metrics.
 %%
-Also, strong correlations were observed in the diabetes slice, confirming expectations of \emph{KH} w.r.t. to its strong influence to the parenchyma tissue.
+Also, strong correlations were observed in the \emph{diabetes} slice, confirming expectations of \emph{KH} w.r.t. to its strong influence to the parenchyma tissue.
 %%
-A surprising find were the strong correlations with kidney disorder ($R^2$ values around $0.9$).
+A surprising find were the strong correlations with \emph{kidney disorder} ($R^2$ values around $0.9$).
 %%
-The \textbf{3.DD} analysis however showed only 8 subjects with kidney disorder.
+The \textbf{3.DD} analysis however showed only 8 subjects with \emph{kidney disorder}.
 %%
-The finding was noted and investigated further in the near future using a extensive data set.
+Too few subjects impose the risk of a biased finding.
 %%
-Lastly \emph{KH} assessed the influence of contraception related features, such as use birth control pills or the spiral, but found no significant correlations with the parenchyma.
+The correlation was noted and will be investigated further in the near future using a extensive data set.
 %%
-Features, such as alcohol intake yield no elevated $R^2$ values.
+Lastly \emph{KH} assessed the influence of contraception related features, such as use \emph{birth control pills} or the \emph{spiral}, but found no significant correlations with the parenchyma tissue.
+%%
+Other consumption behavior features, such as \emph{alcohol intake} also yield no elevated $R^2$ values.
 %%
 \emph{KH} remarked that these features are believed to have an impact on the parenchyma tissue, but they are less reliability since they are self-reported.
 %%
@@ -1601,16 +1602,28 @@ Our method was well received among the domain experts.
 %%
 For the first time, they were able to derive an overview visualization custom tailored to underlying assumptions.
 %%
-In this context, \emph{TI} highlighted the ability to simultaneously analyze thousands of regression models while maintaining little time expenses for rating them.
+\emph{KH} noted the ease of use, which "\emph{converts data sets into a feasible form}".
+%%
+She highlighted the efficiency of combining fast target feature selection with visually highlighting interesting results, enabling rapid analysis cycles.
+%%
+To get nearly similar results she would had to spend hours using \texttt{SPSS} and also might have missed many interesting hot spots during this process.
+%She noted that she usually would have to spend hours using \texttt{SPSS} to assess the data in the detail we presented.
+%%
+\emph{TI} highlighted the ability to simultaneously analyze thousands of regression models while maintaining little time expenses for rating them.
 %The novel way of modeling knowledge to derive hypothesis driven overview visualizations allow for detailed analysis of target features, either disease indicators or even image-derived features.
 %%
 %TI commented on the 
 
 \textbf{Extracted Hypotheses have to be investigated further.}
 %%
+%Our method combines powerful statistical techniques with 
+We map results of complex statistical results into comprehensive visualizations.
+%%
 Agreeing with \emph{TI}'s feedback, each finding and hypothesis has to be confirmed using a dedicated statistical analysis.
 %%
 An accompanying search for correlations potentially highlighting confounders can be carried out using our method.
+%%
+Statistical validation of an epidemiological end result still has to be carried out by statisticians using their respective tools.
 %%
 %This incorporates detailed investigation of potential confounder features as well as looking for outlier subjects.
 %%
@@ -1744,7 +1757,7 @@ We believe in the power of opening up knowledge discovery to allow a heterogenou
 %%
 % \begin{small}
 	%\acknowledgments{Omitted due to blind review}
-\acknowledgments{SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the √¢¬Ä¬òCentre of Knowledge Interchange√¢¬Ä¬ô program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics.}
+\acknowledgments{SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics. This work was supported by the federal state of Saxony-Anhalt under grant number 'I 60' within the Forschungscampus STIMULATE.}
 % \end{small}
 \clearpage
 \newpage
