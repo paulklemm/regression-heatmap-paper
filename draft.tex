@@ -603,11 +603,11 @@ The approach was applied to a cognitive aging study, where new hypotheses could 
 %% Learning and inspecting classification rules from longitudinal epidemiological data to identify predictive features on hepatic steatosis
 Niemann et al. \cite{Niemann2014} investigate risk factors of hepatic steatosis using decision trees with interactive data mining tools.
 %%
-They extracted association rules that serve as basis for our proof-of-concept tests.
+They extract classification rules that serve as basis for our proof-of-concept tests.
 %%
 In \cite{Niemann2015}, Niemann et al. improve the classification performance by generating features (called \emph{evolution features}) that describe latent temporal information across the study waves.
 %%
-We try to reproduce their results and investigate their findings further.
+We try to reproduce results and investigate findings presented in \cite{Niemann2014} further.
 %%
 %\com{GlaâÃÂ¬Ã¼er, S., Niemann, U., Preim, B., and Spiliopoulou, M. (2013). Can we Distinguish Between Benign and Ma- lignant Breast Tumors in DCE-MRI}
 
@@ -1517,15 +1517,15 @@ Due to the difference between our regression-model approach and the decision-tre
 
 \textbf{Analysis of non-discretized target feature.}
 %%
-Since our method can analyze numerical target features, as opposed to decision trees used by \emph{UN} before, the analysis was conducted again for the not-dichotomized target using the same formula.
+%Since our method can analyze numerical target features, as opposed to decision trees used by \emph{UN} before, the analysis was conducted again for the not-dichotomized target using the same formula.
+Since our method can assess numerical target features, the analysis was conducted again for the not-dichotomized target using the same formula.
 %%
 The 3D cube representation already showed lower $R^2$ values in general. However, the analysis is now based on linear regression and the $R^2$ values cannot be directly compared.
 %%
 The correlation hot spots matched with the ones from the dichotomous target, but were generally lower ($R^2$ of $0.37$ for somatometric features as opposed to $0.58$).
 %%
-We conclude that the bias introduced by dichotomizing the fat liver content enforces the findings towards liver diseases, while using the numerical features is less expressive.
+We assume that the bias introduced by dichotomizing the fat liver content enforces the findings towards liver diseases, while using the numerical features is less expressive.
 %%
-
 \textbf{Interleukin-6 correlation with liver fat.}
 %%
 During the analysis, one hot spot was always observable in the \emph{SI} and \emph{ZF} incorporating a high \emph{Interleukin-6} (\emph{IL-6}) correlation with liver fat values (Fig.~\ref{fig:Application} b).
