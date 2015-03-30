@@ -57,7 +57,6 @@
 %% If you are submitting a paper to a conference for review with a double
 %% blind reviewing process, please replace the value ``0'' below with your
 %% OnlineID. Otherwise, you may safely leave it at ``0''.
-%% TODO: Blind Review: Replace with online ID
 \onlineid{175}
 
 %% declare the category of your paper, only shown in review mode
@@ -70,7 +69,6 @@
 %\preprinttext{To appear in an IEEE VGTC sponsored conference.}
 
 %% Paper title.
-%% TODO: Replace towards with regarding?
 
 \title{Regression Cube Analysis of Cohort Study Data}
 
@@ -574,8 +572,6 @@ Time-dependent epidemiological data is visualized by Chui et al. \cite{Chui2011}
 Bertini et al. \cite{Bertini} present an overview of quality metrics describing high dimensional-data.
 %%
 Their research agenda acts as guideline for our design, comprising perceptual tuning towards human pattern recognition of important aspects, scalability between different data set sizes and application testing with domain experts.
-%%
-%% TODO: Use this one? "Statistical resilience of random populations to random perturbations" - http://www.ncbi.nlm.nih.gov/pubmed/19256997 - wie eine Variable sich âÃÂ¬Â§ndert, wenn man per Zufall die Populationen verâÃÂ¬Â§ndert, um zu schauen wie zuverlâÃÂ¬Â§ssig diese Statistik ist.
 %% The Sparse Regression Cube: A Reliable Modeling Technique for Open Cyber-physical Systems
 Ahmadi et al. \cite{Ahmadi} define the \emph{Sparse Regression Cube} that partitions sparse high dimensional data into subspaces, which are then described by their most reliable linear regression model.
 %%
@@ -629,8 +625,6 @@ The mosaic plot presented in \cite{Klemm2014VIS} highlights the pairwise correla
 Its great popularity among our domain experts was the inspiration for this work.
 %%
 
-
-%% TODO: Check DLPD for correct page numbers
 While the presented techniques were well received by the epidemiological experts, the explanatory power towards back pain was limited, yielding an analysis based on image-derived features, such as extracting and analyzing curvature, torsion and angle of the lumbar spine \cite{Klemm2015}.
 %%
 %These measures were analyzed using a novel decision tree quality plot towards non-image data.
@@ -644,8 +638,6 @@ The difference of the presented approach towards our previous and related work i
 \end{enumerate}
 %%
 \section{Regression Cube Analysis of Cohort Study Data}
-% TODO: Do we need a preprocessing section?
-%\com{Add Data Preprocessing Section.}
 %%
 The basic idea of our \emph{Regression Cube} is to provide an overview visualization of large cohort study data sets towards target features.
 %%
@@ -786,7 +778,7 @@ The next section shows ways of abstracting the results to make them visually fea
 \end{figure}
 %%
 The goal of an overview visualization is to provide a comprehensive view on the data (raw or using descriptive metrics \cite{Bertini}), which is easy to understand.
-%% TODO: Cite another paper here!
+%%
 As described in our previous work \cite{Klemm2014VIS}, correlation values scaled between 0 (no correlation) and 1 (perfect correlation) can be encoded with color in a mosaic plot.
 %%
 Regression models are more complex, having many associated describing metrics.
@@ -970,13 +962,7 @@ For example, it can be utilized for comparing the influence of a single feature 
  The values of the currently selected slice are mirrored and represented as orange data points on the slicing plane.
  %%
  (c) 2D mosaic plot visualization of the selected slice for feature \emph{Pain/Discomfort}.
- %%
- %\com{TODO: Adapt formula to final image.}
- %%
- %Context information is shown for the regression model of $Parenchym \sim Bronchitis + AlcoholLast30Days$, depicting details about the confidence intervals, coefficients and associated p-values.
- %%
- %\com{Screenshot of the cube visualization embedded in the framework}
- %\com{Also include active tooltip}
+ %%††
  }
   \label{fig:System}
 \end{figure}
@@ -989,11 +975,12 @@ The focus lies on creating an overview visualization and gaining insight into re
 Therefore, the system has to be intuitive and comprehensive in order to be adapted by domain experts.
 %%
 \\\\
-% \subsection{Design and Visualization Techniques}
 %%
 \noindent Design choices and spaces are restricted by the underlying technologies and devices.
-%% TODO: Umschreiben
-Resting collaboration and exchange about data and methods on web-based technologies shows promising results, as there is no set-up time involved and domain experts can use the methods from any computer connected with the web.
+%%
+Resting method and data exchange on web-based technologies offers many advantages.
+%%
+There is no set-up time involved and domain experts can use the methods from any computer connected with the web.
 %%
 By design, web technology is based on a client-server architecture, making it easy to outsource computationally heavy tasks on server clusters and transferring results to the client device.
 %%
@@ -1059,7 +1046,7 @@ Preventive steps have to be taken to restrict access to unauthorized subjects.
 %We decided against a user account system because it reduces the ease of use largely without having a direct advantage for the user.
 %%
 We apply a SHA-256 hashing on the data set name using the data contents and disable directory listings on the web server to avoid data set downloads.
-%% TODO: Implement this
+%%
 Data sets are deleted from the server after closing a session.
 
 \paragraph{Formula Editor [1.AF, 3.ZF].}
@@ -1140,8 +1127,8 @@ For such formulas, the 3D view encodes every data element as absolute difference
 %%
 This highlights slices with unusually low or high results (Fig.~\ref{fig:Application}).
 %%
-%% TODO: Add reference for disadvantages of 3D information visualizations!
 \paragraph{Tackling the disadvantages of 3D information visualization.}
+%%
 3D information visualizations are often criticized for introducing occlusions and interaction problems, which often do not balance out the advantages of using the third dimension for visual mapping.
 %%
 We aim to minimize these problems as much as possible.
@@ -1204,7 +1191,6 @@ The free space above the matrix diagonal is used to display the 3D cube.
 
 The purpose of this view is the detailed assessment of the underlying regression models.
 %%
-% TODO: p values kurz nennen? woher kommen die confidence intervals?
 By hovering over a data entry in the plot, a tooltip model displays detailed information about a model's coefficients, associated $p$ values and confidence intervals.
 %%
 
@@ -1242,7 +1228,7 @@ By hovering over a data entry in the plot, a tooltip model displays detailed inf
 % %%
 %%
 We rely on web-based technologies for our prototype.
-%% TODO: nochmal Hinweis auf High dimensionality of data?!
+%%
 The ongoing transition of open-science software into the web spawned numerous projects, making state-of-the-art algorithms available in this domain.
 %%
 \paragraph{Front-End.}
@@ -1479,7 +1465,7 @@ Similar results were present for analyzing the \emph{female} groups.
 \emph{UN} could reproduce most results, some features exhibit lower correlations though, e.g., creatinine magnitudes.
 %%
 A slight influence of age on the target feature could be observed for women ($R^2$ of $0.09$ for females compared to $0.02$ for males).
-%% TODO Ergebnisse nachfragen: das ist doch super. Hier noch ein Satz ob die Radiologen das gut finden. ist das nicht richtig geil? Mehr Infos!!!
+%% TODO Feedback of Henry!
 Relationships not described in \cite{Niemann2014} were found, such as enzymes indicating liver dysfunctions, e.g., \emph{aspartate aminotransferase}.
 % 
 %%
