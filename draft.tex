@@ -212,7 +212,7 @@ Our contributions are:
 	%%
 	\item Visualization techniques, which incorporate overview visualizations of all regression analyses at once as well as details on demand techniques for in-depth investigations of feature relationships.
 	%%
-	\item Freely adjustable regression formulas provide a simple, yet powerful way to adjust the regression analysis to specific hypotheses about the data.
+	\item Freely adjustable regression formulas to provide a simple, yet powerful way to adjust the regression analysis to specific hypotheses about the data.
 	%%
 	\item The analysis of confounding features by providing comparison views between different formula results.
 	%%
@@ -277,7 +277,7 @@ Many features are sparse, such as follow-up questions about a medication or trea
 %%
 Other features are exclusive for a sub-group, such as women-specific questions, e.g., number of born children or period status.
 %%
-Medical status features or lifestyle factors are often of \emph{dichotomous} (binary) type.
+Medical status features or lifestyle factors are primarily of \emph{dichotomous} (binary) type.
 %%
 Continuous data are often discretized (e.g. 10 year steps for age) to equalize the feature types and to simplify the method selection.
 %%
@@ -295,7 +295,7 @@ Features influencing the exposure as well as the outcome of an analysis are call
 %%
 The analysis model has to be adjusted by normalizing all included features towards the confounder.
 %%
-\emph{Age} is included as confounder in almost any epidemiological analysis, since most diseases (such as different cancer types) are more likely with increasing age.
+\emph{Age} is included as confounder in almost any epidemiological analysis, since most diseases (such as different cancer types) are more likely for older subjects.
 %%
 It also influences the general body condition and thereby almost all features acquired through cohort studies.
 %%
@@ -315,7 +315,7 @@ Different metrics, such as the weightings itself and associated $p$ values, desc
 %%
 $R^2$ values describe the quality of the fit; in other words how well the dependent features describe the target feature.
 %%
-The value is in the range $[0, 1]$, where 1 encodes a perfect fit.
+The value ranges between $[0, 1]$, where 1 encodes a perfect fit.
 
 \paragraph{Regression Analysis Notation.} Regression formulas are usually denoted as follows:
 %%
@@ -374,7 +374,7 @@ However, most examinations occur in all stages and are performed according to th
 %%
 \section{Prior and Related Work}
 %% https://en.wikipedia.org/wiki/Exploratory_data_analysis#cite_note-Tukey1977-4
-In 1977, Tukey already stated that data is too often only analyzed using confirmatory data analysis \cite{Tukey}.
+In 1977, Tukey already stated that data is too often analyzed solely using confirmatory data analysis \cite{Tukey}.
 %%
 He emphasized the need to use data to derive hypotheses instead, which can then be tested again.
 %%
@@ -418,7 +418,7 @@ Zhang et al.~\cite{Zhang2014, Gotz2014} is closest to our work regarding the app
 %%
 They present \emph{Cohort Analysis via Visual Analytics} (\emph{CAVA}), a framework that distinguishes three major elements of cohort study data analysis: \emph{cohort data} (and its manipulation using operations), \emph{views} and \emph{analytics}.
 %%
-They use the system to find longitudinal pathways for diseases using health records.
+They use the system to find longitudinal pathways for diseases on the basis of health records.
 %%
 Sub-groups are automatically created by incorporating \emph{analytics} and through selection in expert-guided \emph{views}.
 %%
@@ -432,9 +432,9 @@ We use their requirements as guidelines, which incorporate \emph{flexible} and \
 
 Angelelli et al.~\cite{Angelelli} visualize image-derived an non-image data using cube data structures with focus on comparison and knowledge extraction.
 %%
-Their proposed engine represents multiple heterogenous cohort study data sets as multiple normalized data cubes.
+Their proposed engine represents multiple heterogenous cohort study data sets as normalized data cubes.
 %%
-Thus, data redundancy can be avoided and runtime measure aggregation can be carried out when measures of the different cubes have to be combined.
+Thus, data redundancy is avoided and runtime measure aggregation can be carried out when measures of the different cubes have to be combined.
 %%
 %This allows for saving memory space.
 %%
@@ -444,7 +444,7 @@ They use \emph{Pearsson's} $r$ to depict relationships towards target features a
 %%
 %We use regression models and associated $R^2$ values to depict relationships between a target feature and multiple independent features instead of one and employ the information into one global visualization.
 %%
-Also, we aim at a fast large scale correlation analysis between many features to derive insight into the data.
+In contrast, we aim for a fast large scale correlation analysis incorporating many features to derive insight into the data.
 
 \paragraph{Visual Analysis in Public Health.}
 %%--
@@ -455,7 +455,7 @@ Shneiderman et al.~\cite{Shneiderman2013} highlight the necessity of interactive
 %We focus on the latter.
 %%
 %Shneiderman and colleagues also present challenges,
-The presented challenges in this application comprise the systems to be sufficiently comprehensible and intuitive to fit into the short time span that clinicians have for analyzing data.
+The presented challenges in this application require the systems to be sufficiently comprehensible and intuitive to fit into the short time span that clinicians have for analyzing data.
 %%
 Furthermore, the systems should provide comparative relationship visualization, characterization of similarity and presenting risks.
 %%
@@ -483,7 +483,7 @@ Steenwijk et al.~\cite{Steenwijk} focus on \emph{hypothesis-free} exploration of
 %%
 They employ a framework consisting of feature extraction and visualization to derive dependencies between image- and non-image features.
 %%
-They incorporate linked views using scatter plots, bar charts, parallel coordinates and time plots to display and select the data.
+They incorporate linked views using scatter plots, bar charts, parallel coordinates as well as time plots to display and brush the data.
 %%
 %Medical image data can be incorporated to investigate potentially interesting individuals.
 %%
@@ -491,7 +491,9 @@ They incorporate linked views using scatter plots, bar charts, parallel coordina
 %%
 Generalized Pairs plots (\texttt{GPLOM'S}) extend the idea of scatter plot matrices by the pairwise depiction of heterogeneous data using type-combination-dependent visualizations \cite{GPLOMS, Francois2013}.
 %%
-The techniques are useful for selected features or a data set with a small number of features due to their increase in complexity with every additional parameter and are therefore suitable for \emph{small} epidemiological data sets.
+The techniques are useful for selected features or a data set with a small number of features due to their increase in complexity with every additional parameter.
+%%
+They are therefore suitable for \emph{small} epidemiological data sets.
 %%
 Dai et al.~\cite{Dai2005} incorporate a \texttt{GPLOM}-like visualization using choropleth maps mapping spatial data, such as mortality rates together with scatter plots augmented with \emph{Pearsson's} $r$ values.
 %%
@@ -539,17 +541,17 @@ They extract classification rules that serve as basis for our proof-of-concept t
 %%
 In \cite{Niemann2015}, Niemann et al. improve the classification performance by generating features (called \emph{evolution features}) that describe latent temporal information across the study waves.
 %%
-We try to reproduce results and investigate findings presented in \cite{Niemann2014} further.
+We try to reproduce their results and investigate findings presented in \cite{Niemann2014} further.
 %%
 \paragraph{Prior Work.}
 In our prior work, we analyzed the healthy aging process of the lumbar spine.
 %%
-We utilized semi-automatic detection algorithm do detect the lumbar spine shape \cite{Klemm2013VMV}.
+We utilized semi-automatic algorithms do detect the lumbar spine shape \cite{Klemm2013VMV, Rak2013}.
 %%
 %The reliable part of the presented models are represented by the shape of the lumbar spine canal, which was extracted and described using line representation.
 %%
 
-We defined an Interactive Visual Analysis workflow for image-centric cohort study data, by extending the feature selection step (recall \ref{sec:Background}) with an iterative analysis loop incorporating group selection and visualization using expert input as well as clustering methods \cite{Klemm2014VIS}.
+We defined an Interactive Visual Analysis workflow for image-centric cohort study data, by extending the feature selection step (recall Sec. \ref{sec:Background}) with an iterative analysis loop incorporating group selection and visualization using expert input as well as clustering methods \cite{Klemm2014VIS}.
 %%
 Information visualizations of cohort study features were augmented with extracted image data, yielding linked views with both image and non-image information.
 %%
@@ -592,7 +594,7 @@ A regression model is based on expert knowledge; there is no singular rule how t
 %%
 \subsection{Cube Description Using Regression Formula Notation}
 %%
-Expert knowledge is integrated into regression analysis by the regression formulas.
+Expert knowledge is integrated into the analysis using regression formulas.
 %%
 As described in Section~\ref{sec:RegressionAnalysis}, the formula input influences the type of the chosen regression method as well as the \emph{independent} features describing the target.
 %%
@@ -629,7 +631,7 @@ The number of calculated regression models exponentially increases for each dyna
 %%
 If we assume a data set with 100 features and the formula $Z \sim X + Y$, we obtain 1,000,000 regression models.
 %%
-When each regression takes about 50~ms calculation, we roughly have to wait 14~h for the calculation to complete.
+When each regression takes about 50~ms of calculation time, we roughly have to wait 14~h for the calculation to complete.
 %%
 Therefore, the computational complexity needs to be reduced.
 %%
@@ -652,7 +654,8 @@ In general, many of them exhibit a low or no correlation at all in view of the t
 %%
 Identifying irrelevant features and excluding them from the feature space considerably reduces computational costs and yields a comprehensible \emph{Regression Cube} representation.
 %%
-The correlation-based feature selection (CFS) \cite{CFS} aims to find a feature subset that maximizes the \emph{merit value} $M_F$, which is the ratio between the average feature-class and feature-feature dependencies of features in the feature set $F$.
+%The correlation-based feature selection (CFS) \cite{CFS} aims to find a feature subset that maximizes the \emph{merit value} $M_F$, which is the ratio between the average feature-class and feature-feature dependencies of features in the feature set $F$.
+The correlation-based feature selection (CFS) \cite{CFS} aims to find a feature subset that maximizes the \emph{merit value} $M_F$, which is the ratio between the average feature-class and feature-feature dependencies in the feature set $F$.
 %%
 The dependency of a set of features utilizes the entropy-based information gain to measure the explanatory power towards the target feature.
 %%
@@ -729,7 +732,7 @@ $R^2$ values of each cube entry (\emph{voxel}) are mapped to opacity to reduce t
 %%
 The visualization of $R^2$ values derived from different regression cubes (e.g., $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
 %%
-Therefore, the $R^2$ results of different regression methods are encoded using different colors (i.e., blue for linear regression and red for logistic regression).
+Therefore, the $R^2$ results of different regression methods are encoded using different colors (i.e., orange for linear regression and blue for logistic regression).
 %%
 Thus, the cube can be easily extended using other regression types.
 %%
@@ -784,7 +787,7 @@ As shown in Fig.~\ref{fig:Workflow}, the workflow is highly iterative.
 %%
 Observations in the 2D mosaic plot or simply the CFS-based features can trigger new analyses by adjusting the underlying regression formulas.
 %%
-This can be carried out either to refine the current formula based on observations, or to create a new regression cube for a difference view.
+This can be carried out either to refine the current formula based on observations, or to create a new \emph{Regression Cube} for a difference view.
 %%
 \paragraph{Hypothesis-Free and Hypothesis-Based Analysis.}
 %%
@@ -939,7 +942,7 @@ After uploading the data, the user can specify a formula or use the default ($Z 
 %%
 Entering a formula is facilitated via text input.
 %%
-On formula input, a context modal displays all data set features as well as the available operators and their function.
+On formula input, a context panel displays all data set features as well as the available operators and their function.
 %%
 This allows to comprehend the function of the underlying formula for users without statistical background about regression analysis and its notation.
 %%
@@ -1008,7 +1011,7 @@ This highlights slices with unusually low or high results (Fig.~\ref{fig:Applica
 %%
 3D information visualizations are often criticized for introducing occlusions and interaction problems, which often do not balance out the advantages of using the third dimension for visual mapping.
 %%
-We aim to minimize these problems as much as possible.
+We aim to minimize these problems.
 %%
 Since the $R^2$ values are mapped on data point opacity, large values are highlighted in the prism, guiding the focus to the respective slices.
 %%
@@ -1016,7 +1019,7 @@ It also creates a sparse representation, since the majority of regression models
 %%
 Also, the preceding correlation-based feature selection reduces the information space significantly, leading to sparse cubes.
 %%
-Overlapping is still an issue, but this way greatly reduced in its affect to the readability of the visualization.
+Overlapping is still an issue, but this way greatly reduced in its effect to the readability of the visualization.
 %%
 
 %% INTERACTION
@@ -1434,11 +1437,11 @@ We found supporting mini-map visualizations, such as the 3D cube, most useful fo
 %%
 We presented a technique for knowledge discovery in cohort study data sets with user-defined target features.
 %%
-Dimension reduction using the target restricts the analysis to most important features.
+Dimension reduction using the target restricts the analysis to the most important features.
 %%
 \emph{Hypothesis-free} analysis employs default regression models.
 %%
-Model expert knowledge using regression formulas allows for a \emph{hypothesis-based} investigation.
+Modeling expert knowledge using regression formulas allows for a \emph{hypothesis-based} investigation.
 %%
 A 3D \emph{Regression Cube} allows to assess hotspots in the analysis by abstracting regression models using a quality-of-fit measure.
 %%
