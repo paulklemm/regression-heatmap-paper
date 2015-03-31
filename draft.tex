@@ -1045,7 +1045,7 @@ Preventive steps have to be taken to restrict access to unauthorized subjects.
 %%
 %We decided against a user account system because it reduces the ease of use largely without having a direct advantage for the user.
 %%
-We apply a SHA-256 hashing on the data set name using the data contents and disable directory listings on the web server to avoid data set downloads.
+We calculate a SHA-256 hash to derive the data set name using the data contents and disable directory listings on the web server to avoid data set downloads.
 %%
 Data sets are deleted from the server after closing a session.
 
@@ -1307,15 +1307,15 @@ The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{www.h
  \centering
  \includegraphics[width=7.0in]{figures/application}
  \caption{
- The analysis of the numerical and dichotomized target feature depicting liver-fat values yields similar results (left).
+ The analysis of the numerical and dichotomized target feature depicting liver fat values yields similar results (left).
  %%
- In (a), hot spots for somatometrical features with high correlations were found.
+ In (a), hotspots for somatometrical features with high correlations were found.
  %%
  High correlations were also found for features depicting \emph{hepatic steatosis} (b).
  %%
  A high correlation between \emph{Interleukin-6}, \emph{hepatic steatosis}, \emph{GGT} and \emph{Lipase} (highlighted using arrows) was revealed during the analysis using the 2D mosaic plot.
  %%
- The hypothesis-free analysis of the breast fat data set (right) towards the \emph{parenchyma tissue percentage} of the breast displays correlations between \emph{age}, \emph{body fat}, \emph{hip circumference} as well as \emph{menstrual period}.
+ The hypothesis-free analysis of the breast fat data set (right) w.r.t. the \emph{parenchyma tissue percentage} of the breast displays correlations between \emph{age}, \emph{body fat}, \emph{hip circumference} as well as \emph{menstrual period}.
  }
   \label{fig:Application}
 \end{figure*}
@@ -1384,7 +1384,7 @@ We employ the data set used in \cite{Niemann2014} to identify predictive feature
 The dichotomous target feature is derived from the liver fat concentration measured using MRI scans.
 %%
 % ok?  to indicate absence or presence of the disease.
-Liver fat concentrations of no more than 10\% are mapped to the 'negative' class; values greater than 10\% are mapped to the 'positive' class to indicate absence or presence of the disease.
+Liver fat concentrations of no more than 10\% are mapped to the `negative' class; values greater than 10\% are mapped to the `positive' class to indicate absence or presence of the disease.
 %%
 The data set contains labels for 578 participants for which the MRI data was available to that point.
 %%
@@ -1400,16 +1400,16 @@ The acquisition wave is denoted using the appendix; \emph{s0} meaning that their
 
 In \cite{Niemann2014}, the authors show different class distributions of liver fat concentrations of women and men.
 %%
-For women an association between age and liver fat was identified.
+For women, an association between age and liver fat was identified.
 %Also, for women they identify that there is a association between age and liver fat concentration.
 %%
 An appropriate cut-off value of 52 years was set, yielding the most homogeneous class distribution within the resulting subsets.
 %%
 % ist das richtig? nicht female<52,male, female>52?
-Based on these observations, we perform our analysis on three sub-populations: \emph{females}, \emph{males} and \emph{females} older than 52 years.
+Based on these observations, we perform our analysis on three sub-populations: \emph{females}, \emph{males} and \emph{females older than 52 years}.
 %%
 \subsection{The Breast Fat Data Set}
-The breast fat data set was compiled to find associations between parenchyma tissue proportion in the female breast towards other features in the data.
+The breast fat data set was compiled to find associations between the parenchyma tissue proportion in the female breast compared to other features in the data.
 %%
 The ratio between parenchyma and cellular connective tissue (breast density) has been shown to be associated with breast cancer.
 %%
@@ -1417,7 +1417,7 @@ Studies describe a four to five times increased risk of getting breast cancer fo
 
 The data comprises 1,186 female subjects (368 from \texttt{SHIP-2}, 818 from \texttt{SHIP-TREND-0} cohort).
 %%
-It contains 231 dimensions, holding information about somatometric features (e.g., body size or weight) consumption behavior (e.g., alcohol or tobacco), personal and medical history (e.g., occupation or prior diseases), women specific features (e.g., number of born children or contraception type) as well as mammography features (e.g., fat content or parenchyma tissue proportion to volume).
+It contains 231 dimensions, holding information about somatometric features (e.g., body size or weight) consumption behavior (e.g., alcohol or tobacco), personal and medical history (e.g., occupation or prior diseases), women-specific features (e.g., number of born children or contraception type) as well as mammography features (e.g., fat content or parenchyma tissue proportion to volume).
 % It contains 231 dimensions, holding information about
 % \begin{itemize}
 % 	\item \emph{somatometric features}, e.g., body size, weight or BMI,
@@ -1428,7 +1428,7 @@ It contains 231 dimensions, holding information about somatometric features (e.g
 % 	\item \emph{mammography features} derived from the image data.
 % \end{itemize}
 %%
-The latter were derived from manual segmented MRI data for each subject carried out by radiologists.
+The latter were derived from manually segmented MRI data for each subject carried out by radiologists.
 %%
 %%
 %\com{Describe Parenchym tissue and its relation to breast cancer.}
@@ -1436,7 +1436,7 @@ The latter were derived from manual segmented MRI data for each subject carried 
 
 The data of each cohort was presented as individual \texttt{SPSS} files.
 %%
-All features related to the mammography attributes were stored in a additional file.
+All features related to the mammography attributes were stored in an additional file.
 %%
 We converted the \texttt{SPSS} data sets to CSV and used \texttt{R} to merge the data sets together using their ID.
 %%
@@ -1448,17 +1448,17 @@ This avoids the need of defining a separate data dictionary file for translating
 %%
 \subsection{Case 1: Hypothesis-Driven Analysis of the Hepatic Steatosis Data Set}
 %%
-We refer to each analysis step regarding to their belonging in the VA-Mantra (recall Sec.~\ref{sec:Workflow}).
+We refer to each analysis step with regard to its belonging in the VA-Mantra (recall Sec.~\ref{sec:Workflow}).
 %%
 The analysis goal was reproducing results with our visual analysis framework that are in accordance to the data mining-based results presented in \cite{Niemann2014}.
 %%
-Therefore, \emph{UN} started the [\textbf{1.AF}] step using the dichotomized MRI fat liver concentration using the formula $mrt\_liverfat\_s2 \sim X + Y + Z$ for \emph{male} subjects.
+Therefore, \emph{UN} started the [\textbf{1.AF}] step using the dichotomized MRI fat liver concentration and the formula $mrt\_liverfat\_s2 \sim X + Y + Z$ for \emph{male} subjects.
 %%
 The [\textbf{2.SI}] step using the 3D cube representations locates hotspots at the end of the cube (Fig.~\ref{fig:Application} a).
 %%
-The Zoom, Filter and Analyze Further Step [\textbf{3.ZF}] was realized by slicing through the cube using the mouse input to inspect the hot spots.
+The Zoom, Filter and Analyze Further Step [\textbf{3.ZF}] was realized by slicing through the cube using the mouse input to inspect the hotspots.
 %%
-Analyzing the mosaic plot [\textbf{4.DD}] revealed high correlations for somatometric features, hepatic steatosis indicator-features as well as laboratory values, such as \emph{creatinine} (used renal retention parameter) and \emph{uric acid} (among others used as gout and diabetes risk factors) magnitudes.
+Analyzing the mosaic plot [\textbf{4.DD}] revealed high correlations for somatometric features, hepatic steatosis indicator features as well as laboratory values, such as \emph{creatinine} (used renal retention parameter) and \emph{uric acid} (among others used as gout and diabetes risk factors) magnitudes.
 %%
 Similar results were present for analyzing the \emph{female} groups.
 %%
@@ -1469,7 +1469,7 @@ A slight influence of \emph{age} on the target feature could be observed for wom
 Relationships not described in \cite{Niemann2014} were found, such as enzymes indicating liver dysfunctions, e.g., \emph{aspartate aminotransferase}.
 % 
 %%
-Due to the difference between our regression-model approach and the decision-tree approach presented in \cite{Niemann2014}, a complete matching set of correlating features are not expected.
+Due to the difference between our regression model approach and the decision tree approach presented in \cite{Niemann2014}, a complete matching set of correlating features is not expected.
 %%
 % %%
 % The goal at the beginning of the analysis was to reproduce results based on the prior analysis.
@@ -1507,17 +1507,17 @@ Due to the difference between our regression-model approach and the decision-tre
 \textbf{Analysis of non-discretized target feature.}
 %%
 %Since our method can analyze numerical target features, as opposed to decision trees used by \emph{UN} before, the analysis was conducted again for the not-dichotomized target using the same formula.
-Since our method can assess numerical target features, the analysis was conducted again for the not-dichotomized target using the same formula.
+Since our method can assess numerical target features, the analysis was conducted again for the non-dichotomized target using the same formula.
 %%
 The 3D cube representation already showed lower $R^2$ values in general. However, the analysis is now based on linear regression and the $R^2$ values cannot be directly compared.
 %%
-The correlation hot spots matched with the ones from the dichotomous target, but were generally lower ($R^2$ of $0.37$ for somatometric features as opposed to $0.58$).
+The correlation hotspots matched with the ones from the dichotomous target, but were generally lower ($R^2$ of $0.37$ for somatometric features as opposed to $0.58$).
 %%
-We assume that the bias introduced by dichotomizing the fat liver content enforces the findings towards liver diseases, while using the numerical features is less expressive.
+We assume that the bias introduced by dichotomizing the fat liver content enforces the findings of liver diseases, while using the numerical features is less expressive.
 
 \textbf{Interleukin-6 correlation with liver fat.}
 %%
-During the analysis, one hot spot was always observable in the [\textbf{2.SI}] and [\textbf{3.ZF}] incorporating a high \emph{Interleukin-6} (\emph{IL-6}) correlation with liver fat values (Fig.~\ref{fig:Application} b).
+During the analysis, one hotspot was always observable in the [\textbf{2.SI}] and [\textbf{3.ZF}] incorporating a high \emph{Interleukin-6} (\emph{IL-6}) correlation with liver fat values (Fig.~\ref{fig:Application} b).
 %%
 The correlation was high for both the dichotomized and continuous target feature.
 %%
@@ -1561,21 +1561,21 @@ Using the 3D cube, \emph{KH} observed several hotspots [\textbf{2.SI}].
 %%
 Navigating to them using the slicing facility of the 3D visualization [\textbf{3.ZF}] highlighted features of high influence, such as image-derived features, as \emph{glandular tissue density} and \emph{parenchyma segmentation} metrics.
 %%
-Also, strong correlations were observed in the \emph{diabetes} slice, confirming expectations of \emph{KH} w.r.t. to its strong influence to the parenchyma tissue.
+Also, strong correlations were observed in the \emph{diabetes} slice, confirming expectations of \emph{KH} w.r.t. its strong influence to the parenchyma tissue.
 %%
-A surprising find were the strong correlations with \emph{kidney disorder} ($R^2$ values around $0.9$).
+A surprising finding were the strong correlations with \emph{kidney disorder} ($R^2$ values around $0.9$).
 %%
-The [\textbf{4.DD}] analysis however showed only 8 subjects with \emph{kidney disorder}.
+The [\textbf{4.DD}] analysis, however, showed only 8 subjects with \emph{kidney disorder}.
 %%
 Too few subjects impose the risk of a biased finding.
 %%
-The correlation was noted and will be investigated further in the near future using a extensive data set.
+The correlation was noted and will be further investigated in the near future using an extensive data set.
 %%
-Lastly \emph{KH} assessed the influence of contraception related features, such as use \emph{birth control pills} or the \emph{spiral}, but found no significant correlations with the parenchyma tissue.
+Lastly, \emph{KH} assessed the influence of contraception-related features, such as use of \emph{birth control pills} or the \emph{spiral}, but found no significant correlations with the parenchyma tissue.
 %%
 Other consumption behavior features, such as \emph{alcohol intake} also yield no elevated $R^2$ values.
 %%
-\emph{KH} remarked that these features are believed to have an impact on the parenchyma tissue, but they are less reliability since they are self-reported.
+\emph{KH} remarked that these features are believed to have an impact on the parenchyma tissue, but they are less reliable, since they are self-reported.
 %%
 %mamma anamnesis breast fed, contraception (spirale, pille), alcohol intake
 %Lastly, \emph{KH} assessed the influence of image-derived features on the parenchyma tissue.
@@ -1588,13 +1588,13 @@ Other consumption behavior features, such as \emph{alcohol intake} also yield no
 %%
 Our method was well received among the domain experts.
 %%
-For the first time, they were able to derive an overview visualization custom tailored to underlying assumptions.
+For the first time, they were able to derive an overview visualization custom-tailored to underlying assumptions.
 %%
 \emph{KH} noted the ease of use, which "\emph{converts data sets into a feasible form}".
 %%
 She highlighted the efficiency of combining fast target feature selection with visually highlighting interesting results, enabling rapid analysis cycles.
 %%
-To get nearly similar results she would had to spend hours using \texttt{SPSS} and potentially missed interesting hot spots during this process.
+To get nearly similar results, she had to spend hours using \texttt{SPSS} and potentially missed interesting hotspots during this process.
 %She noted that she usually would have to spend hours using \texttt{SPSS} to assess the data in the detail we presented.
 %%
 \emph{TI} highlighted the ability to simultaneously analyze thousands of regression models while maintaining little time expenses for rating them.
@@ -1626,11 +1626,11 @@ Statistical validation of an epidemiological end result still has to be carried 
 %%
 Explorative analysis based on the data gains importance in epidemiology with increasing data set complexity.
 %While the classical epidemiological workflow represents the foundation of the research in this area, explorative analysis based on the data gains importance.
-Results from automatic `black-box' methods, such as data mining algorithm are more often obscure to the expert.
+Results from automatic `black-box' methods, such as data mining algorithms are more often obscure to the expert.
 %%
 Findings and hypotheses derived through overview visualizations, however, are met with more confidence, because the users actually observed the behavior themselves.
 %%
-The participation and steering of the analysis using human pattern-detection and expert knowledge is preferred.
+The participation and steering of the analysis using human pattern detection and expert knowledge is preferred.
 %%
 %Incorporating data mining algorithms with overview visualizations of statistical measures allow for reasoning about risk factors using underlying epidemiological data sets rather than predefined hypotheses.
 %%
@@ -1645,11 +1645,11 @@ Observing \emph{expected} correlations matching the expert knowledge strengthens
 %%
 \textbf{Using non-discretized features reduces information bias.}
 %%
-Discretization reduces the information space and introduces bias into the data and is therefore avoided in epidemiological research when possible.
+Discretization reduces the information space and introduces bias into the data and is therefore avoided in epidemiological research as possible.
 %%
 In contrast to many data mining algorithms, our method allows to use the concurrent analysis of heterogeneous data types.
 %%
-Investigations of the the hepatic steatosis data set with both numerical and dichotomized liver fat values showed comparable results but slightly differing when it comes to details. %, but differences  %differing in detail.
+Investigations of the hepatic steatosis data set with both numerical and dichotomized liver fat values showed comparable results but slightly differed when it comes to details. %, but differences  %differing in detail.
 %%
 The overall explanatory power towards the numerical feature was lower, supporting the hypothesis that the dichotomized target feature already models knowledge to bias the results towards the expected result.
 %%
@@ -1660,7 +1660,7 @@ The overall explanatory power towards the numerical feature was lower, supportin
 
 \textbf{Attention steering is crucial.}
 %%
-Important events have to be highlighted in overview visualizations to steer the users attention to interesting parts of the data.
+Important events have to be highlighted in overview visualizations to steer the user's attention to interesting parts of the data.
 %%
 Poor guidance potentially leads to overlooked relationships.
 %%
@@ -1689,13 +1689,13 @@ Dimension reduction using the target restricts the analysis to most important fe
 %%
 \emph{Hypothesis-free} analysis employs default regression models.
 %%
-Model expert knowledge using regression formulas allow for \emph{hypothesis-based} investigation.
+Model expert knowledge using regression formulas allows for a \emph{hypothesis-based} investigation.
 %%
 A 3D \emph{Regression Cube} allows to assess hotspots in the analysis by abstracting regression models using a quality-of-fit measure.
 %%
 These can then be analyzed further using the 2D mosaic plot for each cube slice.
 %%
-Details on demand for each model allow for detailed assessment of regression models.
+Details on demand for each model allow for a detailed assessment of regression models.
 %%
 We successfully applied the approach to find correlations in a hepatic steatosis as well as a breast cancer data set.
 %%
@@ -1706,7 +1706,7 @@ As next step, we want to introduce more regression types, which model different 
 We also want to extend the cube to time-dependent data by expanding the difference cube approach.
 %%
 
-We published all associated code and provide an analysis platform open to heterogenous data types.
+We published all associated codes and provide an analysis platform open to heterogenous data types.
 %%
 We believe in the power of opening up knowledge discovery to allow a heterogenous group of domain experts to derive insight into their data and support the notion of open science.
 
@@ -1746,7 +1746,7 @@ We believe in the power of opening up knowledge discovery to allow a heterogenou
 %%
 \begin{small}
 	%\acknowledgments{Omitted due to blind review}
-\acknowledgments{SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics. This work was supported by the federal state of Saxony-Anhalt under grant number 'I 60' within the Forschungscampus STIMULATE.}
+\acknowledgments{SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics. This work was supported by the federal state of Saxony-Anhalt under grant number `I 60' within the Forschungscampus STIMULATE.}
 \end{small}
 \clearpage
 \newpage
