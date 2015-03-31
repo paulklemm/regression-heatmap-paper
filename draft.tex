@@ -306,7 +306,7 @@ Medical image data is also acquired and analyzed in modern cohort studies.
 %%
 We incorporate image-derived features, but do not focus on analyzing image data.
 %%
-More discussions of cohort study data types and characteristics can be found in \cite{Klemm2014VIS, Preim2014, Toennies2015}.
+More discussions of cohort study data types and characteristics can be found in \cite{Preim2014, Toennies2015}.
 %%
 %\paragraph{Image Data.}
 % \com{Can probably be cut (reference to Klaus' Paper for more details on this) (see Bernhards comment above)}
@@ -617,7 +617,6 @@ We defined an Interactive Visual Analysis workflow for image-centric cohort stud
 %%
 Information visualizations of cohort study features were augmented with extracted image data, yielding linked views with both image and non-image information.
 %%
-% erst die ErklâÂ§rung, dann die Folge daraus =)
 The mosaic plot presented in \cite{Klemm2014VIS} highlights the pairwise correlation between features without a target disease by depicting the \emph{Cram\'{e}r's V} contingency values.
 %%
 Its great popularity among our domain experts was the inspiration for this work.
@@ -671,7 +670,7 @@ In a data set with $n$ (e.g., 100) features, the regression formula
 \begin{equation}
 Cancer \sim X + Y
 \end{equation}
-would yield $n^2$ (10,000) regression models, describing all possible combinations of two features in the data describing the target feature  $Cancer$.
+would yield $n^2$ (10,000) regression models, describing all possible combinations of two features in the data describing the target feature $Cancer$.
 %%
 The major advantage of this notation is that it comes natural to anyone familiar with regression analysis, since it is the standard way of expression.
 %%
@@ -1381,7 +1380,6 @@ We employ the data set used in \cite{Niemann2014} to identify predictive feature
 %%
 The dichotomous target feature is derived from the liver fat concentration measured using MRI scans.
 %%
-% ok?  to indicate absence or presence of the disease.
 Liver fat concentrations of no more than 10\% are mapped to the `negative' class; values greater than 10\% are mapped to the `positive' class to indicate absence or presence of the disease.
 %%
 The data set contains labels for 578 participants for which the MRI data was available to that point.
