@@ -755,14 +755,15 @@ A large list of features is an expression of low correlation to the target featu
 %The number of features extracted is not directly associated with the overall number, but rather on their information entropy towards each other.
 %%
 
-With this method, we are able to derive the interesting regression models in a reasonable time span.
+With this method, we are able to derive the interesting regression models in a reasonable time span (seconds to minutes instead of hours).
 %%
 The next section shows ways of abstracting the results to make them visually feasible.
 
 \subsection{Abstracting Regression Results Using $R^2$}
 \begin{figure}[htb]
  \centering
- \includegraphics[width=3.5in]{figures/cube}
+ % \includegraphics[width=3.5in]{figures/cube}
+ \includegraphics[width=1.0\linewidth]{figures/cube}
  \caption{
  (left) Overview visualization using a mosaic plot for the formula $Z \sim X + Y$, where $Z$ assumes the feature $age$.
  %%
@@ -827,7 +828,7 @@ The different analysis approaches require different starting points using the \e
 %%
 \begin{figure}[htb]
  \centering
- \includegraphics[width=3.0in]{figures/workflow}
+ \includegraphics[width=1.0\linewidth]{figures/workflow}
  \caption{
  Different workflow types of the analysis using \emph{Regression Cubes} (based on~\cite{Keim}).
  %%
@@ -950,7 +951,7 @@ For example, it can be utilized for comparing the influence of a single feature 
 \section{System Design} \label{sec:SystemDesign}
 \begin{figure}[htb]
  \centering
- \includegraphics[width=3.5in]{figures/system}
+ \includegraphics[width=1.0\linewidth]{figures/system}
  \caption{
  %%
  Breast fat data set loaded into the \emph{Regression Cube} prototype.
@@ -1204,7 +1205,7 @@ By hovering over a data entry in the plot, a tooltip model displays detailed inf
 \section{Implementation} \label{implementation}
 \begin{figure}[htb]
  \centering
- \includegraphics[width=3.5in]{figures/implementation}
+ \includegraphics[width=1.0\linewidth]{figures/implementation}
  \caption{
  The front-end (left) is realized with \emph{HTML5}/\emph{CSS3}/\emph{Javascript} and different Javascript libraries, such as \emph{Angular.js}, \emph{Three.js} and D3.js.
  %%
@@ -1305,7 +1306,7 @@ The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{www.h
 %%
 \begin{figure*}[htb]
  \centering
- \includegraphics[width=7.0in]{figures/application}
+ \includegraphics[width=1.0\linewidth]{figures/application}
  \caption{
  The analysis of the numerical and dichotomized target feature depicting liver fat values yields similar results (left).
  %%
