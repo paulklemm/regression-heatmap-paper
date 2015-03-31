@@ -174,7 +174,7 @@ Epidemiology aims to characterize health and disease conditions in defined popul
 %%
 Insights about risk factors allow to characterize disease-specific high-risk groups and act as important diagnostic key figures \cite{Fletcher2012}.
 %%
-Furthermore, the insights can be used to derive recommendations regarding a healthy lifestyle or to provide information about wide-spread diseases.
+Furthermore, the insights can be used to derive recommendations regarding a healthy lifestyle or to provide information about widespread diseases.
 %%
 During the standard workflow, physicians transform observations into hypotheses, which are depicted using epidemiological features and then are statistically analyzed.
 
@@ -731,7 +731,7 @@ For example, if the \emph{body weight} has a strong explanatory power towards th
 %%
 However, they strongly correlate with each other.
 %%
-The CFS algorithm will select the feature which has the largest explanatory power and discards the other dimensions.
+The CFS algorithm will select the feature, which has the largest explanatory power and discards the other dimensions.
 
 We apply the CFS algorithm for each target feature in a regression formula with dynamic variables.
 %%
@@ -859,7 +859,7 @@ The different analysis approaches require different starting points using the \e
 %\com{4. Get Details on Demand.}
 %%
 % â¹bergang ist recht holprig gewesen
-Our \emph{Regression Cube} model is well-suited for different workflow analysis techniques, based on the Visual Analytics (VA) Mantra of Keim et al.~\cite{Keim}:
+Our \emph{Regression Cube} model is well suited for different workflow analysis techniques, based on the Visual Analytics (VA) Mantra of Keim et al.~\cite{Keim}:
 
 \textbf{Analyze First} [\textbf{1.AF}]. Choosing an initial regression formula triggers the \emph{Regression Cube} calculation on the given data set, filtering the dimensions of the dependent feature through the CFS algorithm.
 
@@ -1017,7 +1017,7 @@ The first line in a CSV file represents all features (columns) of the data set.
 %%
 Each line after that represents one subject (row) and its feature manifestations.
 
-\textbf{Encoding via csv Files.}
+\textbf{Encoding via CSV Files.}
 %%
 Encoding variable types in CSV files is not standardized.
 %%
@@ -1206,7 +1206,7 @@ By hovering over a data entry in the plot, a tooltip displays detailed informati
  \caption{
  The front-end (left) is realized with \emph{HTML5}/\emph{CSS3}/\emph{Javascript} and different Javascript libraries, such as \emph{Angular.js}, \emph{Three.js} and D3.js.
  %%
- The web-server back-end (right) is written in \emph{Node.js}, hosting is carried out using \emph{Heroku}.
+ The web-server back-end (right) is written using \emph{Node.js}, hosting is carried out using \emph{Heroku}.
  %%
  \emph{R} and \emph{OpenCPU} constitute the statistical back-end (top) to compute the \emph{Regression Cubes}.
  %%
@@ -1235,7 +1235,7 @@ The front-end is created using \texttt{HTML5}, \texttt{CSS3} and \texttt{Javascr
 %%
 \texttt{Angular.js}\footnote{Open Source; Maintained by Google, \href{https://www.angularjs.org/}{\texttt{angularjs.org}}} abstracts web application into models and views, allowing for a responsive way to combine \texttt{HTML} and \texttt{Javascript}.
 %%
-\texttt{Angular.js} is forcing developers to write modularized code, which makes the components easier expandable while keeping the code maintainable by including unit tests.
+It forces developers to write modularized code, which makes the components easier expandable while keeping the code maintainable by including unit tests.
 %%
 % UI muss mal erklärt ewrden, tauchte schon weiter vorn im Paper auf
 The page layout is handled using \texttt{Twitter Bootstrap}\footnote{Open Source; Maintained by Twitter, \href{http://getbootstrap.com}{\texttt{getbootstrap.com}}}, which also provides a rich set of UI elements with proper stylings.
@@ -1288,7 +1288,7 @@ The source for the prototype is freely available at \texttt{Github}.\footnote{\t
 %%
 Instructions and code on how to create a setup running the \emph{Regression Cube} statistical back-end through a \texttt{Ubuntu} server using \texttt{OpenCPU} are referenced in the repository.
 %%
-The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{www.heroku.com}} by cloning the repository into a Heroku homepage.
+The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{www.heroku.com}} by cloning the repository into a Heroku app.
 %%
 %The front-end source as well as the \texttt{Nodejs} backend can be found here: .
 %%
@@ -1343,7 +1343,7 @@ Lam et al.~\cite{Lam2012} propose the \emph{Visual Data Analysis and Reasoning} 
 %%
 \emph{VDAR} can be carried out using case studies using thinking-aloud techniques to comprehend the reasoning and thought process of the user.
 %%
-We employ the \emph{VDAR} technique for analyzing our system.
+We employ \emph{VDAR} for analyzing our system.
 %%
 \paragraph{Participants, Setup and Procedure.}
 %%
@@ -1363,16 +1363,14 @@ All sessions were video recorded to be processed later on.
 %%
 
 %%
-We conducted a three with two participants. %, who also co-authored this publication.
+We conducted the analysis with three participants. %, who also co-authored this publication.
 %%
-\emph{KH}, a clinician (10 years of experience) with focus on epidemiological research, is the domain expert for the breast fat data set analysis
+\emph{KH}, a clinician (10 years of experience) with focus on epidemiological research, is the domain expert for the breast fat data set analysis.
 %%
 She is a radiologist, responsible for the SHIP-MRI acquisition and also responsible of the mammography analysis.
-
+%%
 The hepatic steatosis data set is analyzed by \emph{UN}, a data scientists responsible for prior analysis of the data.
 %%
-
-% OK so?
 The third participant is \emph{TI}, a statistician with focus on epidemiology (8 years of experience) assesses the statistical reliability of the tool and the underlying methods without a focus on a specific data set.
 %%
 \subsection{The Hepatic Steatosis Data Set}
@@ -1391,7 +1389,7 @@ Apart from the target feature, the data set contains 199 features, comprising so
 %%
 %The acquisition wave is denoted using the appendix; 85 for S0 (SHIP-0), 55 for S1, 55 for S2 and 10 time-independent SNPs (DNA base pairs).
 %%
-The acquisition wave is denoted using the appendix; \emph{s0} meaning that their values have been recorded in SHIP-0 (first study moment), 50 features for \emph{s1} and 55 for \emph{s2}, alongside with 10 time-independent SNPs (DNA base pairs).
+The acquisition wave is denoted using the appendix; 85 features with appendix \emph{s0} denote their affiliation to SHIP-0 (first study moment), 50 features for \emph{s1} and 55 for \emph{s2}, alongside with 10 time-independent SNPs (DNA base pairs).
 %%
 
 In \cite{Niemann2014}, the authors show different class distributions of liver fat concentrations of women and men.
@@ -1402,7 +1400,7 @@ For women, an association between age and liver fat was identified.
 An appropriate cut-off value of 52 years was set, yielding the most homogeneous class distribution within the resulting subsets.
 %%
 % ist das richtig? nicht female<52,male, female>52?
-Based on these observations, we perform our analysis on three populations: \emph{males}, \emph{females} (all ages) \emph{females older than 52 years}.
+Based on these observations, we perform our analysis on three populations: \emph{males}, \emph{females (all ages)} and \emph{females older than 52 years}.
 %%
 \subsection{The Breast Fat Data Set}
 The breast fat data set was compiled to find associations between the parenchyma tissue proportion in the female breast compared to other features in the data.
@@ -1424,7 +1422,7 @@ It contains 231 dimensions, holding information about somatometric features (e.g
 % 	\item \emph{mammography features} derived from the image data.
 % \end{itemize}
 %%
-The latter were derived from manually segmented MRI data for each subject carried out by radiologists.
+The latter were derived from MRI data for each subject, which was manually segmented by radiologists.
 %%
 %%
 %\com{Describe Parenchym tissue and its relation to breast cancer.}
@@ -1454,7 +1452,7 @@ The [\textbf{2.SI}] step using the 3D cube representations locates hotspots at t
 %%
 The Zoom, Filter and Analyze Further Step [\textbf{3.ZF}] was realized by slicing through the cube using the mouse input to inspect the hotspots.
 %%
-Analyzing the mosaic plot [\textbf{4.DD}] revealed high correlations for somatometric features, hepatic steatosis indicator features as well as laboratory values, such as \emph{creatinine} (used renal retention parameter) and \emph{uric acid} (among others used as gout and diabetes risk factors) magnitudes.
+Analyzing the mosaic plot [\textbf{4.DD}] revealed high correlations for somatometric features, hepatic steatosis indicator features as well as laboratory values, such as \emph{creatinine} (used as renal retention parameter) and \emph{uric acid} (among others used as gout and diabetes risk factors) magnitudes.
 %%
 Similar results were present for analyzing the \emph{female} groups.
 %%
@@ -1513,7 +1511,7 @@ We assume that the bias introduced by dichotomizing the fat liver content enforc
 
 \textbf{Interleukin-6 Correlation With Liver Fat.}
 %%
-During the analysis, one hotspot was always observable in the [\textbf{2.SI}] and [\textbf{3.ZF}] incorporating a high \emph{Interleukin-6} (\emph{IL-6}) correlation with liver fat values ($R^2$ of $0.8$, see Fig.~\ref{fig:Application}b).
+During the analysis, one hotspot was always observable in the [\textbf{2.SI}] and [\textbf{3.ZF}] steps, incorporating a high \emph{Interleukin-6} (\emph{IL-6}) correlation with liver fat values ($R^2$ of $0.8$, see Fig.~\ref{fig:Application}b).
 %%
 The correlation was high for both the dichotomized and continuous target feature.
 %%
@@ -1561,7 +1559,7 @@ Also, strong correlations were observed in the \emph{diabetes} slice, confirming
 %%
 A surprising finding was the strong correlations with \emph{kidney disorder} ($R^2$ values around $0.9$).
 %%
-The [\textbf{4.DD}] analysis, however, showed only 8 subjects with \emph{kidney disorder}.
+The [\textbf{4.DD}] analysis, however, showed only 8 subjects with this disease.
 %%
 Too few subjects impose the risk of a biased finding.
 %%
@@ -1571,7 +1569,7 @@ Lastly, \emph{KH} assessed the influence of contraception-related features, such
 %%
 Other consumption behavior features, such as \emph{alcohol intake} also yield no elevated $R^2$ values.
 %%
-\emph{KH} remarked that these features are believed to have an impact on the parenchyma tissue, but they are less reliable, since they are self-reported.
+\emph{KH} remarked that these features are suspected to have an impact on the parenchyma tissue, but they are less reliable, since they are self-reported.
 %%
 %mamma anamnesis breast fed, contraception (spirale, pille), alcohol intake
 %Lastly, \emph{KH} assessed the influence of image-derived features on the parenchyma tissue.
@@ -1641,7 +1639,7 @@ Observing \emph{expected} correlations matching the expert knowledge strengthens
 %%
 \textbf{Using Non-discretized Features Reduces Information Bias.}
 %%
-Discretization reduces the information space and introduces bias into the data and is therefore avoided in epidemiological research as possible.
+Discretization reduces the information space and introduces bias into the data and is therefore avoided in epidemiological research whenever possible.
 %%
 In contrast to many data mining algorithms, our method allows to use the concurrent analysis of heterogeneous data types.
 %%
@@ -1702,9 +1700,9 @@ As next step, we want to introduce more regression types, which model different 
 We also want to extend the cube to time-dependent data by expanding the difference cube approach.
 %%
 
-We published all associated codes and provide an analysis platform open to heterogenous data types.
+We published all associated code and provide a freely accessible analysis platform open to heterogenous data types.
 %%
-We want to support opening up knowledge discovery to allow a heterogenous group of domain experts to derive insight into their data and support the notion of open science.
+We want to support opening up knowledge discovery to allow a diverse group of domain experts to derive insight into their data and support the notion of open science.
 
 % \com{Rewrite, focus on precise definition on what was done and why it is awesome.}
 % We presented a technique for knowledge discovery in cohort study data sets with user-defined target features.
