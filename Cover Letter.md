@@ -1,33 +1,48 @@
+This cover letter is written in Markdown
+
 Cover Letter
 ============
 
-At first, we'd like to thank all reviewers for the detailed feedback on this paper. The work underwent substantial changes and enhancements. We extended the data, made a new qualitative evaluation, revised all figures and focus on a more precise distinction to related work.
+At first, we'd like to thank all reviewers for the detailed feedback on this paper. The work underwent substantial changes and enhancements. We extended the Regression Cube to display various descriptive metrics for regression models, empahsized how expert feedback influenced the design choices, revised all figures and included previously missing important related work.
 
 This cover letter is divided into two parts. The first highlights major changes to the paper. The second part covers the reviewer feedback with our inline comments to the individual reviews, which are for the most parts pointers to the first section to reduce redundancy.
+
+*All changes can be found on the running instance of the Cube under [regressioncube.herokuapp.com](regressioncube.herokuapp.com)*.
+Code changes can be tracked in the GIT repositories [of the R back-end package](https://github.com/paulklemm/regression-cube-r-package/commits) and [the Javascript/HTML5/CSS front-end and Node back-end](https://github.com/paulklemm/regression-cube-prototype/commits).
 
 Changes
 =======
 
-Regression Features
--------------------
+Regression Metrics
+------------------
 
-One large complaint was the focus on R² values only for representing linear regression models. Therefore, we reworked this to include a variety of different variables, which put emphasis on different aspects of the data. *All changes can be found on the running instance of the Cube under [regressioncube.herokuapp.com](regressioncube.herokuapp.com)*.
+One large complaint was the focus on R² values only for representing linear regression models. Therefore, we reworked this to include a variety of different variables, which put emphasis on different aspects of the data.
 
 * [Reviewer 1] We added a new select interface element for selecting the regression metric used to colorize the mosaic plot and regression cube. It contains the following new metrics:
   * Adjusted R²: This is basically the R² term, but with a penalty term, which leads to lower R² values, if a added dimension contains little entropy w.r.t. the target variable.
-  * F-statistic: The f statistic determines how much improvement the independent variables will add to the model compared to them being not considered at all. The F-statisic is scaled between 0 and 1 based on the largest F-statistic in a cube slice.
-  * These two metrics are implemented for linear regression models, since they lack a counter part for logistic regression models. For those, the standard Nagelkerke R² values are used.
-  * The metrics are explained under *2.3 Regression Analysis*.
+  * F-statistic: The f statistic determines how much improvement the independent variables will add to the model compared to them being not considered at all. The F-statisic is scaled between 0 and 1 based on the largest f-statistic in a cube slice.
+    * **We did implement a visual comparison of f-statisic, but decided against it**. The resulting plot is misleading. f-statistic are based on their degrees of freedom, which are determined by the number of independent features (equal in the cube, which is good) and the number of elements (unequal with very high differences). The cube would visually compare values, which are inherently not comparable, as many features are sparse. We therefore decided to restrict f-statisic as contextual information for each model.
+  * Akaike Information Criterion (AIC), which acts similar as the R² by preferring simpler models based on occams razor.
+  * Adjusted R² and f-statistic are implemented for linear regression models, since they lack a counter part for logistic regression models. For those, the standard Nagelkerke R² values are used.
 * [Reviewer 1] The context information for regression models was enhanced according to the suggestions made by the reviewers
-  * A scatter plot shows the distribution of the residulas of the model.
+  * A scatter plot shows the distribution of the residuals of the model.
   * All p-values for each dimension are shown.
   * The f-statistic is additionally represented as table, which covers its degrees of freedom.
-  * The Akaike Information Criterion (AIC) as well as the ajdusted R² can also be found in the context information.
+  * The Akaike Information Criterion (AIC) as well as the adjusted R² can also be found in the context information.
+
+The sections revised using this feedback are:
+
+* *2.3 Regression Analysis* - explained the new metrics and their usage
+* *4.3 Abstracting Regression Results using R²* is now renamed into  *4.3 Abstracting Regression Results* and covers the new metrics.
+* *5.2 Regression Cube Visualization* contains *Selecting and Scaling the Descriptive Regression Metric*, a new paragraph explaining the selection and scaling of the regression metrics
+* Paragraph *Mosaic Plot Slice Visualization* summarizes the features appearing as context information including the residual plot.
 
 User Interaction
 ----------------
 
 * [Reviewer 3] As suggested, we implemented a slider to adjust the transfer function of the selected metric. It is applied both on the 2D heatmap as well as the 3D cube. It can therefore be also used to filter for specific values, such as regression models with very high R².
+  * The figures are updated to cover the new UI elements.
+  * *5.2 Regression Cube Visualization* contains *Selecting and Scaling the Descriptive Regression Metric*, explaining the functionality of the slider
 
 
 # VAST'15 Reviews "Regression Cube Analysis of Cohort Study Data "
@@ -55,6 +70,15 @@ In my estimation the case for accepting this paper is primarily in its potential
 ### The Summary Review
 
 Reviewers agree that the paper addresses an important problem, and the high level of contact with experts makes this a good application paper. They are concerned in the general sense that linear regression modelling experts need to assess more criteria in order to select best models. There are a matrix of measures such as adjusted R square, F statistic, p-values etc. that are often used to understand a multiple regression. Other measures such as the Akaike Information Criterion can help analysts to compare models with different power e.g. number of variables. Other metrics such as the distribution of residuals can also be useful (and sometimes essential) to make decisions about models.
+
+<i><font color='green'>
+
+  * See [Regression Metrics] for detailed changes in the paper with this feedback in mind. To summarize:
+    * The Regression Cube can now be displayed w.r.t. different descriptive metrics other than the R² (adjusted R², Akaikes Information Criterion)
+    * Additonally, all suggested features are included into the context information attached to each regression model, including a resdiual scatter plot
+    * The changes are made apparent in the paper in the respective sections (see [Regression Metrics])
+
+</i></font>
 
 Some of this might be dealt with by pointing out how user input was used to select the measures used, and to make it clear that the system is intended for expert users who have sufficient understanding of regression and how it should be interpreted that they are able to use the system wisely.
 

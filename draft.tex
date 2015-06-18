@@ -315,6 +315,13 @@ The regression model yields a function describing the target feature by weightin
 %%
 Different metrics, such as the weightings itself and associated $p$ values, describe the resulting function (the \emph{model}).
 %%
+\add{
+%%
+The \emph{Akaike Information Criterion} (AIC) metric estimates the quality of a model and is suited for comparing models.
+%%
+A small AIC value indicates a higher quality model.
+%%
+}
 $R^2$ values describe the quality of the fit; in other words how well the dependent features describe the target feature.
 %%
 The value ranges between $[0, 1]$, where 1 encodes a perfect fit.
@@ -342,8 +349,16 @@ Different regression types are available, we focus on the following:
 %%
 \paragraph{Linear Regression for Continuous Target.} The basic type is the linear regression, creating a linear map from the space comprising the \emph{independent} features to the \emph{dependent} features.
 %%
-The \emph{dependent} variable has to be of a continuous type.
+The \emph{dependent} variable has to be of \emph{continuous type}.
 %%
+\add{
+%%
+Linear regression models can also be described using the \emph{adjusted} $R^2$, which considers the number of dependent features and yields lower values, when features with little entropy towards the target feature are included.
+%Additional metrics describing linear regression models comprise of the \emph{adjusted} $R^2$, which also adjusts for the number of dependent features and yields lower values, when features with little entropy towards the target feature are included.
+%%
+The $f$-$statistic$ determines how much improvement the independent variables will add to the model compared to them being not considered at all.
+%%
+}
 
 \paragraph{Logistic Regression for Dichotomous Target.} Logistic regression implies a dichotomous target variable.
 %%
@@ -689,25 +704,26 @@ With this method, we are able to derive the interesting regression models in a r
 %%
 The next section shows ways of abstracting the results to make them visually feasible.
 
-\subsection{Abstracting Regression Results Using $R^2$}
+%\subsection{Abstracting Regression Results Using $R^2$}
+\subsection{Abstracting Regression Results}
 \begin{figure}[htb]
  \centering
  \includegraphics[width=1.0\linewidth]{figures/cube}
  \caption{
  (a) Overview visualization using a mosaic plot for the formula $Z \sim X + Y$, where $Z$ assumes the feature $age$.
  %%
- The $R^2$ values extracted from the regression formulas depict the quality-of-fit and are mapped to color saturation (a saturated color shows a strong correlation).
+ The descriptive metrics extracted from the regression model are mapped to color saturation (for $R^2$, saturated color shows a strong correlation).
  %%
  (b) Now, $Z$ is set to all features $n$ and yields $n$ mosaic plot visualizations.
  %%
  These represent the slices in our cube.
  %%
- The $R^2$ value of each slice voxel is mapped on opacity in the 3D view later on, reducing the occlusion of other values.
+ The metric describing the regression model of each slice voxel is mapped on opacity in the 3D view later on, reducing the occlusion of other values.
  }
   \label{fig:Cube}
 \end{figure}
 %%
-The goal of an overview visualization is to provide a comprehensive view on the data (raw or using descriptive metrics \cite{Bertini}), which is easy to understand.
+\noindent The goal of an overview visualization is to provide a comprehensive view on the data (raw or using descriptive metrics \cite{Bertini}), which is easy to understand.
 %%
 As described in our previous work \cite{Klemm2014VIS}, correlation values scaled between 0 (no correlation) and 1 (perfect correlation) can be encoded with color in a mosaic plot.
 %%
@@ -715,7 +731,21 @@ Regression models are more complex, having many associated describing metrics.
 %%
 For the \emph{Regression Cube} analysis we are interested in the quality-of-fit of the resulting model, which allows to infer about the predictive quality of the independent features included in the model.
 %%
-As described in Section~\ref{sec:RegressionAnalysis}, the $R^2$ value is the metric allowing for this kind of assessment.
+As described in Section~\ref{sec:RegressionAnalysis}, the $R^2$ \add{and adjusted $R^2$} value are metrics allowing for this kind of assessment.
+%%
+\add{
+%%
+Users with in-depth knowledge about regression models are given the option to render the \emph{Regression Cube} using other descriptive features presented in \ref{sec:RegressionAnalysis}.
+%%
+Therefore, these experts can investigate the cube with emphasis on specific aspects of the model.
+%%
+To avoid shutting out users unfamiliar with these metrics, the \emph{Regression Cube} is set per default to show $R^2$ values.
+%%
+%The \emph{Regression Cube} can also be rendered using other descriptive features presented in \ref{sec:RegressionAnalysis} albeit our focus on $R^2$ values.
+%%
+%Domain experts with sound background on regression analysis can investigate the the cube with emphasis on specific aspects of the model.
+%%
+}
 %%
 \paragraph{2D (Slice) View.}
 %%
@@ -725,12 +755,28 @@ We can apply the same mosaic plot mapping by translating the $R^2$ values to col
 %%
 This describes a 2D regression square for dynamic variables $X$ and $Y$ (e.g., $Age \sim X + Y$).
 %%
+\add{
+%%
+$Adjusted$ $R^2$ can be represented in the same way, since they share the scale.
+%%
+$AIC$ values are not restricted to a normalized scale.
+%%
+They have to be normalized in order to map it onto color saturation.
+%%
+%The resulting scale may be distort by outliers, which requires facilities for allowing the user to select scale ranges.
+The resulting scale may be distorted by outliers derived from poor regression models.
+%%
+To tackle this problem, we provide a slider input, which maps the transfer function of the metric to color saturation based on user-selected ranges.
+%%
+Outliers can be cut off to emphasize ranges of interest.
+%%
+}
 
 \paragraph{3D (Cube) View.}
 %%
 Introducing $Z$ creates a 3D \emph{Regression Cube} (Fig.~\ref{fig:Cube}b).
 %%
-$R^2$ values of each cube entry (\emph{voxel}) are mapped to opacity to reduce the overlap.
+\add{The selected metric (per default set to $R^2$)} of each cube entry (\emph{voxel}) are mapped to opacity to reduce the overlap.
 %%
 The visualization of $R^2$ values derived from different regression cubes (e.g., $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
 %%
@@ -993,6 +1039,24 @@ Along the diagonal, $X$ and $Y$ assume the same feature, $Z \sim X + Y$ turns in
 %%
 The diagonal therefore acts as reference on how strong the correlation for the given row (or column) feature is.
 
+\paragraph{Selecting and Scaling the Descriptive Regression Metric.}
+\add{
+%%
+The descriptive metric shown in the 2D/3D view can be selected using a dropdown menu.
+%%
+The default selection is $R^2$.
+%%
+$AIC$ displays model quality.
+%%
+\emph{Adjusted} $R^2$ values are only available for linear regression, logistic regression results are represented via $R^2$ values in this mode.
+%%
+As they are visually distinguished using color, confusions are avoided.
+%%
+The transfer function of the color intensity (2D) and opacity (3D) can be adapted using a slider input.
+%%
+This additionally allows to filter models with desired features, such as only very high $R^2$ values.
+}
+
 \paragraph{3D Prism as Data Mini-Map.}
 %%
 The 3D cube representation acts as an overview over the whole data set, but its purpose is not to derive detailed information about data points.
@@ -1068,8 +1132,14 @@ The free space above the matrix diagonal is used to display the 3D cube.
 
 The purpose of this view is the detailed assessment of the underlying regression models.
 %%
-By hovering over a data entry in the plot, a tooltip displays detailed information about a model's coefficients, associated $p$ values and confidence intervals.
+By hovering over a data entry in the plot, a tooltip displays detailed information about a model's coefficients, associated $p$ values, confidence intervals \add{f-scores and AIC values}.
 %%
+\add{
+%%
+It also contains a scatter plot of the \emph{model residuals}, which shows the difference between the observed data points with the fitted values.
+%%
+Epidemiologists use such plots to validate models w.r.t. the model assumptions, such as homogeneity, normality, and independence \cite{GraphicModelAssessment}.
+}
 
 \section{Implementation} \label{implementation}
 \begin{figure}[htb]
@@ -1465,8 +1535,18 @@ We published all associated code and provide a freely accessible analysis platfo
 We want to support opening up knowledge discovery to allow a diverse group of domain experts to derive insight into their data and support the notion of open science.
 %%
 \begin{small}
-	%\acknowledgments{Omitted due to blind review}
-\acknowledgments{SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics. This work was supported by the federal state of Saxony-Anhalt under grant number `I 60' within the Forschungscampus STIMULATE.}
+\acknowledgments{
+%%
+SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania.
+%%
+Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern.
+%%
+The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG.
+%%
+This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics.
+%%
+Sylvia Gla{\ss}er and Kai Lawonn are funded by the Federal Ministry of Education and Research within the Forschungs-campus STIMULATE under grant number '13GW0095A'.
+}
 \end{small}
 \clearpage
 \newpage
