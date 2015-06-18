@@ -31,8 +31,9 @@
 \usepackage[normalem]{ulem}
 \usepackage{xcolor}
 \newcommand{\rem}[1]{\textcolor{red}{\sout{#1}}}
-\newcommand{\add}[1]{\textcolor{blue}{\uline{#1}}}
-\newcommand{\com}[1]{\textcolor{orange}{\uline{#1}}}
+\newcommand{\add}[1]{\textcolor{blue}{#1}}
+\newcommand{\com}[1]{\textcolor{red}{\underline{#1}}}
+\newcommand{\design}[1]{\textcolor{orange}{#1}}
 
 %% We encourage the use of mathptmx for consistent usage of times font
 %% throughout the proceedings. However, if you encounter conflicts
@@ -594,21 +595,59 @@ The difference of the presented approach towards our previous and related work i
 \end{enumerate}
 %%
 \section{Regression Cube Analysis of Cohort Study Data}
+\com{TODO: Put into separate subsection?}
 %%
-The basic idea of our \emph{Regression Cube} is to provide an overview visualization of large cohort study data sets towards target features.
+\design{
 %%
-Overview visualizations of feature relationships as presented by Angelelli et al.~\cite{Angelelli} are often focused on relationships between the visualized features.
+The \emph{Regression Cube} design was developed iteratively based on feedback of epidemiologists by using the prototype in joint analysis sessions on their data sets.
 %%
-Correlation metrics, such as the \emph{Pearson product-moment correlation coefficient} or \emph{Cram\'{e}r's V} contingency values are incorporated to achieve this goal.
+The idea emerged from analysis sessions of a previous project, which contained a mosaic plot showing pairwise feature correlations based on \emph{Cram\'{e}r's V} contingency values \cite{Klemm2014VIS}.
 %%
-In epidemiology, these relationships are also of interest, but rather w.r.t. their explanatory power towards the target feature.
+It allowed them to reproduce their knowledge by observing correlations they would expect as well as discovering new correlations.
 %%
-These target features often indicate the presence of the investigated disease.
+In epidemiology, these relationships are also of interest, but rather w.r.t. their explanatory power towards the target feature, often indicate the presence of the investigated disease.
 %%
-As described in Section \ref{sec:RegressionAnalysis}, regression analysis is the statistical tool of choice for analyzing these relationships.
+That is the focus of this work.
+%%
+% These target features often indicate the presence of the investigated disease.
+%%
+The domain experts wanted to \emph{model knowledge} about the investigated condition, such as confounding features (e.g., age or gender).
+%%
+For explorative analysis, they preferred an approach, which highlights associations w.r.t. various target features to both check for medical soundness of the data as well as detecting unexpected relationships.
+%%
+Additionally, due to the sensitive nature of population study data, the data has to be handled secure.
+%%
+This aspect is considered later in the Section~\ref{sec:SystemDesign}.
+%%
+%In this work, we want to provide an overview visualization of large cohort study data sets \emph{towards target features}.
+}
+%%
+%The basic idea of our \emph{Regression Cube} is to provide an overview visualization of large cohort study data sets towards target features.
+%%
+%Overview visualizations of feature relationships as presented by Angelelli et al.~\cite{Angelelli} are often focused on relationships between the visualized features.
+%%
+%Correlation metrics, such as the \emph{Pearson product-moment correlation coefficient} or \emph{Cram\'{e}r's V} contingency values are incorporated to achieve this goal.
+%%
+%In epidemiology, these relationships are also of interest, but rather w.r.t. their explanatory power towards the target feature.
+%%
+%These target features often indicate the presence of the investigated disease.
+%%
+
+As described in Section~\ref{sec:RegressionAnalysis}, regression analysis is the statistical tool of choice for analyzing relationships in epidemiological data.
 %%
 A regression model is based on expert knowledge; there is no singular rule how to apply models to a given set of features. Thus, they have to be applied with care.
 %%
+% \design{
+% %%
+% Key requirements based on the epidemiological application domain on the Regression Cube are:
+% %%
+% \begin{itemize}
+% 	\item Show relationships of features w.r.t. their explanatory power towards the target feature (e.g., a disease or unhealthy condition).
+% 	\item Allow for modeling assumptions regarding the target feature.
+% 	\item The tool has to be easily accessible and simultaneously secure the data its processing.
+% \end{itemize}
+% %%
+% }
 \subsection{Cube Description Using Regression Formula Notation}
 %%
 Expert knowledge is integrated into the analysis using regression formulas.
@@ -733,19 +772,14 @@ For the \emph{Regression Cube} analysis we are interested in the quality-of-fit 
 %%
 As described in Section~\ref{sec:RegressionAnalysis}, the $R^2$ \add{and adjusted $R^2$} value are metrics allowing for this kind of assessment.
 %%
-\add{
-%%
-Users with in-depth knowledge about regression models are given the option to render the \emph{Regression Cube} using other descriptive features presented in \ref{sec:RegressionAnalysis}.
-%%
-Therefore, these experts can investigate the cube with emphasis on specific aspects of the model.
-%%
-To avoid shutting out users unfamiliar with these metrics, the \emph{Regression Cube} is set per default to show $R^2$ values.
-%%
-%The \emph{Regression Cube} can also be rendered using other descriptive features presented in \ref{sec:RegressionAnalysis} albeit our focus on $R^2$ values.
-%%
-%Domain experts with sound background on regression analysis can investigate the the cube with emphasis on specific aspects of the model.
-%%
-}
+% \add{
+% %%
+% Users with in-depth knowledge about regression models are given the option to render the \emph{Regression Cube} using other descriptive features presented in \ref{sec:RegressionAnalysis}.
+% %%
+% Therefore, these experts can investigate the cube with emphasis on specific aspects of the model.
+% %%
+% To avoid shutting out users unfamiliar with these metrics, the \emph{Regression Cube} is set per default to show $R^2$ values.
+% }
 %%
 \paragraph{2D (Slice) View.}
 %%
@@ -754,6 +788,14 @@ Since $R^2$ is scaled between $[0, 1]$, it allows for comparison \emph{between} 
 We can apply the same mosaic plot mapping by translating the $R^2$ values to color saturation (Fig.~\ref{fig:Cube}a).
 %%
 This describes a 2D regression square for dynamic variables $X$ and $Y$ (e.g., $Age \sim X + Y$).
+%%
+\design{
+%%
+Based on expert feedback, the amount of features used to compare regression models was extended.
+%%
+Therefore, these experts can investigate the cube with emphasis on specific aspects of the model.
+%%
+}
 %%
 \add{
 %%
@@ -771,6 +813,11 @@ To tackle this problem, we provide a slider input, which maps the transfer funct
 Outliers can be cut off to emphasize ranges of interest.
 %%
 }
+\design{
+%%
+To avoid shutting out users unfamiliar with these metrics, the \emph{Regression Cube} is set per default to show $R^2$ values.
+%%
+}
 
 \paragraph{3D (Cube) View.}
 %%
@@ -778,9 +825,17 @@ Introducing $Z$ creates a 3D \emph{Regression Cube} (Fig.~\ref{fig:Cube}b).
 %%
 \add{The selected metric (per default set to $R^2$)} of each cube entry (\emph{voxel}) are mapped to opacity to reduce the overlap.
 %%
-The visualization of $R^2$ values derived from different regression cubes (e.g., $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
+\design{
 %%
-Therefore, the $R^2$ results of different regression methods are encoded using different colors (i.e., orange for linear regression and blue for logistic regression).
+Epidemiologists with background on statistics argued, that the visualization of descriptive metrics derived from different regression methods (e.g., $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
+%%
+Therefore, we decided to map metrics of different regression methods on distinct colors (i.e., orange for linear regression and blue for logistic regression).
+%%
+}
+%%
+%The visualization of descriptive metrics derived from different regression cubes (e.g., $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
+%%
+%Therefore, the $R^2$ results of different regression methods are encoded using different colors (i.e., orange for linear regression and blue for logistic regression).
 %%
 Thus, the cube can be easily extended using other regression types.
 %%
@@ -817,7 +872,7 @@ The different analysis approaches require different starting points using the \e
   \label{fig:Workflow}
 \end{figure}
 %%
-Our \emph{Regression Cube} model is well suited for different workflow analysis techniques, based on the Visual Analytics (VA) Mantra of Keim et al.~\cite{Keim}:
+\noindent Our \emph{Regression Cube} model is well suited for different workflow analysis techniques, based on the Visual Analytics (VA) Mantra of Keim et al.~\cite{Keim}:
 
 \textbf{Analyze First} [\textbf{1.AF}]. Choosing an initial regression formula triggers the \emph{Regression Cube} calculation on the given data set, filtering the dimensions of the dependent feature through the CFS algorithm.
 
@@ -906,7 +961,10 @@ For example, it can be utilized for comparing the influence of a single feature 
   \label{fig:System}
 \end{figure}
 %%
-We designed our system to be freely accessible and easy to use.
+%Albeit our focus on epidemiological data sets, we designed our system to be open with open formats as input interfaces .
+%%
+We designed our system to be openly accessible and easy to use.
+%%
 With open formats as input interfaces, the application can be extended to non-epidemiological data sets.
 %%
 The focus lies on creating an overview visualization and gaining insight into relationships of the data, which triggers further analyses, maybe with other (statistical) tools.
@@ -915,21 +973,25 @@ Therefore, the system has to be intuitive and comprehensive in order to be adapt
 %%
 \\\\
 %%
-\noindent Design choices and spaces are restricted by the underlying technologies and devices.
+\design{
+%A key requirement was little set up time to reduce the effort on the domain expert side, as they are mostly practicing clinicians with small time-frames for epidemiological research.
+The design choice of using web-based technologies offers various advantages w.r.t. the collaboration with epidemiologists.
+}
+%Design choices and spaces are restricted by the underlying technologies and devices.
 %%
-The exchange of data and methods using web-based technologies offers many advantages.
+%Therefore, the exchange of data and methods using web-based technologies offers many advantages.
 %%
 There is no set-up time involved and domain experts can use the methods from any computer connected with the web.
 %%
 By design, web technology is based on a client-server architecture, making it easy to outsource computationally heavy tasks on server clusters and transferring results to the client device.
 %%
-The design space spanned by web technologies is different to standard WIMP applications: right-click menus, modal windows and menu bars are no established user interface components in this context.
+%The design space spanned by web technologies is different to standard WIMP applications: right-click menus, modal windows and menu bars are no established user interface components in this context.
 %%
-Therefore, we have to adapt our design respecting the conventions of web pages.
+%Therefore, we have to adapt our design respecting the conventions of web pages.
 %%
 \subsection{System Paradigm and Components}
 %%
-The \emph{Regression Cube} design focuses on a clean interface, reducing the amount of user-interface elements as much as possible.
+The \emph{Regression Cube} design focuses on a clean appearance, reducing the amount of user-interface elements as much as possible.
 %%
 This allows for a fast learning of the individual system parts.
 %%
@@ -1456,6 +1518,8 @@ She highlighted the efficiency of combining fast target feature selection with v
 To get nearly similar results, she had to spend hours using \texttt{SPSS} and potentially missed interesting hotspots during this process.
 %%
 \emph{TI} highlighted the ability to simultaneously analyze thousands of regression models while maintaining little time expenses for rating them.
+%%
+
 %%
 \textbf{Extracted Hypotheses Have to be Investigated Further.}
 %%
