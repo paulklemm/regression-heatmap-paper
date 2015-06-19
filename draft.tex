@@ -595,7 +595,10 @@ The difference of the presented approach towards our previous and related work i
 \end{enumerate}
 %%
 \section{Regression Cube Analysis of Cohort Study Data}
-\com{TODO: Put into separate subsection?}
+\design{
+This section covers the design of the Regression Cube as well as how epidemiological requirements and  domain expert input was utilized to influence design decisions.
+}
+\subsection{Iterative Design Based on Expert Feedback}
 %%
 \design{
 %%
@@ -650,7 +653,8 @@ A regression model is based on expert knowledge; there is no singular rule how t
 % }
 \subsection{Cube Description Using Regression Formula Notation}
 %%
-Expert knowledge is integrated into the analysis using regression formulas.
+\design{The key requirement of modeling expert knowledge} is integrated into the analysis using \emph{regression formulas}.
+%Expert knowledge is integrated into the analysis using regression formulas.
 %%
 As described in Section~\ref{sec:RegressionAnalysis}, the formula input influences the type of the chosen regression method as well as the \emph{independent} features describing the target.
 %%
@@ -791,7 +795,7 @@ This describes a 2D regression square for dynamic variables $X$ and $Y$ (e.g., $
 %%
 \design{
 %%
-Based on expert feedback, the amount of features used to compare regression models was extended.
+Based on expert feedback on early versions of this view, the amount of features used to compare regression models was extended.
 %%
 Therefore, these experts can investigate the cube with emphasis on specific aspects of the model.
 %%
@@ -894,7 +898,18 @@ This can be carried out either to refine the current formula based on observatio
 %%
 \paragraph{Hypothesis-Free and Hypothesis-Based Analysis.}
 %%
-Input formulas reflect \emph{hypotheses} about the data.
+\design{
+%%
+Early analysis sessions yielded two approaches on analyzing the data.
+%%
+The classic approach is the \emph{hypothesis-based} approach, where the expert already has a good understanding of the data and potential associations (e.g. reproducing knowledge about hepatic steatosis risk factors based on known risk factors).
+%%
+The \emph{hypothesis-free} approach is well suited for deriving new insight into the data, such as identifying cofounding features or potential targets (e.g. deriving risk factors for breast cancer associated features).
+%%
+}
+%%
+%Input formulas reflect \emph{hypotheses} about the data.
+\emph{Hypotheses} about the data are reflected using input formulas.
 %%
 Using the operators, dynamic variables and dataset features, many different assumptions can be expressed.
 %%
@@ -932,6 +947,11 @@ This is achieved through cube comparison.
 %%
 
 \paragraph{Cube Comparison.}
+\design{
+%%
+Cube comparisons were introduced later in the project, as epidemiologists with focus on statistics pointed out, that comparing outcomes of different formulas is suitable for removing the effect of possible confounding features.
+%%
+}
 %%
 \emph{Regression Cubes} can be compared by creating difference views.
 %%
@@ -939,7 +959,7 @@ One cube (extracted with one formula) acts as reference.
 %%
 The absolute difference in $R^2$ values towards the second cube is calculated, yielding a difference cube showing only the differences between the two formulas.
 %%
-For example, it can be utilized for comparing the influence of a single feature towards the complete result (e.g., $Z \sim X + Y$ and $Z \sim X + Y + Income$)
+For example, it can be utilized for comparing the influence of a single feature towards the complete result (e.g., $Z \sim X + Y$ and $Z \sim X + Y + Income$).
 
 \section{System Design} \label{sec:SystemDesign}
 \begin{figure}[htb]
@@ -976,12 +996,21 @@ Therefore, the system has to be intuitive and comprehensive in order to be adapt
 \design{
 %A key requirement was little set up time to reduce the effort on the domain expert side, as they are mostly practicing clinicians with small time-frames for epidemiological research.
 The design choice of using web-based technologies offers various advantages w.r.t. the collaboration with epidemiologists.
+%%
+Since they are usually practicing clinicians, they usually have little time to wrangle software.
+%%
+A web-based approach has no set-up time besides loading up the data set and can be carried out with any computer connected with the web.
+%%
+Feedback of domain experts even can be implemented directly in analysis sessions and just requires a page reload.
+%%
+By providing a service a website it has a much larger chance of being tested and potentially adapted by a wide range of experts.
+%%
 }
 %Design choices and spaces are restricted by the underlying technologies and devices.
 %%
 %Therefore, the exchange of data and methods using web-based technologies offers many advantages.
 %%
-There is no set-up time involved and domain experts can use the methods from any computer connected with the web.
+%There is no set-up time involved and domain experts can use the methods from any computer connected with the web.
 %%
 By design, web technology is based on a client-server architecture, making it easy to outsource computationally heavy tasks on server clusters and transferring results to the client device.
 %%
@@ -991,7 +1020,16 @@ By design, web technology is based on a client-server architecture, making it ea
 %%
 \subsection{System Paradigm and Components}
 %%
-The \emph{Regression Cube} design focuses on a clean appearance, reducing the amount of user-interface elements as much as possible.
+\design{
+%%
+Complex system, which take a lot of training and experience to work with are not suitable for the task of deriving overview visualizations for epidemiologists, as they have little time slots available for their research.
+%%
+If the system is not easy to learn, it will not be adapted.
+%%
+}
+%%
+%The \emph{Regression Cube} design focuses on a clean appearance, reducing the amount of user-interface elements as much as possible.
+Therefore, the \emph{Regression Cube} design focuses on a clean appearance, reducing the amount of user-interface elements as much as possible.
 %%
 This allows for a fast learning of the individual system parts.
 %%
@@ -1000,7 +1038,7 @@ Our prototype consists of three components:
 	%%
 	\item The \emph{file upload} section starting the analysis with providing a comma-separated value (CSV) file [1.AF].
 	%%
-	\item The \emph{cube visualization} consisting of the 2D mosaic view as well as a 3D representation of the whole cube [2.SI].
+	\item The \emph{cube visualization} consisting of the 2D mosaic view as well as a 3D representation of the whole cube \add{with facilities to change the represented regression metric and its range} [2.SI].
 	%%
 	\item The \emph{formula editor} allows formula input w.r.t. a hypothesis or to conduct a \emph{hypothesis-free} analysis.
 	%%
@@ -1010,7 +1048,7 @@ Our prototype consists of three components:
 %%
 \paragraph{File Upload and Classification [1.AF].}
 %%
-Popular analytics tools, such as WEKA \cite{WEKA}, owe their popularity to their support of open file types.
+Popular analytics tools, such as WEKA \cite{WEKA}, owe part of their success to their support of open file types.
 %%
 To allow other users even outside the epidemiological application domain to access to our tool, we use standard ASCII-based CSV files.
 %%
@@ -1102,6 +1140,11 @@ Along the diagonal, $X$ and $Y$ assume the same feature, $Z \sim X + Y$ turns in
 The diagonal therefore acts as reference on how strong the correlation for the given row (or column) feature is.
 
 \paragraph{Selecting and Scaling the Descriptive Regression Metric.}
+\design{
+%%
+As the feedback made apparent that other features are of interest for analyzing regression models too, UI elements for controlling them were introduced to the system.
+%%
+}
 \add{
 %%
 The descriptive metric shown in the 2D/3D view can be selected using a dropdown menu.
@@ -1120,10 +1163,21 @@ This additionally allows to filter models with desired features, such as only ve
 }
 
 \paragraph{3D Prism as Data Mini-Map.}
+\design{
 %%
-The 3D cube representation acts as an overview over the whole data set, but its purpose is not to derive detailed information about data points.
+In early prototype versions, the 3D prism acted as starting point for the data analysis without the implementation of a separate 2D view.
+%%
+Slices were shown using cutaway planes.
+%%
+This approach was not popular with our domain experts, because the complexity of the visualization overwhelmed them. %did not like the combination of 3D interaction and slicing with representatives.
+%%
+}
+%%
+The 3D cube representation \design{was redesigned to} act as an overview over the whole data set, but its purpose is not to derive detailed information about data points.
 %%
 It serves as a function similar to a mini-map, guiding the attention towards points of interest in the data, as well as giving context information about adjacent data values when using the 2D mosaic plot.
+%%
+\design{The distinction between overview and details and demand using two different representations was well received with our domain experts.}
 %%
 The displayed prism shows values above the matrix diagonal.
 %%

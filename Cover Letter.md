@@ -44,6 +44,22 @@ User Interaction
   * The figures are updated to cover the new UI elements.
   * *5.2 Regression Cube Visualization* contains *Selecting and Scaling the Descriptive Regression Metric*, explaining the functionality of the slider
 
+Support Design Decisions with Expert Feedback
+---------------------------------------------
+
+One main complaint was the lack of supporting design decisions using expert feedback. We revised Section *4 Regression Cube Analysis of Cohort Study Data* and Section *5 System Design* with this feedback in mind. We focused on telling the story on how different elements of the project were derived from joint analysis sessions and which purpose they serve.
+
+Details on the changes are as follows:
+
+  * *4 Regression Cube Analysis of Cohort Study Data*
+    * Added new subsection *Iterative Design Based on Expert Feedback* to explain how expert feedback was incorporated in the design
+    * Subsection *Abstracting Regression Results*: Explained how expert feedback is included in selecting the respective regression metrics
+    * Paragraph *Hypothesis-Free and Hypothesis-Based Analysis*: Motivated the different approaches with examples from the epidemiological application domain
+  * *5 System Design*
+    * Section starts with a motivation why web-based techniques are well suited for the epidemiological application domain
+    * Added expert input in Subsection *System Paradigm and Components*
+    * Created new paragraph Selecting and Scaling the Descriptive Regression Metric
+    * Paragraph *3D Prism as Data Mini-Map* goes into details on early prototypes of the 3D prism and why these designs were discarded
 
 # VAST'15 Reviews "Regression Cube Analysis of Cohort Study Data "
 
@@ -84,7 +100,22 @@ Some of this might be dealt with by pointing out how user input was used to sele
 
 The paper has aspects of a design study and of a system paper. For a design study the contributions would need to be revised, or better supported by evidence in the methods and results. It would be good to know how the authors made the decision what to include in the system. Did the users consider these factors important, in which case they may be added later, or were they not of interest to them? This may explain some of the design decisions that are not obvious to readers.
 
+<i><font color='green'>
+
+  * See [Support Design Decisions with Expert Feedback] for details
+    * The design decisions were integrated in Sections 4 and 5 to state how user feedback influences the final result.
+    * now we focus more on telling the story behind the design, rather then just presenting the final product
+
+</i></font>
+
 It was suggested that the manuscript could be further strengthened by better structuring the domain requirements to include the web and security issues
+
+<i><font color='green'>
+
+  * Advantages of the web-based approach regarding the epidemiological application domain is covered as part of [Support Design Decisions with Expert Feedback] by discussing it at the beginning of the *System Design* section
+  * TODO: Security Issues
+
+</i></font>
 
 A common concern was that relevant works in visual analytics area should be referenced. See individual reviews for specifics.
 
