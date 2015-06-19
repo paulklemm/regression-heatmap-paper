@@ -34,6 +34,8 @@
 \newcommand{\add}[1]{\textcolor{blue}{#1}}
 \newcommand{\com}[1]{\textcolor{red}{\underline{#1}}}
 \newcommand{\design}[1]{\textcolor{orange}{#1}}
+\newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
+% white, black, red, green, blue, cyan, magenta, yellow.
 
 %% We encourage the use of mathptmx for consistent usage of times font
 %% throughout the proceedings. However, if you encounter conflicts
@@ -209,21 +211,35 @@ Since the notation is familiar to epidemiologists, they can rapidly include thei
 Difference views between regression formulas allow to assess the influences of individual features on the process.
 
 Our contributions are:
+
+\design{
 \begin{itemize}
 	%%
-	\item An overview visualization technique representing feature interactions using target features.
+  \item An overview visualization design based on feedback of epidemiological domain experts to support hypothesis-generation w.r.t. a target feature using regression models.
 	%%
-	\item Visualization techniques, which incorporate overview visualizations of all regression analyses at once as well as details on demand techniques for in-depth investigations of feature relationships.
+  \item Applying domain knowledge in the analysis using freely adjustable regression formulas.
 	%%
-	\item Freely adjustable regression formulas to provide a simple, yet powerful way to adjust the regression analysis to specific hypotheses about the data.
+  \item Selecting suitable metrics for representing and comparing regression models, as well as incorporating additional metrics for details on demand.
 	%%
-	\item The analysis of confounding features by providing comparison views between different formula results.
-	%%
-	\item The expansion and adaption of our method to any data with our open web-based system.
+  \item An openly available web-based system, which incorporates a open data format to be applicable for data of other application domains.
 	%%
 \end{itemize}
+}
+% \begin{itemize}
+% 	%%
+% 	\item An overview visualization technique representing feature interactions using target features.
+% 	%%
+% 	\item Visualization techniques, which incorporate overview visualizations of all regression analyses at once as well as details on demand techniques for in-depth investigations of feature relationships.
+% 	%%
+% 	\item Freely adjustable regression formulas to provide a simple, yet powerful way to adjust the regression analysis to specific hypotheses about the data.
+% 	%%
+% 	\item The analysis of confounding features by providing comparison views between different formula results.
+% 	%%
+% 	\item The expansion and adaption of our method to any data with our open web-based system.
+% 	%%
+% \end{itemize}
 %%
-The term `Regression Cube' has been used for the detailed analysis of one or a small number of regression models \cite{Ahmadi, Chan}.
+\noindent The term `Regression Cube' has been used for the detailed analysis of one or a small number of regression models \cite{Ahmadi, Chan}.
 %%
 They extend 2D scatter plots to display detailed information about a regression model.
 %%
@@ -233,17 +249,17 @@ In behalf of that, we declare our visualization technique for comparing and anal
 %%
 This section covers the epidemiological workflow and requirements.
 %%
-\subsection{Epidemiological Workflow} \label{EpidemiologicalWorkflow}
+\subsection{Epidemiological Workflow} \label{sec:EpidemiologicalWorkflow}
 Epidemiological research is performed by experts from different academic disciplines, such as physicians, statisticians and medical computer scientists focusing on biometrics and image segmentation.
 %%
 Their goal is to derive disease-specific risk factors by assessing epidemiological features with statistical methods.
 %%
 As described by Thew et al.~\cite{Thew2009} the epidemiological workflow is divided into these different steps:
-\begin{itemize}
+\begin{enumerate}
 	\item Clinicians make observations in the daily practice, which are translated into hypotheses.
 	\item Epidemiologists compile a list of features depicting the hypothesis and include confounding features.
 	\item Statisticians assess the association of the derived features towards the investigated disease.
-\end{itemize}
+\end{enumerate}
 %%
 Relative risks can be determined if a statistical resilient association of features towards a condition is extracted.
 %%
@@ -595,9 +611,16 @@ The difference of the presented approach towards our previous and related work i
 \end{enumerate}
 %%
 \section{Regression Cube Analysis of Cohort Study Data}
-\design{
-This section covers the design of the Regression Cube as well as how epidemiological requirements and  domain expert input was utilized to influence design decisions.
+\magenta{
+The \emph{Regression Cube} is designed to provide overview visualizations to support hypothesis generation.
+%%
+Hence, it is associated with step 1 and 2 of the epidemiological workflow presented in Section~\ref{sec:EpidemiologicalWorkflow}.
+%%
+Relationships observed using such techniques are subject of detailed statistical testing by statisticians with background in epidemiology using statistical processors, such as SPSS or STATA.
 }
+% \design{
+% This section covers the design of the Regression Cube as well as how epidemiological requirements and  domain expert input was utilized to influence design decisions.
+% }
 \subsection{Iterative Design Based on Expert Feedback}
 %%
 \design{
@@ -987,7 +1010,9 @@ We designed our system to be openly accessible and easy to use.
 %%
 With open formats as input interfaces, the application can be extended to non-epidemiological data sets.
 %%
-The focus lies on creating an overview visualization and gaining insight into relationships of the data, which triggers further analyses, maybe with other (statistical) tools.
+The focus lies on creating an overview visualization and gaining insight into relationships of the data, which triggers further analyses with other (statistical) tools.
+%%
+\magenta{This is is, however, out of the scope of this work.}
 %%
 Therefore, the system has to be intuitive and comprehensive in order to be adapted by domain experts.
 %%
@@ -1003,7 +1028,7 @@ A web-based approach has no set-up time besides loading up the data set and can 
 %%
 Feedback of domain experts even can be implemented directly in analysis sessions and just requires a page reload.
 %%
-By providing a service a website it has a much larger chance of being tested and potentially adapted by a wide range of experts.
+By providing a service a website it has a much larger chance of being tested and potentially adapted by a broad user base.
 %%
 }
 %Design choices and spaces are restricted by the underlying technologies and devices.
@@ -1642,6 +1667,20 @@ Details on demand for each model allow for a detailed assessment of regression m
 We successfully applied the approach to find correlations in a hepatic steatosis as well as a breast cancer data set.
 %%
 The method was well received by our clinical partners, triggering detailed investigations of the findings.
+
+\magenta{
+%One limitation of the proposed method is that the regression metrics always only capture a part of the underlying model.
+%%
+%The analyst has to keep the aspects of the respective metric in mind to avoid false conclusions.
+%%
+The analysis is limited to three dynamic variables represented the cube dimensions.
+%%
+Investigating more dynamic variables can be achieved by projecting the resulting hyper-cube into a three-dimensional representation.
+%%
+This, however, increases the cognitive load and complexity of the analysis substantially and needs to be accompanied by techniques, which simplify this approach.
+%%
+Static features can be added at will using the formula input without increasing the complexity of the visualization.
+}
 
 As next step, we want to introduce more regression types, which model different kinds of correlations.
 %%

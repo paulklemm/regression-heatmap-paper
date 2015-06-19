@@ -40,17 +40,18 @@ The sections revised using this feedback are:
 User Interaction
 ----------------
 
-* [Reviewer 3] As suggested, we implemented a slider to adjust the transfer function of the selected metric. It is applied both on the 2D heatmap as well as the 3D cube. It can therefore be also used to filter for specific values, such as regression models with very high R².
+* [Reviewer 1],[Reviewer 3] As suggested, we implemented a slider to adjust the transfer function of the selected metric. It is applied both on the 2D heatmap as well as the 3D cube. It can therefore be also used to filter for specific values, such as regression models with very high R².
   * The figures are updated to cover the new UI elements.
   * *5.2 Regression Cube Visualization* contains *Selecting and Scaling the Descriptive Regression Metric*, explaining the functionality of the slider
 
 Support Design Decisions with Expert Feedback
 ---------------------------------------------
 
-One main complaint was the lack of supporting design decisions using expert feedback. We revised Section *4 Regression Cube Analysis of Cohort Study Data* and Section *5 System Design* with this feedback in mind. We focused on telling the story on how different elements of the project were derived from joint analysis sessions and which purpose they serve.
+One main complaint was the lack of supporting design decisions using expert feedback ([Reviewer 4 - Primary],[Reviewer 2]). We revised Section *4 Regression Cube Analysis of Cohort Study Data* and Section *5 System Design* as well as the contributions with this feedback in mind. We focused on telling the story on how different elements of the project were derived from joint analysis sessions and which purpose they serve.
 
 Details on the changes are as follows:
 
+  * [Reviewer 2] Following Munzners "A Nested Model for Visualization Design and Validation" as suggested, we revised the contributions in the **Introduction**
   * *4 Regression Cube Analysis of Cohort Study Data*
     * Added new subsection *Iterative Design Based on Expert Feedback* to explain how expert feedback was incorporated in the design
     * Subsection *Abstracting Regression Results*: Explained how expert feedback is included in selecting the respective regression metrics
@@ -61,9 +62,15 @@ Details on the changes are as follows:
     * Created new paragraph Selecting and Scaling the Descriptive Regression Metric
     * Paragraph *3D Prism as Data Mini-Map* goes into details on early prototypes of the 3D prism and why these designs were discarded
 
+Additional/Minor Changes
+------------------------
+
+  * [Reviewer 1] It was criticised, that it is not clear how the found models are investigated further. Therefore, we clarified this in the introduction of Section *4 Regression Cube Analysis of Cohort Study Data* as well as in the introduction of Section *5 System Design*
+  * [Reviewer 1] Elaborate more on the limitation of having only three dynamic variables. We discussed this limitation in Section *8 Summary and Outlook* by suggesting 3D projections of hypercubes spanned by more than 3 dynamic regression variables.
+
 # VAST'15 Reviews "Regression Cube Analysis of Cohort Study Data "
 
-## Submission 175, Review 4 - Primary
+# Reviewer 4 - Primary
 
 - Overall Rating: 4: Good contribution
 - Topic Classification
@@ -119,6 +126,12 @@ It was suggested that the manuscript could be further strengthened by better str
 
 A common concern was that relevant works in visual analytics area should be referenced. See individual reviews for specifics.
 
+<i><font color='green'>
+
+  * TODO: Include
+
+</i></font>
+
 Reviewer 1
 ----------
 
@@ -134,14 +147,82 @@ With respect to related works, several important and very relevant works in visu
 
 ### The Review
 
-This paper addresses an important problem. Modelling and parameter setting (parameters in this case are the variables of the model) is a well-known problem in many application areas. So the potential of tools supporting modelling is large. Recently, a wealth of literature in visual analytics area has started to look at parameter steering and modelling and to provide tools for various selected problems. This paper focuses on linear regression model. The problem stems from medicine/health analysis of real large scale data. The paper is very well written, easily readable and well structured. Introduction motivates the work well and supports reader in wanting to read more. Related work covers many works from medical analysis and information visualization. This is a broad overview of literature. Nevertheless, I still miss several important works from visualization/visual analytics are that focus on modelling and visual parameter analysis (model variables can be seen as parameters). This is the core of the paper. An overview of visual parameter analysis is given in a recent Sedlmeier et al. paper. Especially, it would be needed to mention 1) Zhenyu Guo, Matthew O Ward, and Elke A Rundensteiner. Model space visualization for multivariate linear trend discovery. In Visual Analytics Science and Technology, 2009. VAST 2009. IEEE Symposium on, pages 75–82. IEEE, 2009. 2) Muhlbacher, Thomas, and Harald Piringer. "A partition-based framework for building and validating regression models." Visualization and Computer Graphics, IEEE Transactions on 19.12 (2013): 1962-1971.
+This paper addresses an important problem. Modelling and parameter setting (parameters in this case are the variables of the model) is a well-known problem in many application areas. So the potential of tools supporting modelling is large. Recently, a wealth of literature in visual analytics area has started to look at parameter steering and modelling and to provide tools for various selected problems. This paper focuses on linear regression model. The problem stems from medicine/health analysis of real large scale data. The paper is very well written, easily readable and well structured. Introduction motivates the work well and supports reader in wanting to read more. Related work covers many works from medical analysis and information visualization. This is a broad overview of literature. Nevertheless, I still miss several important works from visualization/visual analytics are that focus on modelling and visual parameter analysis (model variables can be seen as parameters). This is the core of the paper. An overview of visual parameter analysis is given in a recent Sedlmeier et al. paper. Especially, it would be needed to mention
 
-Approach: The authors focus on linear regression models with one target variable (quantitative or discrete). The approach is restricted to 3 variables including the target. The authors calculate all possible models and support finding best models using only Rsquared measure. This is where my problem with the approach is. In reality, modeling experts need to assess a wealth of quality criteria in order to find a suitable model. RSquared is only one indicator of good models. One usually also needs to assess adjustedRsquare, F statistic, p-values for all model variables, akaike criterion etc. Moreoever one has to inspect the distribution of residuals in order to verify the independency condition of linear models. Simple Rsquared measure can be largely misleading, especially in cases of multicollinearity. Then the Rsquared is very high but the model is wrong. Moreover, there may be spurious regressions. This requires a very sophisticated system for analyzing models. The authors say that the models found with Rsquared measure need to be further inspected. I fully agree, however the paper does not mention what happens then. When looking at the visualization: The authors propose a regression matrix/cube depending on the dimensionality of the model. It provides an overview of good/bad possible models using this criterion. It allows the users to spot models with large Rsquared. The dimensionality of the matrix/cube is reduced by pre-processing which filters out irrelevant variables. This is a positive side of the approach. The user inspects the matrix in order to find “hotspots” – variable combinations with high Rsquared values. It would be nice to include support for this, e.g. by filtering/guidance. It may be already implemented, but it is not clearly described in the paper. The approach provides several features which could be better explained and their need/usage documented. For example, the difference matrix seems like a nice tool to compare models for two targets. However, the authors also state that Rsquared values cannot be compared across targets. It is somewhat confusing. The use case also does not seem to rely on this visualization. A very positive side of the work is the close cooperation with medical experts and application of the tool in real scenarios. Two use cases are also described in the paper.
+- 1) Zhenyu Guo, Matthew O Ward, and Elke A Rundensteiner. Model space visualization for multivariate linear trend discovery. In Visual Analytics Science and Technology, 2009. VAST 2009. IEEE Symposium on, pages 75–82. IEEE, 2009.
+- 2) Muhlbacher, Thomas, and Harald Piringer. "A partition-based framework for building and validating regression models." Visualization and Computer Graphics, IEEE Transactions on 19.12 (2013): 1962-1971.
 
-Some more questions -	Limitations: only three features including target. Although it may cover many cases, it is still very restrictive. Could you please detail on this aspect more? How could the approach be extended to more variables? -	It would be good to explain when happens that the user does not know the target and thus needs to examine all possible targets. This use case seems to me rather unrealistic. In my experience, the experts already know which target variables they wish to examine. If there is a real need for such tools, it would be good to document it better.
+<i><font color='green'>
+
+  * Reply
+    * TODO
+
+</i></font>
+
+Approach: The authors focus on linear regression models with one target variable (quantitative or discrete). The approach is restricted to 3 variables including the target. The authors calculate all possible models and support finding best models using only Rsquared measure. This is where my problem with the approach is. In reality, modeling experts need to assess a wealth of quality criteria in order to find a suitable model. RSquared is only one indicator of good models. One usually also needs to assess adjustedRsquare, F statistic, p-values for all model variables, akaike criterion etc. Moreoever one has to inspect the distribution of residuals in order to verify the independency condition of linear models. Simple Rsquared measure can be largely misleading, especially in cases of multicollinearity. Then the Rsquared is very high but the model is wrong. Moreover, there may be spurious regressions. This requires a very sophisticated system for analyzing models.
+
+<i><font color='green'>
+
+  * Reply
+    * We agree with this argument. As this was also identified as major critique point by the summary review, we put much effort to include additional metrics into the analysis. Please see [Regression Metrics] for details on these changes.
+    * Some of these features (such as f-statistic) are not comparable between regression models with different degrees of freedom. Hence, they are included as supplemental information in the details on demand step
+    * In contrast to the reviewers statement, we do not only focus on linear regression, but also on logistic regression. This restricts the list of regression metrics used for comparisons to those shared by both regression types, such as R² or Akaike Information Criterion. The other features are, as mentioned before, implemented and shown as part of the details on demand
+
+</i></font>
+
+The authors say that the models found with Rsquared measure need to be further inspected. I fully agree, however the paper does not mention what happens then.
+
+<i><font color='green'>
+
+  * Reply
+    * The focus of the paper is providing overview visualizations based on regression analyses. It is not suited for detailed regression analyses producing final statements about the statistical validity of a hypothesis. This step incorporates including confounding features and requires a sound statistical background of the user. These calculations are carried out using statistical processors, such as SPSS or STATA.
+    * We agree with the feedback that the further analysis steps were not clear. Hence, we revised the introduction of Section *4 Regression Cube Analysis of Cohort Study Data* as well as in the introduction of Section *5 System Design*
+    * The lesson learned **Extracted Hypotheses Have to be Investigated Further** is solely focused on how the analysis can be carried out
+
+</i></font>
+
+When looking at the visualization: The authors propose a regression matrix/cube depending on the dimensionality of the model. It provides an overview of good/bad possible models using this criterion. It allows the users to spot models with large Rsquared. The dimensionality of the matrix/cube is reduced by pre-processing which filters out irrelevant variables. This is a positive side of the approach. The user inspects the matrix in order to find “hotspots” – variable combinations with high Rsquared values. It would be nice to include support for this, e.g. by filtering/guidance. It may be already implemented, but it is not clearly described in the paper.
+
+<i><font color='green'>
+
+  * We approached this crituque in context with [Reviewer 3], who suggested a method for scaling the transfer function used to specify ranges of interest. This led to the implementation of a range-slider. Details can be found under [User Interaction]. Using this technique, the user can filter for very high R² values in both the 2D and 3D view.
+
+</i></font>
+
+The approach provides several features which could be better explained and their need/usage documented. For example, the difference matrix seems like a nice tool to compare models for two targets. However, the authors also state that Rsquared values cannot be compared across targets. It is somewhat confusing. The use case also does not seem to rely on this visualization.
+
+<i><font color='green'>
+
+  * The use case for the cube comparison is now explained in more detail by adding the expert feedback which led to its implementation (Paragraph *Cube Comparison*, Section *4.5 Analysis Workflow*)
+  * R² values *can* be compared between targets as long as they rely on the same regression type. This argument is made in Section *4.4 Abstracting Regression Results*, Paragraph *3D (Cube) View*. We added feedback from the epidemiological statistician, which led to the design decision of incorporating different colors for each regression type.
+
+</i></font>
+
+A very positive side of the work is the close cooperation with medical experts and application of the tool in real scenarios. Two use cases are also described in the paper.
+
+Some more questions
+
+- Limitations: only three features including target. Although it may cover many cases, it is still very restrictive. Could you please detail on this aspect more? How could the approach be extended to more variables?
+
+<i><font color='green'>
+
+  * We discussed this limitation in Section *8 Summary and Outlook* by suggesting 3D projections of hypercubes spanned by more than 3 dynamic regression variables. Note that by including static features using the formula input, more than three features can already be considered. The whole idea of the difference cube relies on this concept.
+  * The epidemiological statistics domain expert argued that their regression models rarely contain more than 4 features.
+  * Additionally it is possible that the target is fixed, which leaves all three variables for independent features.
+
+</i></font>
+
+- It would be good to explain when happens that the user does not know the target and thus needs to examine all possible targets. This use case seems to me rather unrealistic. In my experience, the experts already know which target variables they wish to examine. If there is a real need for such tools, it would be good to document it better.
+
+<i><font color='green'>
+
+  * The use-case is part of the hypothesis-free analysis approach. Our observation was that the domain experts often have a set of features, which act as targets. They might contain different abstraction levels (e.g. dichotomous feature chest pain and the more granular feature chest pain levels) or a set of variables describing a condition (e.g. features describing image-derived data). The formula `Z ~ X + Y` allows to quickly assess these features, which can the be analyzed in detail by putting them as static target.
+  * The other use-case we observed was to check the system for logical validty. Domain experts used `Z ~ X + Y` to analyze potentially uninteresting targets for correlations they would expect to check if the system works as intended
+
+</i></font>
 
 
-## Submission 175, Review 2
+## Reviewer 2
 
 - Reviewer: external
 - Overall Rating 4: Good contribution
@@ -158,6 +239,13 @@ This is an interesting paper in the best tradition of visual analytics, at the f
 A first contribution is a description of the target domain data and tasks. The manuscript then presents a technique for knowledge discovery in cohort study data sets with user-defined target features (diseases). At the core of the technique is an overview 3D visual encoding of the whole dataset, followed by an interface for adjusting the regression model formulas. The solution may be indeed simple, but that is not necessarily a weakness: when working with domain experts, "complex" is not necessarily better. The work features a useful application which relies on three domain experts, and there are at least two valuable design lessons learned. Last but not least, the system front-end is web based, and the entire system is publicly available, which facilitates broader use of this work.
 
 If the solution is not particularly striking or novel, the decision to do it in 3D is still interesting, and the manuscript still stands as a design study. For a design study the contributions, as stated in the paper introduction, would need to be either revised, or better supported by evidence in the methods and results. Munzner's Nested Design Model might be of help here -- are the contributions really visualization techniques (a visualization technique would have application across multiple domains), are they at the algorithmic level, or do they consist of selecting appropriate visual encodings from a possible array of options?
+
+<i><font color='green'>
+
+  * This feedback led to a substantial revision of Section **4 Regression Cube Analysis of Cohort Study Data** and **5 System Design** to incorporate how user feedback affected the design decisions. See [Support Design Decisions with Expert Feedback] for details.
+  * Also, as suggested, the contributions were revised to capture the different levels of Munzners "A Nested Model for Visualization Design and Validation".
+
+</i></font>
 
 The manuscript could be further strengthened by better structuring the domain requirements to include the web and security issues which are currently discussed too late in the paper. In terms of related work, similar domain analysis and related visualization work, with epidemiology as the target domain, was featured here: http://www.computer.org/csdl/trans/tg/2013/12/ttg2013122916-abs.html and should be discussed in this context.
 
