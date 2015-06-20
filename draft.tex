@@ -641,9 +641,10 @@ The domain experts wanted to \emph{model knowledge} about the investigated condi
 %%
 For explorative analysis, they preferred an approach, which highlights associations w.r.t. various target features to both check for medical soundness of the data as well as detecting unexpected relationships.
 %%
+%Concerns regarding security issues the web-based approach were raised by domain experts due to the 
 Additionally, due to the sensitive nature of population study data, the data has to be handled secure.
 %%
-This aspect is considered later in the Section~\ref{sec:SystemDesign}.
+Technical measures taken to enable a secure transfer and storage are described later in the Section~\ref{sec:SystemDesign}.
 %%
 %In this work, we want to provide an overview visualization of large cohort study data sets \emph{towards target features}.
 }
@@ -1038,6 +1039,14 @@ By providing a service a website it has a much larger chance of being tested and
 %There is no set-up time involved and domain experts can use the methods from any computer connected with the web.
 %%
 By design, web technology is based on a client-server architecture, making it easy to outsource computationally heavy tasks on server clusters and transferring results to the client device.
+%%
+\magenta{
+%%
+This architecture is also prone to security issues, such as the storage of confidential data, especially in the epidemiological context.
+%%
+Therefore, we have to incorporate technical measures to ensure a secure workflow.
+%%
+}
 %%
 %The design space spanned by web technologies is different to standard WIMP applications: right-click menus, modal windows and menu bars are no established user interface components in this context.
 %%

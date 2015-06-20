@@ -67,6 +67,7 @@ Additional/Minor Changes
 
   * [Reviewer 1] It was criticised, that it is not clear how the found models are investigated further. Therefore, we clarified this in the introduction of Section *4 Regression Cube Analysis of Cohort Study Data* as well as in the introduction of Section *5 System Design*
   * [Reviewer 1] Elaborate more on the limitation of having only three dynamic variables. We discussed this limitation in Section *8 Summary and Outlook* by suggesting 3D projections of hypercubes spanned by more than 3 dynamic regression variables.
+  * [Reviewer 2] Security issues are now indicated at the beginning of Section **4 Regression Cube Analysis of Cohort Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**
 
 # VAST'15 Reviews "Regression Cube Analysis of Cohort Study Data "
 
@@ -115,12 +116,12 @@ The paper has aspects of a design study and of a system paper. For a design stud
 
 </i></font>
 
-It was suggested that the manuscript could be further strengthened by better structuring the domain requirements to include the web and security issues
+It was suggested that the manuscript could be further strengthened by better structuring the domain requirements to include the web and security issues.
 
 <i><font color='green'>
 
   * Advantages of the web-based approach regarding the epidemiological application domain is covered as part of [Support Design Decisions with Expert Feedback] by discussing it at the beginning of the *System Design* section
-  * TODO: Security Issues
+  * Security issues are now indicated at the beginning of Section **4 Regression Cube Analysis of Cohort Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**
 
 </i></font>
 
@@ -247,7 +248,16 @@ If the solution is not particularly striking or novel, the decision to do it in 
 
 </i></font>
 
-The manuscript could be further strengthened by better structuring the domain requirements to include the web and security issues which are currently discussed too late in the paper. In terms of related work, similar domain analysis and related visualization work, with epidemiology as the target domain, was featured here: http://www.computer.org/csdl/trans/tg/2013/12/ttg2013122916-abs.html and should be discussed in this context.
+The manuscript could be further strengthened by better structuring the domain requirements to include the web and security issues which are currently discussed too late in the paper.
+
+<i><font color='green'>
+
+  * Advantages of the web-based approach regarding the epidemiological application domain is covered as part of [Support Design Decisions with Expert Feedback] by discussing it at the beginning of the *System Design* section
+  * Security issues are now indicated at the beginning of Section **4 Regression Cube Analysis of Cohort Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**
+
+</i></font>
+
+In terms of related work, similar domain analysis and related visualization work, with epidemiology as the target domain, was featured here: http://www.computer.org/csdl/trans/tg/2013/12/ttg2013122916-abs.html and should be discussed in this context.
 
 More details in the visual encoding are also necessary (color, size, interaction,...), and in particular a justification of the design choices available for these encodings. A videoclip demonstrating the system would further help.
 
