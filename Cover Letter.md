@@ -280,6 +280,13 @@ Overall, the manuscripts has multiple strengths, and within a review cycle could
 
 Minor comments:
 * Abstract and elsewhere: compound sentences run too long; consider splitting them, and moving the defined term to the start of a sentence, e.g.: not A 3D visualization of all combinations of two to three independent features towards a target acts as an overview of the whole data set, the Regression Cube. but The Regression Cube, a novel (?) 3D visual encoding, acts as an overview of the whole data set. The Cube shows all combinations of two to three independent features towards a specific target disease. (if “towards” is indeed the correct term here)
+
+<i><font color='green'>
+
+  * "Towards" sounds odd indeed. We replaced it in all occurences.
+
+</i></font>
+
 * Confusing use of ‘Regression Cube’ term, already claimed by Chan et al. Why not rename this cube as something else (“Mosaic Cube” maybe or “Regression Mosaic”), for clarity?
 * Page 2 no need for this statement “This section covers the epidemiological workflow and requirements.”
 * Citations are grammatically invisible, and should not be used as nouns. Correct: "The PivotGraph system [13] features a derived aggregate network". Incorrect: "Aggregation is also used in [13]". (see https://www.cs.ubc.ca/~tmm/writing.txt) “In [22]...” “...in [29, 37].” “presented in [22]” etc. etc.

@@ -102,7 +102,7 @@ These data contain information (\emph{features}) about a subject's lifestyle, me
 %%
 Statistical regression analysis is used to evaluate these features and to identify feature combinations indicating a disease (the \emph{target feature}).
 %%
-Although there is a strong demand for overview visualizations of a whole data set towards a target feature, no suitable tool is available for epidemiological researchers.
+Although there is a strong demand for overview visualizations of a whole data set w.r.t. a target feature, no suitable tool is available for epidemiological researchers.
 
 %\com{New Solution}.
 %%
@@ -110,9 +110,13 @@ We propose an analysis approach of epidemiological data sets by incorporating al
 %%
 This approach combines all \emph{independent features} with respect to a \emph{target feature} and provides a visualization that reveals insights into the data by highlighting relationships.
 %%
-A 3D visualization of all combinations of two to three independent features towards a target acts as an overview of the whole data set, the \emph{Regression Cube}.
+The \emph{Regression Cube}, a novel 3D visual encoding, acts as an overview of the whole data set.
 %%
-Slicing through the \emph{Regression Cube} allows for the detailed analysis of features towards the target disease.
+The Cube shows all combinations of two to three independent features w.r.t. a specific target disease.
+%%
+%A 3D visualization of all combinations of two to three independent features towards a target acts as an overview of the whole data set, the \emph{Regression Cube}.
+%%
+Slicing through the \emph{Regression Cube} allows for the detailed analysis of the underlying relationships.
 %%
 Expert knowledge about disease-specific hypotheses can be included into the analysis by adjusting the regression model formulas.
 %%
@@ -124,7 +128,7 @@ We applied our \emph{Regression Cube} method to a hepatic steatosis data set to 
 %%
 A qualitative analysis was conducted on a breast fat data set.
 %%
-We were able to derive new hypotheses about relations between breast fat density and breast lesions towards breast cancer.
+We were able to derive new hypotheses about relations between breast fat density and breast lesions with breast cancer.
 %%
 %\com{Implications}.
 %%
@@ -202,7 +206,7 @@ Due to the amount of data and only limited overview techniques, possible correla
 %%
 Explorative analyses and overview visualizations of the data set as presented in prior work \cite{Klemm2014VIS} are not tailored to a specific target feature and mostly highlight correlations between features, which are known to the domain expert (e.g., correlation between body size and spine shape).
 %%
-We incorporate the regression analysis, which is familiar to the domain experts, into overview visualizations to support a hypothesis-free analysis or an analysis towards a specific disease or hypothesis.
+We incorporate the regression analysis, which is familiar to the domain experts, into overview visualizations to support a hypothesis-free analysis or an analysis w.r.t. a specific disease or hypothesis.
 %%
 This is achieved by providing template regression formulas, which are applied to all potential feature combinations.
 %%
@@ -258,10 +262,10 @@ As described by Thew et al.~\cite{Thew2009} the epidemiological workflow is divi
 \begin{enumerate}
 	\item Clinicians make observations in the daily practice, which are translated into hypotheses.
 	\item Epidemiologists compile a list of features depicting the hypothesis and include confounding features.
-	\item Statisticians assess the association of the derived features towards the investigated disease.
+	\item Statisticians assess the association of the derived features w.r.t the investigated disease.
 \end{enumerate}
 %%
-Relative risks can be determined if a statistical resilient association of features towards a condition is extracted.
+Relative risks can be determined if a statistical resilient association of features with a condition is extracted.
 %%
 They indicate the per-subject chance of developing the disease.
 %%
@@ -284,9 +288,9 @@ There are many data acquisition modalities available to epidemiologists, which a
 %%
 We focus on cohort studies, which impose the largest data sets and yield a highly heterogenous and incomplete information space.
 %%
-Subject data are collected either towards a specific disease or with the widest range possible.
+Subject data are collected either regarding a specific disease or with the widest range possible.
 %%
-The latter allows the data set to be assessed towards different diseases.
+The latter allows the data set to be assessed w.r.t. different diseases.
 %%
 The feature space comprises information about lifestyle, somatometric features, medical parameters, genetic data as well as medical images.
 %%
@@ -312,7 +316,7 @@ More discussions of cohort study data types and characteristics can be found in 
 \\\\
 Features influencing the exposure as well as the outcome of an analysis are called \emph{confounders} and have to be specially treated.
 %%
-The analysis model has to be adjusted by normalizing all included features towards the confounder.
+The analysis model has to be adjusted by normalizing all included features w.r.t. the confounder.
 %%
 \emph{Age} is included as confounder in almost any epidemiological analysis, since most diseases (such as different cancer types) are more likely for older subjects.
 %%
@@ -370,7 +374,7 @@ The \emph{dependent} variable has to be of \emph{continuous type}.
 %%
 \add{
 %%
-Linear regression models can also be described using the \emph{adjusted} $R^2$, which considers the number of dependent features and yields lower values, when features with little entropy towards the target feature are included.
+Linear regression models can also be described using the \emph{adjusted} $R^2$, which considers the number of dependent features and yields lower values, when features with little entropy w.r.t. the target feature are included.
 %Additional metrics describing linear regression models comprise of the \emph{adjusted} $R^2$, which also adjusts for the number of dependent features and yields lower values, when features with little entropy towards the target feature are included.
 %%
 The $f$-$statistic$ determines how much improvement the independent variables will add to the model compared to them being not considered at all.
@@ -419,7 +423,7 @@ The work of Piringer et al.~\cite{Piringer}, Chan et al.~\cite{Chan}, Angelelli 
 %% HyperMoVal: Interactive Visual Validation of Regression Models for Real-Time Simulation
 Akin to our approach, Piringer et al.~\cite{Piringer} propose methods for visualizing regression analysis results and properties for developing car engines.
 %%
-Their main goal is to assess the pairwise influence of independent features towards the target feature using a plot matrix displaying models as contours.
+Their main goal is to assess the pairwise influence of independent features w.r.t. the target feature using a plot matrix displaying models as contours.
 %%
 They also incorporate 3D visualizations for each pairwise combination, but mainly because of its popularity with the target domain engineers.
 %%
@@ -474,7 +478,7 @@ Thus, data redundancy is avoided and runtime measure aggregation can be carried 
 %%
 %Their presented aggregation functions allow for a fast data calculation to map it using different linked visualizations, such as scatter plots, bar charts or histograms.
 %%
-They use \emph{Pearsson's} $r$ to depict relationships towards target features and employ list views and scatter plots to visualize and rank them.
+They use \emph{Pearsson's} $r$ to depict relationships with target features and employ list views and scatter plots to visualize and rank them.
 %%
 %We use regression models and associated $R^2$ values to depict relationships between a target feature and multiple independent features instead of one and employ the information into one global visualization.
 %%
@@ -545,7 +549,7 @@ Time-dependent epidemiological data is visualized by Chui et al.~\cite{Chui2011}
 %% Quality Metrics in High-Dimensional Data Visualization - An Overview and Systematization
 Bertini et al.~\cite{Bertini} present an overview of quality metrics describing high dimensional-data.
 %%
-Their research agenda acts as guideline for our design, comprising perceptual tuning towards human pattern recognition of important aspects, scalability between different data set sizes and application testing with domain experts.
+Their research agenda acts as guideline for our design, comprising perceptual tuning with human pattern recognition of important aspects, scalability between different data set sizes and application testing with domain experts.
 %% The Sparse Regression Cube: A Reliable Modeling Technique for Open Cyber-physical Systems
 Ahmadi et al.~\cite{Ahmadi} define the \emph{Sparse Regression Cube} that partitions sparse high dimensional data into subspaces, which are then described by their most reliable linear regression model.
 %%
@@ -594,13 +598,13 @@ The mosaic plot presented in \cite{Klemm2014VIS} highlights the pairwise correla
 Its great popularity among our domain experts was the inspiration for this work.
 %%
 
-While the presented techniques were well received by the epidemiological experts, the explanatory power towards back pain was limited, yielding an analysis based on image-derived features, such as extracting and analyzing curvature, torsion and angle of the lumbar spine \cite{Klemm2015}.
+While the presented techniques were well received by the epidemiological experts, the explanatory power w.r.t. back pain was limited, yielding an analysis based on image-derived features, such as extracting and analyzing curvature, torsion and angle of the lumbar spine \cite{Klemm2015}.
 %%
 %These measures were analyzed using a novel decision tree quality plot towards non-image data.
 %%
 We concluded that the model quality is insufficient to characterize back pain.
 \\\\
-The difference of the presented approach towards our previous and related work is twofold:
+The difference of the presented approach in comparison with our previous and related work is twofold:
 %%
 \begin{enumerate}
 	%%
@@ -631,7 +635,7 @@ The idea emerged from analysis sessions of a previous project, which contained a
 %%
 It allowed them to reproduce their knowledge by observing correlations they would expect as well as discovering new correlations.
 %%
-In epidemiology, these relationships are also of interest, but rather w.r.t. their explanatory power towards the target feature, often indicate the presence of the investigated disease.
+In epidemiology, these relationships are also of interest, but rather w.r.t. their explanatory power on the target feature, often indicate the presence of the investigated disease.
 %%
 That is the focus of this work.
 %%
@@ -705,7 +709,7 @@ With simple adjustments to the formula, different results can be achieved:
 	%%
 	\item $Cancer \sim X + Y + BodyWeight$ includes the $BodyWeight$ feature into all regression models as feature with $Cancer$ as target.
 	%%
-	\item $Cancer \sim X + Y + Z$ calculates all combinations of three features towards the $Cancer$ target.
+	\item $Cancer \sim X + Y + Z$ calculates all combinations of three features w.r.t. the $Cancer$ target.
 	%%
 \end{itemize}
 %%
@@ -741,11 +745,11 @@ Identifying irrelevant features and excluding them from the feature space consid
 %The correlation-based feature selection (CFS) \cite{CFS} aims to find a feature subset that maximizes the \emph{merit value} $M_F$, which is the ratio between the average feature-class and feature-feature dependencies of features in the feature set $F$.
 The correlation-based feature selection (CFS) \cite{CFS} aims to find a feature subset that maximizes the \emph{merit value} $M_F$, which is the ratio between the average feature-class and feature-feature dependencies in the feature set $F$.
 %%
-The dependency of a set of features utilizes the entropy-based information gain to measure the explanatory power towards the target feature.
+The dependency of a set of features utilizes the entropy-based information gain to measure the explanatory power w.r.t. the target feature.
 %%
 Starting with an empty set of features $F$, the CFS algorithm iteratively adds the feature $f$ to $F$ that leads to the highest new merit value $M_{F\cup f}$ and halts when no feature is left that would increase the merit.
 %%
-For example, if the \emph{body weight} has a strong explanatory power towards the target, it is likely that \emph{BMI} or \emph{waist circumference} exhibit similar correlations to the target.
+For example, if the \emph{body weight} has a strong explanatory power on the target, it is likely that \emph{BMI} or \emph{waist circumference} exhibit similar correlations to the target.
 %%
 However, they strongly correlate with each other.
 %%
@@ -943,7 +947,7 @@ To support the \emph{hypothesis-free} analysis, we provide a default formula:
 
 $Z \sim X + Y$.
 %%
-This cube represents all possible combinations of two independent features towards all features in the data set, since we do not know which features are of interest.
+This cube represents all possible combinations of two independent features w.r.t. all features in the data set, since we do not know which features are of interest.
 %%
 Each slice represents a different target feature.
 %%
@@ -958,7 +962,7 @@ Here are a few examples:
 %%
 $Cancer \sim X + Y + Z$ is the formulation of a hypothesis, where the specific feature \textit{Cancer} is analyzed.
 %%
-All combinations of three independent features towards the target are analyzed through the cube.
+All combinations of three independent features with the target are analyzed through the cube.
 
 $Cancer \sim X + Y + Z + feature_1:feature_2$ encodes more assumptions.
 %%
@@ -983,9 +987,9 @@ Cube comparisons were introduced later in the project, as epidemiologists with f
 %%
 One cube (extracted with one formula) acts as reference.
 %%
-The absolute difference in $R^2$ values towards the second cube is calculated, yielding a difference cube showing only the differences between the two formulas.
+The absolute difference in $R^2$ values with the second cube is calculated, yielding a difference cube showing only the differences between the two formulas.
 %%
-For example, it can be utilized for comparing the influence of a single feature towards the complete result (e.g., $Z \sim X + Y$ and $Z \sim X + Y + Income$).
+For example, it can be utilized for comparing the influence of a single feature on the complete result (e.g., $Z \sim X + Y$ and $Z \sim X + Y + Income$).
 
 \section{System Design} \label{sec:SystemDesign}
 \begin{figure}[htb]
@@ -1211,7 +1215,7 @@ This approach was not popular with our domain experts, because the complexity of
 %%
 The 3D cube representation \design{was redesigned to} act as an overview over the whole data set, but its purpose is not to derive detailed information about data points.
 %%
-It serves as a function similar to a mini-map, guiding the attention towards points of interest in the data, as well as giving context information about adjacent data values when using the 2D mosaic plot.
+It serves as a function similar to a mini-map, guiding the attention to points of interest in the data, as well as giving context information about adjacent data values when using the 2D mosaic plot.
 %%
 \design{The distinction between overview and details and demand using two different representations was well received with our domain experts.}
 %%
@@ -1251,7 +1255,7 @@ Also we provide a zoom functionality using the mouse wheel input.
 %%
 \paragraph{Cube Slice Selection [3.ZF].}
 %%
-In order to \emph{Zoom, Filter and Analyze Further}, the user has to navigate towards different slices of interest.
+In order to \emph{Zoom, Filter and Analyze Further}, the user has to navigate to different slices of interest.
 %%
 We propose two ways to achieve this.
 \begin{itemize}
@@ -1261,7 +1265,7 @@ We propose two ways to achieve this.
 	%%
 	We employ this technique for selecting cube slices (e.g., by moving a plane via vertical mouse input while pressing the right mouse button).
 	%%
-	We, however, still display the whole 3D object instead of cutting away information towards the slice position.
+	We, however, still display the whole 3D object instead of cutting away information down to the slice position.
 	%%
 	\design{Early prototypes only provided this method to select a slice of interest, which was inefficient when the user was looking for a specific slice.
 	%%
@@ -1281,7 +1285,7 @@ The values are projected on this plane to give an overlapping-free view on the d
 %%
 \paragraph{2D Mosaic Plot Slice Visualization [4.DD].}
 %%
-The 2D mosaic visualization (Fig.~\ref{fig:System}c) shows all values below the matrix diagonal of the current slice, creating optical equivalence towards the 3D cube.
+The 2D mosaic visualization (Fig.~\ref{fig:System}c) shows all values below the matrix diagonal of the current slice, creating a optical equivalence with the 3D cube.
 %%
 To reduce visual clutter, the 2D view only shows dimensions, which are retrieved through the correlation-based feature selection.
 %%
@@ -1405,7 +1409,7 @@ The hepatic steatosis data set was analyzed using data mining algorithms, yieldi
 %%
 Also, we try to reproduce the prior results from this analysis as proof-of-concept of our method.
 %%
-The breast fat data set is the basis for an explorative analysis towards the influencing parameters of the parenchyma tissue of the female breast.
+The breast fat data set is the basis for an explorative analysis w.r.t. the influencing parameters of the parenchyma tissue of the female breast.
 %%
 
 Both data sets are unusual for epidemiological analysis regarding their feature extent.
@@ -1571,7 +1575,7 @@ Women with higher \emph{body fat} also have a larger \emph{breast fat percentage
 %%
 She observed relationships matching her expectations and expert knowledge.
 %%
-One unexpected relationship was observed between \emph{breast lesions} and \emph{menstruation cycle} towards \emph{spiral contraception} ($R^2$ of $0.77$).
+One unexpected relationship was observed between \emph{breast lesions} and \emph{menstruation cycle} w.r.t. \emph{spiral contraception} ($R^2$ of $0.77$).
 %%
 \emph{KH} proceeded with a detailed analysis of the parenchyma tissue.
 %%
@@ -1653,7 +1657,7 @@ In contrast to many data mining algorithms, our method allows to use the concurr
 %%
 Investigations of the hepatic steatosis data set with both numerical and dichotomized liver fat values showed comparable results but slightly differed when it comes to details.
 %%
-The overall explanatory power towards the numerical feature was lower, supporting the hypothesis that the dichotomized target feature already models knowledge to bias the results towards the expected result.
+The overall explanatory power on the numerical feature was lower, supporting the hypothesis that the dichotomized target feature already models knowledge to bias the results w.r.t. the expected result.
 %%
 
 %%
