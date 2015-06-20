@@ -70,6 +70,7 @@ Additional/Minor Changes
   * [Reviewer 1] It was criticised, that it is not clear how the found models are investigated further. Therefore, we clarified this in the introduction of Section *4 Regression Cube Analysis of Cohort Study Data* as well as in the introduction of Section *5 System Design*
   * [Reviewer 1] Elaborate more on the limitation of having only three dynamic variables. We discussed this limitation in Section *8 Summary and Outlook* by suggesting 3D projections of hypercubes spanned by more than 3 dynamic regression variables.
   * [Reviewer 2] Security issues are now indicated at the beginning of Section **4 Regression Cube Analysis of Cohort Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**
+  * [Reviewer 2] We revised a large number of long sentenced to either split them up or to simplify them.
 
 # VAST'15 Reviews "Regression Cube Analysis of Cohort Study Data "
 
@@ -289,6 +290,13 @@ Minor comments:
 </i></font>
 
 * Confusing use of ‘Regression Cube’ term, already claimed by Chan et al. Why not rename this cube as something else (“Mosaic Cube” maybe or “Regression Mosaic”), for clarity?
+
+<i><font color='green'>
+
+  * TODO Discuss?
+
+</i></font>
+
 * Page 2 no need for this statement “This section covers the epidemiological workflow and requirements.”
 * Citations are grammatically invisible, and should not be used as nouns. Correct: "The PivotGraph system [13] features a derived aggregate network". Incorrect: "Aggregation is also used in [13]". (see https://www.cs.ubc.ca/~tmm/writing.txt) “In [22]...” “...in [29, 37].” “presented in [22]” etc. etc.
 * Page 3, “Medical image data is “ Data is plural (singular is datum)

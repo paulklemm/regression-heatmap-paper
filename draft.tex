@@ -32,7 +32,7 @@
 \usepackage{xcolor}
 \newcommand{\rem}[1]{\textcolor{red}{\sout{#1}}}
 \newcommand{\add}[1]{\textcolor{blue}{#1}}
-\newcommand{\com}[1]{\textcolor{red}{\underline{#1}}}
+\newcommand{\com}[1]{\textcolor{red}{#1}}
 \newcommand{\design}[1]{\textcolor{orange}{#1}}
 \newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
 % white, black, red, green, blue, cyan, magenta, yellow.
@@ -259,6 +259,8 @@ In behalf of that, we declare our visualization technique for comparing and anal
 %%
 This section covers the epidemiological workflow and requirements.
 %%
+\com{TODO: Reviewer suggested deletion of this sentence, but starting with subsection right after the section is ugly.}
+%%
 \subsection{Epidemiological Workflow} \label{sec:EpidemiologicalWorkflow}
 %%
 Epidemiological research is performed by experts from different academic disciplines, such as physicians, statisticians and medical computer scientists focusing on biometrics and image segmentation.
@@ -283,7 +285,7 @@ Statistical programs, such as \texttt{SPSS}, are used to analyze the data regard
 Hence, images are mostly used for the communication of results, rather than for providing insight into the data.
 %%
 
-In \cite{Klemm2014VIS} we described an Interactive Visual Analysis approach for image-centric cohort study data, which connects to the feature listing step.
+We described an Interactive Visual Analysis approach for image-centric cohort study data, which connects to the feature listing step \cite{Klemm2014VIS}.
 %%
 The methods aim to derive hypotheses through analysis of the data and observations about previously unknown feature correlations.
 %%
@@ -318,11 +320,11 @@ However, this should be avoided, since it reduces the information space.
 It also introduces a new information bias, as assumptions are modeled through the discretization.
 %%
 
-Medical image data is also acquired and analyzed in modern cohort studies.
+Medical image data are also acquired and analyzed in modern cohort studies.
 %%
 We incorporate image-derived features, but do not focus on analyzing image data.
 %%
-More discussions of cohort study data types and characteristics can be found in \cite{Preim2014, Toennies2015}.
+More discussions of cohort study data types and characteristics can be found in the works of Preim et al.~\cite{Preim2014} and Toennies et al.~\cite{Toennies2015}.
 %%
 \\\\
 Features influencing the exposure as well as the outcome of an analysis are called \emph{confounders} and have to be specially treated.
@@ -427,7 +429,7 @@ However, most examinations occur in all stages and are performed according to th
 %%
 \section{Prior and Related Work}
 %% https://en.wikipedia.org/wiki/Exploratory_data_analysis#cite_note-Tukey1977-4
-In 1977, Tukey already stated that data is too often analyzed solely using confirmatory data analysis \cite{Tukey}.
+In 1977, Tukey already stated that data are too often analyzed solely using confirmatory data analysis \cite{Tukey}.
 %%
 He emphasized the need to use data to derive hypotheses instead, which can then be tested again.
 %%
@@ -460,7 +462,7 @@ Chan et al.~\cite{Chan} use the same term to describe an extension of the 2D sca
 %%
 They group subjects using a set of interaction techniques as well as clustering algorithms to calculate sub-groups, which can then be compared using their cube representation.
 %%
-Similar to \cite{Piringer}, they focus on highlighting details of the included models rather than comparing models consisting of different features.
+Similar to Piringer et al.~\cite{Piringer}, they focus on highlighting details of the included models rather than comparing models consisting of different features.
 %%
 Insight is derived by subject grouping, which spawns new cube correlations and therefore allows drilling down to the data.
 %%
@@ -554,7 +556,7 @@ Dai et al.~\cite{Dai2005} incorporate a \texttt{GPLOM}-like visualization using 
 %%
 A \emph{concept map} summarizes features related to a specified disease.
 %%
-Time-dependent epidemiological data is visualized by Chui et al.~\cite{Chui2011} using multi-panel graphs highlighting risk factor differences with age and gender with regard to influenza- and salmonellosis-associated hospitalizations.
+Time-dependent epidemiological data are visualized by Chui et al.~\cite{Chui2011} using multi-panel graphs highlighting risk factor differences with age and gender with regard to influenza- and salmonellosis-associated hospitalizations.
 %%
 %We also include confounder features (age, gender) into the analysis while focusing on non-time-dependent cohort study data sets.
 %%
@@ -596,9 +598,9 @@ Niemann et al.~\cite{Niemann2014} investigate risk factors of hepatic steatosis 
 %%
 They extract classification rules that serve as basis for our proof-of-concept tests.
 %%
-In \cite{Niemann2015}, Niemann et al. improve the classification performance by generating features (called \emph{evolution features}) that describe latent temporal information across the study waves.
+Niemann et al.~\cite{Niemann2015} improved the classification performance by generating features (called \emph{evolution features}) that describe latent temporal information across the study waves.
 %%
-We try to reproduce their results and investigate findings presented in \cite{Niemann2014} further.
+We try to reproduce their results and investigate findings presented by Niemann et al.~\cite{Niemann2014} further.
 %%
 \paragraph{Prior Work.}
 In our prior work, we analyzed the healthy aging process of the lumbar spine.
@@ -614,7 +616,7 @@ We extended the feature selection step (recall Sec. \ref{sec:Background}) with a
 %%
 Information visualizations of cohort study features were augmented with extracted image data, yielding linked views with both image and non-image information.
 %%
-The mosaic plot presented in \cite{Klemm2014VIS} highlights the pairwise correlation between features without a target disease by depicting the \emph{Cram\'{e}r's V} contingency values.
+The mosaic plot \cite{Klemm2014VIS} highlights the pairwise correlation between features without a target disease by depicting the \emph{Cram\'{e}r's V} contingency values.
 %%
 Its great popularity among our domain experts was the inspiration for this work.
 %%
@@ -918,7 +920,7 @@ The different analysis approaches require different starting points using the \e
  \centering
  \includegraphics[width=1.0\linewidth]{figures/workflow}
  \caption{
- Different workflow types of the analysis using \emph{Regression Cubes} (based on~\cite{Keim}).
+ Different workflow types of the analysis using \emph{Regression Cubes}.
  %%
  [\textbf{1.AF}] The workflow starts by declaring a formula to specify a hypothesis, or to use a predefined formula for a hypothesis-free analysis.
  %%
@@ -1504,7 +1506,7 @@ The hepatic steatosis data set is analyzed by \emph{UN}, a data scientists respo
 The third participant is \emph{TI}, a statistician with focus on epidemiology (8 years of experience) assesses the statistical reliability of the tool and the underlying methods without a focus on a specific data set.
 %%
 \subsection{The Hepatic Steatosis Data Set}
-We employ the data set used in \cite{Niemann2014} to identify predictive features w.r.t. the reversible hepatic steatosis disorder.
+We employ the data set used by Niemann et al.~\cite{Niemann2014} to identify predictive features w.r.t. the reversible hepatic steatosis disorder.
 %%
 The dichotomous target feature is derived from the liver fat concentration measured using MRI scans.
 %%
@@ -1521,7 +1523,7 @@ The acquisition wave is denoted using the appendix; 85 features with appendix \e
 %%
 
 %%
-In \cite{Niemann2014}, the authors show different class distributions of liver fat concentrations of women and men.
+Niemann et al.~\cite{Niemann2014} show different class distributions of liver fat concentrations of women and men.
 %%
 For women, an association between age and liver fat was identified.
 %%
@@ -1557,7 +1559,7 @@ This avoids the need of defining a separate data dictionary file for translating
 %%
 We refer to each analysis step with regard to its belonging in the VA-Mantra (recall Sec.~\ref{sec:Workflow}).
 %%
-The analysis goal was reproducing results with our visual analysis framework that are in accordance to the data mining-based results presented in \cite{Niemann2014}.
+The analysis goal was reproducing results with our visual analysis framework that are in accordance to the data mining-based results presented by Niemann et al.~\cite{Niemann2014}.
 %%
 Therefore, \emph{UN} started the [\textbf{1.AF}] step using the dichotomized MRI fat liver concentration and the formula $mrt\_liverfat\_s2 \sim X + Y + Z$ for \emph{male} subjects.
 %%
@@ -1573,10 +1575,10 @@ Similar results were present for analyzing the \emph{female} groups.
 %%
 A slight influence of \emph{age} on the target feature could be observed for women ($R^2$ of $0.09$ for females compared to $0.02$ for males).
 %% TODO Feedback of Henry!
-Relationships not described in \cite{Niemann2014} were found, such as enzymes indicating liver dysfunctions, e.g., \emph{aspartate aminotransferase}.
+Relationships not described by Niemann et al.~\cite{Niemann2014} were found, such as enzymes indicating liver dysfunctions, e.g., \emph{aspartate aminotransferase}.
 %
 %%
-Due to the difference between our regression model approach and the decision tree approach presented in \cite{Niemann2014}, a complete matching set of correlating features is not expected.
+Due to the difference between our regression model approach and the decision tree approach presented by Niemann et al.~\cite{Niemann2014}, a complete matching set of correlating features is not expected.
 %%
 
 %%
