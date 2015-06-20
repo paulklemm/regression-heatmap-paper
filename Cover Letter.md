@@ -1,5 +1,7 @@
 This cover letter is written in Markdown
 
+<!--TOC-->
+
 Cover Letter
 ============
 
@@ -58,19 +60,20 @@ Details on the changes are as follows:
     * Paragraph *Hypothesis-Free and Hypothesis-Based Analysis*: Motivated the different approaches with examples from the epidemiological application domain
     * [Reviewer 2] Justified selection of colour and object size parameters for the visualization with expert feedback
   * *5 System Design*
-    * Section starts with a motivation why web-based techniques are well suited for the epidemiological application domain
+    * Section starts with a motivation on suitability of web-based techniques for the epidemiological application domain
     * Added expert input in Subsection *System Paradigm and Components*
     * Created new paragraph Selecting and Scaling the Descriptive Regression Metric
     * Paragraph *3D Prism as Data Mini-Map* goes into details on early prototypes of the 3D prism and why these designs were discarded
-    * [Reviewer 2] Justified selection of selection techniques
+    * [Reviewer 2] Justified selection of interaction techniques
 
-Additional/Minor Changes
-------------------------
+Additional Changes
+------------------
 
   * [Reviewer 1] It was criticised, that it is not clear how the found models are investigated further. Therefore, we clarified this in the introduction of Section *4 Regression Cube Analysis of Cohort Study Data* as well as in the introduction of Section *5 System Design*
   * [Reviewer 1] Elaborate more on the limitation of having only three dynamic variables. We discussed this limitation in Section *8 Summary and Outlook* by suggesting 3D projections of hypercubes spanned by more than 3 dynamic regression variables.
   * [Reviewer 2] Security issues are now indicated at the beginning of Section **4 Regression Cube Analysis of Cohort Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**
   * [Reviewer 2] We revised a large number of long sentenced to either split them up or to simplify them.
+  * [Reviewer 2] Citations are now treated as gramatically invisible
 
 # VAST'15 Reviews "Regression Cube Analysis of Cohort Study Data "
 
@@ -301,6 +304,13 @@ Minor comments:
 * Citations are grammatically invisible, and should not be used as nouns. Correct: "The PivotGraph system [13] features a derived aggregate network". Incorrect: "Aggregation is also used in [13]". (see https://www.cs.ubc.ca/~tmm/writing.txt) “In [22]...” “...in [29, 37].” “presented in [22]” etc. etc.
 * Page 3, “Medical image data is “ Data is plural (singular is datum)
 * Section 3 Related Work The purpose of the related work is to highlight the novelty of the presented work. It should contain one paragraph for each novel idea or component, and highlight at the end of the paragraph how that related body of work is different from, supports, or complements the present work. Some of the related work paragraphs follow this structure (the Statistical Analysis paragraphs in particular), but not all of them (e.g., the Visual Analysis in Public Health subsection). Please revise.
+
+<i><font color='green'>
+
+  * TODO Put summary at the end of each paragraph, but first include the additional paper
+
+</i></font>
+
 * a data scientists ---> a data scientist
 * Typo (new paragraph)? . Extracted Hypotheses Have to be Investigated Further.
 * a video demonstration would have been helpful (I gave up halfway through the git repo).
@@ -339,18 +349,47 @@ The strenghts and weaknesses balance for this paper. On the one hand, it propose
 *Weaknesses*
 
 - Closely related work has not been taken into account: The partition-based regression framework paper [MP13] proposes an approach for ranking features and feature pairs for a target variable by R^2 of one model per feature combination, and uses a very similar matrix arrangement as this approach does for slices. Features and interactions can be iteratively added very similarly to hypothesis specification in the paper at hand. The paper at hand has benefits regarding scalability, categorical targets, and considers 3D combinations of features, but a thorough delimination is necessary to acceptance of this paper.
-- Some design choices are questionable, and should at least be justified in more detail: 1) Regarding the ordering of features: the concept of ranking (combinations of) features is a proven means for guidance towards relevant features [SS04],[MP13]. Without the option of ranking features in the plots, it is possible to visually miss less salient "hotspots". (e.g., Figure 3 or Figure 5 breast fat). What are the features ordered by in the current implementation? 2) The benefits of the 3D cube could be made more explicit. E.g., showing multiple slices at once in 3D makes sense to convey structure with respect to these dimensions, such as feature pairs being relevant for multiple targets in a row. Just for guiding users to slices with high R^2s, an ordered list of slices (e.g., targets in Z~X+Y) with respect to max. or avg. R^2 across the slice would be at least as effective.
+
+<i><font color='green'>
+
+  * TODO Include the paper
+
+</i></font>
+
+- Some design choices are questionable, and should at least be justified in more detail:
+  1. Regarding the ordering of features: the concept of ranking (combinations of) features is a proven means for guidance towards relevant features [SS04],[MP13]. Without the option of ranking features in the plots, it is possible to visually miss less salient "hotspots". (e.g., Figure 3 or Figure 5 breast fat). What are the features ordered by in the current implementation?
+  2. The benefits of the 3D cube could be made more explicit. E.g., showing multiple slices at once in 3D makes sense to convey structure with respect to these dimensions, such as feature pairs being relevant for multiple targets in a row. Just for guiding users to slices with high R^2s, an ordered list of slices (e.g., targets in Z~X+Y) with respect to max. or avg. R^2 across the slice would be at least as effective.
+
+  <i><font color='green'>
+
+    1. The current ordering is based on the alphabetical order of the feature names. Ordering of features was discussed with the domain experts and ordering based on the regression metric is already implemented. Reorderings at the level of individual slices were discarded. Each slice ordering would be different, triggering a reordering of the cube on every slicing. On every slicing, the user had a different ordered list and searched all over again for parameters of interest.
+      * We experimented with the new transfer function control, which was added to the prototype based on this review (see further below) and concluded that this tool is well suited for highlighting hot-spots by selecting a range of only high regression metrics.
+      * The feedback is included in the revisions based on [Support Design Decisions with Expert Feedback].
+    2. The cube acts as mini-map to spot hot-spots, which is now additionally supported additionally using the transfer function. Simple per-slice reorderings would, as argued in the prior bullet point, not be as effective, as it also introduces new problems, such as destroying the mental model of the feature order. A ordered list of slices with high average regression metrics will result in a ordering, where single features already have a strong explanatory power w.r.t. the target. We are, however, interested in strong combinations, which is one point made in Figure 5.
+      * We emphasized more on the orderings as well as the limitations and advantages of the 3D view in Section **5.2 Regression Cube Visualization**
+
+  </i></font>
+
+
 - Regarding the color coding: A fixed linear scheme makes it very hard to discern small variations. Allowing the user to adapt the transfer function, e.g. adjusting the mapped range to enhance the contrast would help. Also, no legend is shown in the current implementation.
 
 <i><font color='green'>
 
-* Reply
-  * We completely agree with this comment. Therefore, we implemented a range-slider, which acts both as transfer function as well as
-  * See [User Interaction]
+  * We completely agree with this comment. Therefore, we implemented a range-slider, which acts both as transfer function as well as caption
+  * See [User Interaction] for details
+
 </i></font>
 
-- Limitations of the approach are not discussed in enough detail in the paper: 1) I like the idea of CFS as a pre-filter for large numbers of features. However, I missed a discussion of possible drawbacks. Isn't it possible that interesting features are missed (e.g., features that are only relevant for a part of the data)? Besides, is it always desired to omit redundant but relevant features from this list? How does the user know whether a feature was omitted due to irrelevance or due to redundancy? Especially for smaller numbers of features, it would make sense to optionally turn this preprocessing step off. 2) What are the limits of hypothesis specification through the regression formula? For example: - is it possible to specify HOW feature interactions are taken into account mathematically, using the formula notation (or some other way in the implementation)? - is it possible to define feature transformations to be considered, such as X^2? I would expect things like this to be possible when you state "domain knowledge / hypotheses can be specified via the regression formula". But if not, please state such limitations.
+- Limitations of the approach are not discussed in enough detail in the paper:
+  1. I like the idea of CFS as a pre-filter for large numbers of features. However, I missed a discussion of possible drawbacks. Isn't it possible that interesting features are missed (e.g., features that are only relevant for a part of the data)? Besides, is it always desired to omit redundant but relevant features from this list? How does the user know whether a feature was omitted due to irrelevance or due to redundancy? Especially for smaller numbers of features, it would make sense to optionally turn this preprocessing step off.
+  2. What are the limits of hypothesis specification through the regression formula? For example: - is it possible to specify HOW feature interactions are taken into account mathematically, using the formula notation (or some other way in the implementation)? - is it possible to define feature transformations to be considered, such as X^2? I would expect things like this to be possible when you state "domain knowledge / hypotheses can be specified via the regression formula". But if not, please state such limitations.
 - As this is a vis paper, another weakness in my opinion is the fact that details on demand for a cell are limited to statistical numbers. Adding some form of conditional distribution visualization could increase trust in findings further. It would be in accordance with the lesson learned regarding increased confidence in visually observed patterns as opposed to black box assessment.
+
+<i><font color='green'>
+
+  * as part of the changes made regarding the [Regression Metrics], a additional scatter plot for analyzing the residuals was included
+
+</i></font>
 
 ---
 
