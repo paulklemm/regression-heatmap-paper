@@ -283,6 +283,7 @@ Minor comments:
 
 <i><font color='green'>
 
+  * We revised a large number of long sentenced to either split them up or to simplify them.
   * "Towards" sounds odd indeed. We replaced it in all occurences.
 
 </i></font>

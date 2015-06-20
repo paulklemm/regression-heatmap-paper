@@ -108,7 +108,9 @@ Although there is a strong demand for overview visualizations of a whole data se
 %%
 We propose an analysis approach of epidemiological data sets by incorporating all features in an exhaustive regression-based analysis.
 %%
-This approach combines all \emph{independent features} with respect to a \emph{target feature} and provides a visualization that reveals insights into the data by highlighting relationships.
+This approach combines all \emph{independent features} with respect to a \emph{target feature}.
+%%
+It provides a visualization that reveals insights into the data by highlighting relationships.
 %%
 The \emph{Regression Cube}, a novel 3D visual encoding, acts as an overview of the whole data set.
 %%
@@ -183,7 +185,9 @@ Insights about risk factors allow to characterize disease-specific high-risk gro
 %%
 Furthermore, the insights can be used to derive recommendations regarding a healthy lifestyle or to provide information about widespread diseases.
 %%
-During the standard workflow, physicians transform observations into hypotheses, which are depicted using epidemiological features and then are statistically analyzed.
+During the standard workflow, physicians transform observations into hypotheses.
+%%
+The hypotheses are depicted using epidemiological features and are then statistically analyzed.
 
 An important epidemiological tool for deriving such features is the evaluation of a \emph{cohort study}, such as the Study of Health in Pomerania (SHIP) \cite{Volzke2011}.
 %%
@@ -204,7 +208,9 @@ Using it to assess the statistical resilience of a hypothesis rarely involves \e
 %%
 Due to the amount of data and only limited overview techniques, possible correlations may be missed.
 %%
-Explorative analyses and overview visualizations of the data set as presented in prior work \cite{Klemm2014VIS} are not tailored to a specific target feature and mostly highlight correlations between features, which are known to the domain expert (e.g., correlation between body size and spine shape).
+Explorative analyses and overview visualizations of the data set as presented in prior work \cite{Klemm2014VIS} are not tailored to a specific target feature.
+%%
+They mostly highlight correlations between features, which are known to the domain expert (e.g., correlation between body size and spine shape).
 %%
 We incorporate the regression analysis, which is familiar to the domain experts, into overview visualizations to support a hypothesis-free analysis or an analysis w.r.t. a specific disease or hypothesis.
 %%
@@ -254,6 +260,7 @@ In behalf of that, we declare our visualization technique for comparing and anal
 This section covers the epidemiological workflow and requirements.
 %%
 \subsection{Epidemiological Workflow} \label{sec:EpidemiologicalWorkflow}
+%%
 Epidemiological research is performed by experts from different academic disciplines, such as physicians, statisticians and medical computer scientists focusing on biometrics and image segmentation.
 %%
 Their goal is to derive disease-specific risk factors by assessing epidemiological features with statistical methods.
@@ -271,7 +278,9 @@ They indicate the per-subject chance of developing the disease.
 %%
 Reproducibility of results is an epidemiological key requirement and guides all analyses steps.
 %%
-Statistical programs, such as \texttt{SPSS}, are used to analyze the data regarding the classical sequential epidemiological workflow. Hence, images are mostly used for the communication of results, rather than for providing insight into the data.
+Statistical programs, such as \texttt{SPSS}, are used to analyze the data regarding the classical sequential epidemiological workflow.
+%%
+Hence, images are mostly used for the communication of results, rather than for providing insight into the data.
 %%
 
 In \cite{Klemm2014VIS} we described an Interactive Visual Analysis approach for image-centric cohort study data, which connects to the feature listing step.
@@ -304,7 +313,9 @@ Medical status features or lifestyle factors are primarily of \emph{dichotomous}
 %%
 Continuous data are often discretized (e.g. 10 year steps for age) to equalize the feature types and to simplify the method selection.
 %%
-However, this should be avoided, since it reduces the information space and also introduces a new information bias, as assumptions are modeled through the discretization.
+However, this should be avoided, since it reduces the information space.
+%%
+It also introduces a new information bias, as assumptions are modeled through the discretization.
 %%
 
 Medical image data is also acquired and analyzed in modern cohort studies.
@@ -368,13 +379,17 @@ The class of the target feature restricts the regression type.
 %%
 Different regression types are available, we focus on the following:
 %%
-\paragraph{Linear Regression for Continuous Target.} The basic type is the linear regression, creating a linear map from the space comprising the \emph{independent} features to the \emph{dependent} features.
+\paragraph{Linear Regression for Continuous Target.}
+%%
+The basic type is the linear regression, creating a linear map from the space comprising the \emph{independent} features to the \emph{dependent} features.
 %%
 The \emph{dependent} variable has to be of \emph{continuous type}.
 %%
 \add{
 %%
-Linear regression models can also be described using the \emph{adjusted} $R^2$, which considers the number of dependent features and yields lower values, when features with little entropy w.r.t. the target feature are included.
+Linear regression models can also be described using the \emph{adjusted} $R^2$, which considers the number of dependent features.
+%%
+It yields lower values, when features with little entropy w.r.t. the target feature are included.
 %Additional metrics describing linear regression models comprise of the \emph{adjusted} $R^2$, which also adjusts for the number of dependent features and yields lower values, when features with little entropy towards the target feature are included.
 %%
 The $f$-$statistic$ determines how much improvement the independent variables will add to the model compared to them being not considered at all.
@@ -431,7 +446,9 @@ Linked views of model deviations allow to select outliers.
 %%
 This limits the method to comparing a few models at once as the plot matrix gets complex with increasing feature number.
 %%
-The main difference is their focus on analyzing one complex model in detail, yielding extensive plots, while we analyze a large amount of simpler models in terms of \emph{different} features.
+The main difference is their focus on analyzing one complex model in detail, yielding extensive plots.
+%%
+We analyze a large amount of simpler models in terms of \emph{different} features.
 %%
 They also focus on metric features, while we process categorical data as well.
 %%
@@ -549,7 +566,9 @@ Time-dependent epidemiological data is visualized by Chui et al.~\cite{Chui2011}
 %% Quality Metrics in High-Dimensional Data Visualization - An Overview and Systematization
 Bertini et al.~\cite{Bertini} present an overview of quality metrics describing high dimensional-data.
 %%
-Their research agenda acts as guideline for our design, comprising perceptual tuning with human pattern recognition of important aspects, scalability between different data set sizes and application testing with domain experts.
+Their research agenda acts as guideline for our design.
+%%
+Namely, comprising perceptual tuning with human pattern recognition of important aspects, scalability between different data set sizes and application testing with domain experts.
 %% The Sparse Regression Cube: A Reliable Modeling Technique for Open Cyber-physical Systems
 Ahmadi et al.~\cite{Ahmadi} define the \emph{Sparse Regression Cube} that partitions sparse high dimensional data into subspaces, which are then described by their most reliable linear regression model.
 %%
@@ -589,7 +608,9 @@ We utilized semi-automatic algorithms do detect the lumbar spine shape \cite{Kle
 %The reliable part of the presented models are represented by the shape of the lumbar spine canal, which was extracted and described using line representation.
 %%
 
-We defined an Interactive Visual Analysis workflow for image-centric cohort study data, by extending the feature selection step (recall Sec. \ref{sec:Background}) with an iterative analysis loop incorporating group selection and visualization using expert input as well as clustering methods \cite{Klemm2014VIS}.
+We defined an Interactive Visual Analysis workflow for image-centric cohort study data \cite{Klemm2014VIS}. 
+%%
+We extended the feature selection step (recall Sec. \ref{sec:Background}) with an iterative analysis loop incorporating group selection and visualization using expert input as well as clustering methods.
 %%
 Information visualizations of cohort study features were augmented with extracted image data, yielding linked views with both image and non-image information.
 %%
@@ -598,7 +619,9 @@ The mosaic plot presented in \cite{Klemm2014VIS} highlights the pairwise correla
 Its great popularity among our domain experts was the inspiration for this work.
 %%
 
-While the presented techniques were well received by the epidemiological experts, the explanatory power w.r.t. back pain was limited, yielding an analysis based on image-derived features, such as extracting and analyzing curvature, torsion and angle of the lumbar spine \cite{Klemm2015}.
+While the presented techniques were well received by the epidemiological experts, the explanatory power w.r.t. back pain was limited.
+%%
+It yielded an analysis based on image-derived features, such as extracting and analyzing curvature, torsion and angle of the lumbar spine \cite{Klemm2015}.
 %%
 %These measures were analyzed using a novel decision tree quality plot towards non-image data.
 %%
@@ -620,7 +643,7 @@ The \emph{Regression Cube} is designed to provide overview visualizations to sup
 %%
 Hence, it is associated with step 1 and 2 of the epidemiological workflow presented in Section~\ref{sec:EpidemiologicalWorkflow}.
 %%
-Relationships observed using such techniques are subject of detailed statistical testing by statisticians with background in epidemiology using statistical processors, such as SPSS or STATA.
+Relationships observed using such techniques are subject of detailed statistical testing by statisticians with background in epidemiology using statistical processors, such as \texttt{SPSS}.
 }
 % \design{
 % This section covers the design of the Regression Cube as well as how epidemiological requirements and  domain expert input was utilized to influence design decisions.
@@ -635,7 +658,9 @@ The idea emerged from analysis sessions of a previous project, which contained a
 %%
 It allowed them to reproduce their knowledge by observing correlations they would expect as well as discovering new correlations.
 %%
-In epidemiology, these relationships are also of interest, but rather w.r.t. their explanatory power on the target feature, often indicate the presence of the investigated disease.
+In epidemiology, these relationships are also of interest, but rather w.r.t. their explanatory power on the target feature.
+%%
+This target often indicates the presence of the investigated disease.
 %%
 That is the focus of this work.
 %%
@@ -800,7 +825,9 @@ As described in our previous work \cite{Klemm2014VIS}, correlation values scaled
 %%
 Regression models are more complex, having many associated describing metrics.
 %%
-For the \emph{Regression Cube} analysis we are interested in the quality-of-fit of the resulting model, which allows to infer about the predictive quality of the independent features included in the model.
+For the \emph{Regression Cube} analysis we are interested in the quality-of-fit of the resulting model. 
+%%
+This allows to infer about the predictive quality of the independent features included in the model.
 %%
 As described in Section~\ref{sec:RegressionAnalysis}, the $R^2$ \add{and adjusted $R^2$} value are metrics allowing for this kind of assessment.
 %%
@@ -877,7 +904,9 @@ For cubes with a fixed target feature, e.g., $Cancer \sim X + Y + Z$, no such en
 %%
 \\\\
 %%
-Our goal is to create an overview visualization for a data set, but we also want to incorporate expert knowledge into the visualization by adapting the underlying formulas.
+Our goal is to create an overview visualization for a data set.
+%%
+We also want to incorporate expert knowledge into the visualization by adapting the underlying formulas.
 %%
 These two approaches do not exclude each other, they rather underline the difference in purpose of the chosen formula.
 %%
@@ -932,9 +961,9 @@ This can be carried out either to refine the current formula based on observatio
 %%
 Early analysis sessions yielded two approaches on analyzing the data.
 %%
-The classic approach is the \emph{hypothesis-based} approach, where the expert already has a good understanding of the data and potential associations (e.g. reproducing knowledge about hepatic steatosis risk factors based on known risk factors).
+The classic approach is \emph{hypothesis-based}, where the expert already knows the data and potential associations (e.g. reproducing knowledge about hepatic steatosis risk factors based on known risk factors).
 %%
-The \emph{hypothesis-free} approach is well suited for deriving new insight into the data, such as identifying cofounding features or potential targets (e.g. deriving risk factors for breast cancer associated features).
+The \emph{hypothesis-free} analysis is well suited for deriving new insight into the data, such as identifying confounding features or potential targets (e.g. deriving risk factors for breast cancer associated features).
 %%
 }
 %%
@@ -979,7 +1008,9 @@ This is achieved through cube comparison.
 \paragraph{Cube Comparison.}
 \design{
 %%
-Cube comparisons were introduced later in the project, as epidemiologists with focus on statistics pointed out, that comparing outcomes of different formulas is suitable for removing the effect of possible confounding features.
+Cube comparisons were introduced later in the project.
+%%
+Epidemiologists with focus on statistics pointed out, that comparing outcomes of different formulas is suitable for removing the effect of possible confounding features.
 %%
 }
 %%
@@ -1044,7 +1075,9 @@ By providing a service a website it has a much larger chance of being tested and
 %%
 %There is no set-up time involved and domain experts can use the methods from any computer connected with the web.
 %%
-By design, web technology is based on a client-server architecture, making it easy to outsource computationally heavy tasks on server clusters and transferring results to the client device.
+By design, web technology is based on a client-server architecture.
+%%
+It allows for outsourcing computationally heavy tasks on server clusters and transferring results to the client device.
 %%
 \magenta{
 %%
@@ -1062,7 +1095,9 @@ Therefore, we have to incorporate technical measures to ensure a secure workflow
 %%
 \design{
 %%
-Complex system, which take a lot of training and experience to work with are not suitable for the task of deriving overview visualizations for epidemiologists, as they have little time slots available for their research.
+Epidemiologists have little time slots available for their research.
+%%
+Therefore, complex systems, which take a lot of training and experience to work with are not suitable for the task of deriving overview visualizations.
 %%
 If the system is not easy to learn, it will not be adapted.
 %%
@@ -1161,7 +1196,9 @@ Since all cells in the cube are represented using $R^2$ values, a difference cub
 %%
 The visualization and interaction with the \emph{Regression Cube} is the prototype core.
 %%
-Results from the statistical processors are uploaded into the visualization slice by slice, allowing the assessment of the data as soon as parts of the calculations are finished while the rest is still in progress.
+Results from the statistical processors are uploaded into the visualization slice by slice.
+%%
+This allows the assessment of the data as soon as parts of the calculations are finished while the rest is still in progress.
 
 \paragraph{Usage of a Regression Prism for Information Reduction.}
 %%
@@ -1182,7 +1219,9 @@ The diagonal therefore acts as reference on how strong the correlation for the g
 \paragraph{Selecting and Scaling the Descriptive Regression Metric.}
 \design{
 %%
-As the feedback made apparent that other features are of interest for analyzing regression models too, UI elements for controlling them were introduced to the system.
+The feedback made apparent that other features are of interest for analyzing regression models too.
+%%
+Hence, UI elements for controlling them were introduced to the system.
 %%
 }
 \add{
@@ -1213,9 +1252,13 @@ This approach was not popular with our domain experts, because the complexity of
 %%
 }
 %%
-The 3D cube representation \design{was redesigned to} act as an overview over the whole data set, but its purpose is not to derive detailed information about data points.
+The 3D cube representation \design{was redesigned to} act as an overview over the whole data set. 
 %%
-It serves as a function similar to a mini-map, guiding the attention to points of interest in the data, as well as giving context information about adjacent data values when using the 2D mosaic plot.
+Its purpose is not to derive detailed information about data points.
+%%
+It serves as a function similar to a mini-map, guiding the attention to points of interest in the data.
+%%
+It also gives context information about adjacent data values when using the 2D mosaic plot.
 %%
 \design{The distinction between overview and details and demand using two different representations was well received with our domain experts.}
 %%
@@ -1231,7 +1274,9 @@ This highlights slices with unusually low or high results (Fig.~\ref{fig:Applica
 %%
 \paragraph{Tackling the disadvantages of 3D information visualization.}
 %%
-3D information visualizations are often criticized for introducing occlusions and interaction problems, which often do not balance out the advantages of using the third dimension for visual mapping.
+3D information visualizations are often criticized for introducing occlusions and interaction problems.
+%%
+These are often not balanced out by the advantages of using the third dimension for visual mapping.
 %%
 We aim to minimize these problems.
 %%
@@ -1285,7 +1330,9 @@ The values are projected on this plane to give an overlapping-free view on the d
 %%
 \paragraph{2D Mosaic Plot Slice Visualization [4.DD].}
 %%
-The 2D mosaic visualization (Fig.~\ref{fig:System}c) shows all values below the matrix diagonal of the current slice, creating a optical equivalence with the 3D cube.
+The 2D mosaic visualization (Fig.~\ref{fig:System}c) shows all values below the matrix diagonal of the current slice.
+%%
+It creates a optical equivalence with the 3D cube.
 %%
 To reduce visual clutter, the 2D view only shows dimensions, which are retrieved through the correlation-based feature selection.
 %%
@@ -1537,7 +1584,9 @@ Due to the difference between our regression model approach and the decision tre
 %%
 Since our method can assess numerical target features, the analysis was conducted again for the non-dichotomized target using the same formula.
 %%
-The 3D cube representation already showed lower $R^2$ values in general. However, the analysis is now based on linear regression and the $R^2$ values cannot be directly compared.
+The 3D cube representation already showed lower $R^2$ values in general.
+%%
+However, the analysis is now based on linear regression and the $R^2$ values cannot be directly compared.
 %%
 The correlation hotspots matched with the ones from the dichotomous target, but were generally lower ($R^2$ of $0.37$ for somatometric features as opposed to $0.58$).
 %%
