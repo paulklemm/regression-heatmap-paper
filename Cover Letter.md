@@ -56,11 +56,13 @@ Details on the changes are as follows:
     * Added new subsection *Iterative Design Based on Expert Feedback* to explain how expert feedback was incorporated in the design
     * Subsection *Abstracting Regression Results*: Explained how expert feedback is included in selecting the respective regression metrics
     * Paragraph *Hypothesis-Free and Hypothesis-Based Analysis*: Motivated the different approaches with examples from the epidemiological application domain
+    * [Reviewer 2] Justified selection of colour and object size parameters for the visualization with expert feedback
   * *5 System Design*
     * Section starts with a motivation why web-based techniques are well suited for the epidemiological application domain
     * Added expert input in Subsection *System Paradigm and Components*
     * Created new paragraph Selecting and Scaling the Descriptive Regression Metric
     * Paragraph *3D Prism as Data Mini-Map* goes into details on early prototypes of the 3D prism and why these designs were discarded
+    * [Reviewer 2] Justified selection of selection techniques
 
 Additional/Minor Changes
 ------------------------
@@ -259,7 +261,20 @@ The manuscript could be further strengthened by better structuring the domain re
 
 In terms of related work, similar domain analysis and related visualization work, with epidemiology as the target domain, was featured here: http://www.computer.org/csdl/trans/tg/2013/12/ttg2013122916-abs.html and should be discussed in this context.
 
+<i><font color='green'>
+
+  * TODO: GRACE: A Visual Comparison Framework
+for Integrated Spatial and Non-Spatial Geriatric Data
+
+</i></font>
+
 More details in the visual encoding are also necessary (color, size, interaction,...), and in particular a justification of the design choices available for these encodings. A videoclip demonstrating the system would further help.
+
+<i><font color='green'>
+
+  * Design decisions were explained in further detail and are supported with expert feedback as part of the revisions w.r.t [Support Design Decisions with Expert Feedback]
+
+</i></font>
 
 Overall, the manuscripts has multiple strengths, and within a review cycle could be improved.
 

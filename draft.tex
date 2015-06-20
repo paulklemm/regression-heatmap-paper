@@ -813,7 +813,7 @@ As described in Section~\ref{sec:RegressionAnalysis}, the $R^2$ \add{and adjuste
 %%
 Since $R^2$ is scaled between $[0, 1]$, it allows for comparison \emph{between} regression models.
 %%
-We can apply the same mosaic plot mapping by translating the $R^2$ values to color saturation (Fig.~\ref{fig:Cube}a).
+We can apply the same mosaic plot mapping by translating the $R^2$ values to \emph{color saturation} (Fig.~\ref{fig:Cube}a).
 %%
 This describes a 2D regression square for dynamic variables $X$ and $Y$ (e.g., $Age \sim X + Y$).
 %%
@@ -852,6 +852,8 @@ To avoid shutting out users unfamiliar with these metrics, the \emph{Regression 
 Introducing $Z$ creates a 3D \emph{Regression Cube} (Fig.~\ref{fig:Cube}b).
 %%
 \add{The selected metric (per default set to $R^2$)} of each cube entry (\emph{voxel}) are mapped to opacity to reduce the overlap.
+%%
+\magenta{Object size is not used to encode information because it would result in a cluttered view.}
 %%
 \design{
 %%
@@ -1215,7 +1217,7 @@ It serves as a function similar to a mini-map, guiding the attention towards poi
 %%
 The displayed prism shows values above the matrix diagonal.
 %%
-For formulas with a dynamic target feature (e.g. exploratory analysis using $Z \sim X + Y$), the color encodes absolute $R^2$ values (Fig.~\ref{fig:System}b).
+For formulas with a dynamic target feature (e.g. exploratory analysis using $Z \sim X + Y$), the color encodes the absolute regression metric values (Fig.~\ref{fig:System}b).
 %%
 Applying this strategy to a formula containing a static target (e.g. $Cancer \sim X + Y + Z$) yields many occlusions, since the CFS algorithm creates the same feature space for every slice.
 %%
@@ -1260,6 +1262,12 @@ We propose two ways to achieve this.
 	We employ this technique for selecting cube slices (e.g., by moving a plane via vertical mouse input while pressing the right mouse button).
 	%%
 	We, however, still display the whole 3D object instead of cutting away information towards the slice position.
+	%%
+	\design{Early prototypes only provided this method to select a slice of interest, which was inefficient when the user was looking for a specific slice.
+	%%
+	Hence, an additional method was implemented.
+	%%
+	}
 	%%
 	\item \emph{Selecting the slice using a dropdown menu} provides fast access to plane selections when the user already knows the slices of interest.
 	%%
