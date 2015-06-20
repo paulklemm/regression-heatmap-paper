@@ -74,6 +74,8 @@ Additional Changes
   * [Reviewer 2] Security issues are now indicated at the beginning of Section **4 Regression Cube Analysis of Cohort Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**
   * [Reviewer 2] We revised a large number of long sentenced to either split them up or to simplify them.
   * [Reviewer 2] Citations are now treated as gramatically invisible
+  * [Reviewer 3] Discussed limitations of CFS algorithm in Section **4.3 Target-Variable-Dependent Dimension Reduction** and how we tackle them in Section **4.4 Abstracting Regression Results**.
+  * [Reviewer 3] We added a check box as part of the file-upload step, which allows to skip the CFS preprocessing step. It is noted in Section **5.1 System Paradigm and Components**
 
 # VAST'15 Reviews "Regression Cube Analysis of Cohort Study Data "
 
@@ -362,11 +364,11 @@ The strenghts and weaknesses balance for this paper. On the one hand, it propose
 
   <i><font color='green'>
 
-    1. The current ordering is based on the alphabetical order of the feature names. Ordering of features was discussed with the domain experts and ordering based on the regression metric is already implemented. Reorderings at the level of individual slices were discarded. Each slice ordering would be different, triggering a reordering of the cube on every slicing. On every slicing, the user had a different ordered list and searched all over again for parameters of interest.
-      * We experimented with the new transfer function control, which was added to the prototype based on this review (see further below) and concluded that this tool is well suited for highlighting hot-spots by selecting a range of only high regression metrics.
-      * The feedback is included in the revisions based on [Support Design Decisions with Expert Feedback].
-    2. The cube acts as mini-map to spot hot-spots, which is now additionally supported additionally using the transfer function. Simple per-slice reorderings would, as argued in the prior bullet point, not be as effective, as it also introduces new problems, such as destroying the mental model of the feature order. A ordered list of slices with high average regression metrics will result in a ordering, where single features already have a strong explanatory power w.r.t. the target. We are, however, interested in strong combinations, which is one point made in Figure 5.
-      * We emphasized more on the orderings as well as the limitations and advantages of the 3D view in Section **5.2 Regression Cube Visualization**
+  1. The current ordering is based on the order of features in the CSV file. Ordering of features was discussed with the domain experts and ordering based on the regression metric is already implemented. Reorderings at the level of individual slices were discarded. Each slice ordering would be different, triggering a reordering of the cube on every slicing. On every slicing, the user had a different ordered list and searched all over again for parameters of interest.
+    * We experimented with the new transfer function control, which was added to the prototype based on this review (see further below) and concluded that this tool is well suited for highlighting hot-spots by selecting a range of only high regression metrics.
+    * The feedback is included in the revisions based on [Support Design Decisions with Expert Feedback].
+  2. The cube acts as mini-map to spot hot-spots, which is now additionally supported additionally using the transfer function. Simple per-slice reorderings would, as argued in the prior bullet point, not be as effective, as it also introduces new problems, such as destroying the mental model of the feature order. A ordered list of slices with high average regression metrics will result in a ordering, where single features already have a strong explanatory power w.r.t. the target. We are, however, interested in strong combinations, which is one point made in Figure 5.
+    * We emphasized more on the orderings as well as the limitations and advantages of the 3D view in Section **5.2 Regression Cube Visualization**
 
   </i></font>
 
@@ -382,12 +384,23 @@ The strenghts and weaknesses balance for this paper. On the one hand, it propose
 
 - Limitations of the approach are not discussed in enough detail in the paper:
   1. I like the idea of CFS as a pre-filter for large numbers of features. However, I missed a discussion of possible drawbacks. Isn't it possible that interesting features are missed (e.g., features that are only relevant for a part of the data)? Besides, is it always desired to omit redundant but relevant features from this list? How does the user know whether a feature was omitted due to irrelevance or due to redundancy? Especially for smaller numbers of features, it would make sense to optionally turn this preprocessing step off.
+
+  <i><font color='green'>
+
+  * We agree with the reviewers observations. The CFS filtering step, as most automatic preprocessings, add uncertainty into the analysis, as the user can not comprehend in detail, why certain features are removed.
+    * We tackled this problem using the z-dimension of the cube. The CFS algorithm is applied per-slice depending on the target feature. In other words, there are always all features represented in z-dimension of the cube. This means, that for features with static a target (e.g., Cancer ~ X + Y + Z), the influence of each feature can be assessed by slicing through the cube.
+    * We noted the limitation in Section **4.3 Target-Variable-Dependent Dimension Reduction** and how we tackled it in Section **4.4 Abstracting Regression Results**.
+    * We added a check box as part of the file-upload step, which allows to skip the CFS preprocessing step. It is noted in Section **5.1 System Paradigm and Components**
+
+  </i></font>
+
   2. What are the limits of hypothesis specification through the regression formula? For example: - is it possible to specify HOW feature interactions are taken into account mathematically, using the formula notation (or some other way in the implementation)? - is it possible to define feature transformations to be considered, such as X^2? I would expect things like this to be possible when you state "domain knowledge / hypotheses can be specified via the regression formula". But if not, please state such limitations.
 - As this is a vis paper, another weakness in my opinion is the fact that details on demand for a cell are limited to statistical numbers. Adding some form of conditional distribution visualization could increase trust in findings further. It would be in accordance with the lesson learned regarding increased confidence in visually observed patterns as opposed to black box assessment.
 
 <i><font color='green'>
 
-  * as part of the changes made regarding the [Regression Metrics], a additional scatter plot for analyzing the residuals was included
+  * As part of the changes made regarding the [Regression Metrics], a additional scatter plot for analyzing the residuals was included.
+  * Additionally, now different regression metrics can be visualized using the Regression Cube.
 
 </i></font>
 

@@ -797,6 +797,12 @@ The number of selected features using the CFS algorithm reflects their informati
 %%
 A large list of features is an expression of low correlation to the target feature.
 %%
+\magenta{
+The tradeoff of the CFS algorithm is the potential removal of features of interest for the domain expert.
+%%
+This problem is handled in the next subsection as part of the 3D representation of the regression results.
+}
+%%
 
 With this method, we are able to derive the interesting regression models in a reasonable time span (seconds to minutes instead of hours).
 %%
@@ -903,6 +909,14 @@ Therefore, we decided to map metrics of different regression methods on distinct
 Thus, the cube can be easily extended using other regression types.
 %%
 For cubes with a fixed target feature, e.g., $Cancer \sim X + Y + Z$, no such encodings are required and the $z$ dimension can be compared directly.
+%%
+\magenta{
+As mentioned previously, the dimension reduction using the CFS algorithm potentially removes features, which are of interest for the domain expert.
+%%
+To tackle this problem, the $z$ dimension of the cube contains all features of the data set, allowing to assess their influence on the models.
+%%
+The $x$ and $y$ dimensions are restricted to the features extracted from the CFS algorithm.
+}
 %%
 \\\\
 %%
@@ -1132,6 +1146,8 @@ To allow other users even outside the epidemiological application domain to acce
 The first line in a CSV file represents all features (columns) of the data set.
 %%
 Each line after that represents one subject (row) and its feature manifestations.
+%%
+\magenta{Using a check-box, the user can disable the CFS preprocessing step, which is useful for small data sets, where the user does not want to reduce the number of features.}
 
 \textbf{Encoding via CSV Files.}
 %%
