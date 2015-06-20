@@ -65,6 +65,7 @@ Details on the changes are as follows:
     * Created new paragraph Selecting and Scaling the Descriptive Regression Metric
     * Paragraph *3D Prism as Data Mini-Map* goes into details on early prototypes of the 3D prism and why these designs were discarded
     * [Reviewer 2] Justified selection of interaction techniques
+    * [Reviewer 3] The paragraph **Cube Slice Selection** of Section **5.2 Regression Cube Visualization** was revised to be more precise. The area below the prism is in fact be used to identify the correct position of the current slice.
 
 Additional Changes
 ------------------
@@ -76,6 +77,7 @@ Additional Changes
   * [Reviewer 2] Citations are now treated as gramatically invisible
   * [Reviewer 3] Discussed limitations of CFS algorithm in Section **4.3 Target-Variable-Dependent Dimension Reduction** and how we tackle them in Section **4.4 Abstracting Regression Results**.
   * [Reviewer 3] We added a check box as part of the file-upload step, which allows to skip the CFS preprocessing step. It is noted in Section **5.1 System Paradigm and Components**
+  * [Reviewer 3] Fixed errors in Figure 1
 
 # VAST'15 Reviews "Regression Cube Analysis of Cohort Study Data "
 
@@ -358,9 +360,9 @@ The strenghts and weaknesses balance for this paper. On the one hand, it propose
 
 </i></font>
 
-- Some design choices are questionable, and should at least be justified in more detail:
-  1. Regarding the ordering of features: the concept of ranking (combinations of) features is a proven means for guidance towards relevant features [SS04],[MP13]. Without the option of ranking features in the plots, it is possible to visually miss less salient "hotspots". (e.g., Figure 3 or Figure 5 breast fat). What are the features ordered by in the current implementation?
-  2. The benefits of the 3D cube could be made more explicit. E.g., showing multiple slices at once in 3D makes sense to convey structure with respect to these dimensions, such as feature pairs being relevant for multiple targets in a row. Just for guiding users to slices with high R^2s, an ordered list of slices (e.g., targets in Z~X+Y) with respect to max. or avg. R^2 across the slice would be at least as effective.
+  - Some design choices are questionable, and should at least be justified in more detail:
+    1. Regarding the ordering of features: the concept of ranking (combinations of) features is a proven means for guidance towards relevant features [SS04],[MP13]. Without the option of ranking features in the plots, it is possible to visually miss less salient "hotspots". (e.g., Figure 3 or Figure 5 breast fat). What are the features ordered by in the current implementation?
+    2. The benefits of the 3D cube could be made more explicit. E.g., showing multiple slices at once in 3D makes sense to convey structure with respect to these dimensions, such as feature pairs being relevant for multiple targets in a row. Just for guiding users to slices with high R^2s, an ordered list of slices (e.g., targets in Z~X+Y) with respect to max. or avg. R^2 across the slice would be at least as effective.
 
   <i><font color='green'>
 
@@ -382,19 +384,20 @@ The strenghts and weaknesses balance for this paper. On the one hand, it propose
 
 </i></font>
 
-- Limitations of the approach are not discussed in enough detail in the paper:
-  1. I like the idea of CFS as a pre-filter for large numbers of features. However, I missed a discussion of possible drawbacks. Isn't it possible that interesting features are missed (e.g., features that are only relevant for a part of the data)? Besides, is it always desired to omit redundant but relevant features from this list? How does the user know whether a feature was omitted due to irrelevance or due to redundancy? Especially for smaller numbers of features, it would make sense to optionally turn this preprocessing step off.
+  - Limitations of the approach are not discussed in enough detail in the paper:
+    1. I like the idea of CFS as a pre-filter for large numbers of features. However, I missed a discussion of possible drawbacks. Isn't it possible that interesting features are missed (e.g., features that are only relevant for a part of the data)? Besides, is it always desired to omit redundant but relevant features from this list? How does the user know whether a feature was omitted due to irrelevance or due to redundancy? Especially for smaller numbers of features, it would make sense to optionally turn this preprocessing step off.
+    2. What are the limits of hypothesis specification through the regression formula? For example: - is it possible to specify HOW feature interactions are taken into account mathematically, using the formula notation (or some other way in the implementation)? - is it possible to define feature transformations to be considered, such as X^2? I would expect things like this to be possible when you state "domain knowledge / hypotheses can be specified via the regression formula". But if not, please state such limitations.
 
   <i><font color='green'>
 
-  * We agree with the reviewers observations. The CFS filtering step, as most automatic preprocessings, add uncertainty into the analysis, as the user can not comprehend in detail, why certain features are removed.
+  1. We agree with the reviewers observations. The CFS filtering step, as most automatic preprocessings, add uncertainty into the analysis, as the user can not comprehend in detail, why certain features are removed.
     * We tackled this problem using the z-dimension of the cube. The CFS algorithm is applied per-slice depending on the target feature. In other words, there are always all features represented in z-dimension of the cube. This means, that for features with static a target (e.g., Cancer ~ X + Y + Z), the influence of each feature can be assessed by slicing through the cube.
     * We noted the limitation in Section **4.3 Target-Variable-Dependent Dimension Reduction** and how we tackled it in Section **4.4 Abstracting Regression Results**.
     * We added a check box as part of the file-upload step, which allows to skip the CFS preprocessing step. It is noted in Section **5.1 System Paradigm and Components**
+  2. TODO: Wrote Till a Mail
 
   </i></font>
 
-  2. What are the limits of hypothesis specification through the regression formula? For example: - is it possible to specify HOW feature interactions are taken into account mathematically, using the formula notation (or some other way in the implementation)? - is it possible to define feature transformations to be considered, such as X^2? I would expect things like this to be possible when you state "domain knowledge / hypotheses can be specified via the regression formula". But if not, please state such limitations.
 - As this is a vis paper, another weakness in my opinion is the fact that details on demand for a cell are limited to statistical numbers. Adding some form of conditional distribution visualization could increase trust in findings further. It would be in accordance with the lesson learned regarding increased confidence in visually observed patterns as opposed to black box assessment.
 
 <i><font color='green'>
@@ -426,9 +429,22 @@ As mentioned before, the partition based framework [MP13] must be considered in 
 
 It is not clear how features are ordered in the plots. - Regarding the semi transparent representation of the current slice in the cube: From the figures/text in the paper, it is not clear how "data points are projected onto the currently selected plane". What data points? Projected how? From the implementation on the web it appeared to me as if the full slice of xy-feature pairs was shown instead of just the half above the diagonal.
 
+<i><font color='green'>
+
+  * The paragraph **Cube Slice Selection** of Section **5.2 Regression Cube Visualization** was revised with this critique in mind. The area below the prism is in fact be used to identify the correct position of the current slice. The observation of the reviewer regarding the projection is correct and is pointed out in the section.
+
+</i></font>
+
+
 *Is the exposition clear? How could the structure or style of the presentation be improved?*
 
 It should be stated explicitly that the positioning of features in the cube takes all dimensions into account, i.e., the cube contains all features, and not only those selected by CFS for a given target.
+
+<i><font color='green'>
+
+  * This is now covered **3D (Cube) View** paragraph of Section **4.4 Abstracting Regression Results**
+
+</i></font>
 
 *Should anything be deleted or condensed from the writeup?*
 
@@ -442,8 +458,21 @@ fine.
 
 In Figure 3, why do you show a blue (dichotomous) target in the 2D mosaic plot, while an orange (numerical) target slice is selected in the cube?
 
+<i><font color='green'>
+
+  * Good catch, this is fixed now.
+
+</i></font>
+
 *Typos and other mistakes*
 - Section 5.1. Usage of a Regression Prism for Information Reduction. "Figure 1 shows that all values are mirrored along the diagonal of the mosaic plot matrix" <- this is not shown in Figure 1.
+
+<i><font color='green'>
+
+  * Fixed as well
+
+</i></font>
+
 - Section 7.1. "UN, a data scientists .."
 
 *References*

@@ -1344,9 +1344,18 @@ We propose two ways to achieve this.
 %%
 The currently selected slice is denoted with a semi-transparent gray plane.
 %%
+\design{
+Early designs rendered the whole cube, which made it hard to assess the position of the plane.
+%%
+%Since the regression metrics are mirrored along the diagonal, we decided to use this space to support better identification of the current slice.
+Since the regression metrics are mirrored along the diagonal, the space available from visualizing only the prism generated from the upper half of the cube diagonal is used to display information about the currently selected plane.
+}
+%%
 The space available from visualizing only the prism generated from the upper half of the cube diagonal is used to display information about the currently selected plane.
 %%
-The values are projected on this plane to give an overlapping-free view on the data points, which makes it easier to identify the current slice.
+The \magenta{regression metric values} are projected on this plane to provide an overlapping-free view.
+%%
+This allows for a easier to identify the current slice.
 %%
 \paragraph{2D Mosaic Plot Slice Visualization [4.DD].}
 %%
