@@ -39,6 +39,17 @@ The sections revised using this feedback are:
 * *5.2 Regression Cube Visualization* contains *Selecting and Scaling the Descriptive Regression Metric*, a new paragraph explaining the selection and scaling of the regression metrics
 * Paragraph *Mosaic Plot Slice Visualization* summarizes the features appearing as context information including the residual plot.
 
+Related Work
+------------
+
+The reviewers suggested several works, which need to be discussed as part of the Section **Related Work**. Hence, we added:
+
+* Z.Guo,M.O.Ward,andE.A.Rundensteiner.ModelSpaceVisualization for Multivariate Linear Trend Discovery. In Proc. of IEEE VAST, pages 75–82, 2009.
+* T. Mühlbacher and H. Piringer. A Partition-based Framework for Build- ing and Validating Regression Models. IEEE Trans. on Visualization and Computer Graphics, 19(12):1962–1971, 2013.
+* A. Maries, N. Mays, M. Hunt, K. F. Wong, W. Layton, R. Boudreau, C. Rosano, and G. E. Marai. GRACE: A Visual Comparison Framework for Integrated Spatial and Non-Spatial Geriatric Data. IEEE Trans. on Visualization and Computer Graphics, 19(12):2916–2925, 2013.
+* M. Sedlmair, C. Heinzl, S. Bruckner, H. Piringer, and T. Mo ̈ller. Visual Parameter Space Analysis: A Conceptual Framework. IEEE Trans. on Visualization and Computer Graphics, 20(12):2161–2170, 2014.
+
+
 User Interaction
 ----------------
 
@@ -139,7 +150,7 @@ A common concern was that relevant works in visual analytics area should be refe
 
 <i><font color='green'>
 
-  * TODO: Include
+  * The related work was substantially revised with the reviewers feedback in min. For details, please see [Related Work].
 
 </i></font>
 
@@ -165,8 +176,7 @@ This paper addresses an important problem. Modelling and parameter setting (para
 
 <i><font color='green'>
 
-  * Reply
-    * TODO
+  * The mentioned work is now integrated into the related work discussion.
 
 </i></font>
 
@@ -271,8 +281,7 @@ In terms of related work, similar domain analysis and related visualization work
 
 <i><font color='green'>
 
-  * TODO: GRACE: A Visual Comparison Framework
-for Integrated Spatial and Non-Spatial Geriatric Data
+  * The mentioned work is now integrated into the related work discussion.
 
 </i></font>
 
@@ -356,7 +365,7 @@ The strenghts and weaknesses balance for this paper. On the one hand, it propose
 
 <i><font color='green'>
 
-  * TODO Include the paper
+  * The mentioned work is now integrated into the related work discussion.
 
 </i></font>
 
