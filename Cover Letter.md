@@ -49,6 +49,12 @@ The reviewers suggested several works, which need to be discussed as part of the
 * A. Maries, N. Mays, M. Hunt, K. F. Wong, W. Layton, R. Boudreau, C. Rosano, and G. E. Marai. GRACE: A Visual Comparison Framework for Integrated Spatial and Non-Spatial Geriatric Data. IEEE Trans. on Visualization and Computer Graphics, 19(12):2916–2925, 2013.
 * M. Sedlmair, C. Heinzl, S. Bruckner, H. Piringer, and T. Mo ̈ller. Visual Parameter Space Analysis: A Conceptual Framework. IEEE Trans. on Visualization and Computer Graphics, 20(12):2161–2170, 2014.
 
+As the **Related Work** section became too lengthy with these changes, we cut the description of the following papers:
+
+* A. Rind, T. D. Wang, W. Aigner, S. Miksch, K. Wongsuphasawat, C. Plaisant, and B. Shneiderman. Interactive Information Visualization to Explore and Query Electronic Health Records. Foundations and Trends in Human-Computer Interaction, 5(3):207–298, 2013.
+* T. Schreck and D. Keim. Visual Analysis of Social Media Data. Com- puter, 46(5):68–75, 2013.
+* B. Shneiderman, C. Plaisant, and B. W. Hesse. Improving Healthcare With Interactive Visualization. Computer, 46(5):58–66, 2013.
+
 
 User Interaction
 ----------------
@@ -89,6 +95,7 @@ Additional Changes
   * [Reviewer 3] Discussed limitations of CFS algorithm in Section **4.3 Target-Variable-Dependent Dimension Reduction** and how we tackle them in Section **4.4 Abstracting Regression Results**.
   * [Reviewer 3] We added a check box as part of the file-upload step, which allows to skip the CFS preprocessing step. It is noted in Section **5.1 System Paradigm and Components**
   * [Reviewer 3] Fixed errors in Figure 1
+  * [Reviewer 3] Removed paragraph **Encoding via CSV Files**
 
 # VAST'15 Reviews "Regression Cube Analysis of Cohort Study Data "
 
@@ -458,6 +465,12 @@ It should be stated explicitly that the positioning of features in the cube take
 *Should anything be deleted or condensed from the writeup?*
 
 From a vis perspective, I think shortening or moving "Encoding via CSV Files" to supplemental material such as a manual of your implementation is also fine, if you need to gain space for modifications.
+
+<i><font color='green'>
+
+  * The paragraph was removed in order to shorten the paper
+
+</i></font>
 
 *Is the length of the paper appropriate for its contribution? Is it too long or too short?*
 

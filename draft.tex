@@ -428,21 +428,70 @@ For the latest two acquisitions (\texttt{SHIP-2} and \texttt{SHIP-TREND-0}), MRI
 However, most examinations occur in all stages and are performed according to the same instructions to enable comparisons over the different stages of the study.
 %%
 \section{Prior and Related Work}
-\com{TODO: Sort!}
+%% https://en.wikipedia.org/wiki/Exploratory_data_analysis#cite_note-Tukey1977-4
+In 1977, Tukey already stated that data are too often analyzed solely using confirmatory data analysis \cite{Tukey}.
+%%
+He emphasized the need to use data to derive hypotheses instead, which can then be tested again.
+%%
+In this section we present prior and related work trying to achieve this goal.
+%%
+\\\\
+%The work of M\"{u}hlbacher et al.~\cite{Muehlbacher}, Piringer et al.~\cite{Piringer}, Chan et al.~\cite{Chan} and Zhang et al.~\cite{Zhang2014} are closest related to ours regarding different aspects.
+\paragraph{Parameter Space Analysis using Regression Models.}
+%%
 \magenta{
 Sedlmair et al.~\cite{Sedlmair} present a conceptual framework of parameter space analysis.
 %%
-It includes a abstract application domain independent data flow model, navigation strategies for exploring parameter spaces as well a characterization of analysis tasks.
+%It includes a abstract application domain independent data flow model, navigation strategies for exploring parameter spaces as well a characterization of analysis tasks.
 %%
-The abstract description allows to sort approaches to find works with similar problems to derive new design ideas and evaluate ideas.
+The taxonomy allows to sort approaches to find works with similar problems to derive new design ideas and evaluate ideas.
 %%
-Based on their input parameter classification, we are visualizing \emph{model parameters} based on \emph{environmental parameters} in a \emph{global-to-local} navigation strategy.
+Based on their input parameter taxonomy, we are visualizing \emph{model parameters} based on \emph{environmental parameters} in a \emph{global-to-local} navigation strategy.
 %%
 We solve a \emph{fitting} task by aiming to find models well suited for describing the input data.
 }
 
 \magenta{
-Guo et al.~\cite{Guo} presented a multi-space visualizations to find linear relationships in the data with focus on extracting groups, which fit best.
+%% A Partition-based Framework for Building and Validating Regression Models
+The approach of M\"{u}hlbacher et al.~\cite{Muehlbacher} is closest to ours.
+%%
+They provide a framework for qualitative analyses of relationships and ranking features for numerical target features with regression models.
+%%
+%Correlations between features with the target yield a ordered matrix-plot, where feature combinations are used to depict models of interest.
+%A view for single-relationships with the target and single features as well as a matrix-plot for feature combinations are used to depict models of interest.
+%%
+%The visualization allows to assess different model complexities.
+%%
+Existing regression models can be validated and compared using 3D views and 2D slice-views.
+%%
+We employ the same steps by preprocessing features using correlations with the target and providing a overview over combinations.
+%%
+M\"{u}hlebacher et al. focus on a smaller number of features, which can be assessed in more detail, yielding a plot-matrix view, while we cover more features by abstracting the models.
+%%
+%We also take categorical targets and regression formula inputs into account.
+%%
+}
+
+%% HyperMoVal: Interactive Visual Validation of Regression Models for Real-Time Simulation
+Similarly, Piringer et al.~\cite{Piringer} proposed methods for visualizing regression analysis results and properties for developing car engines.
+%%
+Their main goal is to assess the pairwise influence of independent features w.r.t. the target feature using a plot matrix displaying models as contours.
+%%
+%They also incorporate 3D visualizations for each pairwise combination, but mainly because of its popularity with the target domain engineers.
+%%
+Linked views of model deviations allow to select outliers.
+%%
+This limits the method to comparing a few models at once as the plot matrix gets complex with increasing feature number.
+%%
+% The main difference is their focus on analyzing one complex model in detail, yielding extensive plots.
+% %%
+% We analyze a large amount of simpler models in terms of \emph{different} features.
+% %%
+% They also focus on metric features, while we process categorical data as well.
+%%
+\magenta{
+%%
+Guo et al.~\cite{Guo} presented a multi-space visualizations to find linear relationships in the data with focus on extracting groups of best fit.
 %%
 The data space is visualized using a scatter plot matrix.
 %%
@@ -452,64 +501,7 @@ The model view allows for assessing different models by color coding distances t
 %%
 The model-parameters can then be fine-tuned using line graphs, histograms and model projections.
 %%
-The paper is focused on finding and tuning a model for a specific relationship, while we search for models w.r.t. all combinations in the data set.
 }
-
-\magenta{
-M\"{u}hlbacher et al.~\cite{Muehlbacher} provide a framework for qualitative analyses of relationships and ranking features for numerical target features with regression models.
-%%
-A view for single-relationships with the target and single features as well as a matrix-plot for feature combinations are used to depict models of interest.
-%%
-The visualization allows to assess different model complexities.
-%%
-Existing regression models can be validated and compared using 3D views and 2D slice-views.
-%%
-We employ the same steps by assessing single-relationships with the target and providing a overview over combinations.
-%%
-M\"{u}hlebacher et al. focus on a smaller number of features, which can be assessed in more detail, yielding a plot-matrix view, while we cover more features by abstracting the models using color coded regression metrics.
-%%
-We also take categorical targets and regression formula inputs into account.
-%%
-Existing regression models can be validated and compared using 3D views and 2D slice-views.
-}
-
-\magenta{
-Maries et al.~\cite{GRACE} propose \texttt{GRACE}, a framework for visually exploring correlation of features with spatial and non-spatial geriatric data.
-%%
-Sparse Partial Least Squares Regression and Tikhonov Regularization are used to produce predictor subsets and quantify correlation strengths.
-%%
-A multi-view system linked spatial with non-spatial data and correlation coefficients are visualized using Kiviat diagrams (similar to star plots), correlations are plotted using p-values in the other views.
-%%
-Dendograms are used to select different brain regions. 
-}
-
-%% https://en.wikipedia.org/wiki/Exploratory_data_analysis#cite_note-Tukey1977-4
-In 1977, Tukey already stated that data are too often analyzed solely using confirmatory data analysis \cite{Tukey}.
-%%
-He emphasized the need to use data to derive hypotheses instead, which can then be tested again.
-%%
-In this section we present prior and related work trying to achieve this goal.
-%%
-\\\\
-The work of Piringer et al.~\cite{Piringer}, Chan et al.~\cite{Chan}, Angelelli et al.~\cite{Angelelli} and Zhang et al.~\cite{Zhang2014} are closest related to ours regarding different aspects.
-%% HyperMoVal: Interactive Visual Validation of Regression Models for Real-Time Simulation
-Akin to our approach, Piringer et al.~\cite{Piringer} propose methods for visualizing regression analysis results and properties for developing car engines.
-%%
-Their main goal is to assess the pairwise influence of independent features w.r.t. the target feature using a plot matrix displaying models as contours.
-%%
-They also incorporate 3D visualizations for each pairwise combination, but mainly because of its popularity with the target domain engineers.
-%%
-Linked views of model deviations allow to select outliers.
-%%
-This limits the method to comparing a few models at once as the plot matrix gets complex with increasing feature number.
-%%
-The main difference is their focus on analyzing one complex model in detail, yielding extensive plots.
-%%
-We analyze a large amount of simpler models in terms of \emph{different} features.
-%%
-They also focus on metric features, while we process categorical data as well.
-%%
-
 %% Regression Cube: A Technique for Multidimensional Visual Exploration and Interactive Pattern Finding
 We use the term `Regression Cube' for a comparative 3D representation of multiple regression models.
 %%
@@ -521,11 +513,18 @@ Similar to Piringer et al.~\cite{Piringer}, they focus on highlighting details o
 %%
 Insight is derived by subject grouping, which spawns new cube correlations and therefore allows drilling down to the data.
 %%
-In contrast to this approach, we focus on comparing models using quality-of-fit measures and do not focus on subdividing the data sets to gain insight.
+%In contrast to this approach, we focus on comparing models using quality-of-fit measures and do not focus on subdividing the data sets to gain insight.
 %%
-We model expert knowledge through the definition of regression formulas, which is not the focus of Chan et al.
+%We model expert knowledge through the definition of regression formulas, which is not the focus of Chan et al.
 %%
+Piringer et al.~\cite{Piringer} Guo et al.~\cite{Guo} and Chan et al.~\cite{Chan} focus on finding and tuning a model for a specific relationship, while we search for models w.r.t. all combinations in the data set.
+%%
+Instead of analyzing one complex model in detail, we process a large amount of models in terms of \emph{different} features.
+%We difference is their focus on analyzing one complex model in detail, yielding extensive plots.
+% %%
 
+\paragraph{Visual Analysis of Epidemiological Data.}
+%%
 Zhang et al.~\cite{Zhang2014, Gotz2014} is closest to our work regarding the application of visual analysis on cohort study data.
 %%
 They present \emph{Cohort Analysis via Visual Analytics} (\emph{CAVA}), a framework that distinguishes three major elements of cohort study data analysis: \emph{cohort data} (and its manipulation using operations), \emph{views} and \emph{analytics}.
@@ -542,6 +541,16 @@ We use their requirements as guidelines, which incorporate \emph{flexible} and \
 %%
 %We implement this by supporting both hypothesis-based and hypothesis-free analysis.
 
+\magenta{
+Maries et al.~\cite{GRACE} propose \texttt{GRACE}, a framework for visually exploring correlation of features with spatial and non-spatial geriatric data.
+%%
+Sparse Partial Least Squares Regression and Tikhonov Regularization are used to produce predictor subsets and quantify correlation strengths.
+%%
+A multi-view system linked spatial with non-spatial data and correlation coefficients are visualized using Kiviat diagrams (similar to star plots), correlations are plotted using p-values in the other views.
+%%
+Dendograms are used to select different brain regions. 
+}
+%%
 Angelelli et al.~\cite{Angelelli} visualize image-derived an non-image data using cube data structures with focus on comparison and knowledge extraction.
 %%
 Their proposed engine represents multiple heterogenous cohort study data sets as normalized data cubes.
@@ -557,34 +566,34 @@ They use \emph{Pearsson's} $r$ to depict relationships with target features and 
 %We use regression models and associated $R^2$ values to depict relationships between a target feature and multiple independent features instead of one and employ the information into one global visualization.
 %%
 In contrast, we aim for a fast large scale correlation analysis incorporating many features to derive insight into the data.
-
-\paragraph{Visual Analysis in Public Health.}
+%%
+%\paragraph{Visual Analysis in Public Health.}
 %%--
-Shneiderman et al.~\cite{Shneiderman2013} highlight the necessity of interactive visualizations in healthcare data. %, e.g. using \emph{Health 2.0}, which is an umbrella for web-based health-informatics frameworks.
-%%
-%They divide Health 2.0 in three domains, \emph{Personal health information}, \emph{clinical health information}, and \emph{public health information}.
-%%
-%We focus on the latter.
-%%
-%Shneiderman and colleagues also present challenges,
-The presented challenges in this application require the systems to be sufficiently comprehensible and intuitive to fit into the short time span that clinicians have for analyzing data.
-%%
-Furthermore, the systems should provide comparative relationship visualization, characterization of similarity and presenting risks.
+% Shneiderman et al.~\cite{Shneiderman2013} highlight the necessity of interactive visualizations in healthcare data. %, e.g. using \emph{Health 2.0}, which is an umbrella for web-based health-informatics frameworks.
+% %%
+% %They divide Health 2.0 in three domains, \emph{Personal health information}, \emph{clinical health information}, and \emph{public health information}.
+% %%
+% %We focus on the latter.
+% %%
+% %Shneiderman and colleagues also present challenges,
+% The presented challenges in this application require the systems to be sufficiently comprehensible and intuitive to fit into the short time span that clinicians have for analyzing data.
+% %%
+% Furthermore, the systems should provide comparative relationship visualization, characterization of similarity and presenting risks.
 %%
 %We use the challenges as design guidelines for our web-based prototype, focusing on functional clean designs to allow fast insight into relationships towards diseases.
 %%
 
-In their survey on interactive information visualizations for health record data, Rind et al.~\cite{Rind} identified future work addressing the usability of such frameworks.
-%%
-%We follow their recommendation in designing an open system available to everyone, applicable to a various data sets.
-%%
-We follow their recommendation to design an open system available to everyone and applicable to various data sets.
-%%
-Schreck and Keim \cite{Schreck} present a method for analyzing social media data with focus on characterization and cause of an epidemic.
-%%
-They employ data aggregation techniques and use geographical data to map social media events, focusing on word clouds to derive insight into possible causes.
-%%
-They derive hypotheses using their high variation average message density algorithms, steering the user's focus to particular events.
+% In their survey on interactive information visualizations for health record data, Rind et al.~\cite{Rind} identified future work addressing the usability of such frameworks.
+% %%
+% %We follow their recommendation in designing an open system available to everyone, applicable to a various data sets.
+% %%
+% We follow their recommendation to design an open system available to everyone and applicable to various data sets.
+% %%
+% Schreck and Keim \cite{Schreck} present a method for analyzing social media data with focus on characterization and cause of an epidemic.
+% %%
+% They employ data aggregation techniques and use geographical data to map social media events, focusing on word clouds to derive insight into possible causes.
+% %%
+% They derive hypotheses using their high variation average message density algorithms, steering the user's focus to particular events.
 %%
 %The focus remains on geolocated social media data rather than subjects with multiple dimensions.
 %%
@@ -660,11 +669,10 @@ We try to reproduce their results and investigate findings presented by Niemann 
 \paragraph{Prior Work.}
 In our prior work, we analyzed the healthy aging process of the lumbar spine.
 %%
-We utilized semi-automatic algorithms do detect the lumbar spine shape \cite{Klemm2013VMV, Rak2013}.
+%We utilized semi-automatic algorithms do detect the lumbar spine shape \cite{Klemm2013VMV, Rak2013}.
 %%
 %The reliable part of the presented models are represented by the shape of the lumbar spine canal, which was extracted and described using line representation.
 %%
-
 We defined an Interactive Visual Analysis workflow for image-centric cohort study data \cite{Klemm2014VIS}. 
 %%
 We extended the feature selection step (recall Sec. \ref{sec:Background}) with an iterative analysis loop incorporating group selection and visualization using expert input as well as clustering methods.
@@ -1204,21 +1212,21 @@ Each line after that represents one subject (row) and its feature manifestations
 %%
 \magenta{Using a check-box, the user can disable the CFS preprocessing step, which is useful for small data sets, where the user does not want to reduce the number of features.}
 
-\textbf{Encoding via CSV Files.}
-%%
-Encoding variable types in CSV files is not standardized.
-%%
-However, we need to ensure the correct variable type classification and have to enforce some basic standards.
-%%
-All categorical values have to be enclosed by quotation marks.
-%%
-Continuous variables are denoted as digits without enclosing quotation marks.
-%%
-Although this seems obvious, many cohort study data sets encode categorical features using ID values that are denoted in a data dictionary.
-%%
-Variables with only two manifestations are classified as dichotomous, leading to three possible data types: numerical, categorical and categorical/dichotomous.
-%%
-Missing values are denoted by using no character at all, a whitespace, or an empty quotation mark encapsulated string.
+% \textbf{Encoding via CSV Files.}
+% %%
+% Encoding variable types in CSV files is not standardized.
+% %%
+% However, we need to ensure the correct variable type classification and have to enforce some basic standards.
+% %%
+% All categorical values have to be enclosed by quotation marks.
+% %%
+% Continuous variables are denoted as digits without enclosing quotation marks.
+% %%
+% Although this seems obvious, many cohort study data sets encode categorical features using ID values that are denoted in a data dictionary.
+% %%
+% Variables with only two manifestations are classified as dichotomous, leading to three possible data types: numerical, categorical and categorical/dichotomous.
+% %%
+% Missing values are denoted by using no character at all, a whitespace, or an empty quotation mark encapsulated string.
 
 \textbf{Data Security.}
 %%
