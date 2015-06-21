@@ -540,16 +540,6 @@ Sub-groups are automatically created by incorporating \emph{analytics} and throu
 We use their requirements as guidelines, which incorporate \emph{flexible} and \emph{iterative analysis}. %, meaning that the system has to adapt to different requirements in different analysis steps.
 %%
 %We implement this by supporting both hypothesis-based and hypothesis-free analysis.
-
-\magenta{
-Maries et al.~\cite{GRACE} propose \texttt{GRACE}, a framework for visually exploring correlation of features with spatial and non-spatial geriatric data.
-%%
-Sparse Partial Least Squares Regression and Tikhonov Regularization are used to produce predictor subsets and quantify correlation strengths.
-%%
-A multi-view system linked spatial with non-spatial data and correlation coefficients are visualized using Kiviat diagrams (similar to star plots), correlations are plotted using p-values in the other views.
-%%
-Dendograms are used to select different brain regions. 
-}
 %%
 Angelelli et al.~\cite{Angelelli} visualize image-derived an non-image data using cube data structures with focus on comparison and knowledge extraction.
 %%
@@ -610,11 +600,22 @@ They incorporate linked views using scatter plots, bar charts, parallel coordina
 %%
 %%We distinguish to this and other linked-view analysis based approaches by showing abstracted information derived from a preceding analyze-first step to highlight relationships rather than displaying the actual data using various information visualization techniques.
 %%
-Generalized Pairs plots (\texttt{GPLOM'S}) extend the idea of scatter plot matrices by the pairwise depiction of heterogeneous data using type-combination-dependent visualizations \cite{GPLOMS, Francois2013}.
-%%
 The techniques are useful for selected features or a data set with a small number of features due to their increase in complexity with every additional parameter.
 %%
 They are therefore suitable for \emph{small} epidemiological data sets.
+%%
+\magenta{
+Maries et al.~\cite{GRACE} propose \texttt{GRACE}, a framework for visually exploring correlation of features with spatial and non-spatial geriatric data.
+%%
+Sparse Partial Least Squares Regression and Tikhonov Regularization are used to produce predictor subsets and quantify correlation strengths.
+%%
+A multi-view system linked spatial with non-spatial data and correlation coefficients are visualized using Kiviat diagrams (similar to star plots), correlations are plotted using p-values in the other views.
+%%
+%Dendograms are used to select different brain regions. 
+Instead of applying several linked views, we focus on one view of abstracted data.
+}
+
+Generalized Pairs plots (\texttt{GPLOM'S}) extend the idea of scatter plot matrices by the pairwise depiction of heterogeneous data using type-combination-dependent visualizations \cite{GPLOMS, Francois2013}.
 %%
 Dai et al.~\cite{Dai2005} incorporate a \texttt{GPLOM}-like visualization using choropleth maps mapping spatial data, such as mortality rates together with scatter plots augmented with \emph{Pearsson's} $r$ values.
 %%
