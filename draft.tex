@@ -1129,7 +1129,7 @@ For example, it can be utilized for comparing the influence of a single feature 
 %%
 %Albeit our focus on epidemiological data sets, we designed our system to be open with open formats as input interfaces .
 %%
-We designed our system to be openly accessible and easy to use.
+\noindent We designed our system to be openly accessible and easy to use.
 %%
 With open formats as input interfaces, the application can be extended to non-epidemiological data sets.
 %%
@@ -1143,7 +1143,7 @@ Therefore, the system has to be intuitive and comprehensive in order to be adapt
 %%
 \design{
 %A key requirement was little set up time to reduce the effort on the domain expert side, as they are mostly practicing clinicians with small time-frames for epidemiological research.
-The design choice of using web-based technologies offers various advantages w.r.t. the collaboration with epidemiologists.
+Using web-based technologies offers various advantages w.r.t. the collaboration with epidemiologists.
 %%
 Since they are usually practicing clinicians, they usually have little time to wrangle software.
 %%
@@ -1392,8 +1392,10 @@ Also we provide a zoom functionality using the mouse wheel input.
 In order to \emph{Zoom, Filter and Analyze Further}, the user has to navigate to different slices of interest.
 %%
 We propose two ways to achieve this.
-\begin{itemize}
-	\item \emph{Applying the slicing metaphor from 3D volume data.}
+
+%\begin{itemize}
+	%\item 
+	\textbf{Applying the slicing metaphor from 3D volume data.}
 	%%
 	In medical volume data renderings, slicing views are very common to view details on a selected plane in the scene.
 	%%
@@ -1407,9 +1409,11 @@ We propose two ways to achieve this.
 	%%
 	}
 	%%
-	\item \emph{Selecting the slice using a dropdown menu} provides fast access to plane selections when the user already knows the slices of interest.
+	%\item 
+	
+	\textbf{Selecting the slice using a dropdown menu} provides fast access to plane selections when the user already knows the slices of interest.
 	%%
-\end{itemize}
+%\end{itemize}
 %%
 The currently selected slice is denoted with a semi-transparent gray plane.
 %%
@@ -1468,8 +1472,8 @@ Epidemiologists use such plots to validate models w.r.t. the model assumptions, 
 We rely on web-based technologies for our prototype.
 %%
 The ongoing transition of open-science software into the web spawned numerous projects, making state-of-the-art algorithms available in this domain.
-%%
-\paragraph{Front-End.}
+
+%\paragraph{Front-End.}
 %%
 The front-end is created using \texttt{HTML5}, \texttt{CSS3} and \texttt{Javascript}.
 %%
@@ -1485,17 +1489,17 @@ It provides fast and easy methods for binding data to graphical elements.
 %%
 The 3D plot is created using the WebGL-based \texttt{Threejs}\footnote{Open Source; Originally developed by R. Cabello, \href{http://threejs.org}{\texttt{threejs.org}}} library.
 %%
-We experimented with different ways for achieving the cube representation, including volume rendering, cube primitives for each data point and shader-based solutions.
-%%
-Open source volume rendering methods are available but do not satisfy our requirements.
-%%
-Creating a cube primitive for each data point resulted in non-interactive frame-rates for data sets larger than 30 features (creating 30$^3$ cube primitives).
-%%
-Therefore, we decided to use a shader-based solution by rendering the cube as a sprite-based particle system, allowing to customize color and opacity of every data point.
-%%
-It also is the fastest solution that we tested.
+% We experimented with different ways for achieving the cube representation, including volume rendering, cube primitives for each data point and shader-based solutions.
+% %%
+% Open source volume rendering methods are available but do not satisfy our requirements.
+% %%
+% Creating a cube primitive for each data point resulted in non-interactive frame-rates for data sets larger than 30 features (creating 30$^3$ cube primitives).
+% %%
+% Therefore, we decided to use a shader-based solution by rendering the cube as a sprite-based particle system, allowing to customize color and opacity of every data point.
+% %%
+% It also is the fastest solution that we tested.
 
-\paragraph{Back-End.}
+%\paragraph{Back-End.}
 Two server structures serve as back-end.
 %%
 The first one is the web-server, which is written in \texttt{Javascript} using \texttt{Node.js}\footnote{Open Source; Maintained by Joyent Inc, \href{http://nodejs.org}{\texttt{nodejs.org}}}, running on Googles V8 Javascript runtime environment.
@@ -1513,13 +1517,13 @@ It is widely adopted in the statistical analysis community, yielding a rich supp
 %%
 This way, any computer, which runs \texttt{R} can be turned into a statistical processor for our project.
 %%
-The back-end functions necessary for all cube calculations are provided via an \texttt{R} package.
-%%
-It uses multi-core optimization to use all machine CPUs to speed up the calculation process.
-%%
-The server workload balances are managed by the front-end code.
+% The back-end functions necessary for all cube calculations are provided via an \texttt{R} package.
+% %%
+% It uses multi-core optimization to use all machine CPUs to speed up the calculation process.
+% %%
+% The server workload balances are managed by the front-end code.
 
-\paragraph{Access and Source.}
+%\paragraph{Access and Source.}
 %%
 A running instance of the \emph{Regression Cube} prototype can be found under \href{http://regressioncube.herokuapp.com/}{\texttt{regressioncube.herokuapp.com}}.
 %%
