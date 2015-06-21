@@ -2,8 +2,8 @@ This cover letter is written in Markdown
 
 <!--TOC-->
 
-Cover Letter
-============
+Cover Letter Introduction
+=========================
 
 At first, we'd like to thank all reviewers for the detailed feedback on this paper. The work underwent substantial changes and enhancements. We extended the Regression Cube to display various descriptive metrics for regression models, empahsized how expert feedback influenced the design choices, revised all figures and included previously missing important related work.
 
@@ -14,6 +14,12 @@ Code changes can be tracked in the GIT repositories [of the R back-end package](
 
 Changes
 =======
+
+
+New Title
+---------
+
+We changed the title of the paper. It now refers to *population study data* instead of *cohort study data*. *Cohorts* might imply for some experts with background in epidemiology, that the paper focuses on the analysis of multiple time points, as a cohort defines a population, which is analyzed using multiple acquisition cycles.
 
 Regression Metrics
 ------------------
@@ -66,12 +72,12 @@ User Interaction
 Support Design Decisions with Expert Feedback
 ---------------------------------------------
 
-One main complaint was the lack of supporting design decisions using expert feedback ([Reviewer 4 - Primary],[Reviewer 2]). We revised Section *4 Regression Cube Analysis of Cohort Study Data* and Section *5 System Design* as well as the contributions with this feedback in mind. We focused on telling the story on how different elements of the project were derived from joint analysis sessions and which purpose they serve.
+One main complaint was the lack of supporting design decisions using expert feedback ([Reviewer 4 - Primary],[Reviewer 2]). We revised Section *4 Regression Cube Analysis of Population Study Data* and Section *5 System Design* as well as the contributions with this feedback in mind. We focused on telling the story on how different elements of the project were derived from joint analysis sessions and which purpose they serve.
 
 Details on the changes are as follows:
 
   * [Reviewer 2] Following Munzners "A Nested Model for Visualization Design and Validation" as suggested, we revised the contributions in the **Introduction**
-  * *4 Regression Cube Analysis of Cohort Study Data*
+  * *4 Regression Cube Analysis of Population Study Data*
     * Added new subsection *Iterative Design Based on Expert Feedback* to explain how expert feedback was incorporated in the design
     * Subsection *Abstracting Regression Results*: Explained how expert feedback is included in selecting the respective regression metrics
     * Paragraph *Hypothesis-Free and Hypothesis-Based Analysis*: Motivated the different approaches with examples from the epidemiological application domain
@@ -83,13 +89,14 @@ Details on the changes are as follows:
     * Paragraph *3D Prism as Data Mini-Map* goes into details on early prototypes of the 3D prism and why these designs were discarded
     * [Reviewer 2] Justified selection of interaction techniques
     * [Reviewer 3] The paragraph **Cube Slice Selection** of Section **5.2 Regression Cube Visualization** was revised to be more precise. The area below the prism is in fact be used to identify the correct position of the current slice.
+    * Shortened **Implementation** Section to save space
 
 Additional Changes
 ------------------
 
-  * [Reviewer 1] It was criticised, that it is not clear how the found models are investigated further. Therefore, we clarified this in the introduction of Section *4 Regression Cube Analysis of Cohort Study Data* as well as in the introduction of Section *5 System Design*
+  * [Reviewer 1] It was criticised, that it is not clear how the found models are investigated further. Therefore, we clarified this in the introduction of Section *4 Regression Cube Analysis of Population Study Data* as well as in the introduction of Section *5 System Design*
   * [Reviewer 1] Elaborate more on the limitation of having only three dynamic variables. We discussed this limitation in Section *8 Summary and Outlook* by suggesting 3D projections of hypercubes spanned by more than 3 dynamic regression variables.
-  * [Reviewer 2] Security issues are now indicated at the beginning of Section **4 Regression Cube Analysis of Cohort Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**
+  * [Reviewer 2] Security issues are now indicated at the beginning of Section **4 Regression Cube Analysis of Population Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**
   * [Reviewer 2] We revised a large number of long sentenced to either split them up or to simplify them.
   * [Reviewer 2] Citations are now treated as gramatically invisible
   * [Reviewer 3] Discussed limitations of CFS algorithm in Section **4.3 Target-Variable-Dependent Dimension Reduction** and how we tackle them in Section **4.4 Abstracting Regression Results**.
@@ -97,7 +104,7 @@ Additional Changes
   * [Reviewer 3] Fixed errors in Figure 1
   * [Reviewer 3] Removed paragraph **Encoding via CSV Files**
 
-# VAST'15 Reviews "Regression Cube Analysis of Cohort Study Data "
+# VAST'15 Reviews "Regression Cube Analysis of Population Study Data "
 
 # Reviewer 4 - Primary
 
@@ -149,7 +156,7 @@ It was suggested that the manuscript could be further strengthened by better str
 <i><font color='green'>
 
   * Advantages of the web-based approach regarding the epidemiological application domain is covered as part of [Support Design Decisions with Expert Feedback] by discussing it at the beginning of the *System Design* section
-  * Security issues are now indicated at the beginning of Section **4 Regression Cube Analysis of Cohort Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**
+  * Security issues are now indicated at the beginning of Section **4 Regression Cube Analysis of Population Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**
 
 </i></font>
 
@@ -204,7 +211,7 @@ The authors say that the models found with Rsquared measure need to be further i
 
   * Reply
     * The focus of the paper is providing overview visualizations based on regression analyses. It is not suited for detailed regression analyses producing final statements about the statistical validity of a hypothesis. This step incorporates including confounding features and requires a sound statistical background of the user. These calculations are carried out using statistical processors, such as SPSS or STATA.
-    * We agree with the feedback that the further analysis steps were not clear. Hence, we revised the introduction of Section *4 Regression Cube Analysis of Cohort Study Data* as well as in the introduction of Section *5 System Design*
+    * We agree with the feedback that the further analysis steps were not clear. Hence, we revised the introduction of Section *4 Regression Cube Analysis of Population Study Data* as well as in the introduction of Section *5 System Design*
     * The lesson learned **Extracted Hypotheses Have to be Investigated Further** is solely focused on how the analysis can be carried out
 
 </i></font>
@@ -270,7 +277,7 @@ If the solution is not particularly striking or novel, the decision to do it in 
 
 <i><font color='green'>
 
-  * This feedback led to a substantial revision of Section **4 Regression Cube Analysis of Cohort Study Data** and **5 System Design** to incorporate how user feedback affected the design decisions. See [Support Design Decisions with Expert Feedback] for details.
+  * This feedback led to a substantial revision of Section **4 Regression Cube Analysis of Population Study Data** and **5 System Design** to incorporate how user feedback affected the design decisions. See [Support Design Decisions with Expert Feedback] for details.
   * Also, as suggested, the contributions were revised to capture the different levels of Munzners "A Nested Model for Visualization Design and Validation".
 
 </i></font>
@@ -280,7 +287,7 @@ The manuscript could be further strengthened by better structuring the domain re
 <i><font color='green'>
 
   * Advantages of the web-based approach regarding the epidemiological application domain is covered as part of [Support Design Decisions with Expert Feedback] by discussing it at the beginning of the *System Design* section
-  * Security issues are now indicated at the beginning of Section **4 Regression Cube Analysis of Cohort Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**
+  * Security issues are now indicated at the beginning of Section **4 Regression Cube Analysis of Population Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**
 
 </i></font>
 

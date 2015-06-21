@@ -73,7 +73,7 @@
 
 %% Paper title.
 
-\title{Regression Cube Analysis of Cohort Study Data}
+\title{Regression Cube Analysis of Population Study Data}
 
 %% This is how authors are specified in the journal style
 
@@ -90,13 +90,13 @@
 }
 
 %other entries to be set up for journal
-\shortauthortitle{Klemm \MakeLowercase{\textit{et al.}}: Regression Cube Analysis of Cohort Study Data}
+\shortauthortitle{Klemm \MakeLowercase{\textit{et al.}}: Regression Cube Analysis of Population Study Data}
 %\shortauthortitle{Firstauthor \MakeLowercase{\textit{et al.}}: Paper Title}
 
 %% Abstract section.
 \abstract{%
 %\com{Problem}.
-Epidemiological studies comprise heterogeneous data about a subject group (a \emph{cohort}) to define disease-specific risk factors.
+Epidemiological studies comprise heterogeneous data about a subject group to define disease-specific risk factors.
 %%
 These data contain information (\emph{features}) about a subject's lifestyle, medical condition as well as medical image data.
 %%
@@ -297,7 +297,7 @@ In this work, we focus on a similar approach to derive insight and even new hypo
 %%
 There are many data acquisition modalities available to epidemiologists, which are suitable for different analysis types.
 %%
-We focus on cohort studies, which impose the largest data sets and yield a highly heterogenous and incomplete information space.
+We focus on population studies, which impose the largest data sets and yield a highly heterogenous and incomplete information space.
 %%
 Subject data are collected either regarding a specific disease or with the widest range possible.
 %%
@@ -320,11 +320,11 @@ However, this should be avoided, since it reduces the information space.
 It also introduces a new information bias, as assumptions are modeled through the discretization.
 %%
 
-Medical image data are also acquired and analyzed in modern cohort studies.
+Medical image data are also acquired and analyzed in modern population studies.
 %%
 We incorporate image-derived features, but do not focus on analyzing image data.
 %%
-More discussions of cohort study data types and characteristics can be found in the works of Preim et al.~\cite{Preim2014} and Toennies et al.~\cite{Toennies2015}.
+More discussions of population study data types and characteristics can be found in the works of Preim et al.~\cite{Preim2014} and Toennies et al.~\cite{Toennies2015}.
 %%
 \\\\
 Features influencing the exposure as well as the outcome of an analysis are called \emph{confounders} and have to be specially treated.
@@ -333,7 +333,7 @@ The analysis model has to be adjusted by normalizing all included features w.r.t
 %%
 \emph{Age} is included as confounder in almost any epidemiological analysis, since most diseases (such as different cancer types) are more likely for older subjects.
 %%
-It also influences the general body condition and thereby almost all features acquired through cohort studies.
+It also influences the general body condition and thereby almost all features acquired through population studies.
 %%
 Another important confounder is \emph{gender}.
 %%
@@ -415,7 +415,7 @@ The \texttt{SHIP}, located in Northern Germany, aims to characterize health and 
 %%
 It does not focus on a specific disease, making the data set open for many diseases.
 %%
-Unique for the \texttt{SHIP} is the acquisition of medical image data per cohort subject.
+Unique for the \texttt{SHIP} is the acquisition of medical image data per participant.
 %%
 A second cohort, \texttt{SHIP-TREND} was started in 2012.
 %%
@@ -611,7 +611,7 @@ Sparse Partial Least Squares Regression and Tikhonov Regularization are used to 
 %%
 A multi-view system linked spatial with non-spatial data and correlation coefficients are visualized using Kiviat diagrams (similar to star plots), correlations are plotted using p-values in the other views.
 %%
-%Dendograms are used to select different brain regions. 
+%Dendograms are used to select different brain regions.
 Instead of applying several linked views, we focus on one view of abstracted data.
 }
 
@@ -679,11 +679,11 @@ In our prior work, we analyzed the healthy aging process of the lumbar spine.
 %%
 %The reliable part of the presented models are represented by the shape of the lumbar spine canal, which was extracted and described using line representation.
 %%
-We defined an Interactive Visual Analysis workflow for image-centric cohort study data \cite{Klemm2014VIS}. 
+We defined an Interactive Visual Analysis workflow for image-centric population study data \cite{Klemm2014VIS}.
 %%
 We extended the feature selection step (recall Sec. \ref{sec:Background}) with an iterative analysis loop incorporating group selection and visualization using expert input as well as clustering methods.
 %%
-Information visualizations of cohort study features were augmented with extracted image data, yielding linked views with both image and non-image information.
+Information visualizations of population study features were augmented with extracted image data, yielding linked views with both image and non-image information.
 %%
 The mosaic plot \cite{Klemm2014VIS} highlights the pairwise correlation between features without a target disease by depicting the \emph{Cram\'{e}r's V} contingency values.
 %%
@@ -708,7 +708,7 @@ The difference of the presented approach in comparison with our previous and rel
 	%%
 \end{enumerate}
 %%
-\section{Regression Cube Analysis of Cohort Study Data}
+\section{Regression Cube Analysis of Population Study Data}
 \magenta{
 The \emph{Regression Cube} is designed to provide overview visualizations to support hypothesis generation.
 %%
@@ -741,7 +741,7 @@ The domain experts wanted to \emph{model knowledge} about the investigated condi
 %%
 For explorative analysis, they preferred an approach, which highlights associations w.r.t. various target features to both check for medical soundness of the data as well as detecting unexpected relationships.
 %%
-%Concerns regarding security issues the web-based approach were raised by domain experts due to the 
+%Concerns regarding security issues the web-based approach were raised by domain experts due to the
 Additionally, due to the sensitive nature of population study data, the data has to be handled secure.
 %%
 Technical measures taken to enable a secure transfer and storage are described later in the Section~\ref{sec:SystemDesign}.
@@ -902,7 +902,7 @@ As described in our previous work \cite{Klemm2014VIS}, correlation values scaled
 %%
 Regression models are more complex, having many associated describing metrics.
 %%
-For the \emph{Regression Cube} analysis we are interested in the quality-of-fit of the resulting model. 
+For the \emph{Regression Cube} analysis we are interested in the quality-of-fit of the resulting model.
 %%
 This allows to infer about the predictive quality of the independent features included in the model.
 %%
@@ -1339,7 +1339,7 @@ This approach was not popular with our domain experts, because the complexity of
 %%
 }
 %%
-The 3D cube representation \design{was redesigned to} act as an overview over the whole data set. 
+The 3D cube representation \design{was redesigned to} act as an overview over the whole data set.
 %%
 Its purpose is not to derive detailed information about data points.
 %%
@@ -1394,7 +1394,7 @@ In order to \emph{Zoom, Filter and Analyze Further}, the user has to navigate to
 We propose two ways to achieve this.
 
 %\begin{itemize}
-	%\item 
+	%\item
 	\textbf{Applying the slicing metaphor from 3D volume data.}
 	%%
 	In medical volume data renderings, slicing views are very common to view details on a selected plane in the scene.
@@ -1409,8 +1409,8 @@ We propose two ways to achieve this.
 	%%
 	}
 	%%
-	%\item 
-	
+	%\item
+
 	\textbf{Selecting the slice using a dropdown menu} provides fast access to plane selections when the user already knows the slices of interest.
 	%%
 %\end{itemize}
@@ -1822,7 +1822,7 @@ We found supporting mini-map visualizations, such as the 3D cube, most useful fo
 %%
 \section{Summary and Outlook}
 %%
-We presented a technique for knowledge discovery in cohort study data sets with user-defined target features.
+We presented a technique for knowledge discovery in population study data sets with user-defined target features.
 %%
 Dimension reduction using the target restricts the analysis to the most important features.
 %%
