@@ -2,7 +2,13 @@
 
 This is the working repository for the paper `Regression Cube Analysis of Population Study Data`.
 
+Important files
+
+- `draft.tex` contains the LaTeX input for the paper.
+- `Cover Letter.md` contains the feedback from the reviewers based on the `Reviews.md`. It contains [Marked 2](http://marked2app.com/) specific markdown to generate a table of contents.
+
 Timeline
+
 - [2015-03-31] Submitted to VAST'15.
 - [2015-06-07] Conditionally accepted at VAST'15. Reviews can be found at Reviews.md.
 
