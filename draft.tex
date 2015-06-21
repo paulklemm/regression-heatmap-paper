@@ -441,6 +441,38 @@ Based on their input parameter classification, we are visualizing \emph{model pa
 We solve a \emph{fitting} task by aiming to find models well suited for describing the input data.
 }
 
+\magenta{
+Guo et al.~\cite{Guo} presented a multi-space visualizations to find linear relationships in the data with focus on extracting groups, which fit best.
+%%
+The data space is visualized using a scatter plot matrix.
+%%
+Linear models are calculated by defining dependent and independent features.
+%%
+The model view allows for assessing different models by color coding distances to the line-of-fit.
+%%
+The model-parameters can then be fine-tuned using line graphs, histograms and model projections.
+%%
+The paper is focused on finding and tuning a model for a specific relationship, while we search for models w.r.t. all combinations in the data set.
+}
+
+\magenta{
+M\"{u}hlbacher et al.~\cite{Muehlbacher} provide a framework for qualitative analyses of relationships and ranking features for numerical target features with regression models.
+%%
+A view for single-relationships with the target and single features as well as a matrix-plot for feature combinations are used to depict models of interest.
+%%
+The visualization allows to assess different model complexities.
+%%
+Existing regression models can be validated and compared using 3D views and 2D slice-views.
+%%
+We employ the same steps by assessing single-relationships with the target and providing a overview over combinations.
+%%
+M\"{u}hlebacher et al. focus on a smaller number of features, which can be assessed in more detail, yielding a plot-matrix view, while we cover more features by abstracting the models using color coded regression metrics.
+%%
+We also take categorical targets and regression formula inputs into account.
+%%
+Existing regression models can be validated and compared using 3D views and 2D slice-views.
+}
+
 %% https://en.wikipedia.org/wiki/Exploratory_data_analysis#cite_note-Tukey1977-4
 In 1977, Tukey already stated that data are too often analyzed solely using confirmatory data analysis \cite{Tukey}.
 %%
