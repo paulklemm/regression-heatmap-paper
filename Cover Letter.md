@@ -7,7 +7,7 @@ Cover Letter Introduction
 
 At first, we'd like to thank all reviewers for the detailed feedback on this paper. The work underwent substantial changes and enhancements. We extended the Regression Cube to display various descriptive metrics for regression models, empahsized how expert feedback influenced the design choices, revised all figures and included previously missing important related work.
 
-This cover letter is divided into two parts. The first highlights major changes to the paper. The second part covers the reviewer feedback with our inline comments to the individual reviews, which are for the most parts pointers to the first section to reduce redundancy.
+This cover letter is divided into two parts. The first highlights major changes to the paper. The second part covers the reviewer feedback with our inline comments to the individual reviews, which are for the most parts pointers to the first section to reduce redundancy. We covered all suggestions and corrections from the reviewers, but not all are commented inline below.
 
 *All changes can be found on the running instance of the Cube under [regressioncube.herokuapp.com](regressioncube.herokuapp.com)*.
 Code changes can be tracked in the GIT repositories [of the R back-end package](https://github.com/paulklemm/regression-cube-r-package/commits) and [the Javascript/HTML5/CSS front-end and Node back-end](https://github.com/paulklemm/regression-cube-prototype/commits).
@@ -50,10 +50,10 @@ Related Work
 
 The reviewers suggested several works, which need to be discussed as part of the Section **Related Work**. Hence, we added:
 
-* Z.Guo,M.O.Ward,andE.A.Rundensteiner.ModelSpaceVisualization for Multivariate Linear Trend Discovery. In Proc. of IEEE VAST, pages 75–82, 2009.
+* Z. Guo, M. O. Ward, and E. A. Rundensteiner. Model Space Visualization for Multivariate Linear Trend Discovery. In Proc. of IEEE VAST, pages 75–82, 2009.
 * T. Mühlbacher and H. Piringer. A Partition-based Framework for Build- ing and Validating Regression Models. IEEE Trans. on Visualization and Computer Graphics, 19(12):1962–1971, 2013.
 * A. Maries, N. Mays, M. Hunt, K. F. Wong, W. Layton, R. Boudreau, C. Rosano, and G. E. Marai. GRACE: A Visual Comparison Framework for Integrated Spatial and Non-Spatial Geriatric Data. IEEE Trans. on Visualization and Computer Graphics, 19(12):2916–2925, 2013.
-* M. Sedlmair, C. Heinzl, S. Bruckner, H. Piringer, and T. Mo ̈ller. Visual Parameter Space Analysis: A Conceptual Framework. IEEE Trans. on Visualization and Computer Graphics, 20(12):2161–2170, 2014.
+* M. Sedlmair, C. Heinzl, S. Bruckner, H. Piringer, and T. Möller. Visual Parameter Space Analysis: A Conceptual Framework. IEEE Trans. on Visualization and Computer Graphics, 20(12):2161–2170, 2014.
 
 As the **Related Work** section became too lengthy with these changes, we cut the description of the following papers:
 
@@ -104,29 +104,11 @@ Additional Changes
   * [Reviewer 3] Fixed errors in Figure 1
   * [Reviewer 3] Removed paragraph **Encoding via CSV Files**
 
-# VAST'15 Reviews "Regression Cube Analysis of Population Study Data "
+Reviews
+=======
 
-# Reviewer 4 - Primary
-
-- Overall Rating: 4: Good contribution
-- Topic Classification
-- Type: System Type: Application
-- Topic: Visual representation and interaction technique
-- Topic: Data handling and knowledge representation
-- Topic: Model visualization and optimization
-- Best Paper Award: Maybe
-- Contribution to the field of Visual Analytics: This is an application paper, and the main contribution is in its satisfaction of the requirements of domain expert analysts as they address real problems.
-- Expertise: 3 (Knowledgeable)
-
-### The Review
-The strength of the submissions is that the application is an important one and the program actually works. It appears that it meets the requirements of the expert users.The weakness of the paper is that the text is dense and a challenge to read.
-This submission is flagged as an application paper, and so it should show evidence of Impact in solving real world problems, Novelty in extending into an application area, Innovative reuse and adaptation of existing techniques or Insight into the experience design, engineering, evaluation and deployment.
-In my estimation the case for accepting this paper is primarily in its potential for impact on a real-world application. It is also in a subject domain where there are not many VA applications, and it reuses and adapts existing techniques. This in my opinion makes a prima-facie case for acceptance. The argument for not accepting the paper would be that it fails in enough of these criteria that it would fall below threshold, or that it has technical flaws that are severe enough that its acceptance could cause others to make similar errors.While I am not an expert in epidemiological statistical analysis the compromises that are made appear to be reasonable. I see nothing in the paper that would give me a reason not to accept it.
-
-*Main Recommendation: Acceptable for presentation
-*Additional Recommendation about TVCG Publication: This paper is potentially acceptable to TVCG but authors may need more revision time (> 3 weeks).*
-
-### The Summary Review
+The Summary Review
+------------------
 
 Reviewers agree that the paper addresses an important problem, and the high level of contact with experts makes this a good application paper. They are concerned in the general sense that linear regression modelling experts need to assess more criteria in order to select best models. There are a matrix of measures such as adjusted R square, F statistic, p-values etc. that are often used to understand a multiple regression. Other measures such as the Akaike Information Criterion can help analysts to compare models with different power e.g. number of variables. Other metrics such as the distribution of residuals can also be useful (and sometimes essential) to make decisions about models.
 
@@ -509,3 +491,24 @@ In Figure 3, why do you show a blue (dichotomous) target in the 2D mosaic plot, 
 - [KJ97] R. Kohavi and G. H. John. Wrappers for feature subset selection. Artificial Intelligence, 97(1):273–324, 1997
 - [MP13] T. Mühlbacher and H. Piringer. A Partition-Based Framework for Building and Validating Regression Models. IEEE Trans. on Visualization and Computer Graphics (VAST ’13), 19(12):1962–1971, 2013
 - [SS04] J. Seo and B. Shneiderman. A rank-by-feature framework for unsupervised multidimensional data exploration using low dimensional projections. In Proc. IEEE Symp. on Information Visualization 2004 (InfoVis 2004), pages 65–72, 2004.
+
+Reviewer 4 - Primary
+--------------------
+
+- Overall Rating: 4: Good contribution
+- Topic Classification
+- Type: System Type: Application
+- Topic: Visual representation and interaction technique
+- Topic: Data handling and knowledge representation
+- Topic: Model visualization and optimization
+- Best Paper Award: Maybe
+- Contribution to the field of Visual Analytics: This is an application paper, and the main contribution is in its satisfaction of the requirements of domain expert analysts as they address real problems.
+- Expertise: 3 (Knowledgeable)
+
+### The Review
+The strength of the submissions is that the application is an important one and the program actually works. It appears that it meets the requirements of the expert users.The weakness of the paper is that the text is dense and a challenge to read.
+This submission is flagged as an application paper, and so it should show evidence of Impact in solving real world problems, Novelty in extending into an application area, Innovative reuse and adaptation of existing techniques or Insight into the experience design, engineering, evaluation and deployment.
+In my estimation the case for accepting this paper is primarily in its potential for impact on a real-world application. It is also in a subject domain where there are not many VA applications, and it reuses and adapts existing techniques. This in my opinion makes a prima-facie case for acceptance. The argument for not accepting the paper would be that it fails in enough of these criteria that it would fall below threshold, or that it has technical flaws that are severe enough that its acceptance could cause others to make similar errors.While I am not an expert in epidemiological statistical analysis the compromises that are made appear to be reasonable. I see nothing in the paper that would give me a reason not to accept it.
+
+*Main Recommendation: Acceptable for presentation
+*Additional Recommendation about TVCG Publication: This paper is potentially acceptable to TVCG but authors may need more revision time (> 3 weeks).*
