@@ -73,7 +73,7 @@
 
 %% Paper title.
 
-\title{Regression Cube Analysis of Population Study Data}
+\title{3D Regression Heat Map Analysis of Population Study Data}
 
 %% This is how authors are specified in the journal style
 
@@ -90,7 +90,7 @@
 }
 
 %other entries to be set up for journal
-\shortauthortitle{Klemm \MakeLowercase{\textit{et al.}}: Regression Cube Analysis of Population Study Data}
+\shortauthortitle{Klemm \MakeLowercase{\textit{et al.}}: 3D Regression Heat Map Analysis of Population Study Data}
 %\shortauthortitle{Firstauthor \MakeLowercase{\textit{et al.}}: Paper Title}
 
 %% Abstract section.
@@ -112,13 +112,13 @@ This approach combines all \emph{independent features} with respect to a \emph{t
 %%
 It provides a visualization that reveals insights into the data by highlighting relationships.
 %%
-The \emph{Regression Cube}, a novel 3D visual encoding, acts as an overview of the whole data set.
+The \emph{3D Regression Heat Map}, a novel 3D visual encoding, acts as an overview of the whole data set.
 %%
-The Cube shows all combinations of two to three independent features w.r.t. a specific target disease.
+It shows all combinations of two to three independent features w.r.t. a specific target disease.
 %%
-%A 3D visualization of all combinations of two to three independent features towards a target acts as an overview of the whole data set, the \emph{Regression Cube}.
+%A 3D visualization of all combinations of two to three independent features towards a target acts as an overview of the whole data set, the \emph{3D Regression Heat Map}.
 %%
-Slicing through the \emph{Regression Cube} allows for the detailed analysis of the underlying relationships.
+Slicing through the \emph{3D Regression Heat Map} allows for the detailed analysis of the underlying relationships.
 %%
 Expert knowledge about disease-specific hypotheses can be included into the analysis by adjusting the regression model formulas.
 %%
@@ -126,7 +126,7 @@ Furthermore, the influences of features can be assessed using a difference view 
 %%
 %\com{Validation \& Results}.
 %%
-We applied our \emph{Regression Cube} method to a hepatic steatosis data set to reproduce results from a data mining-driven analysis.
+We applied our \emph{3D Regression Heat Map} method to a hepatic steatosis data set to reproduce results from a data mining-driven analysis.
 %%
 A qualitative analysis was conducted on a breast fat data set.
 %%
@@ -134,7 +134,7 @@ We were able to derive new hypotheses about relations between breast fat density
 %%
 %\com{Implications}.
 %%
-With the \emph{Regression Cube}, we present a visual overview of epidemiological data that allows for the first time an interactive regression-based analysis of large feature sets with respect to a disease.
+With the \emph{3D Regression Heat Map}, we present a visual overview of epidemiological data that allows for the first time an interactive regression-based analysis of large feature sets with respect to a disease.
 } % end of abstract
 
 %% Keywords that describe your work. Will show as 'Index Terms' in journal
@@ -250,12 +250,12 @@ Our contributions are:
 % 	%%
 % \end{itemize}
 %%
-\noindent The term `Regression Cube' has been used for the detailed analysis of one or a small number of regression models \cite{Ahmadi, Chan}.
-%%
-They extend 2D scatter plots to display detailed information about a regression model.
-%%
-In behalf of that, we declare our visualization technique for comparing and analyzing a large number of different regression models with different input features as \emph{Regression Cube}.
-%%
+% \noindent The term `Regression Cube' has been used for the detailed analysis of one or a small number of regression models \cite{Ahmadi, Chan}.
+% %%
+% They extend 2D scatter plots to display detailed information about a regression model.
+% %%
+% In behalf of that, we declare our visualization technique for comparing and analyzing a large number of different regression models with different input features as \emph{Regression Cube}.
+% %%
 \section{Epidemiological Background} \label{sec:Background}
 %%
 This section covers the epidemiological workflow and requirements.
@@ -503,9 +503,9 @@ The model-parameters can then be fine-tuned using line graphs, histograms and mo
 %%
 }
 %% Regression Cube: A Technique for Multidimensional Visual Exploration and Interactive Pattern Finding
-We use the term `Regression Cube' for a comparative 3D representation of multiple regression models.
+%We use the term `Regression Cube' for a comparative 3D representation of multiple regression models.
 %%
-Chan et al.~\cite{Chan} use the same term to describe an extension of the 2D scatter plot representation of a linear regression model (incorporating solely metric features) to a 3D Cube.
+Chan et al.~\cite{Chan} propose the `Regression Cube', an extension of the 2D scatter plot representation of a linear regression model (incorporating solely metric features) to a 3D Cube.
 %%
 They group subjects using a set of interaction techniques as well as clustering algorithms to calculate sub-groups, which can then be compared using their cube representation.
 %%
@@ -708,22 +708,22 @@ The difference of the presented approach in comparison with our previous and rel
 	%%
 \end{enumerate}
 %%
-\section{Regression Cube Analysis of Population Study Data}
+\section{3D Regression Heat Map Analysis of Population Study Data}
 \magenta{
-The \emph{Regression Cube} is designed to provide overview visualizations to support hypothesis generation.
+The \emph{3D Regression Heat Map} is designed to provide overview visualizations to support hypothesis generation.
 %%
 Hence, it is associated with step 1 and 2 of the epidemiological workflow presented in Section~\ref{sec:EpidemiologicalWorkflow}.
 %%
 Relationships observed using such techniques are subject of detailed statistical testing by statisticians with background in epidemiology using statistical processors, such as \texttt{SPSS}.
 }
 % \design{
-% This section covers the design of the Regression Cube as well as how epidemiological requirements and  domain expert input was utilized to influence design decisions.
+% This section covers the design of the 3D Regression Heat Map as well as how epidemiological requirements and  domain expert input was utilized to influence design decisions.
 % }
 \subsection{Iterative Design Based on Expert Feedback}
 %%
 \design{
 %%
-The \emph{Regression Cube} design was developed iteratively based on feedback of epidemiologists by using the prototype in joint analysis sessions on their data sets.
+The \emph{3D Regression Heat Map} design was developed iteratively based on feedback of epidemiologists by using the prototype in joint analysis sessions on their data sets.
 %%
 The idea emerged from analysis sessions of a previous project, which contained a 2D heat map showing pairwise feature correlations based on \emph{Cram\'{e}r's V} contingency values \cite{Klemm2014VIS}.
 %%
@@ -749,7 +749,7 @@ Technical measures taken to enable a secure transfer and storage are described l
 %In this work, we want to provide an overview visualization of large cohort study data sets \emph{towards target features}.
 }
 %%
-%The basic idea of our \emph{Regression Cube} is to provide an overview visualization of large cohort study data sets towards target features.
+%The basic idea of our \emph{3D Regression Heat Map} is to provide an overview visualization of large cohort study data sets towards target features.
 %%
 %Overview visualizations of feature relationships as presented by Angelelli et al.~\cite{Angelelli} are often focused on relationships between the visualized features.
 %%
@@ -766,7 +766,7 @@ A regression model is based on expert knowledge; there is no singular rule how t
 %%
 % \design{
 % %%
-% Key requirements based on the epidemiological application domain on the Regression Cube are:
+% Key requirements based on the epidemiological application domain on the 3D Regression Heat Map are:
 % %%
 % \begin{itemize}
 % 	\item Show relationships of features w.r.t. their explanatory power towards the target feature (e.g., a disease or unhealthy condition).
@@ -775,7 +775,7 @@ A regression model is based on expert knowledge; there is no singular rule how t
 % \end{itemize}
 % %%
 % }
-\subsection{Cube Description Using Regression Formula Notation}
+\subsection{Regression Heat Map Description Using Regression Formula Notation}
 %%
 \design{The key requirement of modeling expert knowledge} is integrated into the analysis using \emph{regression formulas}.
 %Expert knowledge is integrated into the analysis using regression formulas.
@@ -836,7 +836,7 @@ In epidemiological studies, manifold recordings lead to an abundance of features
 %%
 In general, many of them exhibit a low or no correlation at all in view of the target feature.
 %%
-Identifying irrelevant features and excluding them from the feature space considerably reduces computational costs and yields a comprehensible \emph{Regression Cube} representation.
+Identifying irrelevant features and excluding them from the feature space considerably reduces computational costs and yields a comprehensible \emph{3D Regression Heat Map} representation.
 %%
 %The correlation-based feature selection (CFS) \cite{CFS} aims to find a feature subset that maximizes the \emph{merit value} $M_F$, which is the ratio between the average feature-class and feature-feature dependencies of features in the feature set $F$.
 The correlation-based feature selection (CFS) \cite{CFS} aims to find a feature subset that maximizes the \emph{merit value} $M_F$, which is the ratio between the average feature-class and feature-feature dependencies in the feature set $F$.
@@ -889,7 +889,7 @@ The next section shows ways of abstracting the results to make them visually fea
  %%
  (b) Now, $Z$ is set to all features $n$ and yields $n$ 2D heat map visualizations.
  %%
- These represent the slices in our cube.
+ These represent the slices in our \emph{3D Regression Heat Map}.
  %%
  The metric describing the regression model of each slice voxel is mapped on opacity in the 3D view later on, reducing the occlusion of other values.
  }
@@ -902,7 +902,7 @@ As described in our previous work \cite{Klemm2014VIS}, correlation values scaled
 %%
 Regression models are more complex, having many associated describing metrics.
 %%
-For the \emph{Regression Cube} analysis we are interested in the quality-of-fit of the resulting model.
+For the \emph{3D Regression Heat Map} analysis we are interested in the quality-of-fit of the resulting model.
 %%
 This allows to infer about the predictive quality of the independent features included in the model.
 %%
@@ -910,11 +910,11 @@ As described in Section~\ref{sec:RegressionAnalysis}, the $R^2$ \add{, adjusted 
 %%
 % \add{
 % %%
-% Users with in-depth knowledge about regression models are given the option to render the \emph{Regression Cube} using other descriptive features presented in \ref{sec:RegressionAnalysis}.
+% Users with in-depth knowledge about regression models are given the option to render the \emph{3D Regression Heat Map} using other descriptive features presented in \ref{sec:RegressionAnalysis}.
 % %%
 % Therefore, these experts can investigate the cube with emphasis on specific aspects of the model.
 % %%
-% To avoid shutting out users unfamiliar with these metrics, the \emph{Regression Cube} is set per default to show $R^2$ values.
+% To avoid shutting out users unfamiliar with these metrics, the \emph{3D Regression Heat Map} is set per default to show $R^2$ values.
 % }
 %%
 \paragraph{2D (Slice) View.}
@@ -929,7 +929,7 @@ This describes a 2D regression square for dynamic variables $X$ and $Y$ (e.g., $
 %%
 Based on expert feedback on early versions of this view, the amount of features used to compare regression models was extended.
 %%
-Therefore, these experts can investigate the cube with emphasis on specific aspects of the model.
+Therefore, these experts can investigate the heat map with emphasis on specific aspects of the model.
 %%
 }
 %%
@@ -955,15 +955,15 @@ Hence, we inverted the transfer function mapping it to color, mapping low $AIC$ 
 }
 \design{
 %%
-To avoid shutting out users unfamiliar with these metrics, the \emph{Regression Cube} is set per default to show $R^2$ values.
+To avoid shutting out users unfamiliar with these metrics, the \emph{Regression Heat Map} is set per default to show $R^2$ values.
 %%
 }
 
-\paragraph{3D (Cube) View.}
+\paragraph{3D View.}
 %%
-Introducing $Z$ creates a 3D \emph{Regression Cube} (Fig.~\ref{fig:Cube}b).
+Introducing $Z$ creates a 3D heat map (Fig.~\ref{fig:Cube}b).
 %%
-\add{The selected metric (per default set to $R^2$)} of each cube entry (\emph{voxel}) are mapped to opacity to reduce the overlap.
+\add{The selected metric (per default set to $R^2$)} of each heat map entry (\emph{voxel}) are mapped to opacity to reduce the overlap.
 %%
 \magenta{Object size is not used to encode information because it would result in a cluttered view.}
 %%
@@ -975,18 +975,18 @@ Therefore, we decided to map metrics of different regression methods on distinct
 %%
 }
 %%
-%The visualization of descriptive metrics derived from different regression cubes (e.g., $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
+%The visualization of descriptive metrics derived from different 3D Regression Heat Maps (e.g., $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
 %%
 %Therefore, the $R^2$ results of different regression methods are encoded using different colors (i.e., orange for linear regression and blue for logistic regression).
 %%
-Thus, the cube can be easily extended using other regression types.
+Thus, the visualization can be easily extended using other regression types.
 %%
-For cubes with a fixed target feature, e.g., $Cancer \sim X + Y + Z$, no such encodings are required and the $z$ dimension can be compared directly.
+For \emph{3D Regression Heat Maps} with a fixed target feature, e.g., $Cancer \sim X + Y + Z$, no such encodings are required and the $z$ dimension can be compared directly.
 %%
 \magenta{
 As mentioned previously, the dimension reduction using the CFS algorithm potentially removes features, which are of interest for the domain expert.
 %%
-To tackle this problem, the $z$ dimension of the cube contains all features of the data set, allowing to assess their influence on the models.
+To tackle this problem, the $z$ dimension of the visualization contains all features of the data set, allowing to assess their influence on the models.
 %%
 The $x$ and $y$ dimensions are restricted to the features extracted from the CFS algorithm.
 }
@@ -999,7 +999,7 @@ We also want to incorporate expert knowledge into the visualization by adapting 
 %%
 These two approaches do not exclude each other, they rather underline the difference in purpose of the chosen formula.
 %%
-The different analysis approaches require different starting points using the \emph{Regression Cube}.
+The different analysis approaches require different starting points using the \emph{3D Regression Heat Map}.
 
 \subsection{Analysis Workflow} \label{sec:Workflow}
 %%
@@ -1007,28 +1007,28 @@ The different analysis approaches require different starting points using the \e
  \centering
  \includegraphics[width=1.0\linewidth]{figures/workflow}
  \caption{
- Different workflow types of the analysis using \emph{Regression Cubes}.
+ Different workflow types of the analysis using \emph{3D Regression Heat Maps}.
  %%
  [\textbf{1.AF}] The workflow starts by declaring a formula to specify a hypothesis, or to use a predefined formula for a hypothesis-free analysis.
  %%
- [\textbf{2.SI}] The \emph{Regression Cube} is then visualized.
+ [\textbf{2.SI}] The \emph{3D Regression Heat Map} is then visualized.
  %%
  The user has the option to either adjust the formula or to derive details on demand on a specific regression.
  %%
  [\textbf{3.ZF}] Insights into the data yield either an adjustment of the current formula or a selection of a difference view.
  %%
- The latter is used to compare regression cubes.
+ The latter is used to compare 3D Regression Heat Maps.
  %%
  [\textbf{4.DD}] Details about features using the 2D heat map representation yield insights and hypotheses about feature relations.
  }
   \label{fig:Workflow}
 \end{figure}
 %%
-\noindent Our \emph{Regression Cube} model is well suited for different workflow analysis techniques, based on the Visual Analytics (VA) Mantra of Keim et al.~\cite{Keim}:
+\noindent Our \emph{3D Regression Heat Map} model is well suited for different workflow analysis techniques, based on the Visual Analytics (VA) Mantra of Keim et al.~\cite{Keim}:
 
-\textbf{Analyze First} [\textbf{1.AF}]. Choosing an initial regression formula triggers the \emph{Regression Cube} calculation on the given data set, filtering the dimensions of the dependent feature through the CFS algorithm.
+\textbf{Analyze First} [\textbf{1.AF}]. Choosing an initial regression formula triggers the \emph{3D Regression Heat Map} calculation on the given data set, filtering the dimensions of the dependent feature through the CFS algorithm.
 
-\textbf{Show the Important} [\textbf{2.SI}]. The 3D cube visualization acts as an overview over the whole data set.
+\textbf{Show the Important} [\textbf{2.SI}]. The 3D visualization acts as an overview over the whole data set.
 %%
 Here, regression models with large regression metric values can be spotted fast, steering the user's attention to the respective slice.
 
@@ -1042,7 +1042,7 @@ As shown in Fig.~\ref{fig:Workflow}, the workflow is highly iterative.
 %%
 Observations in the 2D heat map or simply the CFS-based features can trigger new analyses by adjusting the underlying regression formulas.
 %%
-This can be carried out either to refine the current formula based on observations, or to create a new \emph{Regression Cube} for a difference view.
+This can be carried out either to refine the current formula based on observations, or to create a new \emph{3D Regression Heat Map} for a difference view.
 %%
 \paragraph{Hypothesis-Free and Hypothesis-Based Analysis.}
 %%
@@ -1065,7 +1065,7 @@ To support the \emph{hypothesis-free} analysis, we provide a default formula:
 
 $Z \sim X + Y$.
 %%
-This cube represents all possible combinations of two independent features w.r.t. all features in the data set, since we do not know which features are of interest.
+It represents all possible combinations of two independent features w.r.t. all features in the data set, since we do not know which features are of interest.
 %%
 Each slice represents a different target feature.
 %%
@@ -1080,34 +1080,34 @@ Here are a few examples:
 %%
 $Cancer \sim X + Y + Z$ is the formulation of a hypothesis, where the specific feature \textit{Cancer} is analyzed.
 %%
-All combinations of three independent features with the target are analyzed through the cube.
+All combinations of three independent features with the target are analyzed through this \emph{3D Regression Heat Map}.
 
 $Cancer \sim X + Y + Z + feature_1:feature_2$ encodes more assumptions.
 %%
 This formula models the hypothesis of an interaction between $feature_1$ and $feature_2$ (denoted with `$:$') being relevant for the target feature, but it is not clear how other feature combinations influence the result.
 %%
-Therefore, the cube incorporates this interaction for all $X$, $Y$ and $Z$ values as independent features.
+Therefore, this interaction is incorporated for all $X$, $Y$ and $Z$ values as independent features.
 %%
 
 $Cancer \sim X + Y + Z$ subtracted with the regression metric from $Cancer \sim Age$ excludes the confounding effect that age has in view of the target $Cancer$ feature.
 %%
-This is achieved through cube comparison.
+This is achieved through \emph{3D Regression Heat Map} comparison.
 %%
 
-\paragraph{Cube Comparison.}
+\paragraph{3D Regression Heat Map Comparison.}
 \design{
 %%
-Cube comparisons were introduced later in the project.
+Comparisons were introduced later in the project.
 %%
 Epidemiologists with focus on statistics pointed out, that comparing outcomes of different formulas is suitable for removing the effect of possible confounding features.
 %%
 }
 %%
-\emph{Regression Cubes} can be compared by creating difference views.
+\emph{3D Regression Heat Maps} can be compared by creating difference views.
 %%
-One cube (extracted with one formula) acts as reference.
+One formula acts as reference.
 %%
-The absolute difference in the regression metric values with the second cube is calculated, yielding a difference cube showing only the differences between the two formulas.
+The absolute difference in the regression metric values with the second formula is calculated. %yielding the difference containing only the differences between the two formulas.
 %%
 For example, it can be utilized for comparing the influence of a single feature on the complete result (e.g., $Z \sim X + Y$ and $Z \sim X + Y + Income$).
 
@@ -1117,11 +1117,11 @@ For example, it can be utilized for comparing the influence of a single feature 
  \includegraphics[width=1.0\linewidth]{figures/system}
  \caption{
  %%
- Breast fat data set loaded into the \emph{Regression Cube} prototype.
+ Breast fat data set loaded into the \emph{3D Regression Heat Map} prototype.
  %%
  (a) Using the formula input, the user specifies the dependent feature as well as its calculation rules.
  %%
- (b) 3D cube visualization, showing values above the cube matrix diagonal as overview.
+ (b) 3D heat map visualization, showing values above the matrix diagonal as overview.
  %%
  The values of the currently selected slice are mirrored and represented as orange data points on the slicing plane.
  %%
@@ -1192,21 +1192,21 @@ If the system is not easy to learn, it will not be adapted.
 %%
 }
 %%
-%The \emph{Regression Cube} design focuses on a clean appearance, reducing the amount of user-interface elements as much as possible.
-Therefore, the \emph{Regression Cube} design focuses on a clean appearance, reducing the amount of user-interface elements as much as possible.
+%The \emph{3D Regression Heat Map} design focuses on a clean appearance, reducing the amount of user-interface elements as much as possible.
+Therefore, the \emph{3D Regression Heat Map} design focuses on a clean appearance, reducing the amount of user-interface elements as much as possible.
 %%
 This allows for a fast learning of the individual system parts.
 %%
 Our prototype consists of three components:
 \begin{itemize}
 	%%
-	\item The \emph{file upload} section starting the analysis with providing a comma-separated value (CSV) file [1.AF].
+	\item The \emph{File Upload} section starting the analysis with providing a comma-separated value (CSV) file [1.AF].
 	%%
-	\item The \emph{cube visualization} consisting of the 2D heat map as well as a 3D representation of the whole cube \add{with facilities to change the represented regression metric and its range} [2.SI].
+	\item The \emph{Regression Heat Map Visualization} consisting of the 2D heat map as well as a 3D representation of all regression models \add{with facilities to change the represented regression metric and its range} [2.SI].
 	%%
-	\item The \emph{formula editor} allows formula input w.r.t. a hypothesis or to conduct a \emph{hypothesis-free} analysis.
+	\item The \emph{Formula Editor} allows formula input w.r.t. a hypothesis or to conduct a \emph{hypothesis-free} analysis.
 	%%
-	It also allows to select a reference formula for creating a difference cube [1.AF, 3.ZF].
+	It also allows to select a reference formula for creating difference models [1.AF, 3.ZF].
 	%%
 \end{itemize}
 %%
@@ -1269,7 +1269,7 @@ The text input containing the formula is marked using a red halo to indicate inv
 %%
 This prevents processing errors on the statistical processor back-end.
 %%
-Confirming a formula triggers the cube calculation, which is preceded by determining all required formulas.
+Confirming a formula triggers the \emph{Regression Heat Map} calculation, which is preceded by determining all required formulas.
 %%
 These are then divided by the number of available statistical back-end processors, driving a \emph{cloud-computing}-based approach.
 %%
@@ -1278,14 +1278,15 @@ In theory, the calculation duration is reduced by a factor of $0.5$ by every sta
 In practice, data transmission and differences in machine specifications always influence the speed.
 
 %%
-\textbf{Difference Cube.}
-Adding a formula also adds it to the reference selection for a difference cube.
+\textbf{Difference Regression Heat Maps.}
 %%
-Since all cells in the cube are represented using regression metric values, a difference cube is calculated by denoting the absolute difference of regression metric for each cell.
+Adding a formula also adds it to the reference selection for a difference \emph{Regression Heat Map}.
 %%
-\subsection{Regression Cube Visualization [2.SI].}
+Since all cells in the heat map are represented using regression metric values, the difference is the absolute difference of regression metric for each cell.
 %%
-The visualization and interaction with the \emph{Regression Cube} is the prototype core.
+\subsection{3D Regression Heat Map Visualization [2.SI].}
+%%
+The visualization and interaction with the \emph{3D Regression Heat Map} is the prototype core.
 %%
 Results from the statistical processors are uploaded into the visualization slice by slice.
 %%
@@ -1343,7 +1344,7 @@ This approach was not popular with our domain experts, because the complexity of
 %%
 }
 %%
-The 3D cube representation \design{was redesigned to} act as an overview over the whole data set.
+The \emph{3D Regression Heat Map} representation \design{was redesigned to} act as an overview over the whole data set.
 %%
 Its purpose is not to derive detailed information about data points.
 %%
@@ -1363,7 +1364,7 @@ For such formulas, the 3D view encodes every data element as absolute difference
 %%
 This highlights slices with unusually low or high results (Fig.~\ref{fig:Application}).
 %%
-\magenta{Variables are ordered the same way in the 2D heat map and 3D cube to preserve the mental model and make them visually analogous.}
+\magenta{Variables are ordered the same way in the 2D and 3D heat map to preserve the mental model and make them visually analogous.}
 
 \paragraph{Tackling the disadvantages of 3D information visualization.}
 %%
@@ -1377,21 +1378,21 @@ Since the regression metric (e.g. $R^2$) values are mapped on data point opacity
 %%
 It also creates a sparse representation, since the majority of regression models yield (depending on the data set and the chosen formula) low $R^2$ values.
 %%
-Also, the preceding correlation-based feature selection reduces the information space significantly, leading to sparse cubes.
+Also, the preceding correlation-based feature selection reduces the information space significantly, leading to sparse heat maps.
 %%
 Overlapping is still an issue, but this way greatly reduced in its effect to the readability of the visualization.
 %%
 
 %% INTERACTION
-Rotating with the cube is restricted to the y-axis, preserving the mental map to position individual features.
+Rotating the 3D heat map is restricted to the y-axis, preserving the mental map to position individual features.
 %%
-The cube is always oriented according to the 2D representation, allowing for an easy mental combination of the two representations.
+The 3D heat map is always oriented according to the 2D representation, allowing for an easy mental combination of the two representations.
 %%
 Allowing more degrees of freedom was confusing to our users and also did not add value to the visualization.
 %%
 Also we provide a zoom functionality using the mouse wheel input.
 %%
-\paragraph{Cube Slice Selection [3.ZF].}
+\paragraph{3D Heat Map Slice Selection [3.ZF].}
 %%
 In order to \emph{Zoom, Filter and Analyze Further}, the user has to navigate to different slices of interest.
 %%
@@ -1403,7 +1404,7 @@ We propose two ways to achieve this.
 	%%
 	In medical volume data renderings, slicing views are very common to view details on a selected plane in the scene.
 	%%
-	We employ this technique for selecting cube slices (e.g., by moving a plane via vertical mouse input while pressing the right mouse button).
+	We employ this technique for selecting 3D heat map slices (e.g., by moving a plane via vertical mouse input while pressing the right mouse button).
 	%%
 	We, however, still display the whole 3D object instead of cutting away information down to the slice position.
 	%%
@@ -1422,13 +1423,11 @@ We propose two ways to achieve this.
 The currently selected slice is denoted with a semi-transparent gray plane.
 %%
 \design{
-Early designs rendered the whole cube, which made it hard to assess the position of the plane.
+Early designs rendered the whole \emph{3D Regression Heat Map}, which made it hard to assess the position of the plane.
 %%
 %Since the regression metrics are mirrored along the diagonal, we decided to use this space to support better identification of the current slice.
-Since the regression metrics are mirrored along the diagonal, the space available from visualizing only the prism generated from the upper half of the cube diagonal is used to display information about the currently selected plane.
+Since the regression metrics are mirrored along the diagonal, the space available from visualizing only the prism generated from the upper half of the heat map diagonal is used to display information about the currently selected plane.
 }
-%%
-The space available from visualizing only the prism generated from the upper half of the cube diagonal is used to display information about the currently selected plane.
 %%
 The \magenta{regression metric values} are projected on this plane to provide an overlapping-free view.
 %%
@@ -1438,11 +1437,11 @@ This allows for a easier to identify the current slice.
 %%
 The 2D heat map (Fig.~\ref{fig:System}c) shows all values below the matrix diagonal of the current slice.
 %%
-It creates a optical equivalence with the 3D cube.
+It creates a optical equivalence with the 3D heat map.
 %%
 To reduce visual clutter, the 2D view only shows dimensions, which are retrieved through the correlation-based feature selection.
 %%
-The free space above the matrix diagonal is used to display the 3D cube.
+The free space above the matrix diagonal is used to display the 3D heat map.
 %%
 
 The purpose of this view is the detailed assessment of the underlying regression models.
@@ -1465,7 +1464,7 @@ Epidemiologists use such plots to validate models w.r.t. the model assumptions, 
  %%
  The web-server back-end (right) is written using \emph{Node.js}, hosting is carried out using \emph{Heroku}.
  %%
- \emph{R} and \emph{OpenCPU} constitute the statistical back-end (top) to compute the \emph{Regression Cubes}.
+ \emph{R} and \emph{OpenCPU} constitute the statistical back-end (top) to compute the \emph{3D Regression Heat Maps}.
  %%
  Additional statistical back-ends can be attached to the system to decrease the computation time.
  %%
@@ -1529,11 +1528,11 @@ This way, any computer, which runs \texttt{R} can be turned into a statistical p
 
 %\paragraph{Access and Source.}
 %%
-A running instance of the \emph{Regression Cube} prototype can be found under \href{http://regressioncube.herokuapp.com/}{\texttt{regressioncube.herokuapp.com}}.
+A running instance of the \emph{3D Regression Heat Map} prototype can be found under \href{http://regressioncube.herokuapp.com/}{\texttt{regressioncube.herokuapp.com}}.
 %%
 The source for the prototype is freely available at \texttt{Github}.\footnote{\texttt{R}-based back-end: \href{https://github.com/paulklemm/regression-cube-r-package}{\\\texttt{github.com/paulklemm/regression-cube-r-package}}}$^{,}$\footnote{Front-End and Node.js Webserver: \href{https://github.com/paulklemm/regression-cube-prototype}{\texttt{\\github.com/paulklemm/regression-cube-prototype}}}
 %%
-Instructions and code on how to create a setup running the \emph{Regression Cube} statistical back-end through a \texttt{Ubuntu} server using \texttt{OpenCPU} are referenced in the repository.
+Instructions and code on how to create a setup running the \emph{3D Regression Heat Map} statistical back-end through a \texttt{Ubuntu} server using \texttt{OpenCPU} are referenced in the repository.
 %%
 The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{www.heroku.com}} by cloning the repository into a Heroku app.
 %%
@@ -1556,7 +1555,7 @@ The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{www.h
   \label{fig:Application}
 \end{figure*}
 %%
-In this section, we describe how we applied the \emph{Regression Cube} to two epidemiological data sets.
+In this section, we describe how we applied the \emph{3D Regression Heat Map} to two epidemiological data sets.
 %%
 The hepatic steatosis data set was analyzed using data mining algorithms, yielding risk groups, which we now analyze further.
 %%
@@ -1667,9 +1666,9 @@ The analysis goal was reproducing results with our visual analysis framework tha
 %%
 Therefore, \emph{UN} started the [\textbf{1.AF}] step using the dichotomized MRI fat liver concentration and the formula $mrt\_liverfat\_s2 \sim X + Y + Z$ for \emph{male} subjects.
 %%
-The [\textbf{2.SI}] step using the 3D cube representations locates hotspots at the end of the cube (Fig.~\ref{fig:Application}a).
+The [\textbf{2.SI}] step using the 3D heat map locates hotspots at the end of the heat map (Fig.~\ref{fig:Application}a).
 %%
-The Zoom, Filter and Analyze Further Step [\textbf{3.ZF}] was realized by slicing through the cube using the mouse input to inspect the hotspots.
+The Zoom, Filter and Analyze Further Step [\textbf{3.ZF}] was realized by slicing through the 3D heat map using the mouse input to inspect the hotspots.
 %%
 Analyzing the 2D heat map [\textbf{4.DD}] revealed high correlations for somatometric features, hepatic steatosis indicator features as well as laboratory values, such as \emph{creatinine} (used as renal retention parameter) and \emph{uric acid} (among others used as gout and diabetes risk factors) magnitudes.
 %%
@@ -1690,7 +1689,7 @@ Due to the difference between our regression model approach and the decision tre
 %%
 Since our method can assess numerical target features, the analysis was conducted again for the non-dichotomized target using the same formula.
 %%
-The 3D cube representation already showed lower $R^2$ values in general.
+The 3D heat map already showed lower $R^2$ values in general.
 %%
 However, the analysis is now based on linear regression and the $R^2$ values cannot be directly compared.
 %%
@@ -1738,9 +1737,9 @@ One unexpected relationship was observed between \emph{breast lesions} and \emph
 %%
 \textbf{Detailed Breast Parenchyma Analysis.}
 %%
-The analysis was conducted by calculating the cube $Parenchyma\_Percentage \sim X + Y + Z$ [\textbf{1.AF}].
+The analysis was conducted by calculating the formula $Parenchyma\_Percentage \sim X + Y + Z$ [\textbf{1.AF}].
 %%
-Using the 3D cube, \emph{KH} observed several hotspots [\textbf{2.SI}].
+Using the 3D heat map, \emph{KH} observed several hotspots [\textbf{2.SI}].
 %%
 Navigating to them using the slicing facility of the 3D visualization [\textbf{3.ZF}] highlighted features of high influence, such as image-derived features, as \emph{glandular tissue density} and \emph{parenchyma segmentation} metrics.
 %%
@@ -1822,7 +1821,7 @@ Important events have to be highlighted in overview visualizations to direct the
 %%
 Poor guidance potentially leads to overlooked relationships.
 %%
-We found supporting mini-map visualizations, such as the 3D cube, most useful for this purpose, e.g., for highlighting differences rather than displaying absolute values (Fig.~\ref{fig:Application}).
+We found the 3D heat map as supporting mini-map visualizations most useful for this purpose, e.g., for highlighting differences rather than displaying absolute values (Fig.~\ref{fig:Application}).
 %%
 \section{Summary and Outlook}
 %%
@@ -1834,9 +1833,9 @@ Dimension reduction using the target restricts the analysis to the most importan
 %%
 Modeling expert knowledge using regression formulas allows for a \emph{hypothesis-based} investigation.
 %%
-A 3D \emph{Regression Cube} allows to assess hotspots in the analysis by abstracting regression models using a quality-of-fit measure.
+A \emph{3D Regression Heat Map} allows to assess hotspots in the analysis by abstracting regression models using a quality-of-fit measure.
 %%
-These can then be analyzed further using the 2D heat map for each cube slice.
+These can then be analyzed further using the 2D plot for each 3D heat map slice.
 %%
 Details on demand for each model allow for a detailed assessment of regression models.
 %%
@@ -1849,9 +1848,9 @@ The method was well received by our clinical partners, triggering detailed inves
 %%
 %The analyst has to keep the aspects of the respective metric in mind to avoid false conclusions.
 %%
-The analysis is limited to three dynamic variables represented the cube dimensions.
+The analysis is limited to three dynamic variables representing the \emph{3D Regression Heat Map} dimensions.
 %%
-Investigating more dynamic variables can be achieved by projecting the resulting hyper-cube into a three-dimensional representation.
+Investigating more dynamic variables can be achieved by projecting the resulting high-dimensional space into a three-dimensional representation.
 %%
 This, however, increases the cognitive load and complexity of the analysis substantially and needs to be accompanied by techniques, which simplify this approach.
 %%
@@ -1860,7 +1859,7 @@ Static features can be added at will using the formula input without increasing 
 
 As next step, we want to introduce more regression types, which model different kinds of correlations.
 %%
-We also want to extend the cube to time-dependent data by expanding the difference cube approach.
+We also want to extend the 3D heat map to time-dependent data by expanding the difference heat map approach.
 %%
 
 We published all associated code and provide a freely accessible analysis platform open to heterogenous data types.
