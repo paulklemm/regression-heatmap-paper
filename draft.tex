@@ -229,9 +229,9 @@ Our contributions are:
 	%%
   \item Applying domain knowledge in the analysis using freely adjustable regression formulas.
 	%%
-  \item Selecting suitable metrics for representing and comparing regression models, as well as incorporating additional metrics for details on demand.
+  \item Selecting suitable metrics for representing and comparing regression models, as well as incorporating additional metrics for details on demand to assess the model quality.
 	%%
-  \item An openly available web-based system, which incorporates a open data format to be applicable for data of other application domains.
+  \item An openly available web-based system, which incorporates open formats to be applicable for data of other application domains.
 	%%
 \end{itemize}
 }
@@ -258,8 +258,6 @@ In behalf of that, we declare our visualization technique for comparing and anal
 \section{Epidemiological Background} \label{sec:Background}
 %%
 This section covers the epidemiological workflow and requirements.
-%%
-\com{TODO: Reviewer suggested deletion of this sentence, but starting with subsection right after the section is ugly.}
 %%
 \subsection{Epidemiological Workflow} \label{sec:EpidemiologicalWorkflow}
 %%
@@ -947,6 +945,10 @@ The resulting scale may be distorted by outliers derived from poor regression mo
 To tackle this problem, we provide a slider input, which maps the transfer function of the metric to color saturation based on user-selected ranges.
 %%
 Outliers can be cut off to emphasize ranges of interest.
+%%
+Small $AIC$ values indicate a good model.
+%%
+Hence, we inverted the transfer function mapping it to color, mapping low $AIC$ features to saturated colors.
 %%
 }
 \design{
