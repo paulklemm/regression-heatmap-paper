@@ -1,6 +1,6 @@
-# Regression Cube Analysis of Population Study Data
+# 3D Regression Heat Map Analysis of Population Study Data
 
-This is the working repository for the paper `Regression Cube Analysis of Population Study Data`.
+This is the working repository for the paper `3D Regression Heat Map Analysis of Population Study Data`.
 
 Important files
 
