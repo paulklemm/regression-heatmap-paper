@@ -189,7 +189,8 @@ During the standard workflow, physicians transform observations into hypotheses.
 %%
 The hypotheses are depicted using epidemiological features and are then statistically analyzed.
 
-An important epidemiological tool for deriving such features is the evaluation of a \emph{cohort study}, such as the Study of Health in Pomerania (SHIP) \cite{Volzke2011}.
+%An important epidemiological tool for deriving such features is the evaluation of a \emph{cohort study}, such as the Study of Health in Pomerania (SHIP) \cite{Volzke2011}.
+An important epidemiological tool for deriving such features are \emph{cohort studies}, such as the Study of Health in Pomerania (SHIP) \cite{Volzke2011}.
 %%
 To reduce any selection bias, subjects are randomly invited without a focus on a specific disease.
 %%
@@ -202,7 +203,7 @@ Medical image data from non-radiating modalities, e.g., magnetic resonance imagi
 These data may be quantified based on user-defined landmarks, which describe attributes like the shape, volume or diameter of a structure.
 %%
 
-Testing features for association with diseases using regression analysis is one of the most important epidemiological tools.
+Testing features for association with diseases using regression models is one of the most important epidemiological tools.
 %%
 Using it to assess the statistical resilience of a hypothesis rarely involves \emph{more than three features} due to the higher dimensional problem and the required subject count.
 %%
@@ -261,13 +262,14 @@ This section covers the epidemiological workflow and requirements.
 %%
 \subsection{Epidemiological Workflow} \label{sec:EpidemiologicalWorkflow}
 %%
-Epidemiological research is performed by experts from different academic disciplines, such as physicians, statisticians and medical computer scientists focusing on biometrics and image segmentation.
+Epidemiological research is performed by experts from different academic disciplines, such as epidemiologists, physicians, statisticians, and medical computer scientists focusing on biometrics and image segmentation.
 %%
 Their goal is to derive disease-specific risk factors by assessing epidemiological features with statistical methods.
 %%
 As described by Thew et al.~\cite{Thew2009} the epidemiological workflow is divided into these different steps:
 \begin{enumerate}
-	\item Clinicians make observations in the daily practice, which are translated into hypotheses.
+	\item Clinicians/Epidemiologists derive hypotheses via clinical observations, experimental studies or literature research.
+	%\item Clinicians make observations in the daily practice, which are translated into hypotheses.
 	\item Epidemiologists compile a list of features depicting the hypothesis and include confounding features.
 	\item Statisticians assess the association of the derived features w.r.t the investigated disease.
 \end{enumerate}
@@ -1872,7 +1874,7 @@ SHIP is part of the Community Medicine Research net of the University of Greifsw
 %%
 Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern.
 %%
-The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG.
+%The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG.
 %%
 This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics.
 %%
