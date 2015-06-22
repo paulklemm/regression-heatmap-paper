@@ -316,7 +316,7 @@ Minor comments:
 
 <i><font color='green'>
 
-  * TODO Put summary at the end of each paragraph, but first include the additional paper
+  * The [Related Work] was revised with this critique in mind
 
 </i></font>
 

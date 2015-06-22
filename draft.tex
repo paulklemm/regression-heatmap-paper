@@ -906,7 +906,7 @@ For the \emph{Regression Cube} analysis we are interested in the quality-of-fit 
 %%
 This allows to infer about the predictive quality of the independent features included in the model.
 %%
-As described in Section~\ref{sec:RegressionAnalysis}, the $R^2$ \add{and adjusted $R^2$} value are metrics allowing for this kind of assessment.
+As described in Section~\ref{sec:RegressionAnalysis}, the $R^2$ \add{, adjusted $R^2$ and AIC} value are metrics allowing for this kind of assessment.
 %%
 % \add{
 % %%
@@ -1026,7 +1026,7 @@ The different analysis approaches require different starting points using the \e
 
 \textbf{Show the Important} [\textbf{2.SI}]. The 3D cube visualization acts as an overview over the whole data set.
 %%
-Here, regression models with large $R^2$ values can be spotted fast, steering the user's attention to the respective slice.
+Here, regression models with large regression metric values can be spotted fast, steering the user's attention to the respective slice.
 
 \textbf{Zoom, Filter and Analyze Further} [\textbf{3.ZF}]. The slices of interest can then be analyzed using the 2D mosaic plot of the slice.
 
@@ -1085,7 +1085,7 @@ This formula models the hypothesis of an interaction between $feature_1$ and $fe
 Therefore, the cube incorporates this interaction for all $X$, $Y$ and $Z$ values as independent features.
 %%
 
-$Cancer \sim X + Y + Z$ subtracted with the $R^2$ from $Cancer \sim Age$ excludes the confounding effect that age has in view of the target $Cancer$ feature.
+$Cancer \sim X + Y + Z$ subtracted with the regression metric from $Cancer \sim Age$ excludes the confounding effect that age has in view of the target $Cancer$ feature.
 %%
 This is achieved through cube comparison.
 %%
@@ -1103,7 +1103,7 @@ Epidemiologists with focus on statistics pointed out, that comparing outcomes of
 %%
 One cube (extracted with one formula) acts as reference.
 %%
-The absolute difference in $R^2$ values with the second cube is calculated, yielding a difference cube showing only the differences between the two formulas.
+The absolute difference in the regression metric values with the second cube is calculated, yielding a difference cube showing only the differences between the two formulas.
 %%
 For example, it can be utilized for comparing the influence of a single feature on the complete result (e.g., $Z \sim X + Y$ and $Z \sim X + Y + Income$).
 
@@ -1277,7 +1277,7 @@ In practice, data transmission and differences in machine specifications always 
 \textbf{Difference Cube.}
 Adding a formula also adds it to the reference selection for a difference cube.
 %%
-Since all cells in the cube are represented using $R^2$ values, a difference cube is calculated by denoting the absolute difference of $R^2$ for each cell.
+Since all cells in the cube are represented using regression metric values, a difference cube is calculated by denoting the absolute difference of regression metric for each cell.
 %%
 \subsection{Regression Cube Visualization [2.SI].}
 %%
@@ -1355,7 +1355,7 @@ For formulas with a dynamic target feature (e.g. exploratory analysis using $Z \
 %%
 Applying this strategy to a formula containing a static target (e.g. $Cancer \sim X + Y + Z$) yields many occlusions, since the CFS algorithm creates the same feature space for every slice.
 %%
-For such formulas, the 3D view encodes every data element as absolute difference between its $R^2$ features and the global mean along the z-axis.
+For such formulas, the 3D view encodes every data element as absolute difference between its regression metric values and the global mean along the z-axis.
 %%
 This highlights slices with unusually low or high results (Fig.~\ref{fig:Application}).
 %%
@@ -1369,7 +1369,7 @@ These are often not balanced out by the advantages of using the third dimension 
 %%
 We aim to minimize these problems.
 %%
-Since the $R^2$ values are mapped on data point opacity, large values are highlighted in the prism, guiding the focus to the respective slices.
+Since the regression metric (e.g. $R^2$) values are mapped on data point opacity, large values are highlighted in the prism, guiding the focus to the respective slices.
 %%
 It also creates a sparse representation, since the majority of regression models yield (depending on the data set and the chosen formula) low $R^2$ values.
 %%
