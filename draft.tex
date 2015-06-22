@@ -881,9 +881,9 @@ The next section shows ways of abstracting the results to make them visually fea
 \subsection{Abstracting Regression Results}
 \begin{figure}[htb]
  \centering
- \includegraphics[width=1.0\linewidth]{figures/cube}
+ \includegraphics[width=1.0\linewidth]{figures/heat_map}
  \caption{
- (a) Overview visualization using a 2D heat map for the formula $Z \sim X + Y$, where $Z$ assumes the feature $age$.
+ (a) Overview visualization using a 2D heat map of the formula $Z \sim X + Y$, where $Z$ assumes the feature $age$.
  %%
  The descriptive metrics extracted from the regression model are mapped to color saturation (for $R^2$, saturated color shows a strong correlation).
  %%
@@ -893,7 +893,7 @@ The next section shows ways of abstracting the results to make them visually fea
  %%
  The metric describing the regression model of each slice voxel is mapped on opacity in the 3D view later on, reducing the occlusion of other values.
  }
-  \label{fig:Cube}
+  \label{fig:Heat_Map}
 \end{figure}
 %%
 \noindent The goal of an overview visualization is to provide a comprehensive view on the data (raw or using descriptive metrics \cite{Bertini}), which is easy to understand.
@@ -921,7 +921,7 @@ As described in Section~\ref{sec:RegressionAnalysis}, the $R^2$ \add{, adjusted 
 %%
 Since $R^2$ is scaled between $[0, 1]$, it allows for comparison \emph{between} regression models.
 %%
-We can apply the same 2D heat map by translating the $R^2$ values to \emph{color saturation} (Fig.~\ref{fig:Cube}a).
+We can apply the same 2D heat map by translating the $R^2$ values to \emph{color saturation} (Fig.~\ref{fig:Heat_Map}a).
 %%
 This describes a 2D regression square for dynamic variables $X$ and $Y$ (e.g., $Age \sim X + Y$).
 %%
@@ -961,7 +961,7 @@ To avoid shutting out users unfamiliar with these metrics, the \emph{Regression 
 
 \paragraph{3D View.}
 %%
-Introducing $Z$ creates a 3D heat map (Fig.~\ref{fig:Cube}b).
+Introducing $Z$ creates a 3D heat map (Fig.~\ref{fig:Heat_Map}b).
 %%
 \add{The selected metric (per default set to $R^2$)} of each heat map entry (\emph{voxel}) are mapped to opacity to reduce the overlap.
 %%
@@ -1294,7 +1294,7 @@ This allows the assessment of the data as soon as parts of the calculations are 
 
 \paragraph{Usage of a Regression Prism for Information Reduction.}
 %%
-Figure~\ref{fig:Cube} shows that all values are mirrored along the diagonal of the 2D heat map matrix.
+Figure~\ref{fig:Heat_Map} shows that all values are mirrored along the diagonal of the 2D heat map matrix.
 %%
 This is due to the symmetry of basic regression operators.
 %%
