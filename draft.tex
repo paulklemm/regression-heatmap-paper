@@ -685,7 +685,7 @@ We extended the feature selection step (recall Sec. \ref{sec:Background}) with a
 %%
 Information visualizations of population study features were augmented with extracted image data, yielding linked views with both image and non-image information.
 %%
-The 2D heatmap \cite{Klemm2014VIS} highlights the pairwise correlation between features without a target disease by depicting the \emph{Cram\'{e}r's V} contingency values.
+The 2D heat map \cite{Klemm2014VIS} highlights the pairwise correlation between features without a target disease by depicting the \emph{Cram\'{e}r's V} contingency values.
 %%
 Its great popularity among our domain experts was the inspiration for this work.
 %%
@@ -725,7 +725,7 @@ Relationships observed using such techniques are subject of detailed statistical
 %%
 The \emph{Regression Cube} design was developed iteratively based on feedback of epidemiologists by using the prototype in joint analysis sessions on their data sets.
 %%
-The idea emerged from analysis sessions of a previous project, which contained a 2D heatmap showing pairwise feature correlations based on \emph{Cram\'{e}r's V} contingency values \cite{Klemm2014VIS}.
+The idea emerged from analysis sessions of a previous project, which contained a 2D heat map showing pairwise feature correlations based on \emph{Cram\'{e}r's V} contingency values \cite{Klemm2014VIS}.
 %%
 It allowed them to reproduce their knowledge by observing correlations they would expect as well as discovering new correlations.
 %%
@@ -883,11 +883,11 @@ The next section shows ways of abstracting the results to make them visually fea
  \centering
  \includegraphics[width=1.0\linewidth]{figures/cube}
  \caption{
- (a) Overview visualization using a 2D heatmap for the formula $Z \sim X + Y$, where $Z$ assumes the feature $age$.
+ (a) Overview visualization using a 2D heat map for the formula $Z \sim X + Y$, where $Z$ assumes the feature $age$.
  %%
  The descriptive metrics extracted from the regression model are mapped to color saturation (for $R^2$, saturated color shows a strong correlation).
  %%
- (b) Now, $Z$ is set to all features $n$ and yields $n$ 2D heatmap visualizations.
+ (b) Now, $Z$ is set to all features $n$ and yields $n$ 2D heat map visualizations.
  %%
  These represent the slices in our cube.
  %%
@@ -898,7 +898,7 @@ The next section shows ways of abstracting the results to make them visually fea
 %%
 \noindent The goal of an overview visualization is to provide a comprehensive view on the data (raw or using descriptive metrics \cite{Bertini}), which is easy to understand.
 %%
-As described in our previous work \cite{Klemm2014VIS}, correlation values scaled between 0 (no correlation) and 1 (perfect correlation) can be encoded with color in a 2D heatmap.
+As described in our previous work \cite{Klemm2014VIS}, correlation values scaled between 0 (no correlation) and 1 (perfect correlation) can be encoded with color in a 2D heat map.
 %%
 Regression models are more complex, having many associated describing metrics.
 %%
@@ -921,7 +921,7 @@ As described in Section~\ref{sec:RegressionAnalysis}, the $R^2$ \add{, adjusted 
 %%
 Since $R^2$ is scaled between $[0, 1]$, it allows for comparison \emph{between} regression models.
 %%
-We can apply the same 2D heatmap by translating the $R^2$ values to \emph{color saturation} (Fig.~\ref{fig:Cube}a).
+We can apply the same 2D heat map by translating the $R^2$ values to \emph{color saturation} (Fig.~\ref{fig:Cube}a).
 %%
 This describes a 2D regression square for dynamic variables $X$ and $Y$ (e.g., $Age \sim X + Y$).
 %%
@@ -1019,7 +1019,7 @@ The different analysis approaches require different starting points using the \e
  %%
  The latter is used to compare regression cubes.
  %%
- [\textbf{4.DD}] Details about features using the 2D heatmap representation yield insights and hypotheses about feature relations.
+ [\textbf{4.DD}] Details about features using the 2D heat map representation yield insights and hypotheses about feature relations.
  }
   \label{fig:Workflow}
 \end{figure}
@@ -1032,7 +1032,7 @@ The different analysis approaches require different starting points using the \e
 %%
 Here, regression models with large regression metric values can be spotted fast, steering the user's attention to the respective slice.
 
-\textbf{Zoom, Filter and Analyze Further} [\textbf{3.ZF}]. The slices of interest can then be analyzed using the 2D heatmap of the slice.
+\textbf{Zoom, Filter and Analyze Further} [\textbf{3.ZF}]. The slices of interest can then be analyzed using the 2D heat map of the slice.
 
 \textbf{Details on Demand} [\textbf{4.DD}]. Precise information about the individual regression models (coefficients, associated confidence intervals and p-values) can be retrieved based on the data point representatives (e.g. in a hover modal on a currently selected data point).
 \\\\
@@ -1040,7 +1040,7 @@ We use the squared bracket abbreviation for each step to denote the affiliation 
 %%
 As shown in Fig.~\ref{fig:Workflow}, the workflow is highly iterative.
 %%
-Observations in the 2D heatmap or simply the CFS-based features can trigger new analyses by adjusting the underlying regression formulas.
+Observations in the 2D heat map or simply the CFS-based features can trigger new analyses by adjusting the underlying regression formulas.
 %%
 This can be carried out either to refine the current formula based on observations, or to create a new \emph{Regression Cube} for a difference view.
 %%
@@ -1125,7 +1125,7 @@ For example, it can be utilized for comparing the influence of a single feature 
  %%
  The values of the currently selected slice are mirrored and represented as orange data points on the slicing plane.
  %%
- (c) 2D heatmap visualization of the selected slice for feature \emph{Pain/Discomfort}.
+ (c) 2D heat map visualization of the selected slice for feature \emph{Pain/Discomfort}.
  %%
  }
   \label{fig:System}
@@ -1202,7 +1202,7 @@ Our prototype consists of three components:
 	%%
 	\item The \emph{file upload} section starting the analysis with providing a comma-separated value (CSV) file [1.AF].
 	%%
-	\item The \emph{cube visualization} consisting of the 2D heatmap as well as a 3D representation of the whole cube \add{with facilities to change the represented regression metric and its range} [2.SI].
+	\item The \emph{cube visualization} consisting of the 2D heat map as well as a 3D representation of the whole cube \add{with facilities to change the represented regression metric and its range} [2.SI].
 	%%
 	\item The \emph{formula editor} allows formula input w.r.t. a hypothesis or to conduct a \emph{hypothesis-free} analysis.
 	%%
@@ -1293,7 +1293,7 @@ This allows the assessment of the data as soon as parts of the calculations are 
 
 \paragraph{Usage of a Regression Prism for Information Reduction.}
 %%
-Figure~\ref{fig:Cube} shows that all values are mirrored along the diagonal of the 2D heatmap matrix.
+Figure~\ref{fig:Cube} shows that all values are mirrored along the diagonal of the 2D heat map matrix.
 %%
 This is due to the symmetry of basic regression operators.
 %%
@@ -1349,7 +1349,7 @@ Its purpose is not to derive detailed information about data points.
 %%
 It serves as a function similar to a mini-map, guiding the attention to points of interest in the data.
 %%
-It also gives context information about adjacent data values when using the 2D heatmap.
+It also gives context information about adjacent data values when using the 2D heat map.
 %%
 \design{The distinction between overview and details and demand using two different representations was well received with our domain experts.}
 %%
@@ -1363,7 +1363,7 @@ For such formulas, the 3D view encodes every data element as absolute difference
 %%
 This highlights slices with unusually low or high results (Fig.~\ref{fig:Application}).
 %%
-\magenta{Variables are ordered the same way in the 2D heatmap and 3D cube to preserve the mental model and make them visually analogous.}
+\magenta{Variables are ordered the same way in the 2D heat map and 3D cube to preserve the mental model and make them visually analogous.}
 
 \paragraph{Tackling the disadvantages of 3D information visualization.}
 %%
@@ -1434,9 +1434,9 @@ The \magenta{regression metric values} are projected on this plane to provide an
 %%
 This allows for a easier to identify the current slice.
 %%
-\paragraph{2D heatmap Plot Slice Visualization [4.DD].}
+\paragraph{2D Heat Map Plot Slice Visualization [4.DD].}
 %%
-The 2D heatmap (Fig.~\ref{fig:System}c) shows all values below the matrix diagonal of the current slice.
+The 2D heat map (Fig.~\ref{fig:System}c) shows all values below the matrix diagonal of the current slice.
 %%
 It creates a optical equivalence with the 3D cube.
 %%
@@ -1487,7 +1487,7 @@ It forces developers to write modularized code, which makes the components easie
 %%
 The page layout is handled using \texttt{Twitter Bootstrap}\footnote{Open Source; Maintained by Twitter, \href{http://getbootstrap.com}{\texttt{getbootstrap.com}}}, which also provides a rich set of user interface elements with proper stylings.
 %%
-The 2D heatmap is implemented using \texttt{Data driven Documents} (\texttt{D3.js}), which is popular in information visualization using vector graphics \cite{D3}.
+The 2D heat map is implemented using \texttt{Data driven Documents} (\texttt{D3.js}), which is popular in information visualization using vector graphics \cite{D3}.
 %%
 It provides fast and easy methods for binding data to graphical elements.
 %%
@@ -1549,7 +1549,7 @@ The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{www.h
  %%
  High correlations were also found for features depicting \emph{hepatic steatosis} (b).
  %%
- A high correlation between \emph{Interleukin-6}, \emph{hepatic steatosis}, \emph{GGT} and \emph{Lipase} (highlighted using arrows) was revealed during the analysis using the 2D heatmap.
+ A high correlation between \emph{Interleukin-6}, \emph{hepatic steatosis}, \emph{GGT} and \emph{Lipase} (highlighted using arrows) was revealed during the analysis using the 2D heat map.
  %%
  The hypothesis-free analysis of the breast fat data set (right) w.r.t. the \emph{parenchyma tissue percentage} of the breast displays correlations between \emph{age}, \emph{body fat}, \emph{hip circumference} as well as \emph{menstrual period}.
  }
@@ -1671,7 +1671,7 @@ The [\textbf{2.SI}] step using the 3D cube representations locates hotspots at t
 %%
 The Zoom, Filter and Analyze Further Step [\textbf{3.ZF}] was realized by slicing through the cube using the mouse input to inspect the hotspots.
 %%
-Analyzing the 2D heatmap [\textbf{4.DD}] revealed high correlations for somatometric features, hepatic steatosis indicator features as well as laboratory values, such as \emph{creatinine} (used as renal retention parameter) and \emph{uric acid} (among others used as gout and diabetes risk factors) magnitudes.
+Analyzing the 2D heat map [\textbf{4.DD}] revealed high correlations for somatometric features, hepatic steatosis indicator features as well as laboratory values, such as \emph{creatinine} (used as renal retention parameter) and \emph{uric acid} (among others used as gout and diabetes risk factors) magnitudes.
 %%
 Similar results were present for analyzing the \emph{female} groups.
 %%
@@ -1836,7 +1836,7 @@ Modeling expert knowledge using regression formulas allows for a \emph{hypothesi
 %%
 A 3D \emph{Regression Cube} allows to assess hotspots in the analysis by abstracting regression models using a quality-of-fit measure.
 %%
-These can then be analyzed further using the 2D heatmap for each cube slice.
+These can then be analyzed further using the 2D heat map for each cube slice.
 %%
 Details on demand for each model allow for a detailed assessment of regression models.
 %%
