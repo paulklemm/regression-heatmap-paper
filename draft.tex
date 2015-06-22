@@ -102,19 +102,19 @@ These data contain information (\emph{features}) about a subject's lifestyle, me
 %%
 Statistical regression analysis is used to evaluate these features and to identify feature combinations indicating a disease (the \emph{target feature}).
 %%
-Although there is a strong demand for overview visualizations of a whole data set w.r.t. a target feature, no suitable tool is available for epidemiological researchers.
+%Although there is a strong demand for overview visualizations of a whole data set w.r.t. a target feature, no suitable tool is available for epidemiological researchers.
 
 %\com{New Solution}.
 %%
 We propose an analysis approach of epidemiological data sets by incorporating all features in an exhaustive regression-based analysis.
 %%
-This approach combines all \emph{independent features} with respect to a \emph{target feature}.
+This approach combines all \emph{independent features} w.r.t. a \emph{target feature}.
 %%
 It provides a visualization that reveals insights into the data by highlighting relationships.
 %%
 The \emph{3D Regression Heat Map}, a novel 3D visual encoding, acts as an overview of the whole data set.
 %%
-It shows all combinations of two to three independent features w.r.t. a specific target disease.
+It shows all combinations of two to three independent features with a specific target disease.
 %%
 %A 3D visualization of all combinations of two to three independent features towards a target acts as an overview of the whole data set, the \emph{3D Regression Heat Map}.
 %%
@@ -139,7 +139,7 @@ With the \emph{3D Regression Heat Map}, we present a visual overview of epidemio
 
 %% Keywords that describe your work. Will show as 'Index Terms' in journal
 %% please capitalize first letter and insert punctuation after last keyword
-\keywords{Interactive Visual Analysis, Epidemiology, Breast Cancer, Hepatic Steatosis}
+\keywords{Interactive Visual Analysis, regression, Epidemiology, Breast Cancer, Hepatic Steatosis}
 
 %% ACM Computing Classification System (CCS).
 %% See <http://www.acm.org/class/1998/> for details.
@@ -181,7 +181,7 @@ With the \emph{3D Regression Heat Map}, we present a visual overview of epidemio
 %%
 Epidemiology aims to characterize health and disease conditions in defined populations (\emph{cohorts}).
 %%
-Insights about risk factors allow to characterize disease-specific high-risk groups and act as important diagnostic key figures \cite{Fletcher2012}.
+Insights about risk factors allow to characterize disease-specific high-risk groups \cite{Fletcher2012}.
 %%
 Furthermore, the insights can be used to derive recommendations regarding a healthy lifestyle or to provide information about widespread diseases.
 %%
@@ -198,16 +198,16 @@ Hence, a wide range of features is acquired.
 %
 Social and lifestyle factors, prior or current diseases and medications as well as medical parameters, such as blood pressure, are gathered.
 %%
-Medical image data from non-radiating modalities, e.g., magnetic resonance imaging (MRI), is also acquired in modern studies.
+%Medical image data from non-radiating modalities, e.g., magnetic resonance imaging (MRI), is also acquired in modern studies.
 %%
-These data may be quantified based on user-defined landmarks, which describe attributes like the shape, volume or diameter of a structure.
+%These data may be quantified based on user-defined landmarks, which describe attributes like the shape, volume or diameter of a structure.
 %%
 
-Testing features for association with diseases using regression models is one of the most important epidemiological tools.
+Testing features for associations with diseases using regression models is one of the most important epidemiological tools.
 %%
-Using it to assess the statistical resilience of a hypothesis rarely involves \emph{more than three features} due to the higher dimensional problem and the required subject count.
+Using regression analysis to assess the statistical resilience of a hypothesis rarely involves \emph{more than three features} due to the higher dimensional problem and the required subject count.
 %%
-Due to the amount of data and only limited overview techniques, possible correlations may be missed.
+Due to the amount of data and only limited overview visualizations, possible correlations may be missed.
 %%
 Explorative analyses and overview visualizations of the data set as presented in prior work \cite{Klemm2014VIS} are not tailored to a specific target feature.
 %%
@@ -258,7 +258,7 @@ Our contributions are:
 % %%
 \section{Epidemiological Background} \label{sec:Background}
 %%
-This section covers the epidemiological workflow and requirements.
+This section covers the epidemiological workflow, epidemiological data in general and the SHIP in particular.
 %%
 \subsection{Epidemiological Workflow} \label{sec:EpidemiologicalWorkflow}
 %%
