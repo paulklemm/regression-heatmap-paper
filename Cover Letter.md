@@ -9,17 +9,19 @@ At first, we'd like to thank all reviewers for the detailed feedback on this pap
 
 This cover letter is divided into two parts. The first highlights major changes to the paper. The second part covers the reviewer feedback with our inline comments to the individual reviews, which are for the most parts pointers to the first part to reduce redundancy. We considered all suggestions and corrections from the reviewers, but not all are commented inline below.
 
-*All changes can be found on the running instance of the Cube under [regressioncube.herokuapp.com](regressioncube.herokuapp.com)*.
-Code changes can be tracked in the GIT repositories [of the R back-end package](https://github.com/paulklemm/regression-cube-r-package/commits) and [the Javascript/HTML5/CSS front-end and Node back-end](https://github.com/paulklemm/regression-cube-prototype/commits).
+*All changes can be found on the running instance of the Regression Heat Map under [regressionheatmap.herokuapp.com](regressionheatmap.herokuapp.com)*.
+Code changes can be tracked in the GIT repositories [of the R back-end package](https://github.com/paulklemm/regression-heatmap-r-package/commits) and [the Javascript/HTML5/CSS front-end and Node back-end](https://github.com/paulklemm/regression-heatmap-prototype/commits).
 
 Changes
 =======
 
-
 New Title
 ---------
 
-We changed the title of the paper. It now refers to *population study data* instead of *cohort study data* for the following reason. *Cohorts* might imply for some experts with background in epidemiology, that the paper focuses on the analysis of multiple time points, since a cohort defines a population, which is analyzed using multiple acquisition cycles.
+We changed the title of the paper to be more precise.
+
+1. Change of `Regression Cube` to `3D Regression Heat Map`: [Reviewer 2] noted the potential confusion of the already claimed name `Regression Cube`. He or she suggested a good alternative with `Regression Mosaic`. Refering to the publication `Friendly, Michael (March 1994). "Mosaic Displays for Multi-Way Contingency Tables". Journal of the American Statistical Association 89 (425): 190–200.` we conclude, that our visualization is in fact a heat map, not a mosaic plot. Hence, we revised the paper accordingly. With this revision in mind, we found the name `3D Regression Heat Map` more appropriate, since it describes the method better.
+2. Change `cohort study data` to `population study data`: **Cohorts** might imply for some experts with background in epidemiology, that the paper focuses on the analysis of multiple time points, since a cohort defines a population, which is analyzed using multiple acquisition cycles. The data sets used in the Case Studies are derived from a single time point. Our collaborting epidemiological domain experts concluded, that `population study data` is more precise.
 
 Regression Metrics
 ------------------
@@ -94,6 +96,7 @@ Details on the changes are as follows:
 Additional Changes
 ------------------
 
+  * As already mentioned in cover letter Section [New Title], we refer to our visualization as heat map instead of mosaic plot. Mosaic plots are derivatives of heat maps, but also encode information using the *size* of each data point (see `Friendly, Michael (March 1994). "Mosaic Displays for Multi-Way Contingency Tables". Journal of the American Statistical Association 89 (425): 190–200.`).
   * [Reviewer 1] It was criticised, that it is not clear how the found models are investigated further. Therefore, we clarified this in the introduction of Section *4 Regression Cube Analysis of Population Study Data* as well as in the introduction of Section *5 System Design*
   * [Reviewer 1] Elaborate more on the limitation of having only three dynamic variables. We discussed this limitation in Section *8 Summary and Outlook* by suggesting 3D projections of hypercubes spanned by more than 3 dynamic regression variables.
   * [Reviewer 2] Security issues are now indicated at the beginning of Section **4 Regression Cube Analysis of Population Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**
@@ -116,7 +119,7 @@ Reviewers agree that the paper addresses an important problem, and the high leve
 
   * See [Regression Metrics] for detailed changes in the paper with this feedback in mind. To summarize:
     * The Regression Cube can now be displayed w.r.t. different descriptive metrics other than the R² (adjusted R², Akaikes Information Criterion)
-    * Additonally, all suggested features are included into the context information attached to each regression model, including a resdiual scatter plot
+    * Additonally, all suggested features are included into the context information attached to each regression model, including a residual scatter plot
     * The changes are made apparent in the paper in the respective sections (see [Regression Metrics])
 
 </i></font>
@@ -305,7 +308,7 @@ Minor comments:
 
 <i><font color='green'>
 
-  * TODO Discuss?
+  * The name of the technique was with this feedback in mind revised to `3D Regression Heat Map`. We think it is more precise and also avoids the collision with existing terminologies. See cover letter Section [New Title] for more details.
 
 </i></font>
 
