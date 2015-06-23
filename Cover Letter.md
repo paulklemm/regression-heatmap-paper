@@ -5,7 +5,7 @@ This cover letter is written in Markdown
 Cover Letter Introduction
 =========================
 
-At first, we'd like to thank all reviewers for the detailed feedback on this paper. The work underwent substantial changes and enhancements. We extended the visualization to display various descriptive metrics for regression models, empahsized how expert feedback influenced the design choices, revised all figures and included previously missing important related work.
+At first, we'd like to thank all reviewers for the detailed feedback on this paper. The work underwent substantial changes and enhancements. We extended the visualization to display various descriptive metrics for regression models, emphasized how expert feedback influenced the design choices, revised all figures and included previously missing important related work.
 
 This cover letter is divided into two parts. The first highlights major changes to the paper. The second part covers the reviewer feedback with our inline comments to the individual reviews, which are for the most parts pointers to the first part to reduce redundancy. We considered all suggestions and corrections from the reviewers, but not all are commented inline below.
 
@@ -20,8 +20,8 @@ New Title
 
 We changed the title of the paper to be more precise.
 
-1. Change of `Regression Cube` to `3D Regression Heat Map`: [Reviewer 2] noted the potential confusion of the already claimed name `Regression Cube`. He or she suggested a good alternative with `Regression Mosaic`. Refering to the publication `Friendly, Michael (March 1994). "Mosaic Displays for Multi-Way Contingency Tables". Journal of the American Statistical Association 89 (425): 190–200.` we conclude, that our visualization is in fact a heat map, not a mosaic plot. Hence, we revised the paper accordingly. With this revision in mind, we found the name `3D Regression Heat Map` more appropriate, since it describes the method better.
-2. Change `cohort study data` to `population study data`: **Cohorts** might imply for some experts with background in epidemiology, that the paper focuses on the analysis of multiple time points, since a cohort defines a population, which is analyzed using multiple acquisition cycles. The data sets used in the Case Studies are derived from a single time point. Our collaborting epidemiological domain experts concluded, that `population study data` is more precise.
+1. Change of `Regression Cube` to `3D Regression Heat Map`: [Reviewer 2] noted the potential confusion of the already claimed name `Regression Cube`. He or she suggested a good alternative with `Regression Mosaic`. Referring to the publication `Friendly, Michael (March 1994). "Mosaic Displays for Multi-Way Contingency Tables". Journal of the American Statistical Association 89 (425): 190–200.` we conclude, that our visualization is in fact a heat map, not a mosaic plot. Hence, we revised the paper accordingly. With this revision in mind, we found the name `3D Regression Heat Map` more appropriate, since it describes the method better.
+2. Change `cohort study data` to `population study data`: **Cohorts** might imply for some experts with background in epidemiology, that the paper focuses on the analysis of multiple time points, since a cohort defines a population, which is analyzed using multiple acquisition cycles. The data sets used in the Case Studies are derived from a single time point. Our collaborating epidemiological domain experts concluded, that `population study data` is more precise.
 
 Regression Metrics
 ------------------
@@ -83,7 +83,7 @@ Details on the changes are as follows:
     * Added new subsection **Iterative Design Based on Expert Feedback** to explain how expert feedback was incorporated in the design
     * Subsection **Abstracting Regression Results**: Explained how expert feedback is included in selecting the respective regression metrics
     * Paragraph **Hypothesis-Free and Hypothesis-Based Analysis**: Motivated the different approaches with examples from the epidemiological application domain
-    * [Reviewer 2] Justified selection of colour and object size parameters for the visualization with expert feedback
+    * [Reviewer 2] Justified selection of color and object size parameters for the visualization with expert feedback
   * **5 System Design**
     * Section starts with a motivation on suitability of web-based techniques for the epidemiological application domain
     * Added expert input in Subsection **System Paradigm and Components**
@@ -97,11 +97,12 @@ Additional Changes
 ------------------
 
   * As already mentioned in cover letter Section [New Title], we refer to our visualization as heat map instead of mosaic plot. Mosaic plots are derivatives of heat maps, but also encode information using the *size* of each data point (see `Friendly, Michael (March 1994). "Mosaic Displays for Multi-Way Contingency Tables". Journal of the American Statistical Association 89 (425): 190–200.`).
-  * [Reviewer 1] It was criticised, that it is not clear how the found models are investigated further. Therefore, we clarified this in the introduction of Section **3D Regression Heat Map Analysis of Population Study Data** as well as in the introduction of Section **5 System Design**
+  * We removed the workflow describing figure 2 to save space. We concluded that it does not contribute enough new information especially to readers from the VAST audience to justify it. The section **4.5 Analysis Workflow** covers already all aspects of the workflow.
+  * [Reviewer 1] It was criticized, that it is not clear how the found models are investigated further. Therefore, we clarified this in the introduction of Section **3D Regression Heat Map Analysis of Population Study Data** as well as in the introduction of Section **5 System Design**
   * [Reviewer 1] Elaborate more on the limitation of having only three dynamic variables. We discussed this limitation in Section **8 Summary and Outlook** by suggesting 3D projections of a high-dimensional space spanned by more than 3 dynamic regression variables.
   * [Reviewer 2] Security issues are now indicated at the beginning of Section **3D Regression Heat Map Analysis of Population Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**
   * [Reviewer 2] We revised a large number of long sentenced to either split them up or to simplify them.
-  * [Reviewer 2] Citations are now treated as gramatically invisible
+  * [Reviewer 2] Citations are now treated as grammatically invisible
   * [Reviewer 3] Discussed limitations of CFS algorithm in Section **4.3 Target-Variable-Dependent Dimension Reduction** and how we tackle them in Section **4.4 Abstracting Regression Results**.
   * [Reviewer 3] We added a check box as part of the file-upload step, which allows to skip the CFS preprocessing step. It is noted in Section **5.1 System Paradigm and Components**
   * [Reviewer 3] Fixed errors in Figure 1

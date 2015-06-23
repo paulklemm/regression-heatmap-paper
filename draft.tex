@@ -1007,26 +1007,26 @@ The different analysis approaches require different starting points using the \e
 
 \subsection{Analysis Workflow} \label{sec:Workflow}
 %%
-\begin{figure}[htb]
- \centering
- \includegraphics[width=1.0\linewidth]{figures/workflow}
- \caption{
- Different workflow types of the analysis using \emph{3D Regression Heat Maps}.
- %%
- [\textbf{1.AF}] The workflow starts by declaring a formula to specify a hypothesis, or to use a predefined formula for a hypothesis-free analysis.
- %%
- [\textbf{2.SI}] The \emph{3D Regression Heat Map} is then visualized.
- %%
- The user has the option to either adjust the formula or to derive details on demand on a specific regression.
- %%
- [\textbf{3.ZF}] Insights into the data yield either an adjustment of the current formula or a selection of a difference view.
- %%
- The latter is used to compare 3D Regression Heat Maps.
- %%
- [\textbf{4.DD}] Details about features using the 2D heat map representation yield insights and hypotheses about feature relations.
- }
-  \label{fig:Workflow}
-\end{figure}
+% \begin{figure}[htb]
+%  \centering
+%  \includegraphics[width=1.0\linewidth]{figures/workflow}
+%  \caption{
+%  Different workflow types using the \emph{3D Regression Heat Map}.
+%  %%
+%  [\textbf{1.AF}] The workflow starts by declaring a formula to specify a hypothesis, or to use a predefined formula for a hypothesis-free analysis.
+%  %%
+%  [\textbf{2.SI}] The \emph{3D Regression Heat Map} is then visualized.
+%  %%
+%  The user has the option to either adjust the formula, adjust the transfer function or to derive details on demand on models.
+%  %%
+%  [\textbf{3.ZF}] Insights into the data yield either an adjustment of the current formula or a selection of a difference view.
+%  %%
+%  The latter is used to compare \emph{3D Regression Heat Maps}.
+%  %%
+%  [\textbf{4.DD}] Details about features using the 2D heat map representation yield insights and hypotheses about feature relations.
+%  }
+%   \label{fig:Workflow}
+% \end{figure}
 %%
 \noindent Our \emph{3D Regression Heat Map} model is well suited for different workflow analysis techniques, based on the Visual Analytics (VA) Mantra of Keim et al.~\cite{Keim}:
 
@@ -1042,7 +1042,8 @@ Here, regression models with large regression metric values can be spotted fast,
 \\\\
 We use the squared bracket abbreviation for each step to denote the affiliation to the system design section later on.
 %%
-As shown in Fig.~\ref{fig:Workflow}, the workflow is highly iterative.
+%As shown in Fig.~\ref{fig:Workflow}, the workflow is highly iterative.
+The workflow is highly iterative.
 %%
 Observations in the 2D heat map or simply the CFS-based features can trigger new analyses by adjusting the underlying regression formulas.
 %%
@@ -1121,9 +1122,9 @@ For example, it can be utilized for comparing the influence of a single feature 
  \includegraphics[width=1.0\linewidth]{figures/system}
  \caption{
  %%
- Breast fat data set loaded into the \emph{3D Regression Heat Map} prototype.
+ Breast fat data set loaded into our prototype.
  %%
- (a) Using the formula input, the user specifies the dependent feature as well as its calculation rules.
+ (a) Using the formula input, the user specifies the dependent feature and calculation rules.
  %%
  (b) 3D heat map visualization, showing values above the matrix diagonal as overview.
  %%
