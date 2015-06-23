@@ -1336,19 +1336,19 @@ In early prototype versions, the 3D prism acted as starting point for the data a
 %%
 Slices were shown using cutaway planes.
 %%
-This approach was not popular with our domain experts, because the complexity of the visualization overwhelmed them. %did not like the combination of 3D interaction and slicing with representatives.
+This approach was not popular among epidemiologists, because the complexity of the visualization overwhelmed them. %did not like the combination of 3D interaction and slicing with representatives.
 %%
 }
 %%
 The \emph{3D Regression Heat Map} representation \design{was redesigned to} act as an overview over the whole data set.
 %%
-Its purpose is not to derive detailed information about data points.
+%Its purpose is not to derive detailed information about data points.
 %%
 It serves as a function similar to a mini-map, guiding the attention to points of interest in the data.
 %%
 It also gives context information about adjacent data values when using the 2D heat map.
 %%
-\design{The distinction between overview and details and demand using two different representations was well received with our domain experts.}
+\design{The distinction between overview and details on demand using two different representations was well received with our domain experts.}
 %%
 The displayed prism shows values above the matrix diagonal.
 %%
@@ -1372,17 +1372,17 @@ We aim to minimize these problems.
 %%
 Since the regression metric (e.g. $R^2$) values are mapped on data point opacity, large values are highlighted in the prism, guiding the focus to the respective slices.
 %%
-It also creates a sparse representation, since the majority of regression models yield (depending on the data set and the chosen formula) low $R^2$ values.
+The visualization is sparse, since the majority of regression models yield (depending on the data set and the chosen formula) low $R^2$ values.
 %%
 Also, the preceding correlation-based feature selection reduces the information space significantly, leading to sparse heat maps.
 %%
-Overlapping is still an issue, but this way greatly reduced in its effect to the readability of the visualization.
+Overlapping is still an issue, but greatly reduced in its effect to the readability of the visualization.
 %%
 
 %% INTERACTION
-Rotating the 3D heat map is restricted to the y-axis, preserving the mental map to position individual features.
+Transformation of the 3D heat map is restricted to the y-axis (horizontal only), preserving the mental map to position individual features.
 %%
-The 3D heat map is always oriented according to the 2D representation, allowing for an easy mental combination of the two representations.
+The 3D heat map is always oriented according to the 2D representation, allowing for an easy mental combination of them.
 %%
 Allowing more degrees of freedom was confusing to our users and also did not add value to the visualization.
 %%
@@ -1398,11 +1398,11 @@ We propose two ways to achieve this.
 	%\item
 	\textbf{We apply the slicing metaphor from 3D volume data.}
 	%%
-	In medical volume data renderings, slicing views are very common to view details on a selected plane in the scene.
+	In medical volume renderings, slicing views are common to view details on a selected plane in the scene.
 	%%
 	We employ this technique for selecting 3D heat map slices (e.g., by moving a plane via vertical mouse input while pressing the right mouse button).
 	%%
-	We, however, still display the whole 3D object instead of cutting away information down to the slice position.
+	We, however, still display the whole 3D object instead of cutting away information. %down to the slice position.
 	%%
 	\design{Early prototypes only provided this method to select a slice of interest, which was inefficient when the user was looking for a specific slice.
 	%%
@@ -1412,14 +1412,14 @@ We propose two ways to achieve this.
 	%%
 	%\item
 
-	\textbf{Selecting the slice using a dropdown menu} provides fast access to plane selections when the user already knows the slices of interest.
+	\textbf{Selecting the slice using a dropdown menu} containing the feature names provides fast access to plane selections when the user already knows the slices of interest.
 	%%
 %\end{itemize}
 %%
-The currently selected slice is denoted with a semi-transparent gray plane.
+The currently selected slice is displayed as a semi-transparent gray plane.
 %%
 \design{
-Early designs rendered the whole \emph{3D Regression Heat Map}, which made it hard to assess the position of the plane.
+Early prototypes rendered the whole \emph{3D Regression Heat Map}, which made it hard to assess the position of the plane.
 %%
 %Since the regression metrics are mirrored along the diagonal, we decided to use this space to support better identification of the current slice.
 Since the regression metrics are mirrored along the diagonal, the space available from visualizing only the prism generated from the upper half of the heat map diagonal is used to display information about the currently selected plane.
@@ -1433,7 +1433,7 @@ This allows for a easier to identify the current slice.
 %%
 The 2D heat map (Fig.~\ref{fig:System}c) shows all values below the matrix diagonal of the current slice.
 %%
-It creates a optical equivalence with the 3D heat map.
+It creates an optical equivalence with the 3D heat map.
 %%
 To reduce visual clutter, the 2D view only shows dimensions, which are retrieved through the correlation-based feature selection.
 %%
@@ -1470,17 +1470,18 @@ Epidemiologists use such plots to validate models w.r.t. the model assumptions, 
 %%
 We rely on web-based technologies for our prototype.
 %%
-The ongoing transition of open-science software into the web spawned numerous projects, making state-of-the-art algorithms available in this domain.
-
+%The ongoing transition of open-science software into the web spawned numerous projects, making state-of-the-art algorithms available in this domain.
+%%
 %\paragraph{Front-End.}
 %%
 The front-end is created using \texttt{HTML5}, \texttt{CSS3} and \texttt{Javascript}.
 %%
 \texttt{Angular.js}\footnote{Open Source; Maintained by Google, \href{https://www.angularjs.org/}{\texttt{angularjs.org}}} abstracts web application into models and views, allowing for a responsive way to combine \texttt{HTML} and \texttt{Javascript}.
 %%
-It forces developers to write modularized code, which makes the components easier expandable while keeping the code maintainable by including unit tests.
+In is easily expandable by forcing developers to write modularized code.
+%It forces developers to write modularized code, which makes the components easier expandable. %while keeping the code maintainable by including unit tests.
 %%
-The page layout is handled using \texttt{Twitter Bootstrap}\footnote{Open Source; Maintained by Twitter, \href{http://getbootstrap.com}{\texttt{getbootstrap.com}}}, which also provides a rich set of user interface elements with proper stylings.
+The page layout is handled using \texttt{Twitter Bootstrap}\footnote{Open Source; Maintained by Twitter, \href{http://getbootstrap.com}{\texttt{getbootstrap.com}}}, which also provides a rich set of user interface elements. %with proper stylings.
 %%
 The 2D heat map is implemented using \texttt{Data driven Documents} (\texttt{D3.js}), which is popular in information visualization using vector graphics \cite{D3}.
 %%
@@ -1501,12 +1502,12 @@ The 3D plot is created using the WebGL-based \texttt{Threejs}\footnote{Open Sour
 %\paragraph{Back-End.}
 Two server structures serve as back-end.
 %%
-The first one is the web-server, which is written in \texttt{Javascript} using \texttt{Node.js}\footnote{Open Source; Maintained by Joyent Inc, \href{http://nodejs.org}{\texttt{nodejs.org}}}, running on Googles V8 Javascript runtime environment.
+The web-server is written in \texttt{Javascript} using \texttt{Node.js}\footnote{Open Source; Maintained by Joyent Inc, \href{http://nodejs.org}{\texttt{nodejs.org}}}, running on Googles V8 Javascript runtime environment.
 %%
 It is hosted on \texttt{Heroku}\footnote{Owned by Salesforce.com, \href{https://www.heroku.com/}{\texttt{heroku.com}}}, a cloud application platform.
 %%
 
-The statistical processors yield the second structure.
+The statistical computations are performed on the second structure.
 %%
 They rely on the statistical programming language \texttt{R}.\footnote{Open Source; \href{http://r-project.org}{\texttt{r-project.org}}}
 %%
@@ -1526,7 +1527,7 @@ This way, any computer, which runs \texttt{R} can be turned into a statistical p
 %%
 A running instance of the \emph{3D Regression Heat Map} prototype can be found under \href{http://regressioncube.herokuapp.com/}{\texttt{regressioncube.herokuapp.com}}.
 %%
-The source for the prototype is freely available at \texttt{Github}.\footnote{\texttt{R}-based back-end: \href{https://github.com/paulklemm/regression-cube-r-package}{\\\texttt{github.com/paulklemm/regression-cube-r-package}}}$^{,}$\footnote{Front-End and Node.js Webserver: \href{https://github.com/paulklemm/regression-cube-prototype}{\texttt{\\github.com/paulklemm/regression-cube-prototype}}}
+The source for the prototype is freely available at \texttt{Github}.\footnote{\texttt{R}-based back-end: \href{https://github.com/paulklemm/regression-heatmap-r-package}{\\\texttt{github.com/paulklemm/regression-heatmap-r-package}}}$^{,}$\footnote{Front-End and Node.js Webserver: \href{https://github.com/paulklemm/regression-heatmap-prototype}{\texttt{\\github.com/paulklemm/regression-heatmap-prototype}}}
 %%
 Instructions and code on how to create a setup running the \emph{3D Regression Heat Map} statistical back-end through a \texttt{Ubuntu} server using \texttt{OpenCPU} are referenced in the repository.
 %%
@@ -1551,7 +1552,7 @@ The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{www.h
   \label{fig:Application}
 \end{figure*}
 %%
-In this section, we describe how we applied the \emph{3D Regression Heat Map} to two epidemiological data sets.
+In this section, we describe the application of the \emph{3D Regression Heat Map} to two epidemiological data sets.
 %%
 The hepatic steatosis data set was analyzed using data mining algorithms, yielding risk groups, which we now analyze further.
 %%
@@ -1574,7 +1575,7 @@ The ability of a system to discover knowledge is difficult to measure.
 %%
 Lam et al.~\cite{Lam2012} propose the \emph{Visual Data Analysis and Reasoning} (\emph{VDAR}) technique, which is focused on the characterization of a systems' ability to generate hypotheses and explore the data in order to extract information.
 %%
-\emph{VDAR} can be carried out using case studies using thinking-aloud techniques to comprehend the reasoning and thought process of the user.
+\emph{VDAR} can be carried out based on case studies using thinking-aloud techniques to comprehend the reasoning and thought process of the user.
 %%
 We employ \emph{VDAR} for analyzing our system.
 %%
@@ -1596,7 +1597,7 @@ All sessions were video recorded to be processed later on.
 %%
 We conducted the analysis with three participants.
 %%
-\emph{KH}, a clinician (10 years of experience) with focus on epidemiological research, is the domain expert for the breast fat data set analysis.
+\emph{KH}, a clinician (10 years of experience) with focus on epidemiological research, is the domain expert for the breast fat data set.
 %%
 She is a radiologist, responsible for the SHIP-MRI acquisition and also responsible of the mammography analysis.
 %%
@@ -1611,12 +1612,12 @@ The dichotomous target feature is derived from the liver fat concentration measu
 %%
 Liver fat concentrations of no more than 10\% are mapped to the `negative' class; values greater than 10\% are mapped to the `positive' class to indicate absence or presence of the disease.
 %%
-The data set contains labels for 578 participants for which the MRI data was available to that point.
+The data set contains labels for 578 participants. %for which the MRI data was available to that point.
 %%
-The MRI scans for each subject have been introduced in SHIP-2, so the target feature is only present the last study wave.
+The MRI scans for each subject are only available in SHIP-2. %, so the target feature is only present the last study wave.
 
 %%
-Apart from the target feature, the data set contains 199 features, comprising sociodemographic features (gender, age), consumption behavior (e.g., alcohol or tobacco), laboratory data (e.g., sera concentrations), and two features depicting the liver ultrasound.
+Apart from the target feature, the data set contains 199 features, comprising sociodemographic features (gender, age), consumption behavior (e.g., alcohol and tobacco), laboratory data (e.g., sera concentrations), and two features depicting the liver ultrasound.
 %%
 The acquisition wave is denoted using the appendix; 85 features with appendix \emph{s0} denote their affiliation to SHIP-0 (first study moment), 50 features for \emph{s1} and 55 for \emph{s2}, alongside with 10 time-independent SNPs (DNA base pairs).
 %%
@@ -1633,13 +1634,13 @@ Based on these observations, we perform our analysis on three populations: \emph
 \subsection{The Breast Fat Data Set}
 The breast fat data set was compiled to find associations between the parenchyma tissue proportion in the female breast compared to other features in the data.
 %%
-The ratio between parenchyma and cellular connective tissue (breast density) has been shown to be associated with breast cancer.
+Breast density is denoted as the ratio between parenchyma and cellular connective tissue and has been shown to be associated with breast cancer.
 %%
 Studies describe a four to five times increased risk of getting breast cancer for participants with a breast density above 50\% \cite{Mccormack2006}.
 
-The data comprises 1,186 female subjects (368 from \texttt{SHIP-2}, 818 from \texttt{SHIP-TREND-0} cohort).
+The data comprises 1,186 female subjects. %(368 from \texttt{SHIP-2}, 818 from \texttt{SHIP-TREND-0} cohort).
 %%
-It contains 231 dimensions, holding information about somatometric features (e.g., body size or weight) consumption behavior (e.g., alcohol or tobacco), personal and medical history (e.g., occupation or prior diseases), women-specific features (e.g., number of born children or contraception type) as well as mammography features (e.g., fat content or parenchyma tissue proportion to volume).
+It contains 231 dimensions, holding information about somatometric features (e.g., body size and weight) consumption behavior, personal and medical history (e.g., occupation and prior diseases), women-specific features (e.g., number of born children and contraception type) as well as mammography features (e.g., fat content and parenchyma tissue proportion to volume).
 %%
 The latter were derived from MRI data for each subject, which was manually segmented by radiologists.
 %%
@@ -1662,7 +1663,7 @@ The analysis goal was reproducing results with our visual analysis framework tha
 %%
 Therefore, \emph{UN} started the [\textbf{1.AF}] step using the dichotomized MRI fat liver concentration and the formula $mrt\_liverfat\_s2 \sim X + Y + Z$ for \emph{male} subjects.
 %%
-The [\textbf{2.SI}] step using the 3D heat map locates hotspots at the end of the heat map (Fig.~\ref{fig:Application}a).
+The [\textbf{2.SI}] step using the 3D heat map locates hotspots at the end of the heat map (Fig.~\ref{fig:Application} left).
 %%
 The Zoom, Filter and Analyze Further Step [\textbf{3.ZF}] was realized by slicing through the 3D heat map using the mouse input to inspect the hotspots.
 %%
@@ -1685,9 +1686,9 @@ Due to the difference between our regression model approach and the decision tre
 %%
 Since our method can assess numerical target features, the analysis was conducted again for the non-dichotomized target using the same formula.
 %%
-The 3D heat map already showed lower $R^2$ values in general.
+The 3D heat map showed lower $R^2$ values in general.
 %%
-However, the analysis is now based on linear regression and the $R^2$ values cannot be directly compared.
+However, the analysis is now based on linear regression and the $R^2$ values cannot be compared directly.
 %%
 The correlation hotspots matched with the ones from the dichotomous target, but were generally lower ($R^2$ of $0.37$ for somatometric features as opposed to $0.58$).
 %%
@@ -1709,7 +1710,7 @@ The finding is subject of further analysis.
 %%
 The analysis aims to find relationships on the breast fat data using mammography analysis features.
 %%
-Relationships between the share parenchyma tissue on the overall breast volume are of high interest \cite{Mccormack2006}.
+Relationships between the share of parenchyma tissue on the overall breast volume are of high interest \cite{Mccormack2006}.
 %%
 The [\textbf{1.AF}] was started by \emph{KH} using the default formula for hypothesis-free analysis ($Z \sim X + Y$).
 %%
@@ -1773,13 +1774,13 @@ To get nearly similar results, she had to spend hours using \texttt{SPSS} and po
 %%
 \paragraph{Extracted hypotheses have to be investigated further.}
 %%
-We map results of complex statistical results into comprehensive visualizations.
+We map results of complex statistical computations into comprehensive visualizations.
 %%
 Agreeing with \emph{TI}'s feedback, each finding and hypothesis has to be confirmed using a dedicated statistical analysis.
 %%
 An accompanying search for correlations potentially highlighting confounders can be carried out using our method.
 %%
-Statistical validation of an epidemiological end result still has to be carried out by statisticians using their respective tools.
+Statistical validation of an epidemiological result still has to be carried out by statisticians using their respective tools.
 %%
 \emph{TI} commented on the possibility of adding more regression types to model different correlation types.% to customize the cube even more.
 %%
@@ -1805,9 +1806,9 @@ Discretization reduces the information space and introduces bias into the data a
 %%
 In contrast to many data mining algorithms, our method allows to use the concurrent analysis of heterogeneous data types.
 %%
-Investigations of the hepatic steatosis data set with both numerical and dichotomized liver fat values showed comparable results but slightly differed when it comes to details.
+Investigations of the hepatic steatosis data set with both numerical and dichotomized liver fat values showed comparable results. %but slightly differed when it comes to details.
 %%
-The overall explanatory power on the numerical feature was lower, supporting the hypothesis that the dichotomized target feature already models knowledge to bias the results w.r.t. the expected result.
+The overall explanatory power on the numerical feature was lower, supporting the hypothesis that the dichotomized target feature already models knowledge to bias the data w.r.t. the expected result.
 %%
 
 %%
@@ -1835,7 +1836,7 @@ These can then be analyzed further using the 2D plot for each 3D heat map slice.
 %%
 Details on demand for each model allow for a detailed assessment of regression models.
 %%
-We successfully applied the approach to find correlations in a hepatic steatosis as well as a breast cancer data set.
+We successfully applied the approach to find correlations in a hepatic steatosis as well as a breast fat data set.
 %%
 The method was well received by our clinical partners, triggering detailed investigations of the findings.
 
@@ -1850,17 +1851,17 @@ Investigating more dynamic variables can be achieved by projecting the resulting
 %%
 This, however, increases the cognitive load and complexity of the analysis substantially and needs to be accompanied by techniques, which simplify this approach.
 %%
-Static features can be added at will using the formula input without increasing the complexity of the visualization.
+Static features can be added using the formula input without increasing the complexity of the visualization.
 }
 
-As next step, we want to introduce more regression types, which model different kinds of correlations.
+As a next step, we want to introduce more regression types, which model different kinds of correlations.
 %%
 We also want to extend the 3D heat map to time-dependent data by expanding the difference heat map approach.
 %%
 
 We published all associated code and provide a freely accessible analysis platform open to heterogenous data types.
 %%
-We want to support opening up knowledge discovery to allow a diverse group of domain experts to derive insight into their data and support the notion of open science.
+We want to support opening up knowledge discovery to allow a diverse group of domain experts to derive insight into their data. %and support the notion of open science.
 %%
 \begin{small}
 \acknowledgments{
