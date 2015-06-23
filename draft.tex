@@ -139,7 +139,7 @@ With the \emph{3D Regression Heat Map}, we present a visual overview of epidemio
 
 %% Keywords that describe your work. Will show as 'Index Terms' in journal
 %% please capitalize first letter and insert punctuation after last keyword
-\keywords{Interactive Visual Analysis, regression, Epidemiology, Breast Cancer, Hepatic Steatosis}
+\keywords{Interactive Visual Analysis, Regression Analysis, Heat Map, Epidemiology, Breast Cancer, Hepatic Steatosis}
 
 %% ACM Computing Classification System (CCS).
 %% See <http://www.acm.org/class/1998/> for details.
@@ -215,12 +215,12 @@ They mostly highlight correlations between features, which are known to the doma
 %%
 We incorporate the regression analysis, which is familiar to the domain experts, into overview visualizations to support a hypothesis-free analysis or an analysis w.r.t. a specific disease or hypothesis.
 %%
-This is achieved by providing template regression formulas, which are applied to all potential feature combinations.
+Therefore we provide template regression formulas, which are applied to all potential feature combinations.
 %%
 Since the notation is familiar to epidemiologists, they can rapidly include their domain knowledge into the analysis process.
 %%
 Difference views between regression formulas allow to assess the influences of individual features on the process.
-
+%%
 Our contributions are:
 
 \design{
@@ -326,7 +326,7 @@ We incorporate image-derived features, but do not focus on analyzing image data.
 %%
 More discussions of population study data types and characteristics can be found in the works of Preim et al.~\cite{Preim2014} and Toennies et al.~\cite{Toennies2015}.
 %%
-\\\\
+
 Features influencing the exposure as well as the outcome of an analysis are called \emph{confounders} and have to be specially treated.
 %%
 The analysis model has to be adjusted by normalizing all included features w.r.t. the confounder.
@@ -337,7 +337,24 @@ It also influences the general body condition and thereby almost all features ac
 %%
 Another important confounder is \emph{gender}.
 %%
-Other confounders have to be selected by epidemiologists specific to the investigated condition.
+Confounders have to be selected by epidemiologists specific to the investigated condition.
+%%
+\paragraph{The Study of Health in Pomerania (SHIP).}
+The \texttt{SHIP}, located in Northern Germany, aims to characterize health and disease in the widest range possible \cite{Volzke2011}.
+%%
+%It does not focus on a specific disease, making the data set open for many diseases.
+%%
+Unique for the \texttt{SHIP} is the acquisition of medical image data per participant.
+%%
+A second cohort, \texttt{SHIP-TREND} was started in 2012.
+%%
+Data for both cohorts are examined in a 5-year time span.
+%%
+New parameters are added in each iteration, extending the range of investigated diseases.
+%%
+%For the latest two acquisitions (\texttt{SHIP-2} and \texttt{SHIP-TREND-0}), MRI scans are included into the cohort \cite{Hegenscheid2009, Ivanovska2014}.
+%%
+Most examinations occur in all stages and are performed according to the same instructions to enable comparisons over the different stages of the study.
 
 \subsection{Regression Analysis} \label{sec:RegressionAnalysis}
 %%
@@ -359,15 +376,17 @@ A small AIC value indicates a higher quality model.
 $R^2$ values describe the quality of the fit; in other words how well the dependent features describe the target feature.
 %%
 The value ranges between $[0, 1]$, where 1 encodes a perfect fit.
+%%
 
 \paragraph{Regression Analysis Notation.} Regression formulas are usually denoted as follows:
 %%
-\begin{equation}
-Dependent \sim Independent_1 + ... + Independent_n
-\label{eq:RegressionNotation}
-\end{equation}
+$Dependent \sim Independent_1 + ... + Independent_n$.
+% \begin{equation}
+% Dependent \sim Independent_1 + ... + Independent_n
+% \label{eq:RegressionNotation}
+% \end{equation}
 %%
-An example of a regression formula would be $KidneyDisorder \sim Smoking + Obesity$.
+An example of a regression formula would be $KidneyDisorder~\sim~Smoking~+~Obesity$.
 The most commonly used regression operators comprise:
 %%
 \begin{itemize}
@@ -410,23 +429,6 @@ Therefore, pseudo-$R^2$ values are extracted, such as the \emph{Nagelkerke $R^2$
 %%
 Comparisons have to be handled with care.
 %%
-\subsection{The Study of Health in Pomerania (SHIP)}
-The \texttt{SHIP}, located in Northern Germany, aims to characterize health and disease in the widest range possible \cite{Volzke2011}.
-%%
-%It does not focus on a specific disease, making the data set open for many diseases.
-%%
-Unique for the \texttt{SHIP} is the acquisition of medical image data per participant.
-%%
-A second cohort, \texttt{SHIP-TREND} was started in 2012.
-%%
-Data for both cohorts are examined in a 5-year time span.
-%%
-New parameters are added in each iteration, extending the range of investigated diseases.
-%%
-For the latest two acquisitions (\texttt{SHIP-2} and \texttt{SHIP-TREND-0}), MRI scans are included into the cohort \cite{Hegenscheid2009, Ivanovska2014}.
-%%
-However, most examinations occur in all stages and are performed according to the same instructions to enable comparisons over the different stages of the study.
-%%
 \section{Prior and Related Work}
 %% https://en.wikipedia.org/wiki/Exploratory_data_analysis#cite_note-Tukey1977-4
 Tukey already stated in 1977 that data are too often analyzed solely using confirmatory data analysis \cite{Tukey}.
@@ -443,7 +445,7 @@ Sedlmair et al.~\cite{Sedlmair} present a conceptual taxonomy of parameter space
 %%
 %It includes a abstract application domain independent data flow model, navigation strategies for exploring parameter spaces as well a characterization of analysis tasks.
 %%
-Using the taxonomy, approaches can be classified to find works with similar problems and derive new design ideas and evaluate ideas.
+%Using the taxonomy, approaches can be classified to find works with similar problems and derive new design ideas and evaluate ideas.
 %The taxonomy allows to classify approaches to find works with similar problems to derive new design ideas and evaluate ideas.
 %%
 Based on their input parameter taxonomy, we are visualizing \emph{model parameters} based on \emph{environmental parameters} in a \emph{global-to-local} navigation strategy.
@@ -464,9 +466,9 @@ They provide a framework for qualitative analyses of relationships and ranking f
 %%
 Existing regression models can be validated and compared using 3D views and 2D slice-views.
 %%
-We employ the same steps by preprocessing features using correlations with the target and providing an overview over combinations.
+%We employ the same steps by preprocessing features using correlations with the target and providing an overview over combinations.
 %%
-M\"{u}hlebacher et al. focus on a smaller number of features, which can be assessed in more detail, yielding a plot-matrix view, while we cover more features by abstracting the models.
+M\"{u}hlbacher et al. focus on a smaller number of features, which can be assessed in more detail, yielding a plot-matrix view, while we cover more features by abstracting the models.
 %%
 %We also take categorical targets and regression formula inputs into account.
 %%
@@ -531,19 +533,19 @@ They present \emph{Cohort Analysis via Visual Analytics} (\emph{CAVA}), a framew
 %%
 They use the system to find longitudinal pathways for diseases on the basis of health records.
 %%
-Sub-groups are automatically created by incorporating \emph{analytics} and through selection in expert-guided \emph{views}.
+%Sub-groups are automatically created by incorporating \emph{analytics} and through selection in expert-guided \emph{views}.
 %%
 %They do not go into the detail w.r.t the analytics used, they seem to not incorporate confounder analysis (other than dividing groups by gender) and the user study lacks concrete goals.
 %%
 %Their data differs strongly from ours, having multiple moments for each subject, yielding a approach focused on finding pathways of interest.
 %%
-We use their requirements as guidelines, which incorporate \emph{flexible} and \emph{iterative analysis}. %, meaning that the system has to adapt to different requirements in different analysis steps.
+We apply their requirements as guidelines, which incorporate \emph{flexible} and \emph{iterative analysis}. %, meaning that the system has to adapt to different requirements in different analysis steps.
 %%
 %We implement this by supporting both hypothesis-based and hypothesis-free analysis.
 %%
 Angelelli et al.~\cite{Angelelli} visualize image-derived an non-image data using cube data structures with focus on comparison and knowledge extraction.
 %%
-Their proposed engine represents multiple heterogenous cohort study data sets as normalized data cubes.
+%Their proposed engine represents multiple heterogenous cohort study data sets as normalized data cubes.
 %%
 %Thus, data redundancy is avoided and runtime measure aggregation can be carried out when measures of the different cubes have to be combined.
 %%
@@ -555,7 +557,7 @@ They use \emph{Pearsson's} $r$ to characterize relationships with target feature
 %%
 %We use regression models and associated $R^2$ values to depict relationships between a target feature and multiple independent features instead of one and employ the information into one global visualization.
 %%
-In contrast, we aim for a fast large scale correlation analysis incorporating many features to derive insight into the data.
+In contrast, we aim for a fast large scale correlation analysis incorporating many features to derive insights.
 %%
 %\paragraph{Visual Analysis in Public Health.}
 %%--
@@ -689,8 +691,7 @@ The 2D heat map \cite{Klemm2014VIS} highlights the pairwise correlation between 
 %%
 Its great popularity among our domain experts was the inspiration for this work.
 %%
-
-While the presented techniques were well received by the epidemiological experts, the explanatory power w.r.t. back pain was limited.
+The presented techniques were well received by the epidemiological experts, but the explanatory power w.r.t. back pain was limited.
 %%
 It yielded an analysis based on image-derived features, such as extracting and analyzing curvature, torsion and angle of the lumbar spine \cite{Klemm2015}.
 %%
@@ -889,9 +890,9 @@ The next section shows ways of abstracting the results to make them visually fea
  \caption{
  (a) Overview visualization using a 2D heat map of the formula $Z \sim X + Y$, where $Z$ assumes the feature $age$.
  %%
- The descriptive metrics extracted from the regression model are mapped to color saturation (for $R^2$, saturated color shows a strong correlation).
+ The $R^2$ metrics extracted from the regression model are mapped to color saturation (a saturated color indicates a strong correlation).
  %%
- (b) Now, $Z$ is set to all features $n$ and yields $n$ 2D heat map visualizations.
+ (b) Now, $Z$ is set to all features $n$ and yields $n$ 2D heat maps.
  %%
  These represent the slices in our \emph{3D Regression Heat Map}.
  %%
@@ -988,9 +989,9 @@ Thus, the visualization can be easily extended using other regression types.
 For \emph{3D Regression Heat Maps} with a fixed target feature, e.g., $Cancer \sim X + Y + Z$, no such encodings are required and the $z$ dimension can be compared directly.
 %%
 \magenta{
-As mentioned previously, the dimension reduction using the CFS algorithm potentially removes features, which are of interest for the domain expert.
+As mentioned previously, the dimension reduction using the CFS algorithm potentially removes features important to the domain expert.
 %%
-To tackle this problem, the $z$ dimension of the visualization contains all features of the data set, allowing to assess their influence on the models.
+To tackle this problem, the $z$ dimension of the visualization contains all features of the data set, allowing to assess their influence.
 %%
 The $x$ and $y$ dimensions are restricted to the features extracted from the CFS algorithm.
 }
@@ -1099,7 +1100,7 @@ $Cancer \sim X + Y + Z$ subtracted with the regression metric from $Cancer \sim 
 This is achieved through \emph{3D Regression Heat Map} comparison.
 %%
 
-\paragraph{3D regression heat map comparison.}
+\paragraph{3D Regression Heat Map comparison.}
 \design{
 %%
 Comparisons were introduced later in the project.
@@ -1126,11 +1127,11 @@ For example, it can be utilized for comparing the influence of a single feature 
  %%
  (a) Using the formula input, the user specifies the dependent feature and calculation rules.
  %%
- (b) 3D heat map visualization, showing values above the matrix diagonal as overview.
+ (b) 3D heat map, showing values above the matrix diagonal as overview.
  %%
  The values of the currently selected slice are mirrored and represented as orange data points on the slicing plane.
  %%
- (c) 2D heat map visualization of the selected slice for feature \emph{Pain/Discomfort}.
+ (c) 2D heat map of the selected slice for feature \emph{Pain/Discomfort}.
  %%
  }
   \label{fig:System}
@@ -1168,7 +1169,7 @@ By providing a service using a website it has a much larger chance of being test
 %%
 %There is no set-up time involved and domain experts can use the methods from any computer connected with the web.
 %%
-By design, web technology is based on a client-server architecture.
+Web technology is based on a client-server architecture.
 %%
 It allows for outsourcing computationally heavy tasks on server clusters and transferring results to the client device.
 %%
@@ -1199,16 +1200,16 @@ Therefore, complex systems, which require substantial training to work with are 
 %The \emph{3D Regression Heat Map} design focuses on a clean appearance, reducing the amount of user interface elements as much as possible.
 Therefore, the \emph{3D Regression Heat Map} design focuses on a clean appearance, reducing the amount of user interface elements as much as possible.
 %%
-This allows for a fast learning of the individual system parts.
+This allows for a fast learning of the system.
 %%
 Our prototype consists of three components:
 \begin{itemize}
 	%%
-	\item The \emph{File Upload} section starting the analysis with providing a comma-separated value (CSV) file [1.AF].
+	\item The \emph{file upload} section starting the analysis with providing a comma-separated value (CSV) file [1.AF].
 	%%
-	\item The \emph{Regression Heat Map Visualization} consisting of the 2D heat map as well as a 3D representation of all regression models \add{with facilities to change the represented regression metric and its range} [2.SI].
+	\item The \emph{Regression Heat Map visualization} consisting of the 2D heat map as well as a 3D representation of all regression models \add{with facilities to change the represented regression metric and its range} [2.SI].
 	%%
-	\item The \emph{Formula Editor} allows formula input w.r.t. a hypothesis or to conduct a \emph{hypothesis-free} analysis.
+	\item The \emph{formula editor} allows formula input w.r.t. a hypothesis or to conduct a \emph{hypothesis-free} analysis.
 	%%
 	It also allows to select a reference formula for creating difference models [1.AF, 3.ZF].
 	%%
@@ -1287,7 +1288,7 @@ Since all cells in the heat map are represented using regression metric values, 
 %%
 \subsection{3D Regression Heat Map Visualization [2.SI].}
 %%
-The visualization and interaction with the \emph{3D Regression Heat Map} is the prototype core.
+The visualization and interaction with the \emph{3D Regression Heat Map} is the core of the prototype.
 %%
 Results from the statistical processors are uploaded into the visualization slice by slice.
 %%
@@ -1369,19 +1370,19 @@ This highlights slices with unusually low or high results (Fig.~\ref{fig:Applica
 
 \paragraph{Tackling the disadvantages of 3D information visualization.}
 %%
-3D information visualizations are often criticized for introducing occlusions and interaction problems.
+3D information visualizations are criticized for introducing occlusions and interaction problems.
 %%
 These are often not balanced out by the advantages of using the third dimension for visual mapping.
 %%
 We aim to minimize these problems.
 %%
-Since the regression metric (e.g. $R^2$) values are mapped on data point opacity, large values are highlighted in the prism, guiding the focus to the respective slices.
+The regression metric (e.g. $R^2$) values are mapped on data point opacity, highlighting large values in the prism, which guides the focus to the respective slices.
 %%
 The visualization is sparse, since the majority of regression models yield (depending on the data set and the chosen formula) low $R^2$ values.
 %%
 Also, the preceding correlation-based feature selection reduces the information space significantly, leading to sparse heat maps.
 %%
-Overlapping is still an issue, but greatly reduced in its effect to the readability of the visualization.
+Overlapping is still an issue, but greatly reduced in its effect to the visualization readability.
 %%
 
 %% INTERACTION
@@ -1461,11 +1462,11 @@ Epidemiologists use such plots to validate models w.r.t. the model assumptions, 
  \centering
  \includegraphics[width=1.0\linewidth]{figures/implementation}
  \caption{
- The front-end (left) is realized with \emph{HTML5}/\emph{CSS3}/\emph{Javascript} and different Javascript libraries, such as \emph{Angular.js}, \emph{Three.js} and D3.js.
+ The front-end (left) is realized with \texttt{HTML5}/\texttt{CSS3}/\texttt{Javascript} and different Javascript libraries, such as \href{https://www.angularjs.org/}{\texttt{Angular.js}}, \href{http://threejs.org}{\texttt{Threejs}} and \href{http://d3js.org/}{\texttt{D3.js}}.
  %%
- The web-server (right) is written using \emph{Node.js} and hosted on \emph{Heroku}.
+ The web-server (right) is written using \href{http://nodejs.org}{\texttt{Node.js}} and hosted on \href{https://www.heroku.com/}{\texttt{Heroku}}.
  %%
- \emph{R} and \emph{OpenCPU} constitute the statistical back-end (top) to compute the \emph{3D Regression Heat Maps}.
+ \href{http://r-project.org}{\texttt{R}} and \href{https://www.opencpu.org/}{\texttt{OpenCPU}} constitute the statistical back-end (top) to compute the \emph{3D Regression Heat Maps}.
  %%
  Additional statistical back-ends can be attached to the system to decrease the computation time.
  %%
@@ -1473,7 +1474,7 @@ Epidemiologists use such plots to validate models w.r.t. the model assumptions, 
   \label{fig:Implementation}
 \end{figure}
 %%
-We rely on web-based technologies for our prototype.
+\noindent We rely on web-based technologies for our prototype.
 %%
 %The ongoing transition of open-science software into the web spawned numerous projects, making state-of-the-art algorithms available in this domain.
 %%
@@ -1482,20 +1483,20 @@ We rely on web-based technologies for our prototype.
 The front-end is created using \texttt{HTML5}, \texttt{CSS3} and \texttt{Javascript}.
 %%
 %\texttt{Angular.js}\footnote{Open Source; Maintained by Google, \href{https://www.angularjs.org/}{\texttt{angularjs.org}}} abstracts web application into models and views, allowing for a responsive way to combine \texttt{HTML} and \texttt{Javascript}.
-\texttt{Angular.js} abstracts web application into models and views, allowing for a responsive way to combine \texttt{HTML} and \texttt{Javascript}.
+\href{https://www.angularjs.org/}{\texttt{Angular.js}} abstracts web application into models and views, allowing for a responsive way to combine \texttt{HTML} and \texttt{Javascript}.
 %%
 In is easily expandable by forcing developers to write modularized code.
 %It forces developers to write modularized code, which makes the components easier expandable. %while keeping the code maintainable by including unit tests.
 %%
 %The page layout is handled using \texttt{Twitter Bootstrap}\footnote{Open Source; Maintained by Twitter, \href{http://getbootstrap.com}{\texttt{getbootstrap.com}}}, which also provides a rich set of user interface elements.
-\texttt{Twitter Bootstrap} handles the page layout and provides a rich set of user interface elements.
+\href{http://getbootstrap.com}{\texttt{Twitter Bootstrap}} handles the page layout and provides a rich set of user interface elements.
 %%
-The 2D heat map is implemented using the \texttt{D3.js}~\cite{D3} information visualization library.
+The 2D heat map is implemented using the \href{http://d3js.org/}{\texttt{D3.js}}~\cite{D3} information visualization library.
 %%
 It provides fast and easy methods for binding data to graphical elements.
 %%
 %The 3D plot is created using the WebGL-based \texttt{Threejs}\footnote{Open Source; Originally developed by R. Cabello, \href{http://threejs.org}{\texttt{threejs.org}}} library.
-The 3D plot is created using the WebGL-based library.
+The 3D plot is created using the WebGL-based \href{http://threejs.org}{\texttt{Threejs}} library.
 %%
 % We experimented with different ways for achieving the cube representation, including volume rendering, cube primitives for each data point and shader-based solutions.
 % %%
@@ -1511,22 +1512,21 @@ The 3D plot is created using the WebGL-based library.
 Two server structures serve as back-end.
 %%
 %The web-server is written in \texttt{Javascript} using \texttt{Node.js}\footnote{Open Source; Maintained by Joyent Inc, \href{http://nodejs.org}{\texttt{nodejs.org}}}, running on Googles V8 Javascript runtime environment.
-The web-server is written in \texttt{Javascript} using \texttt{Node.js}, running on Googles V8 Javascript runtime environment.
+The web-server is written in \texttt{Javascript} using \href{http://nodejs.org}{\texttt{Node.js}}, running on Googles V8 Javascript runtime environment.
 %%
 %It is hosted on \texttt{Heroku}\footnote{Owned by Salesforce.com, \href{https://www.heroku.com/}{\texttt{heroku.com}}}, a cloud application platform.
-It is hosted on \texttt{Heroku}, a cloud application platform.
+It is hosted on \href{https://www.heroku.com/}{\texttt{Heroku}}, a cloud application platform.
 %%
-
 The statistical computations are performed on the second structure.
 %%
 %They rely on the statistical programming language \texttt{R}.\footnote{Open Source; \href{http://r-project.org}{\texttt{r-project.org}}}
-They rely on the statistical programming language \texttt{R}.
+They rely on the statistical programming language \href{http://r-project.org}{\texttt{R}}.
 %%
 It is widely adopted in the statistical analysis community, yielding a rich support of fast state-of-the-art statistics algorithms as well newly published methods.
 %%
-\texttt{OpenCPU} is an \texttt{R} package and provides an API for accessing it via HTTP calls \cite{Ooms}.
+\href{https://www.opencpu.org/}{\texttt{OpenCPU}} is an \href{http://r-project.org}{\texttt{R}} package and provides an API for accessing it via HTTP calls \cite{Ooms}.
 %%
-This way, any computer, which runs \texttt{R} can be turned into a statistical processor for our project.
+This way, any computer, which runs \href{http://r-project.org}{\texttt{R}} can be turned into a statistical processor for our project.
 %%
 % The back-end functions necessary for all cube calculations are provided via an \texttt{R} package.
 % %%
@@ -1536,13 +1536,13 @@ This way, any computer, which runs \texttt{R} can be turned into a statistical p
 
 %\paragraph{Access and Source.}
 %%
-A running instance of the \emph{3D Regression Heat Map} prototype can be found under \href{http://regressioncube.herokuapp.com/}{\texttt{regressioncube.herokuapp.com}}.
+A running instance of the \emph{3D Regression Heat Map} prototype can be found under \href{http://regressionheatmap.herokuapp.com/}{\texttt{regressionheatmap.herokuapp.com}}.
 %%
 The source for the prototype is freely available at \texttt{Github}.\footnote{\texttt{R}-based back-end: \href{https://github.com/paulklemm/regression-heatmap-r-package}{\\\texttt{github.com/paulklemm/regression-heatmap-r-package}}}$^{,}$\footnote{Front-End and Node.js Webserver: \href{https://github.com/paulklemm/regression-heatmap-prototype}{\texttt{\\github.com/paulklemm/regression-heatmap-prototype}}}
 %%
-Instructions and code on how to create a setup running the \emph{3D Regression Heat Map} statistical back-end through a \texttt{Ubuntu} server using \texttt{OpenCPU} are referenced in the repository.
+Instructions and code on how to create a setup running the statistical back-end through a \href{http://www.ubuntu.com/}{\texttt{Ubuntu}} server using \href{https://www.opencpu.org/}{\texttt{OpenCPU}} are referenced in the repository.
 %%
-The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{www.heroku.com}} by cloning the repository into a Heroku app.
+The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{Heroku}} by cloning the repository into a Heroku app.
 %%
 \section{Application} \label{application}
 %%
@@ -1630,8 +1630,6 @@ Apart from the target feature, the data set contains 199 features, comprising so
 %%
 The acquisition wave is denoted using the appendix; 85 features with appendix \emph{s0} denote their affiliation to SHIP-0 (first study moment), 50 features for \emph{s1} and 55 for \emph{s2}, alongside with 10 time-independent SNPs (DNA base pairs).
 %%
-
-%%
 Niemann et al.~\cite{Niemann2014} show different class distributions of liver fat concentrations of women and men.
 %%
 For women, an association between age and liver fat was identified.
@@ -1651,7 +1649,7 @@ The data comprises 1,186 female subjects. %(368 from \texttt{SHIP-2}, 818 from \
 %%
 It contains 231 dimensions, holding information about somatometric features (e.g., body size and weight) consumption behavior, personal and medical history (e.g., occupation and prior diseases), women-specific features (e.g., number of born children and contraception type) as well as mammography features (e.g., fat content and parenchyma tissue proportion to volume).
 %%
-The latter were derived from MRI data for each subject, which was manually segmented by radiologists.
+The latter were derived from MRI data for each subject, which was manually segmented by radiologists \cite{Hegenscheid2009, Ivanovska2014}.
 %%
 
 The data of each cohort was presented as individual \texttt{SPSS} files.
@@ -1680,10 +1678,12 @@ Analyzing the 2D heat map [\textbf{4.DD}] revealed high correlations for somatom
 %%
 Similar results were present for analyzing the \emph{female} groups.
 %%
-\emph{UN} could reproduce most results, some features exhibit lower correlations though, e.g., \emph{creatinine} magnitudes.
+\emph{UN} could reproduce most results.
+%%
+Some features exhibit lower correlations, e.g., \emph{creatinine} magnitudes.
 %%
 A slight influence of \emph{age} on the target feature could be observed for women ($R^2$ of $0.09$ for females compared to $0.02$ for males).
-%% TODO Feedback of Henry!
+%%
 Relationships not described by Niemann et al.~\cite{Niemann2014} were found, such as enzymes indicating liver dysfunctions, e.g., \emph{aspartate aminotransferase}.
 %
 %%
@@ -1738,8 +1738,6 @@ She observed relationships matching her expectations and expert knowledge.
 One unexpected relationship was observed between \emph{breast lesions} and \emph{menstruation cycle} w.r.t. \emph{spiral contraception} ($R^2$ of $0.77$).
 %%
 \emph{KH} proceeded with a detailed analysis of the parenchyma tissue.
-%%
-
 %%
 \paragraph{Detailed breast parenchyma analysis.}
 %%
