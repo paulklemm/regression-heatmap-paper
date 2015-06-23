@@ -429,9 +429,9 @@ However, most examinations occur in all stages and are performed according to th
 %%
 \section{Prior and Related Work}
 %% https://en.wikipedia.org/wiki/Exploratory_data_analysis#cite_note-Tukey1977-4
-In 1977, Tukey already stated that data are too often analyzed solely using confirmatory data analysis \cite{Tukey}.
+Tukey already stated in 1977 that data are too often analyzed solely using confirmatory data analysis \cite{Tukey}.
 %%
-He emphasized the need to use data to derive hypotheses instead, which can then be tested again.
+He emphasized the need to use data to \emph{derive} hypotheses, which can then be tested again.
 %%
 In this section we present prior and related work trying to achieve this goal.
 %%
@@ -698,15 +698,19 @@ It yielded an analysis based on image-derived features, such as extracting and a
 %%
 We concluded that the model quality is insufficient to characterize back pain.
 \\\\
-The difference of the presented approach in comparison with our previous and related work is twofold:
+The difference of the presented approach in comparison with our previous and related work is twofold.
 %%
-\begin{enumerate}
-	%%
-	\item We focus on the large-scale analysis of a vast number of linear and logistic regression-models by assessing their quality-of-fit using descriptive metrics.
-	%%
-	\item The analysis is conducted w.r.t. a target feature and incorporates expert knowledge via the regression model definition rather than subdividing the underlying data.
-	%%
-\end{enumerate}
+(1) We focus on the large-scale analysis of a vast number of linear and logistic regression-models by assessing their quality-of-fit using descriptive metrics.
+%%
+(2) The analysis is conducted w.r.t. a target feature and incorporates expert knowledge via the regression model definition rather than subdividing the underlying data.
+%%
+% \begin{enumerate}
+% 	%%
+% 	\item We focus on the large-scale analysis of a vast number of linear and logistic regression-models by assessing their quality-of-fit using descriptive metrics.
+% 	%%
+% 	\item The analysis is conducted w.r.t. a target feature and incorporates expert knowledge via the regression model definition rather than subdividing the underlying data.
+% 	%%
+% \end{enumerate}
 %%
 \section{3D Regression Heat Map Analysis of Population Study Data}
 \magenta{
@@ -789,10 +793,10 @@ We achieve this by introducing dynamic variables $X$, $Y$ and $Z$ into the regre
 %%
 Our method replaces the dynamic variables with all features in the data set.
 %%
-In a data set with $n$ (e.g., 100) features, the regression formula
-\begin{equation}
-Cancer \sim X + Y
-\end{equation}
+In a data set with $n$ (e.g., 100) features, the regression formula $Cancer \sim X + Y$
+%\begin{equation}
+%
+%\end{equation}
 would yield $n^2$ (10,000) regression models, describing all possible combinations of two features in the data describing the target feature $Cancer$.
 %%
 This notation comes natural to anyone familiar with regression analysis, since it is the standard way of expression.
@@ -1386,7 +1390,7 @@ The 3D heat map is always oriented according to the 2D representation, allowing 
 %%
 Allowing more degrees of freedom was confusing to our users and also did not add value to the visualization.
 %%
-Also we provide a zoom functionality using the mouse wheel input.
+%Also we provide a zoom functionality using the mouse wheel input.
 %%
 \paragraph{3D heat map slice selection [\textbf{3.ZF}].}
 %%
@@ -1458,7 +1462,7 @@ Epidemiologists use such plots to validate models w.r.t. the model assumptions, 
  \caption{
  The front-end (left) is realized with \emph{HTML5}/\emph{CSS3}/\emph{Javascript} and different Javascript libraries, such as \emph{Angular.js}, \emph{Three.js} and D3.js.
  %%
- The web-server back-end (right) is written using \emph{Node.js}, hosting is carried out using \emph{Heroku}.
+ The web-server (right) is written using \emph{Node.js} and hosted on \emph{Heroku}.
  %%
  \emph{R} and \emph{OpenCPU} constitute the statistical back-end (top) to compute the \emph{3D Regression Heat Maps}.
  %%
@@ -1476,18 +1480,21 @@ We rely on web-based technologies for our prototype.
 %%
 The front-end is created using \texttt{HTML5}, \texttt{CSS3} and \texttt{Javascript}.
 %%
-\texttt{Angular.js}\footnote{Open Source; Maintained by Google, \href{https://www.angularjs.org/}{\texttt{angularjs.org}}} abstracts web application into models and views, allowing for a responsive way to combine \texttt{HTML} and \texttt{Javascript}.
+%\texttt{Angular.js}\footnote{Open Source; Maintained by Google, \href{https://www.angularjs.org/}{\texttt{angularjs.org}}} abstracts web application into models and views, allowing for a responsive way to combine \texttt{HTML} and \texttt{Javascript}.
+\texttt{Angular.js} abstracts web application into models and views, allowing for a responsive way to combine \texttt{HTML} and \texttt{Javascript}.
 %%
 In is easily expandable by forcing developers to write modularized code.
 %It forces developers to write modularized code, which makes the components easier expandable. %while keeping the code maintainable by including unit tests.
 %%
-The page layout is handled using \texttt{Twitter Bootstrap}\footnote{Open Source; Maintained by Twitter, \href{http://getbootstrap.com}{\texttt{getbootstrap.com}}}, which also provides a rich set of user interface elements. %with proper stylings.
+%The page layout is handled using \texttt{Twitter Bootstrap}\footnote{Open Source; Maintained by Twitter, \href{http://getbootstrap.com}{\texttt{getbootstrap.com}}}, which also provides a rich set of user interface elements.
+\texttt{Twitter Bootstrap} handles the page layout and provides a rich set of user interface elements.
 %%
-The 2D heat map is implemented using \texttt{Data driven Documents} (\texttt{D3.js}), which is popular in information visualization using vector graphics \cite{D3}.
+The 2D heat map is implemented using the \texttt{D3.js}~\cite{D3} information visualization library.
 %%
 It provides fast and easy methods for binding data to graphical elements.
 %%
-The 3D plot is created using the WebGL-based \texttt{Threejs}\footnote{Open Source; Originally developed by R. Cabello, \href{http://threejs.org}{\texttt{threejs.org}}} library.
+%The 3D plot is created using the WebGL-based \texttt{Threejs}\footnote{Open Source; Originally developed by R. Cabello, \href{http://threejs.org}{\texttt{threejs.org}}} library.
+The 3D plot is created using the WebGL-based library.
 %%
 % We experimented with different ways for achieving the cube representation, including volume rendering, cube primitives for each data point and shader-based solutions.
 % %%
@@ -1502,14 +1509,17 @@ The 3D plot is created using the WebGL-based \texttt{Threejs}\footnote{Open Sour
 %\paragraph{Back-End.}
 Two server structures serve as back-end.
 %%
-The web-server is written in \texttt{Javascript} using \texttt{Node.js}\footnote{Open Source; Maintained by Joyent Inc, \href{http://nodejs.org}{\texttt{nodejs.org}}}, running on Googles V8 Javascript runtime environment.
+%The web-server is written in \texttt{Javascript} using \texttt{Node.js}\footnote{Open Source; Maintained by Joyent Inc, \href{http://nodejs.org}{\texttt{nodejs.org}}}, running on Googles V8 Javascript runtime environment.
+The web-server is written in \texttt{Javascript} using \texttt{Node.js}, running on Googles V8 Javascript runtime environment.
 %%
-It is hosted on \texttt{Heroku}\footnote{Owned by Salesforce.com, \href{https://www.heroku.com/}{\texttt{heroku.com}}}, a cloud application platform.
+%It is hosted on \texttt{Heroku}\footnote{Owned by Salesforce.com, \href{https://www.heroku.com/}{\texttt{heroku.com}}}, a cloud application platform.
+It is hosted on \texttt{Heroku}, a cloud application platform.
 %%
 
 The statistical computations are performed on the second structure.
 %%
-They rely on the statistical programming language \texttt{R}.\footnote{Open Source; \href{http://r-project.org}{\texttt{r-project.org}}}
+%They rely on the statistical programming language \texttt{R}.\footnote{Open Source; \href{http://r-project.org}{\texttt{r-project.org}}}
+They rely on the statistical programming language \texttt{R}.
 %%
 It is widely adopted in the statistical analysis community, yielding a rich support of fast state-of-the-art statistics algorithms as well newly published methods.
 %%
@@ -1571,11 +1581,11 @@ Our method focuses on data exploration and knowledge extraction and requires a w
 %%
 \subsection{Participants, Setup and Procedure}
 %%
-The ability of a system to discover knowledge is difficult to measure.
+The knowledge discovery capabilities of a system are difficult to measure.
 %%
-Lam et al.~\cite{Lam2012} propose the \emph{Visual Data Analysis and Reasoning} (\emph{VDAR}) technique, which is focused on the characterization of a systems' ability to generate hypotheses and explore the data in order to extract information.
+The \emph{Visual Data Analysis and Reasoning} (\emph{VDAR}) technique proposed by Lam et al.~\cite{Lam2012} is focused on the characterization of a systems' ability to generate hypotheses and explore the data in order to extract information.
 %%
-\emph{VDAR} can be carried out based on case studies using thinking-aloud techniques to comprehend the reasoning and thought process of the user.
+\emph{VDAR} can be carried out based on case studies using thinking-aloud techniques to comprehend the users reasoning and thought process.
 %%
 We employ \emph{VDAR} for analyzing our system.
 %%
@@ -1584,7 +1594,7 @@ We employ \emph{VDAR} for analyzing our system.
 We conducted a web-based analysis by using an online-meeting software, which features voice chat as well as screen sharing.
 %%
 Starting an analysis using these techniques takes about 5-10 minutes of setup time.
-
+%%
 The sessions started with an initial overview of the system, showcasing its features and functionality.
 %%
 Afterwards, the experts use the system on their own computers.
@@ -1592,8 +1602,6 @@ Afterwards, the experts use the system on their own computers.
 The screen-sharing function was still used to observe the actions of the expert.
 %%
 All sessions were video recorded to be processed later on.
-%%
-
 %%
 We conducted the analysis with three participants.
 %%
@@ -1858,7 +1866,6 @@ As a next step, we want to introduce more regression types, which model differen
 %%
 We also want to extend the 3D heat map to time-dependent data by expanding the difference heat map approach.
 %%
-
 We published all associated code and provide a freely accessible analysis platform open to heterogenous data types.
 %%
 We want to support opening up knowledge discovery to allow a diverse group of domain experts to derive insight into their data. %and support the notion of open science.
