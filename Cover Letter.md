@@ -114,7 +114,7 @@ Reviews
 The Summary Review
 ------------------
 
-Reviewers agree that the paper addresses an important problem, and the high level of contact with experts makes this a good application paper. They are concerned in the general sense that linear regression modelling experts need to assess more criteria in order to select best models. There are a matrix of measures such as adjusted R square, F statistic, p-values etc. that are often used to understand a multiple regression. Other measures such as the Akaike Information Criterion can help analysts to compare models with different power e.g. number of variables. Other metrics such as the distribution of residuals can also be useful (and sometimes essential) to make decisions about models.
+Reviewers agree that the paper addresses an important problem, and the high level of contact with experts makes this a good application paper. They are concerned in the general sense that linear regression modeling experts need to assess more criteria in order to select best models. There are a matrix of measures such as adjusted R square, F statistic, p-values etc. that are often used to understand a multiple regression. Other measures such as the Akaike Information Criterion can help analysts to compare models with different power e.g. number of variables. Other metrics such as the distribution of residuals can also be useful (and sometimes essential) to make decisions about models.
 
 <i><font color='green'>
 
@@ -206,7 +206,7 @@ When looking at the visualization: The authors propose a regression matrix/cube 
 
 <i><font color='green'>
 
-  * We approached this crituque in context with [Reviewer 3], who suggested a method for scaling the transfer function used to specify ranges of interest. This led to the implementation of a range-slider. Details can be found under [User Interaction]. Using this technique, the user can filter for very high R² values in both the 2D and 3D view.
+  * We approached this critique in context with [Reviewer 3], who suggested a method for scaling the transfer function used to specify ranges of interest. This led to the implementation of a range-slider. Details can be found under [User Interaction]. Using this technique, the user can filter for very high R² values in both the 2D and 3D view.
 
 </i></font>
 
@@ -238,7 +238,7 @@ Some more questions
 <i><font color='green'>
 
   * The use-case is part of the hypothesis-free analysis approach. Our observation was that the domain experts often have a set of features, which act as targets. They might contain different abstraction levels (e.g. dichotomous feature chest pain and the more granular feature chest pain levels) or a set of variables describing a condition (e.g. features describing image-derived data). The formula `Z ~ X + Y` allows to quickly assess these features, which can the be analyzed in detail by putting them as static target.
-  * The other use-case we observed was to check the system for logical validty. Domain experts used `Z ~ X + Y` to analyze potentially uninteresting targets for correlations they would expect to check if the system works as intended
+  * The other use-case we observed was to check the system for logical validity. Domain experts used `Z ~ X + Y` to analyze potentially uninteresting targets for correlations they would expect to check if the system works as intended
 
 </i></font>
 
@@ -264,7 +264,7 @@ If the solution is not particularly striking or novel, the decision to do it in 
 <i><font color='green'>
 
   * This feedback led to a substantial revision of Section **3D Regression Heat Map Analysis of Population Study Data** and **5 System Design** to incorporate how user feedback affected the design decisions. See [Support Design Decisions with Expert Feedback] for details.
-  * Also, as suggested, the contributions were revised to capture the different levels of Munzners "A Nested Model for Visualization Design and Validation".
+  * Also, as suggested, the contributions were revised to capture the different levels of Munzner's "A Nested Model for Visualization Design and Validation".
 
 </i></font>
 
@@ -301,7 +301,7 @@ Minor comments:
 <i><font color='green'>
 
   * We revised a large number of long sentenced to either split them up or to simplify them.
-  * "Towards" sounds odd indeed. We replaced it in all occurences.
+  * "Towards" sounds odd indeed. We replaced it in all occurrences.
 
 </i></font>
 
@@ -375,10 +375,10 @@ The strenghts and weaknesses balance for this paper. On the one hand, it propose
 
   <i><font color='green'>
 
-  1. The current ordering is based on the order of features in the CSV file. Ordering of features was discussed with the domain experts and ordering based on the regression metric is already implemented. Reorderings at the level of individual slices were discarded. Each slice ordering would be different, triggering a reordering of the 3D heat map on every slicing. On every slicing, the user had a different ordered list and searched all over again for parameters of interest.
+  1. The current ordering is based on the order of features in the CSV file. Ordering of features was discussed with the domain experts and ordering based on the regression metric is already implemented. Reordering at the level of individual slices were discarded. Each slice ordering would be different, triggering a reordering of the 3D heat map on every slicing. On every slicing, the user had a different ordered list and searched all over again for parameters of interest.
     * We experimented with the new transfer function control, which was added to the prototype based on this review (see further below) and concluded that this tool is well suited for highlighting hot-spots by selecting a range of only high regression metrics.
     * The feedback is included in the revisions based on [Support Design Decisions with Expert Feedback].
-  2. The 3D heat map acts as mini-map to spot hot-spots, which is now supported additionally using the transfer function. Simple per-slice reorderings would, as argued in the prior bullet point, not be as effective, as it also introduces new problems, such as destroying the mental model of the feature order. A ordered list of slices with high average regression metrics will result in a ordering, where single features already have a strong explanatory power w.r.t. the target. We are, however, interested in strong combinations, which is one point made in Figure 5.
+  2. The 3D heat map acts as mini-map to spot hot-spots, which is now supported additionally using the transfer function. Simple per-slice reordering would, as argued in the prior bullet point, not be as effective, as it also introduces new problems, such as destroying the mental model of the feature order. A ordered list of slices with high average regression metrics will result in a ordering, where single features already have a strong explanatory power w.r.t. the target. We are, however, interested in strong combinations, which is one point made in Figure 5.
     * We emphasized more on the orderings as well as the limitations and advantages of the 3D view in Section **5.2 3D Regression Heat Map Visualization**
 
   </i></font>
@@ -399,7 +399,7 @@ The strenghts and weaknesses balance for this paper. On the one hand, it propose
 
   <i><font color='green'>
 
-  1. We agree with the reviewers observations. The CFS filtering step, as most automatic preprocessings, add uncertainty into the analysis, as the user can not comprehend in detail, why certain features are removed.
+  1. We agree with the reviewers observations. The CFS filtering step, as most automatic preprocessing, add uncertainty into the analysis, as the user can not comprehend in detail, why certain features are removed.
     * We tackled this problem using the z-dimension of the 3D heat map. The CFS algorithm is applied per-slice depending on the target feature. In other words, there are always all features represented in z-dimension of the 3D heat map. This means, that for features with static a target (e.g., Cancer ~ X + Y + Z), the influence of each feature can be assessed by slicing through the 3D heat map.
     * We noted the limitation in Section **4.3 Target-Variable-Dependent Dimension Reduction** and how we tackled it in Section **4.4 Abstracting Regression Results**.
     * We added a check box as part of the file-upload step, which allows to skip the CFS preprocessing step. It is noted in Section **5.1 System Paradigm and Components**
@@ -415,8 +415,6 @@ The strenghts and weaknesses balance for this paper. On the one hand, it propose
   * Additionally, now different regression metrics can be visualized using the 3D Regression Heat Map.
 
 </i></font>
-
----
 
 *Will this work inspire others in VAST research? Will it inform VAST practitioners? Is the work important and useful?*
 
