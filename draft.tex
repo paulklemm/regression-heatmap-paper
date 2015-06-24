@@ -128,9 +128,9 @@ Furthermore, the influences of features can be assessed using a difference view 
 %%
 We applied our \emph{3D Regression Heat Map} method to a hepatic steatosis data set to reproduce results from a data mining-driven analysis.
 %%
-A qualitative analysis was conducted on a breast fat data set.
+A qualitative analysis was conducted on a breast density data set.
 %%
-We were able to derive new hypotheses about relations between breast fat density and breast lesions with breast cancer.
+We were able to derive new hypotheses about relations between breast density density and breast lesions with breast cancer.
 %%
 %\com{Implications}.
 %%
@@ -215,7 +215,7 @@ They mostly highlight correlations between features, which are known to the doma
 %%
 We incorporate the regression analysis, which is familiar to the domain experts, into overview visualizations to support a hypothesis-free analysis or an analysis w.r.t. a specific disease or hypothesis.
 %%
-Therefore we provide template regression formulas, which are applied to all potential feature combinations.
+For this purpose we provide template regression formulas, which are applied to all potential feature combinations.
 %%
 Since the notation is familiar to epidemiologists, they can rapidly include their domain knowledge into the analysis process.
 %%
@@ -289,13 +289,13 @@ We described an Interactive Visual Analysis approach for image-centric cohort st
 %%
 The methods aim to derive hypotheses through analysis of the data and observations about previously unknown feature correlations.
 %%
-Employing \emph{hypothesis generation} requires overview visualizations of feature correlations, which are not supported by standard statistical processors.
+\emph{Hypothesis generation} benefits from overview visualizations of feature correlations, which are not supported by standard statistical processors.
 %%
 In this work, we focus on a similar approach to derive insight and even new hypotheses through the data rather than only using it for a confirmatory analysis.
 %%
 \subsection{Epidemiological Data} \label{sec:EpidemiologicalData}
 %%
-There are many data acquisition modalities available to epidemiologists. %, which are suitable for different analysis types.
+There are many epidemiological instruments available to acquire data. %, which are suitable for different analysis types.
 %%
 We focus on population studies, which impose the largest data sets and yield a highly heterogenous and incomplete information space.
 %%
@@ -305,7 +305,7 @@ The latter allows the data set to be assessed w.r.t. different diseases.
 %%
 The feature space comprises information about lifestyle, somatometric features, medical parameters, genetic data as well as medical images.
 %%
-These features are gathered through different modalities, such as questionnaires, medical examinations or laboratory analyses.
+These features are gathered through questionnaires, medical examinations and laboratory analyses.
 %%
 Many features are sparse, such as follow-up questions about a medication or treatment of a certain disease.
 %%
@@ -315,12 +315,10 @@ Medical status features or lifestyle factors are primarily of \emph{dichotomous}
 %%
 Continuous data are often discretized (e.g. 10 year steps for age) to equalize the feature types and to simplify the method selection.
 %%
-However, this should be avoided, since it reduces the information space.
-%%
-It also introduces a new information bias, as assumptions are modeled through the discretization.
+However, this reduces the information space and introduces a information bias, as assumptions are modeled through the discretization.
 %%
 
-Medical image data are also acquired and analyzed in modern population studies.
+Medical image data are also analyzed in modern population studies.
 %%
 We incorporate image-derived features, but do not focus on analyzing image data.
 %%
@@ -331,8 +329,8 @@ Features influencing the exposure as well as the outcome of an analysis are call
 %%
 The analysis model has to be adjusted by normalizing all included features w.r.t. the confounder.
 %%
-\emph{Age} is included as confounder in almost any epidemiological analysis, since most diseases (such as different cancer types) are more likely for older subjects.
-%%
+\emph{Age} is included as confounder in almost any epidemiological analysis, since most diseases are more likely for older subjects.
+%% TODO Shorten next sentence if needed
 It also influences the general body condition and thereby almost all features acquired through population studies.
 %%
 Another important confounder is \emph{gender}.
@@ -344,7 +342,7 @@ The \texttt{SHIP}, located in Northern Germany, aims to characterize health and 
 %%
 %It does not focus on a specific disease, making the data set open for many diseases.
 %%
-Unique for the \texttt{SHIP} is the acquisition of medical image data per participant.
+Unique for the \texttt{SHIP} is the acquisition of medical image data.
 %%
 A second cohort, \texttt{SHIP-TREND} was started in 2012.
 %%
@@ -358,7 +356,7 @@ Most examinations occur in all stages and are performed according to the same in
 
 \subsection{Regression Analysis} \label{sec:RegressionAnalysis}
 %%
-Regression analysis is the most important statistical tool when analyzing epidemiological data and impose the basis of this work.
+Regression analysis is the most important statistical tool when analyzing epidemiological data and are the basis of this work.
 %%
 A regression analysis assesses the influence of one or more (\emph{independent}) features to one target (\emph{dependent}) feature.
 %%
@@ -368,7 +366,7 @@ Different metrics, such as the weightings itself and associated $p$ values, desc
 %%
 \add{
 %%
-The \emph{Akaike Information Criterion} (AIC) metric estimates the quality of a model and is suited for comparing models.
+The \emph{Akaike Information Criterion} (AIC) metric estimates the quality of a model and is suited for comparing models \cite{Akaike}.
 %%
 A small AIC value indicates a higher quality model.
 %%
@@ -423,7 +421,7 @@ The target is described by fitting a logistic function.
 %%
 Logistic models, as opposed to linear models, do not allow for extracting an $R^2$ quality of fit value.
 %%
-Therefore, pseudo-$R^2$ values are extracted, such as the \emph{Nagelkerke $R^2$}, which mimics the behavior of the $R^2$.
+Therefore, pseudo-$R^2$ values are extracted, such as the \emph{Nagelkerke $R^2$} \cite{Nagelkerke}, which mimics the behavior of the $R^2$.
 %%
 \emph{Nagelkerke $R^2$} behaves different than $R^2$ values extracted from the linear regression model.
 %%
@@ -464,11 +462,11 @@ They provide a framework for qualitative analyses of relationships and ranking f
 %%
 %The visualization allows to assess different model complexities.
 %%
-Existing regression models can be validated and compared using 3D views and 2D slice-views.
+Existing regression models can be validated and compared using 3D views and 2D slice views.
 %%
 %We employ the same steps by preprocessing features using correlations with the target and providing an overview over combinations.
 %%
-M\"{u}hlbacher et al. focus on a smaller number of features, which can be assessed in more detail, yielding a plot-matrix view, while we cover more features by abstracting the models.
+M\"{u}hlbacher et al. focus on a smaller number of features, which can be assessed in more detail, yielding a plot matrix view, while we cover more features by abstracting the models.
 %%
 %We also take categorical targets and regression formula inputs into account.
 %%
@@ -527,7 +525,7 @@ Instead of analyzing one complex model in detail, we process a large amount of m
 
 \paragraph{Visual analysis of epidemiological data.}
 %%
-Zhang et al.~\cite{Zhang2014, Gotz2014} is closest to our work regarding the application of visual analysis on cohort study data.
+The work of Zhang et al.~\cite{Gotz2014, Zhang2014} is closest to ours regarding the application of visual analysis of cohort study data.
 %%
 They present \emph{Cohort Analysis via Visual Analytics} (\emph{CAVA}), a framework that distinguishes three major elements of cohort study data analysis: \emph{cohort data} (and its manipulation using operations), \emph{views} and \emph{analytics}.
 %%
@@ -539,7 +537,7 @@ They use the system to find longitudinal pathways for diseases on the basis of h
 %%
 %Their data differs strongly from ours, having multiple moments for each subject, yielding a approach focused on finding pathways of interest.
 %%
-We apply their requirements as guidelines, which incorporate \emph{flexible} and \emph{iterative analysis}. %, meaning that the system has to adapt to different requirements in different analysis steps.
+We incorporate their requirements, which consist of \emph{flexible} and \emph{iterative analysis}. %, meaning that the system has to adapt to different requirements in different analysis steps.
 %%
 %We implement this by supporting both hypothesis-based and hypothesis-free analysis.
 %%
@@ -557,7 +555,7 @@ They use \emph{Pearsson's} $r$ to characterize relationships with target feature
 %%
 %We use regression models and associated $R^2$ values to depict relationships between a target feature and multiple independent features instead of one and employ the information into one global visualization.
 %%
-In contrast, we aim for a fast large scale correlation analysis incorporating many features to derive insights.
+In contrast, we focus on a fast large scale correlation analysis incorporating many features to derive insights.
 %%
 %\paragraph{Visual Analysis in Public Health.}
 %%--
@@ -604,14 +602,14 @@ They incorporate linked views using scatter plots, bar charts, parallel coordina
 %%
 The techniques are useful for selected features or a data set with a small number of features due to their increase in complexity with every additional parameter.
 %%
-They are therefore suitable for \emph{small} epidemiological data sets.
+%They are therefore suitable for \emph{small} epidemiological data sets.
 %%
 \magenta{
-Maries et al.~\cite{GRACE} propose \texttt{GRACE}, a framework for visually exploring correlation of features with spatial and non-spatial geriatric data.
+Maries et al.~\cite{GRACE} propose \texttt{GRACE}, a framework for visually exploring correlations of features with spatial and non-spatial geriatric data.
 %%
 Sparse Partial Least Squares Regression and Tikhonov Regularization are used to produce predictor subsets and quantify correlation strengths.
 %%
-A multi-view system linked spatial with non-spatial data and correlation coefficients are visualized using Kiviat diagrams (similar to star plots), correlations are plotted using p-values in the other views.
+A multi view system linked spatial with non-spatial data and correlation coefficients are visualized using Kiviat diagrams (similar to star plots), correlations are plotted using p-values in the other views.
 %%
 %Dendograms are used to select different brain regions.
 Instead of applying several linked views, we focus on one view of abstracted data.
@@ -640,7 +638,7 @@ We incorporate the idea of the arrangement of feature combinations as matrix as 
 %% Quality Metrics in High-Dimensional Data Visualization - An Overview and Systematization
 Bertini et al.~\cite{Bertini} present an overview of quality metrics describing high dimensional-data.
 %%
-Their research agenda acts as a guideline for our design.
+Their refer to their research agenda in our design.
 %%
 Namely, we apply aspects of perceptual tuning with human pattern recognition of important aspects, scalability between different data set sizes and application testing with domain experts.
 %% The Sparse Regression Cube: A Reliable Modeling Technique for Open Cyber-physical Systems
@@ -683,7 +681,7 @@ In our prior work, we analyzed the healthy aging process of the lumbar spine.
 %%
 We defined an Interactive Visual Analysis workflow for image-centric population study data \cite{Klemm2014VIS}.
 %%
-We extended the feature selection step (recall Sec. \ref{sec:Background}) with an iterative analysis loop incorporating group selection and visualization using expert input as well as clustering methods.
+We extended the feature selection step (recall Sec. \ref{sec:Background}) with an iterative analysis loop incorporating group selection using expert input as well as clustering methods.
 %%
 Information visualizations of population study features were augmented with extracted image data, yielding linked views with both image and non-image information.
 %%
@@ -699,7 +697,7 @@ It yielded an analysis based on image-derived features, such as extracting and a
 %%
 We concluded that the model quality is insufficient to characterize back pain.
 \\\\
-The difference of the presented approach in comparison with our previous and related work is twofold.
+The difference of the presented approach in comparison with related work is twofold.
 %%
 (1) We focus on the large-scale analysis of a vast number of linear and logistic regression-models by assessing their quality-of-fit using descriptive metrics.
 %%
@@ -767,7 +765,9 @@ Technical measures to enable a secure transfer and storage are described in Sect
 
 As described in Section~\ref{sec:RegressionAnalysis}, regression analysis is the statistical tool of choice for analyzing relationships in epidemiological data.
 %%
-A regression model is based on expert knowledge; there is no singular rule how to apply models to a given set of features. Thus, they have to be applied with care.
+A regression model is based on expert knowledge.
+%%
+There is no rule how to apply models to a given set of features. Thus, they have to be applied with care.
 %%
 % \design{
 % %%
@@ -782,10 +782,10 @@ A regression model is based on expert knowledge; there is no singular rule how t
 % }
 \subsection{Regression Heat Map Description Using Regression Formula Notation}
 %%
-\design{The key requirement of modeling expert knowledge} is integrated into the analysis using \emph{regression formulas}.
+\design{Expert knowledge modeling} is carried out using \emph{regression formulas}.
 %Expert knowledge is integrated into the analysis using regression formulas.
 %%
-As described in Section~\ref{sec:RegressionAnalysis}, the formula input influences the type of the chosen regression method as well as the \emph{independent} features describing the target.
+The formula input influences the type of the chosen regression method as well as the \emph{independent} features describing the target (recall Sect.~\ref{sec:RegressionAnalysis}).
 %%
 
 Since we want to associate the regression analyses with an overview visualization, we are interested in all possible combinations of (two or more) independent features describing a target.
@@ -798,9 +798,9 @@ In a data set with $n$ (e.g., 100) features, the regression formula $Cancer \sim
 %\begin{equation}
 %
 %\end{equation}
-would yield $n^2$ (10,000) regression models, describing all possible combinations of two features in the data describing the target feature $Cancer$.
+yields $n^2$ (10,000) regression models, describing all combinations of two features describing $Cancer$.
 %%
-This notation comes natural to anyone familiar with regression analysis, since it is the standard way of expression.
+This notation is natural to anyone familiar with regression analysis, since it is the standard way of expression.
 %%
 With simple adjustments to the formula, different results can be achieved:
 %%
@@ -820,11 +820,11 @@ The number of calculated regression models exponentially increases for each dyna
 %%
 If we assume a data set with 100 features and the formula $Z \sim X + Y$, we obtain 1,000,000 regression models.
 %%
-When each regression takes about 50~ms of calculation time, we roughly have to wait 14~h for the calculation to complete.
+When each regression takes about 50~ms of calculation time, the calculation lasts roughly 14~h.
 %%
-Therefore, the computational complexity needs to be reduced.
+%Therefore, the computational complexity needs to be reduced.
 %%
-An approach for this is presented in the following section.
+%An approach for this is presented in the following section.
 %%
 \subsection{Target-Variable-Dependent Dimension Reduction}
 % The vast majority of features in an epidemiological data have no or a very low relation towards the target feature.
@@ -839,7 +839,7 @@ An approach for this is presented in the following section.
 % %%
 In epidemiological studies, manifold recordings lead to an abundance of features and thus a high-dimensional feature space.
 %%
-In general, many of them exhibit a low or no correlation at all in view of the target feature.
+In general, many of them exhibit a low or no correlation at all w.r.t. the target feature.
 %%
 Identifying irrelevant features and excluding them from the feature space considerably reduces computational costs and yields a comprehensible \emph{3D Regression Heat Map} representation.
 %%
@@ -854,7 +854,7 @@ For example, if the \emph{body weight} has a strong explanatory power w.r.t. the
 %%
 However, they strongly correlate with each other.
 %%
-The CFS algorithm will select the feature, which has the largest explanatory power and discards the other dimensions.
+The CFS algorithm will select the feature, which has the largest explanatory power and discards the other features.
 
 We apply the CFS algorithm for each target feature in a regression formula with dynamic variables.
 %%
@@ -872,9 +872,9 @@ The number of selected features using the CFS algorithm reflects their informati
 A large list of features is an expression of low correlation to the target feature.
 %%
 \magenta{
-The tradeoff of the CFS algorithm is the potential removal of features of interest for the domain expert.
+The tradeoff involved using the CFS algorithm is the potential removal of interesting features for the domain expert.
 %%
-This problem is handled in the next subsection as part of the 3D representation of the regression results.
+This problem is discussed in the next subsection as part of the 3D representation of the regression results.
 }
 %%
 
@@ -909,9 +909,9 @@ Regression models are more complex, having many associated describing metrics.
 %%
 For the \emph{3D Regression Heat Map} analysis we are interested in the quality-of-fit of the resulting model.
 %%
-This allows to infer about the predictive quality of the independent features included in the model.
+This allows to infer the predictive quality of the independent features included in the model.
 %%
-As described in Section~\ref{sec:RegressionAnalysis}, the $R^2$ \add{, adjusted $R^2$ and AIC} value are metrics allowing for this kind of assessment.
+The $R^2$ \add{, adjusted $R^2$ and AIC} value are metrics allowing for this kind of assessment (recall Sect.~\ref{sec:RegressionAnalysis}).
 %%
 % \add{
 % %%
@@ -928,7 +928,7 @@ Since $R^2$ is scaled between $[0, 1]$, it allows for comparison \emph{between} 
 %%
 We can apply the same 2D heat map by translating the $R^2$ values to \emph{color saturation} (Fig.~\ref{fig:Heat_Map}a).
 %%
-This describes a 2D regression square for dynamic variables $X$ and $Y$ (e.g., $Age \sim X + Y$).
+This encodes a 2D regression square for dynamic variables $X$ and $Y$ (e.g., $Age \sim X + Y$).
 %%
 \design{
 %%
@@ -942,9 +942,7 @@ Therefore, these experts can investigate the heat map with emphasis on specific 
 %%
 $Adjusted$ $R^2$ can be represented in the same way, since they share the scale.
 %%
-$AIC$ values are not restricted to a normalized scale.
-%%
-They have to be normalized in order to map it onto color saturation.
+$AIC$ values have to be normalized in order to map them onto color saturation.
 %%
 %The resulting scale may be distort by outliers, which requires facilities for allowing the user to select scale ranges.
 The resulting scale may be distorted by outliers derived from poor regression models.
@@ -960,7 +958,8 @@ Hence, we inverted the transfer function mapping it to color, mapping low $AIC$ 
 }
 \design{
 %%
-To avoid shutting out users unfamiliar with these metrics, the \emph{Regression Heat Map} is set per default to show $R^2$ values.
+To include users unfamiliar with these metrics, the \emph{Regression Heat Map} is set per default to show $R^2$ values.
+%To avoid shutting out users unfamiliar with these metrics, the \emph{Regression Heat Map} is set per default to show $R^2$ values.
 %%
 }
 
@@ -974,7 +973,7 @@ Introducing $Z$ creates a 3D heat map (Fig.~\ref{fig:Heat_Map}b).
 %%
 \design{
 %%
-Epidemiologists with background in statistics argued, that the visualization of descriptive metrics derived from different regression methods (e.g., $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
+Epidemiologists argued, that the visualization of descriptive metrics derived from different regression methods (e.g., $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
 %%
 Therefore, we decided to map metrics of different regression methods on distinct colors (i.e., orange for linear regression and blue for logistic regression).
 %%
@@ -989,9 +988,9 @@ Thus, the visualization can be easily extended using other regression types.
 For \emph{3D Regression Heat Maps} with a fixed target feature, e.g., $Cancer \sim X + Y + Z$, no such encodings are required and the $z$ dimension can be compared directly.
 %%
 \magenta{
-As mentioned previously, the dimension reduction using the CFS algorithm potentially removes features important to the domain expert.
+As mentioned previously, the feature reduction using the CFS algorithm potentially removes important features. %important to the domain expert.
 %%
-To tackle this problem, the $z$ dimension of the visualization contains all features of the data set, allowing to assess their influence.
+The $z$ dimension of the visualization contains \emph{all} features of the data set, allowing to assess their influence.
 %%
 The $x$ and $y$ dimensions are restricted to the features extracted from the CFS algorithm.
 }
@@ -1058,7 +1057,7 @@ Early analysis sessions yielded two approaches of analyzing the data.
 %%
 The classic approach is \emph{hypothesis-based}, where the expert already knows the data and potential associations (e.g. reproducing knowledge about hepatic steatosis risk factors based on known risk factors).
 %%
-The \emph{hypothesis-free} analysis allows to derive new insight into the data, such as identifying confounding features or potential targets (e.g. deriving risk factors for breast cancer associated features).
+The \emph{hypothesis-free} analysis allows to derive new insights, such as identifying confounding features or potential targets (e.g. deriving risk factors for breast cancer associated features).
 %%
 }
 %%
@@ -1083,7 +1082,7 @@ Furthermore, static features can be added for each regression formula.
 %%
 Here are a few examples:
 
-%%
+%% TODO: First example can be cut if needed
 $Cancer \sim X + Y + Z$ is the formulation of a hypothesis, where the specific feature \textit{Cancer} is analyzed.
 %%
 All combinations of three independent features with the target are analyzed through this \emph{3D Regression Heat Map}.
@@ -1123,7 +1122,7 @@ For example, it can be utilized for comparing the influence of a single feature 
  \includegraphics[width=1.0\linewidth]{figures/system}
  \caption{
  %%
- Breast fat data set loaded into our prototype.
+ Breast density data set loaded into our prototype.
  %%
  (a) Using the formula input, the user specifies the dependent feature and calculation rules.
  %%
@@ -1154,7 +1153,7 @@ Therefore, the system has to be intuitive and comprehensive in order to be adapt
 %A key requirement was little set up time to reduce the effort on the domain expert side, as they are mostly practicing clinicians with small time-frames for epidemiological research.
 Using web-based technologies offers various advantages w.r.t. the collaboration with epidemiologists.
 %%
-Since they are usually practicing clinicians, they usually have little time to wrangle software.
+They usually have little time to wrangle software.
 %%
 A web-based approach has no set-up time besides loading up the data set and can be carried out with any computer connected with the web.
 %%
@@ -1189,9 +1188,8 @@ Therefore, we have to incorporate technical measures to ensure a secure workflow
 %%
 \design{
 %%
-Epidemiologists have little time slots available for their research.
-%%
-Therefore, complex systems, which require substantial training to work with are not suitable. %for the task of deriving overview visualizations.
+%Epidemiologists have little time slots available for their research.
+Epidemiologists will not adapt complex systems, which require substantial training and time. %to work with are not suitable. %for the task of deriving overview visualizations.
 %%
 %If the system is not easy to learn, it will not be adapted.
 %%
@@ -1225,7 +1223,7 @@ The first line in a CSV file represents all features (columns) of the data set.
 %%
 Each line after that represents one subject (row) and its feature manifestations.
 %%
-\magenta{Using a check-box, the user can disable the CFS preprocessing step, which is useful for small data sets, where the user does not want to reduce the number of features.}
+\magenta{Using a check box, the user can disable the CFS preprocessing step, which is useful for small data sets, where the user does not want to reduce the number of features.}
 
 % \textbf{Encoding via CSV Files.}
 % %%
@@ -1300,13 +1298,13 @@ Figure~\ref{fig:Heat_Map} shows that all values are mirrored along the diagonal 
 %%
 This is due to the symmetry of basic regression operators.
 %%
-$Z \sim X + Y$ produces the same result as $Z \sim Y + X$.
+%$Z \sim X + Y$ produces the same result as $Z \sim Y + X$.
 %%
 Therefore, we can discard half of the results to reduce visual clutter and repetition, yielding a \emph{Regression Prism}.
 %%
 This opens up space for displaying additional information.
 %%
-Along the diagonal, $X$ and $Y$ assume the same feature, $Z \sim X + Y$ turns into $Z \sim X$ because the regression automatically ignores doublings.
+Along the diagonal, $X$ and $Y$ represent the same feature, $Z \sim X + Y$ turns into $Z \sim X$ because the regression automatically ignores doublings.
 %%
 The diagonal therefore acts as reference on how strong the correlation for the given row (or column) feature is.
 
@@ -1315,7 +1313,7 @@ The diagonal therefore acts as reference on how strong the correlation for the g
 %%
 The feedback made apparent that other features are of interest for analyzing regression models too.
 %%
-Hence, UI elements for controlling them were introduced to the system.
+Hence, UI elements for controlling them were introduced.
 %%
 }
 \add{
@@ -1326,7 +1324,9 @@ The default selection is $R^2$.
 %%
 $AIC$ displays model quality.
 %%
-\emph{Adjusted} $R^2$ values are only available for linear regression, logistic regression results are represented via $R^2$ values in this mode.
+\emph{Adjusted} $R^2$ values are only available for linear regression.
+%%
+Logistic regression results are represented via $R^2$ values in this mode.
 %%
 As they are visually distinguished using color, confusions are avoided.
 %%
@@ -1428,7 +1428,7 @@ The currently selected slice is displayed as a semi-transparent gray plane.
 Early prototypes rendered the whole \emph{3D Regression Heat Map}, which made it hard to assess the position of the plane.
 %%
 %Since the regression metrics are mirrored along the diagonal, we decided to use this space to support better identification of the current slice.
-Since the regression metrics are mirrored along the diagonal, the space available from visualizing only the prism generated from the upper half of the heat map diagonal is used to display information about the currently selected plane.
+Since the regression metrics are mirrored along the diagonal, the space available from visualizing only the prism generated from the upper half of the heat map diagonal is used to display the 2D heat map of the currently selected plane.
 }
 %%
 The \magenta{regression metric values} are projected on this plane to provide an overlapping-free view.
@@ -1485,7 +1485,7 @@ The front-end is created using \texttt{HTML5}, \texttt{CSS3} and \texttt{Javascr
 %\texttt{Angular.js}\footnote{Open Source; Maintained by Google, \href{https://www.angularjs.org/}{\texttt{angularjs.org}}} abstracts web application into models and views, allowing for a responsive way to combine \texttt{HTML} and \texttt{Javascript}.
 \href{https://www.angularjs.org/}{\texttt{Angular.js}} abstracts web application into models and views, allowing for a responsive way to combine \texttt{HTML} and \texttt{Javascript}.
 %%
-In is easily expandable by forcing developers to write modularized code.
+It is easily expandable by forcing developers to write modularized code.
 %It forces developers to write modularized code, which makes the components easier expandable. %while keeping the code maintainable by including unit tests.
 %%
 %The page layout is handled using \texttt{Twitter Bootstrap}\footnote{Open Source; Maintained by Twitter, \href{http://getbootstrap.com}{\texttt{getbootstrap.com}}}, which also provides a rich set of user interface elements.
@@ -1522,7 +1522,7 @@ The statistical computations are performed on the second structure.
 %They rely on the statistical programming language \texttt{R}.\footnote{Open Source; \href{http://r-project.org}{\texttt{r-project.org}}}
 They rely on the statistical programming language \href{http://r-project.org}{\texttt{R}}.
 %%
-It is widely adopted in the statistical analysis community, yielding a rich support of fast state-of-the-art statistics algorithms as well newly published methods.
+It is widely adopted in the statistical analysis community, yielding a rich support of state-of-the-art statistics algorithms as well newly published methods.
 %%
 \href{https://www.opencpu.org/}{\texttt{OpenCPU}} is an \href{http://r-project.org}{\texttt{R}} package and provides an API for accessing it via HTTP calls \cite{Ooms}.
 %%
@@ -1540,7 +1540,7 @@ A running instance of the \emph{3D Regression Heat Map} prototype can be found u
 %%
 The source for the prototype is freely available at \texttt{Github}.\footnote{\texttt{R}-based back-end: \href{https://github.com/paulklemm/regression-heatmap-r-package}{\\\texttt{github.com/paulklemm/regression-heatmap-r-package}}}$^{,}$\footnote{Front-End and Node.js Webserver: \href{https://github.com/paulklemm/regression-heatmap-prototype}{\texttt{\\github.com/paulklemm/regression-heatmap-prototype}}}
 %%
-Instructions and code on how to create a setup running the statistical back-end through a \href{http://www.ubuntu.com/}{\texttt{Ubuntu}} server using \href{https://www.opencpu.org/}{\texttt{OpenCPU}} are referenced in the repository.
+Instructions and code to setup running the statistical back-end through a \href{http://www.ubuntu.com/}{\texttt{Ubuntu}} server using \href{https://www.opencpu.org/}{\texttt{OpenCPU}} are included in the repository.
 %%
 The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{Heroku}} by cloning the repository into a Heroku app.
 %%
@@ -1558,7 +1558,7 @@ The front-end can be deployed using \href{https://www.heroku.com/}{\texttt{Herok
  %%
  A high correlation between \emph{Interleukin-6}, \emph{hepatic steatosis}, \emph{GGT} and \emph{Lipase} (highlighted using arrows) was revealed during the analysis using the 2D heat map.
  %%
- The hypothesis-free analysis of the breast fat data set (right) w.r.t. the \emph{parenchyma tissue percentage} of the breast displays correlations between \emph{age}, \emph{body fat}, \emph{hip circumference} as well as \emph{menstrual period}.
+ The hypothesis-free analysis of the breast density data set (right) w.r.t. the \emph{parenchyma tissue percentage} of the breast displays correlations between \emph{age}, \emph{body fat}, \emph{hip circumference} as well as \emph{menstrual period}.
  }
   \label{fig:Application}
 \end{figure*}
@@ -1567,9 +1567,9 @@ In this section, we describe the application of the \emph{3D Regression Heat Map
 %%
 The hepatic steatosis data set was analyzed using data mining algorithms, yielding risk groups, which we now analyze further.
 %%
-Also, we try to reproduce the prior results from this analysis as proof-of-concept of our method.
+We try to reproduce the prior results from the analysis as proof-of-concept of our method.
 %%
-The breast fat data set is the basis for an explorative analysis w.r.t. the influencing parameters of the parenchyma tissue of the female breast.
+The female breast density data set is the basis for an explorative analysis w.r.t. the influencing parameters of the breast cancer related parenchyma tissue ratio.
 %%
 
 Both data sets are unusual for epidemiological analysis regarding their feature extent.
@@ -1606,7 +1606,7 @@ All sessions were video recorded to be processed later on.
 %%
 We conducted the analysis with three participants.
 %%
-\emph{KH}, a clinician (10 years of experience) with focus on epidemiological research, is the domain expert for the breast fat data set.
+\emph{KH}, a clinician (10 years of experience) with focus on epidemiological research, is the domain expert for the breast density data set.
 %%
 She is a radiologist, responsible for the SHIP-MRI acquisition and also responsible of the mammography analysis.
 %%
@@ -1634,12 +1634,13 @@ Niemann et al.~\cite{Niemann2014} show different class distributions of liver fa
 %%
 For women, an association between age and liver fat was identified.
 %%
-An appropriate cut-off value of 52 years was set, yielding the most homogeneous class distribution within the resulting subsets.
+An appropriate cut-off value of 52 years, which is the approximately the entry age for the menopause was set, yielding the most homogeneous class distribution within the resulting subsets.
 %%
 Based on these observations, we perform our analysis on three populations: \emph{males}, \emph{females (all ages)} and \emph{females older than 52 years}.
 %%
-\subsection{The Breast Fat Data Set}
-The breast fat data set was compiled to find associations between the parenchyma tissue proportion in the female breast compared to other features in the data.
+\subsection{The Breast Density Data Set}
+%%
+The breast density data set was compiled to find associations between the parenchyma tissue proportion in the female breast compared to other features in the data.
 %%
 Breast density is denoted as the ratio between parenchyma and cellular connective tissue and has been shown to be associated with breast cancer.
 %%
@@ -1647,7 +1648,7 @@ Studies describe a four to five times increased risk of getting breast cancer fo
 
 The data comprises 1,186 female subjects. %(368 from \texttt{SHIP-2}, 818 from \texttt{SHIP-TREND-0} cohort).
 %%
-It contains 231 dimensions, holding information about somatometric features (e.g., body size and weight) consumption behavior, personal and medical history (e.g., occupation and prior diseases), women-specific features (e.g., number of born children and contraception type) as well as mammography features (e.g., fat content and parenchyma tissue proportion to volume).
+It contains 231 features, holding information about somatometric features (e.g., body size and weight) consumption behavior, personal and medical history (e.g., occupation and prior diseases), women-specific features (e.g., number of born children and contraception type) as well as mammography features (e.g., fat content and parenchyma tissue proportion to volume).
 %%
 The latter were derived from MRI data for each subject, which was manually segmented by radiologists \cite{Hegenscheid2009, Ivanovska2014}.
 %%
@@ -1674,7 +1675,7 @@ The [\textbf{2.SI}] step using the 3D heat map locates hotspots at the end of th
 %%
 The Zoom, Filter and Analyze Further Step [\textbf{3.ZF}] was realized by slicing through the 3D heat map using the mouse input to inspect the hotspots.
 %%
-Analyzing the 2D heat map [\textbf{4.DD}] revealed high correlations for somatometric features, hepatic steatosis indicator features as well as laboratory values, such as \emph{creatinine} (used as renal retention parameter) and \emph{uric acid} (among others used as gout and diabetes risk factors) magnitudes.
+Analyzing the 2D heat map [\textbf{4.DD}] revealed high correlations for somatometric features, hepatic steatosis indicator features as well as laboratory values, such as \emph{creatinine} (used as renal retention parameter) and \emph{uric acid} (used as gout and diabetes risk factors) magnitudes.
 %%
 Similar results were present for analyzing the \emph{female} groups.
 %%
@@ -1715,9 +1716,9 @@ For mice, strong effects of \emph{IL-6} with hepatic steatosis were described \c
 %%
 The finding is subject of further analysis.
 %%
-\subsection{Case 2: Hypothesis-free Analysis of the Breast Cancer Data Set}
+\subsection{Case 2: Hypothesis-free Analysis of the Breast Density Data Set}
 %%
-The analysis aims to find relationships on the breast fat data using mammography analysis features.
+The analysis aims to find relationships on the breast density data using mammography analysis features.
 %%
 Relationships between the share of parenchyma tissue on the overall breast volume are of high interest \cite{Mccormack2006}.
 %%
@@ -1727,7 +1728,7 @@ At first, she was interested in correlations with the \emph{parenchyma tissue} p
 %%
 She observed strong correlations with \emph{age}, \emph{body fat percentage}, \emph{hip} and \emph{waist circumference} as well as \emph{menstrual period} or \emph{pregnancy status} as expected (Fig.~\ref{fig:Application} right).
 %%
-Women with higher \emph{body fat} also have a larger \emph{breast fat percentage}, which also correlates with other somatometric features.
+Women with higher \emph{body fat} also have a larger \emph{breast density percentage}, which also correlates with other somatometric features.
 %%
 \emph{Age} is a strong influencing factor, as breast tissue and subsequently the parenchyma tissue degrades over time.
 %%
@@ -1755,7 +1756,7 @@ The [\textbf{4.DD}] analysis, however, showed only 8 subjects with this disease.
 %%
 Too few subjects impose the risk of a biased finding.
 %%
-The correlation was noted and will be further investigated in the near future using an extensive data set.
+The correlation was noted and will be further investigated using an extensive data set.
 %%
 Lastly, \emph{KH} assessed the influence of contraception-related features, such as use of \emph{birth control pills} or the \emph{spiral}, but found no significant correlations with the parenchyma tissue.
 %%
@@ -1843,7 +1844,7 @@ These can then be analyzed further using the 2D plot for each 3D heat map slice.
 %%
 Details on demand for each model allow for a detailed assessment of regression models.
 %%
-We successfully applied the approach to find correlations in a hepatic steatosis as well as a breast fat data set.
+We successfully applied the approach to find correlations in a hepatic steatosis as well as a breast density data set.
 %%
 The method was well received by our clinical partners, triggering detailed investigations of the findings.
 
