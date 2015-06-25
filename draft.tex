@@ -415,7 +415,7 @@ Linear regression models can also be described using the \emph{adjusted} $R^2$, 
 It yields lower values, when features with little entropy w.r.t. the target feature are included.
 %Additional metrics describing linear regression models comprise of the \emph{adjusted} $R^2$, which also adjusts for the number of dependent features and yields lower values, when features with little entropy towards the target feature are included.
 %%
-The $f$-$statistic$ determines how much improvement the independent variables will add to the model compared to them being not considered at all.
+The $f$-$statistic$ determines how much improvement the independent variables will add to the model compared to being not considered at all.
 %%
 }
 
@@ -613,7 +613,7 @@ Maries et al.~\cite{GRACE} propose \texttt{GRACE}, a framework for visually expl
 %%
 Sparse Partial Least Squares Regression and Tikhonov Regularization are used to produce predictor subsets and quantify correlation strengths.
 %%
-A multi view system linked spatial with non-spatial data and correlation coefficients are visualized using Kiviat diagrams (similar to star plots), correlations are plotted using p-values in the other views.
+A multiple view system links spatial with non-spatial data and correlation coefficients are visualized using Kiviat diagrams (similar to star plots), correlations are plotted using p-values in the other views.
 %%
 %Dendograms are used to select different brain regions.
 Instead of applying several linked views, we focus on one view of abstracted data.
@@ -734,7 +734,7 @@ The \emph{3D Regression Heat Map} design was developed iteratively based on feed
 %%
 The idea emerged from analysis sessions of a previous project, which contained a 2D heat map showing pairwise feature correlations based on \emph{Cram\'{e}r's V} contingency values \cite{Klemm2014VIS}.
 %%
-It allowed them to reproduce their knowledge by observing correlations they would expect as well as discovering new correlations.
+It allowed them to reproduce their knowledge about relationships by observing correlations they would expect as well as discovering new correlations.
 %%
 In epidemiology, these relationships are also of interest, but rather w.r.t. their explanatory power on the target feature.
 %%
@@ -944,9 +944,9 @@ Therefore, these experts can investigate the heat map with emphasis on specific 
 %%
 \add{
 %%
-$Adjusted$ $R^2$ can be represented in the same way, since they share the scale.
+\emph{Adjusted} $R^2$ can be represented in the same way, since they share the scale.
 %%
-$AIC$ values have to be normalized in order to map them onto color saturation.
+$AIC$ values have to be normalized in order to map them on color saturation.
 %%
 %The resulting scale may be distort by outliers, which requires facilities for allowing the user to select scale ranges.
 The resulting scale may be distorted by outliers derived from poor regression models.
@@ -957,7 +957,7 @@ Outliers can be cut off to emphasize ranges of interest.
 %%
 Small $AIC$ values indicate a good model.
 %%
-Hence, we inverted the transfer function mapping it to color, mapping low $AIC$ features to saturated colors.
+Hence, we inverted the transfer function color mapping, assigning low $AIC$ features to saturated colors.
 %%
 }
 \design{
@@ -971,7 +971,7 @@ To include users unfamiliar with these metrics, the \emph{Regression Heat Map} i
 %%
 Introducing $Z$ creates a 3D heat map (Fig.~\ref{fig:Heat_Map}b).
 %%
-\add{The selected metric (per default set to $R^2$)} of each heat map entry (\emph{voxel}) are mapped to opacity to reduce the overlap.
+\add{The selected metric (per default set to $R^2$)} of each heat map entry (\emph{voxel}) is mapped to opacity to reduce the overlap.
 %%
 \magenta{Object size is not used to encode information because it would result in a cluttered view.}
 %%
@@ -1108,7 +1108,7 @@ This is achieved through \emph{3D Regression Heat Map} comparison.
 %%
 Comparisons were introduced later in the project.
 %%
-Epidemiologists with focus on statistics pointed out, that comparing outcomes of different formulas is suitable for removing the effect of possible confounding features.
+Epidemiologists with focus on statistics pointed out that comparing outcomes of different formulas is suitable for removing the effect of possible confounding features.
 %%
 }
 %%
@@ -1859,7 +1859,7 @@ The method was well received by our clinical partners, triggering detailed inves
 %%
 The analysis is limited to three dynamic variables representing the \emph{3D Regression Heat Map} dimensions.
 %%
-Investigating more dynamic variables can be achieved by projecting the resulting high-dimensional space into a three-dimensional representation.
+Investigating more dynamic variables can be achieved by projecting the high-dimensional space into a three-dimensional representation.
 %%
 This, however, increases the cognitive load and complexity of the analysis substantially and needs to be accompanied by techniques, which simplify this approach.
 %%
