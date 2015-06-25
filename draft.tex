@@ -226,13 +226,16 @@ Our contributions are:
 \design{
 \begin{itemize}
 	%%
-  \item An overview visualization design based on feedback of epidemiological domain experts to support hypothesis-generation w.r.t. a target feature using regression models.
+  \item An overview visualization design based on feedback of epidemiological domain experts to support hypothesis generation w.r.t. a target feature using regression models.
 	%%
-  \item Applying domain knowledge in the analysis using freely adjustable regression formulas.
+  %\item Applying domain knowledge in the analysis using freely adjustable regression formulas.
+	\item Incorporation of prior domain knowledge by using freely adjustable regression formulas.
 	%%
-  \item Selecting suitable metrics for representing and comparing regression models, as well as incorporating additional metrics for details-on-demand to assess the model quality.
+  %\item Selecting suitable metrics for representing and comparing regression models, as well as incorporating additional metrics for details-on-demand to assess the model quality.
+	\item Metrics selection for analyzing regression models and for details-on-demand representations.
 	%%
-  \item An openly available web-based system, which incorporates open formats to be applicable for data of other application domains.
+  %\item An openly available web-based system, which incorporates open formats to be applicable for data of other application domains.
+	\item An open-source web-application that can be used with data of different application domains.
 	%%
 \end{itemize}
 }
@@ -366,7 +369,7 @@ Different metrics, such as the weightings itself and associated $p$ values, desc
 %%
 \add{
 %%
-The \emph{Akaike Information Criterion} (AIC) metric estimates the quality of a model and is suited for comparing models \cite{Akaike}.
+The \emph{Akaike Information Criterion} (AIC) metric estimates the quality of a model by estimating its information loss of modeling the underlying data and is suited for comparing models \cite{Akaike}.
 %%
 A small AIC value indicates a higher quality model.
 %%
@@ -415,7 +418,8 @@ Linear regression models can also be described using the \emph{adjusted} $R^2$, 
 It yields lower values, when features with little entropy w.r.t. the target feature are included.
 %Additional metrics describing linear regression models comprise of the \emph{adjusted} $R^2$, which also adjusts for the number of dependent features and yields lower values, when features with little entropy towards the target feature are included.
 %%
-The $f$-$statistic$ determines how much improvement the independent variables will add to the model compared to being not considered at all.
+%The $f$-$statistic$ determines how much improvement the independent variables will add to the model compared to being not considered at all.
+The $f$-$statistic$ measures the improvement of the model if independent variables were added. 
 %%
 }
 
@@ -443,7 +447,7 @@ In this section we present prior and related work trying to achieve this goal.
 \paragraph{Parameter space analysis using regression models.}
 %%
 \magenta{
-Sedlmair et al.~\cite{Sedlmair} present a conceptual taxonomy of parameter space analysis.
+Sedlmair et al.~\cite{Sedlmair} presented a conceptual taxonomy of parameter space analysis.
 %%
 %It includes a abstract application domain independent data flow model, navigation strategies for exploring parameter spaces as well a characterization of analysis tasks.
 %%
@@ -459,7 +463,7 @@ We solve a \emph{fitting} task by aiming to find models well suited for describi
 %% A Partition-based Framework for Building and Validating Regression Models
 The approach of M\"{u}hlbacher et al.~\cite{Muehlbacher} is closest to ours.
 %%
-They provide a framework for qualitative analyses of relationships and ranking features for numerical target features with regression models.
+They provided a framework for qualitative analyses of relationships and ranking features for numerical target features with regression models.
 %%
 %Correlations between features with the target yield a ordered matrix-plot, where feature combinations are used to depict models of interest.
 %A view for single-relationships with the target and single features as well as a matrix-plot for feature combinations are used to depict models of interest.
@@ -470,7 +474,7 @@ Existing regression models can be validated and compared using 3D views and 2D s
 %%
 %We employ the same steps by preprocessing features using correlations with the target and providing an overview over combinations.
 %%
-M\"{u}hlbacher et al. focus on a smaller number of features, which can be assessed in more detail, yielding a plot matrix view, while we cover more features by abstracting the models.
+M\"{u}hlbacher et al. focused on a smaller number of features, which can be assessed in more detail, yielding a plot matrix view, while we cover more features by abstracting the models.
 %%
 %We also take categorical targets and regression formula inputs into account.
 %%
@@ -609,11 +613,11 @@ The techniques are useful for selected features or a data set with a small numbe
 %They are therefore suitable for \emph{small} epidemiological data sets.
 %%
 \magenta{
-Maries et al.~\cite{GRACE} propose \texttt{GRACE}, a framework for visually exploring correlations of features with spatial and non-spatial geriatric data.
+Maries et al.~\cite{GRACE} proposed \texttt{GRACE}, a framework for visually exploring correlations of features with spatial and non-spatial geriatric data.
 %%
 Sparse Partial Least Squares Regression and Tikhonov Regularization are used to produce predictor subsets and quantify correlation strengths.
 %%
-A multiple view system links spatial with non-spatial data and correlation coefficients are visualized using Kiviat diagrams (similar to star plots), correlations are plotted using p-values in the other views.
+A multiple view system links spatial with non-spatial data and correlation coefficients are visualized using Kiviat diagrams, correlations are plotted using p-values in the other views.
 %%
 %Dendograms are used to select different brain regions.
 Instead of applying several linked views, we focus on one view of abstracted data.
@@ -717,7 +721,7 @@ The difference of the presented approach in comparison with related work is twof
 %%
 \section{3D Regression Heat Map Analysis of Population Study Data}
 \magenta{
-The \emph{3D Regression Heat Map} is designed to provide overview visualizations to support hypothesis generation.
+The \emph{3D Regression Heat Map} is designed to provide an overview visualization to support hypothesis generation.
 %%
 Hence, it is associated with step 1 and 2 of the epidemiological workflow (recall Section~\ref{sec:EpidemiologicalWorkflow}).
 %%
@@ -944,7 +948,7 @@ Therefore, these experts can investigate the heat map with emphasis on specific 
 %%
 \add{
 %%
-\emph{Adjusted} $R^2$ can be represented in the same way, since they share the scale.
+\emph{Adjusted} $R^2$ can be represented in the same way, since they are also scaled between $[0, 1]$.
 %%
 $AIC$ values have to be normalized in order to map them on color saturation.
 %%
@@ -1336,7 +1340,7 @@ As they are visually distinguished using color, confusions are avoided.
 %%
 The transfer function of the color intensity (2D) and opacity (3D) can be adapted using a slider input.
 %%
-This additionally allows to filter models with desired features, such as only very high $R^2$ values.
+This allows to filter models with desired features, such as only very high $R^2$ values.
 }
 
 \paragraph{3D prism as data mini-map.}
@@ -1452,7 +1456,7 @@ The free space above the matrix diagonal is used to display the 3D heat map.
 
 The purpose of this view is the detailed assessment of the underlying regression models.
 %%
-By hovering over a data entry in the plot, a tooltip displays detailed information about a model's coefficients, associated $p$ values, confidence intervals \add{f-scores and AIC values}.
+By hovering over a data entry in the plot, a tooltip displays detailed information about a model's coefficients, associated $p$ values, confidence intervals \add{f-statistics and AIC values}.
 %%
 \add{
 %%

@@ -237,7 +237,7 @@ Some more questions
 
   * The use case is part of the hypothesis-free analysis approach. Our observation was that the domain experts often have a set of features which act as targets. They might contain different abstraction levels (e.g. dichotomous feature chest pain and the more granular feature chest pain levels) or a set of variables describing a condition (e.g. features describing image-derived data). The formula `Z ~ X + Y` allows to quickly assess these features which can then be analyzed in detail by putting them as static target.
   * The other use case we observed was to check the system for logical validity. Domain experts used `Z ~ X + Y` to analyze potentially uninteresting targets for correlations they would expect to check if the system works as intended.
-  * These arguments are included in the revised version of paragraph **Hypothesis-free and hypothesis-based analysis**
+  * These arguments are included in the revised version of paragraph **Hypothesis-free and hypothesis-based analysis** and in the newly added subsection **4.1 Iterative Design Based on Expert Feedback**.
 
 </i></font>
 
