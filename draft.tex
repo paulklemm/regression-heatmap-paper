@@ -222,8 +222,7 @@ Since the notation is familiar to epidemiologists, they can rapidly include thei
 Difference views between regression formulas allow to assess the influences of individual features on the process.
 %%
 Our contributions are:
-
-\design{
+%%
 \begin{itemize}
 	%%
   \item An overview visualization design based on feedback of epidemiological domain experts to support hypothesis generation w.r.t. a target feature using regression models.
@@ -238,7 +237,7 @@ Our contributions are:
 	\item An open-source web-application that can be used with data of different application domains.
 	%%
 \end{itemize}
-}
+%%
 % \begin{itemize}
 % 	%%
 % 	\item An overview visualization technique representing feature interactions using target features.
@@ -367,13 +366,10 @@ The regression model yields a function describing the target feature by weightin
 %%
 Different metrics, such as the weightings itself and associated $p$ values, describe the resulting function (the \emph{model}).
 %%
-\add{
-%%
 The \emph{Akaike Information Criterion} (AIC) metric estimates the quality of a model by estimating its information loss of modeling the underlying data and is suited for comparing models \cite{Akaike}.
 %%
 A small AIC value indicates a higher quality model.
 %%
-}
 $R^2$ values describe the quality of the fit; in other words how well the dependent features describe the target feature.
 %%
 The value ranges between $[0, 1]$, where 1 encodes a perfect fit.
@@ -397,9 +393,7 @@ The most commonly used regression operators comprise:
 	\item $|$ (conditioning) inclusion of variable x, given y (e.g. $x|y$)
 \end{itemize}
 %%
-\magenta{
 Due to the different meaning of operators in regression formulas, feature transformations are not available within this notation.
-}
 %%
 The class of the target feature restricts the regression type.
 %%
@@ -411,8 +405,6 @@ The basic type is the linear regression, creating a linear map from the space co
 %%
 The \emph{dependent} variable has to be of \emph{continuous type}.
 %%
-\add{
-%%
 Linear regression models can also be described using the \emph{adjusted} $R^2$, which considers the number of dependent features.
 %%
 It yields lower values, when features with little entropy w.r.t. the target feature are included.
@@ -421,8 +413,6 @@ It yields lower values, when features with little entropy w.r.t. the target feat
 %The $f$-$statistic$ determines how much improvement the independent variables will add to the model compared to being not considered at all.
 The $f$-$statistic$ measures the improvement of the model if independent variables were added. 
 %%
-}
-
 \paragraph{Logistic Regression for Dichotomous Target.} Logistic regression implies a dichotomous target variable.
 %%
 The target is described by fitting a logistic function.
@@ -446,7 +436,6 @@ In this section we present prior and related work trying to achieve this goal.
 %The work of M\"{u}hlbacher et al.~\cite{Muehlbacher}, Piringer et al.~\cite{Piringer}, Chan et al.~\cite{Chan} and Zhang et al.~\cite{Zhang2014} are closest related to ours regarding different aspects.
 \paragraph{Parameter space analysis using regression models.}
 %%
-\magenta{
 Sedlmair et al.~\cite{Sedlmair} presented a conceptual taxonomy of parameter space analysis.
 %%
 %It includes a abstract application domain independent data flow model, navigation strategies for exploring parameter spaces as well a characterization of analysis tasks.
@@ -457,9 +446,7 @@ Sedlmair et al.~\cite{Sedlmair} presented a conceptual taxonomy of parameter spa
 Based on their input parameter taxonomy, we are visualizing \emph{model parameters} based on \emph{environmental parameters} in a \emph{global-to-local} navigation strategy.
 %%
 We solve a \emph{fitting} task by aiming to find models well suited for describing the input data.
-}
-
-\magenta{
+%%
 %% A Partition-based Framework for Building and Validating Regression Models
 The approach of M\"{u}hlbacher et al.~\cite{Muehlbacher} is closest to ours.
 %%
@@ -477,8 +464,6 @@ Existing regression models can be validated and compared using 3D views and 2D s
 M\"{u}hlbacher et al. focused on a smaller number of features, which can be assessed in more detail, yielding a plot matrix view, while we cover more features by abstracting the models.
 %%
 %We also take categorical targets and regression formula inputs into account.
-%%
-}
 
 %% HyperMoVal: Interactive Visual Validation of Regression Models for Real-Time Simulation
 Similarly, Piringer et al.~\cite{Piringer} proposed methods for visualizing regression analysis results and properties for developing car engines.
@@ -497,8 +482,6 @@ This limits the method to comparing a few models at once as the plot matrix gets
 % %%
 % They also focus on metric features, while we process categorical data as well.
 %%
-\magenta{
-%%
 Guo et al.~\cite{Guo} presented multi-space visualizations to find linear relationships in the data with focus on extracting groups of best fit.
 %%
 The data space is visualized using a scatter plot matrix.
@@ -509,7 +492,6 @@ The model view allows for assessing different models by color coding distances t
 %%
 The model-parameters can then be fine-tuned using line graphs, histograms and model projections.
 %%
-}
 %% Regression Cube: A Technique for Multidimensional Visual Exploration and Interactive Pattern Finding
 %We use the term `Regression Cube' for a comparative 3D representation of multiple regression models.
 %%
@@ -612,7 +594,6 @@ The techniques are useful for selected features or a data set with a small numbe
 %%
 %They are therefore suitable for \emph{small} epidemiological data sets.
 %%
-\magenta{
 Maries et al.~\cite{GRACE} proposed \texttt{GRACE}, a framework for visually exploring correlations of features with spatial and non-spatial geriatric data.
 %%
 Sparse Partial Least Squares Regression and Tikhonov Regularization are used to produce predictor subsets and quantify correlation strengths.
@@ -621,7 +602,6 @@ A multiple view system links spatial with non-spatial data and correlation coeff
 %%
 %Dendograms are used to select different brain regions.
 Instead of applying several linked views, we focus on one view of abstracted data.
-}
 
 Generalized Pairs plots (\texttt{GPLOM'S}) extend the concept of scatter plot matrices by the pairwise depiction of heterogeneous data using type-combination-dependent visualizations \cite{GPLOMS, Francois2013}.
 %%
@@ -631,10 +611,9 @@ A \emph{concept map} summarizes features related to a specified disease.
 %%
 Time-dependent epidemiological data are visualized by Chui et al.~\cite{Chui2011} using multi-panel graphs highlighting risk factor differences with age and gender with regard to influenza- and salmonellosis-associated hospitalizations.
 %%
-\magenta{
 We incorporate the idea of the arrangement of feature combinations as matrix as well as assessing confounding features.
 %%
-}
+
 %%
 %We also include confounder features (age, gender) into the analysis while focusing on non-time-dependent cohort study data sets.
 %%
@@ -720,19 +699,16 @@ The difference of the presented approach in comparison with related work is twof
 % \end{enumerate}
 %%
 \section{3D Regression Heat Map Analysis of Population Study Data}
-\magenta{
+%%
 The \emph{3D Regression Heat Map} is designed to provide an overview visualization to support hypothesis generation.
 %%
 Hence, it is associated with step 1 and 2 of the epidemiological workflow (recall Section~\ref{sec:EpidemiologicalWorkflow}).
 %%
 Relationships observed using such techniques are subject of detailed statistical testing by statisticians with background in epidemiology using statistical processors, such as \texttt{SPSS}.
-}
 % \design{
 % This section covers the design of the 3D Regression Heat Map as well as how epidemiological requirements and  domain expert input was utilized to influence design decisions.
 % }
 \subsection{Iterative Design Based on Expert Feedback}
-%%
-\design{
 %%
 The \emph{3D Regression Heat Map} design was developed iteratively based on feedback of epidemiologists by using the prototype in joint analysis sessions on their data sets.
 %%
@@ -758,7 +734,6 @@ Additionally, due to the sensitive nature of population study data, the data has
 Technical measures to enable a secure transfer and storage are described in Section~\ref{sec:SystemDesign}.
 %%
 %In this work, we want to provide an overview visualization of large cohort study data sets \emph{towards target features}.
-}
 %%
 %The basic idea of our \emph{3D Regression Heat Map} is to provide an overview visualization of large cohort study data sets towards target features.
 %%
@@ -790,7 +765,7 @@ There is no rule how to apply models to a given set of features. Thus, they have
 % }
 \subsection{Regression Heat Map Description Using Regression Formula Notation}
 %%
-\design{Expert knowledge modeling} is carried out using \emph{regression formulas}.
+Expert knowledge modeling is carried out using \emph{regression formulas}.
 %Expert knowledge is integrated into the analysis using regression formulas.
 %%
 The formula input influences the type of the chosen regression method as well as the \emph{independent} features describing the target (recall Sect.~\ref{sec:RegressionAnalysis}).
@@ -879,11 +854,9 @@ The number of selected features using the CFS algorithm reflects their informati
 %%
 A large list of features is an expression of low correlation to the target feature.
 %%
-\magenta{
 The tradeoff involved using the CFS algorithm is the potential removal of interesting features for the domain expert.
 %%
 This problem is discussed in the next subsection as part of the 3D representation of the regression results.
-}
 %%
 
 With this method, we are able to derive the interesting regression models in a reasonable time span (seconds to minutes instead of hours).
@@ -919,7 +892,7 @@ For the \emph{3D Regression Heat Map} analysis we are interested in the quality-
 %%
 This allows to infer the predictive quality of the independent features included in the model.
 %%
-The $R^2$ \add{, adjusted $R^2$ and AIC} value are metrics allowing for this kind of assessment (recall Sect.~\ref{sec:RegressionAnalysis}).
+The $R^2$, adjusted $R^2$ and AIC value are metrics allowing for this kind of assessment (recall Sect.~\ref{sec:RegressionAnalysis}).
 %%
 % \add{
 % %%
@@ -938,15 +911,9 @@ We can apply the same 2D heat map by translating the $R^2$ values to \emph{color
 %%
 This encodes a 2D regression square for dynamic variables $X$ and $Y$ (e.g., $Age \sim X + Y$).
 %%
-\design{
-%%
 Based on expert feedback on early versions of this view, the amount of features used to compare regression models was extended.
 %%
 Therefore, these experts can investigate the heat map with emphasis on specific aspects of the model.
-%%
-}
-%%
-\add{
 %%
 \emph{Adjusted} $R^2$ can be represented in the same way, since they are also scaled between $[0, 1]$.
 %%
@@ -963,29 +930,20 @@ Small $AIC$ values indicate a good model.
 %%
 Hence, we inverted the transfer function color mapping, assigning low $AIC$ features to saturated colors.
 %%
-}
-\design{
-%%
 To include users unfamiliar with these metrics, the \emph{Regression Heat Map} is set per default to show $R^2$ values.
 %To avoid shutting out users unfamiliar with these metrics, the \emph{Regression Heat Map} is set per default to show $R^2$ values.
 %%
-}
-
 \paragraph{3D view.}
 %%
 Introducing $Z$ creates a 3D heat map (Fig.~\ref{fig:Heat_Map}b).
 %%
-\add{The selected metric (per default set to $R^2$)} of each heat map entry (\emph{voxel}) is mapped to opacity to reduce the overlap.
+The selected metric (per default set to $R^2$) of each heat map entry (\emph{voxel}) is mapped to opacity to reduce the overlap.
 %%
-\magenta{Object size is not used to encode information because it would result in a cluttered view.}
-%%
-\design{
+Object size is not used to encode information because it would result in a cluttered view.
 %%
 Epidemiologists argued, that the visualization of descriptive metrics derived from different regression methods (e.g., $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
 %%
 Therefore, we decided to map metrics of different regression methods on distinct colors (i.e., orange for linear regression and blue for logistic regression).
-%%
-}
 %%
 %The visualization of descriptive metrics derived from different 3D Regression Heat Maps (e.g., $Z \sim X + Y$) is misleading, as they can be compared relatively, but not in precise numbers.
 %%
@@ -995,13 +953,11 @@ Thus, the visualization can be easily extended using other regression types.
 %%
 For \emph{3D Regression Heat Maps} with a fixed target feature, e.g., $Cancer \sim X + Y + Z$, no such encodings are required and the $z$ dimension can be compared directly.
 %%
-\magenta{
 As mentioned previously, the feature reduction using the CFS algorithm potentially removes important features. %important to the domain expert.
 %%
 The $z$ dimension of the visualization contains \emph{all} features of the data set, allowing to assess their influence.
 %%
 The $x$ and $y$ dimensions are restricted to the features extracted from the CFS algorithm.
-}
 %%
 \\\\
 %%
@@ -1059,15 +1015,11 @@ This can be carried out either to refine the current formula based on observatio
 %%
 \paragraph{Hypothesis-free and hypothesis-based analysis.}
 %%
-\design{
-%%
 Early analysis sessions yielded two approaches of analyzing the data.
 %%
 The classic approach is \emph{hypothesis-based}, where the expert already knows the data and potential associations (e.g. reproducing knowledge about hepatic steatosis risk factors based on known risk factors).
 %%
 The \emph{hypothesis-free} analysis allows to derive new insights, such as identifying confounding features or potential targets (e.g. deriving risk factors for breast cancer associated features).
-%%
-}
 %%
 %Input formulas reflect \emph{hypotheses} about the data.
 \emph{Hypotheses} about the data are reflected using input formulas.
@@ -1108,13 +1060,10 @@ This is achieved through \emph{3D Regression Heat Map} comparison.
 %%
 
 \paragraph{3D Regression Heat Map comparison.}
-\design{
 %%
 Comparisons were introduced later in the project.
 %%
 Epidemiologists with focus on statistics pointed out that comparing outcomes of different formulas is suitable for removing the effect of possible confounding features.
-%%
-}
 %%
 \emph{3D Regression Heat Maps} can be compared by creating difference views.
 %%
@@ -1152,12 +1101,11 @@ With open formats as input interfaces, the application can be extended to non-ep
 %%
 The focus lies on creating an overview visualization and gaining insight into relationships of the data, which triggers further analyses with other (statistical) tools.
 %%
-\magenta{This is, however, out of the scope of this work.}
+This is, however, out of the scope of this work.
 %%
 Therefore, the system has to be intuitive and comprehensive in order to be adapted by domain experts.
 
 %%
-\design{
 %A key requirement was little set up time to reduce the effort on the domain expert side, as they are mostly practicing clinicians with small time-frames for epidemiological research.
 Using web-based technologies offers various advantages w.r.t. the collaboration with epidemiologists.
 %%
@@ -1169,7 +1117,6 @@ We can even implement small changes based on feedback of domain experts directly
 %%
 By providing a service using a website it has a much larger chance of being tested and potentially adapted by a broad user base.
 %%
-}
 %Design choices and spaces are restricted by the underlying technologies and devices.
 %%
 %Therefore, the exchange of data and methods using web-based technologies offers many advantages.
@@ -1180,13 +1127,9 @@ Web technology is based on a client-server architecture.
 %%
 It allows for outsourcing computationally heavy tasks on server clusters and transferring results to the client device.
 %%
-\magenta{
-%%
 This architecture is also prone to security issues, such as the storage of confidential data, especially in the epidemiological context.
 %%
 Therefore, we have to incorporate technical measures to ensure a secure workflow.
-%%
-}
 %%
 %The design space spanned by web technologies is different to standard WIMP applications: right-click menus, modal windows and menu bars are no established user interface components in this context.
 %%
@@ -1194,14 +1137,10 @@ Therefore, we have to incorporate technical measures to ensure a secure workflow
 %%
 \subsection{System Paradigm and Components}
 %%
-\design{
-%%
 %Epidemiologists have little time slots available for their research.
 Epidemiologists will not adapt complex systems, which require substantial training and time. %to work with are not suitable. %for the task of deriving overview visualizations.
 %%
 %If the system is not easy to learn, it will not be adapted.
-%%
-}
 %%
 %The \emph{3D Regression Heat Map} design focuses on a clean appearance, reducing the amount of user interface elements as much as possible.
 Therefore, the \emph{3D Regression Heat Map} design focuses on a clean appearance, reducing the amount of user interface elements as much as possible.
@@ -1211,13 +1150,13 @@ This allows for a fast learning of the system.
 Our prototype consists of three components:
 \begin{itemize}
 	%%
-	\item The \emph{file upload} section starting the analysis with providing a comma-separated value (CSV) file [1.AF].
+	\item The \emph{file upload} section starting the analysis with providing a comma-separated value (CSV) file [\textbf{1.AF}].
 	%%
-	\item The \emph{Regression Heat Map visualization} consisting of the 2D heat map as well as a 3D representation of all regression models \add{with facilities to change the represented regression metric and its range} [2.SI].
+	\item The \emph{Regression Heat Map visualization} consisting of the 2D heat map as well as a 3D representation of all regression models with facilities to change the represented regression metric and its range [\textbf{2.SI}].
 	%%
 	\item The \emph{formula editor} allows formula input w.r.t. a hypothesis or to conduct a \emph{hypothesis-free} analysis.
 	%%
-	It also allows to select a reference formula for creating difference models [1.AF, 3.ZF].
+	It also allows to select a reference formula for creating difference models [\textbf{1.AF}, \textbf{3.ZF}].
 	%%
 \end{itemize}
 %%
@@ -1231,7 +1170,7 @@ The first line in a CSV file represents all features (columns) of the data set.
 %%
 Each line after that represents one subject (row) and its feature manifestations.
 %%
-\magenta{Using a check box, the user can disable the CFS preprocessing step, which is useful for small data sets, where the user does not want to reduce the number of features.}
+Using a check box, the user can disable the CFS preprocessing step, which is useful for small data sets, where the user does not want to reduce the number of features.
 
 % \textbf{Encoding via CSV Files.}
 % %%
@@ -1317,14 +1256,10 @@ Along the diagonal, $X$ and $Y$ represent the same feature, $Z \sim X + Y$ turns
 The diagonal therefore acts as reference on how strong the correlation for the given row (or column) feature is.
 
 \paragraph{Selecting and scaling the descriptive regression metric.}
-\design{
 %%
 The feedback made apparent that other features are of interest for analyzing regression models too.
 %%
 Hence, UI elements for controlling them were introduced.
-%%
-}
-\add{
 %%
 The descriptive metric shown in the 2D/3D view can be selected using a dropdown menu.
 %%
@@ -1341,10 +1276,8 @@ As they are visually distinguished using color, confusions are avoided.
 The transfer function of the color intensity (2D) and opacity (3D) can be adapted using a slider input.
 %%
 This allows to filter models with desired features, such as only very high $R^2$ values.
-}
-
+%%
 \paragraph{3D prism as data mini-map.}
-\design{
 %%
 In early prototype versions, the 3D prism acted as starting point for the data analysis without the implementation of a separate 2D view.
 %%
@@ -1352,9 +1285,7 @@ Slices were shown using cutaway planes.
 %%
 This approach was not popular among epidemiologists, because the complexity of the visualization overwhelmed them. %did not like the combination of 3D interaction and slicing with representatives.
 %%
-}
-%%
-The \emph{3D Regression Heat Map} representation \design{was redesigned to} act as an overview over the whole data set.
+The \emph{3D Regression Heat Map} representation was redesigned to act as an overview over the whole data set.
 %%
 %Its purpose is not to derive detailed information about data points.
 %%
@@ -1362,7 +1293,7 @@ It serves as a function similar to a mini-map, guiding the attention to points o
 %%
 It also gives context information about adjacent data values when using the 2D heat map.
 %%
-\design{The distinction between overview and details-on-demand using two different representations was well received with our domain experts.}
+The distinction between overview and details-on-demand using two different representations was well received with our domain experts.
 %%
 The displayed prism shows values above the matrix diagonal.
 %%
@@ -1374,7 +1305,7 @@ For such formulas, the 3D view encodes every data element as absolute difference
 %%
 This highlights slices with unusually low or high results (Fig.~\ref{fig:Application}).
 %%
-\magenta{Variables are ordered the same way in the 2D and 3D heat map to preserve the mental model and make them visually analogous.}
+Variables are ordered the same way in the 2D and 3D heat map to preserve the mental model and make them visually analogous.
 
 \paragraph{Tackling the disadvantages of 3D information visualization.}
 %%
@@ -1418,11 +1349,9 @@ We propose two ways to achieve this.
 	%%
 	We, however, still display the whole 3D object instead of cutting away information. %down to the slice position.
 	%%
-	\design{Early prototypes only provided this method to select a slice of interest, which was inefficient when the user was looking for a specific slice.
+	Early prototypes only provided this method to select a slice of interest, which was inefficient when the user was looking for a specific slice.
 	%%
 	Hence, an additional method was implemented.
-	%%
-	}
 	%%
 	%\item
 
@@ -1432,14 +1361,12 @@ We propose two ways to achieve this.
 %%
 The currently selected slice is displayed as a semi-transparent gray plane.
 %%
-\design{
 Early prototypes rendered the whole \emph{3D Regression Heat Map}, which made it hard to assess the position of the plane.
 %%
 %Since the regression metrics are mirrored along the diagonal, we decided to use this space to support better identification of the current slice.
 Since the regression metrics are mirrored along the diagonal, the space available from visualizing only the prism generated from the upper half of the heat map diagonal is used to display the 2D heat map of the currently selected plane.
-}
 %%
-The \magenta{regression metric values} are projected on this plane to provide an overlapping-free view.
+The regression metric values are projected on this plane to provide an overlapping-free view.
 %%
 This allows for a easier to identify the current slice.
 %%
@@ -1456,15 +1383,12 @@ The free space above the matrix diagonal is used to display the 3D heat map.
 
 The purpose of this view is the detailed assessment of the underlying regression models.
 %%
-By hovering over a data entry in the plot, a tooltip displays detailed information about a model's coefficients, associated $p$ values, confidence intervals \add{f-statistics and AIC values}.
-%%
-\add{
+By hovering over a data entry in the plot, a tooltip displays detailed information about a model's coefficients, associated $p$ values, confidence intervals f-statistics and AIC values.
 %%
 It also contains a scatter plot of the \emph{model residuals}, which shows the difference between the observed data points with the fitted values.
 %%
 Epidemiologists use such plots to validate models w.r.t. the model assumptions, such as homogeneity, normality, and independence \cite{GraphicModelAssessment}.
-}
-
+%%
 \section{Implementation} \label{implementation}
 \begin{figure}[htb]
  \centering
@@ -1856,7 +1780,7 @@ We successfully applied the approach to find correlations in a hepatic steatosis
 %%
 The method was well received by our clinical partners, triggering detailed investigations of the findings.
 
-\magenta{
+%%
 %One limitation of the proposed method is that the regression metrics always only capture a part of the underlying model.
 %%
 %The analyst has to keep the aspects of the respective metric in mind to avoid false conclusions.
@@ -1868,7 +1792,7 @@ Investigating more dynamic variables can be achieved by projecting the high-dime
 This, however, increases the cognitive load and complexity of the analysis substantially and needs to be accompanied by techniques, which simplify this approach.
 %%
 Static features can be added using the formula input without increasing the complexity of the visualization.
-}
+%%
 
 As a next step, we want to introduce more regression types, which model different kinds of correlations.
 %%
