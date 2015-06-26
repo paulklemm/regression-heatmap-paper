@@ -1,5 +1,3 @@
-This cover letter is written in Markdown
-
 <!--TOC-->
 
 Cover Letter Introduction
