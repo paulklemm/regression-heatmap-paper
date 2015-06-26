@@ -14,6 +14,6 @@ This is the working repository for the paper `3D Regression Heat Map Analysis of
 
 ### Export of Cover Letter to HTML and PDF
 
-The precisionconference.com site does not allow to upload the cover letter as HTML file. [Marked 2](http://marked2app.com/) currently has a bug due to its webkit implementation, which [creates faulty internal links when exported as PDF](http://support.markedapp.com/discussions/questions/3598-saveexport-to-pdf-and-internal-links). The workaround was to export the markdown via Marked 2 to HTML and use [wkhtmltopdf](http://wkhtmltopdf.org/) to create a PDF file with proper links.
+The precisionconference.com site does not allow to upload the cover letter as HTML file. [Marked 2](http://marked2app.com/) currently has a bug due to its webkit implementation, which [creates faulty internal links when exported as PDF](http://support.markedapp.com/discussions/questions/3598-saveexport-to-pdf-and-internal-links). The workaround was to export the markdown via Marked 2 to HTML and use [wkhtmltopdf](http://wkhtmltopdf.org/) to create a PDF file with proper links (`wkhtmltopdf Cover\ Letter.html Cover\ Letter.pdf`).
 
 **This repository is licensed under [Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/)** (see LICENCE.md)
