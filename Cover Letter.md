@@ -18,31 +18,31 @@ New Title
 
 We changed the title of the paper to be more precise.
 
-1. Change of `Regression Cube` to `3D Regression Heat Map`: [Reviewer 2] noted the potential confusion of the already claimed name `Regression Cube` and suggested a good alternative with `Regression Mosaic`. Referring to the publication `Friendly, Michael (March 1994). "Mosaic Displays for Multi-Way Contingency Tables". Journal of the American Statistical Association 89 (425): 190–200.` We conclude that our visualization is in fact a heat map, not a mosaic plot. Hence, we revised the paper accordingly. With this revision in mind, we found the name `3D Regression Heat Map` more appropriate, since it describes the method better.
-2. Change `cohort study data` to `population study data`: For some experts with background in epidemiology, **cohorts** might imply that the paper focuses on the analysis of multiple time points, since a cohort defines a population, which is analyzed using multiple acquisition cycles. The data sets used in the Case Studies are derived from a single time point. Our collaborating epidemiological domain experts concluded that `population study data` is more precise.
+1. Change of *"Regression Cube"* to *"3D Regression Heat Map"*: [Reviewer 2] noted the potential confusion of the already claimed name *"Regression Cube"* and suggested a good alternative with *"Regression Mosaic"*. Referring to the publication *`Friendly, Michael (March 1994). "Mosaic Displays for Multi-Way Contingency Tables". Journal of the American Statistical Association 89 (425): 190–200`* we conclude that our visualization is in fact a heat map, not a mosaic plot. Hence, we revised the paper accordingly. With this revision in mind, we found the name *"3D Regression Heat Map"* more appropriate, since it describes the method better.
+2. Change *"cohort study data"* to *"population study data"*: For some experts with background in epidemiology, **cohorts** might imply that the paper focuses on the analysis of multiple time points, since a cohort defines a population, which is analyzed using multiple acquisition cycles. The data sets used in the case studies are derived from a single time point. Our collaborating epidemiological domain experts argued that *"population study data"* is precise.
 
 Regression Metrics
 ------------------
 
 One large complaint was the focus on R² values only for representing linear regression models. Therefore, we modified this to include a variety of different variables, which put emphasis on different aspects of the data.
 
-* [Reviewer 1] We added a new selection interface element for choosing the regression metric used to colorize the 2D and 3D heat map. It contains the following new metrics:
-  * Adjusted R²: This is basically the R² term, but with a penalty term, which leads to lower R² values if an added dimension contains little entropy w.r.t. the target variable.
-  * F-statistic: The f-statistic determines how much improvement the independent variables will add to the model compared to them being not considered at all. The f-statisic is scaled between 0 and 1 based on the largest f-statistic in a 2D heat map slice.
-    * **We implemented a visual comparison of f-statisic, but decided to not include it in the paper**. The resulting plot is misleading for the following reasons: F-statistic values are based on their degrees of freedom, which are determined by the number of independent features (equal between all models, which is good) and the number of elements (unequal with very high differences). The heat map would visually compare values, which are inherently not comparable, as many features are sparse. We therefore decided to restrict f-statisic as contextual information for each model.
-  * Akaike Information Criterion (AIC), which acts similar as the R² by preferring simpler models.
-  * Adjusted R² and f-statistic are implemented for linear regression models, since they lack a counterpart for logistic regression models. For those, the standard Nagelkerke R² values are used.
-* [Reviewer 1] The context information for regression models was enhanced according to the suggestions made by the reviewers
-  * A scatter plot shows the distribution of the residuals of the model.
-  * All p-values for each dimension are shown.
-  * The f-statistic is additionally represented as table, which covers its degrees of freedom.
-  * The Akaike Information Criterion (AIC) as well as the adjusted R² can also be found in the context information.
+  * [Reviewer 1]: We added a new selection interface element for choosing the regression metric used to colorize the 2D and 3D heat map. It contains the following new metrics:
+    * Adjusted R²: This is basically the R² value, but with a penalty term, which leads to lower R² values if an added dimension contains little entropy w.r.t. the target variable.
+    * F-statistic: The f-statistic determines how much improvement the independent variables will add to the model compared to them being not considered at all. The f-statisic is scaled between 0 and 1 based on the largest f-statistic in a 2D heat map slice.
+      * **We implemented a visual comparison of f-statisic, but decided to not include it in the paper**. The resulting plot is misleading for the following reasons: F-statistic values are based on their degrees of freedom, which are determined by the number of independent features (equal between all models, which is good) and the number of elements (unequal with very high differences). The heat map would visually compare values, which are inherently not comparable, as many features are sparse. We therefore decided to restrict f-statisic as contextual information for each model.
+    * Akaike Information Criterion (AIC), which acts similar as the R² by preferring simpler models.
+    * Adjusted R² and f-statistic are implemented for linear regression models, since they lack a counterpart for logistic regression models. For those, the standard Nagelkerke R² values are used.
+  * [Reviewer 1]: The context information for regression models was enhanced according to the suggestions made by the reviewers.
+    * A scatter plot shows the distribution of the residuals of the model.
+    * All p-values for each dimension are shown.
+    * The f-statistic is additionally represented as table, which covers its degrees of freedom.
+    * The Akaike Information Criterion (AIC) as well as the adjusted R² can also be found in the context information.
 
 The sections revised using this feedback are:
 
-* **2.3 Regression Analysis** - explained the new metrics and their usage
+* **2.3 Regression Analysis** - explained the new metrics and their usage.
 * **4.3 Abstracting Regression Results using R²** is now renamed into  **4.3 Abstracting Regression Results** and covers the new metrics.
-* **5.2 3D Regression Heat Map Visualization** contains **Selecting and Scaling the Descriptive Regression Metric**, a new paragraph explaining the selection and scaling of the regression metrics
+* **5.2 3D Regression Heat Map Visualization** contains **Selecting and Scaling the Descriptive Regression Metric**, a new paragraph explaining the selection and scaling of the regression metrics.
 * Paragraph **2D Heat Map Slice Visualization** summarizes the features appearing as context information including the residual plot.
 
 Related Work
@@ -65,9 +65,9 @@ The **Related Work** section became too lengthy with these changes. Hence, we ra
 User Interaction
 ----------------
 
-* [Reviewer 1], [Reviewer 3] As suggested, we implemented a slider to adjust the transfer function of the selected metric. It is applied both on the 2D heat map as well as the 3D heat map. It can therefore also be used to filter for specific values, such as regression models with very high R².
+* [Reviewer 1], [Reviewer 3]: As suggested, we implemented a slider to adjust the transfer function of the selected metric. It is applied both on the 2D heat map as well as the 3D heat map. It can therefore also be used to filter for specific values, such as regression models with very high R².
   * Figure 2 and figure 4 are updated to cover the new UI elements.
-  * **5.2 3D Regression Heat Map Visualization** contains **Selecting and Scaling the Descriptive Regression Metric**, explaining the functionality of the slider
+  * **5.2 3D Regression Heat Map Visualization** contains **Selecting and Scaling the Descriptive Regression Metric**, explaining the functionality of the slider.
 
 Support Design Decisions with Expert Feedback
 ---------------------------------------------
@@ -76,35 +76,35 @@ One main complaint was the lack of supporting design decisions using expert feed
 
 Details on the changes are as follows:
 
-  * [Reviewer 2] Following Munzners "A Nested Model for Visualization Design and Validation" as suggested, we revised the contributions in the **Introduction**
-  * **3D Regression Heat Map Analysis of Population Study Data**
-    * Added new subsection **Iterative Design Based on Expert Feedback** to explain how expert feedback was incorporated in the design
-    * Subsection **Abstracting Regression Results**: Explained how expert feedback is included in selecting the respective regression metrics
-    * Paragraph **Hypothesis-Free and Hypothesis-Based Analysis**: Motivated the different approaches with examples from the epidemiological application domain
-    * [Reviewer 2] Justified selection of color and object size parameters for the visualization with expert feedback
+  * [Reviewer 2]: Following Munzners "A Nested Model for Visualization Design and Validation" as suggested, we revised the contributions in the **Introduction**.
+  * **3D Regression Heat Map Analysis of Population Study Data**.
+    * Added new subsection **Iterative Design Based on Expert Feedback** to explain how expert feedback was incorporated in the design.
+    * Subsection **Abstracting Regression Results**: Explained how expert feedback is included in selecting the respective regression metrics.
+    * Paragraph **Hypothesis-Free and Hypothesis-Based Analysis**: Motivated the different approaches with examples from the epidemiological application domain.
+    * [Reviewer 2]: Justified selection of color and object size parameters for the visualization with expert feedback.
   * **5 System Design**
-    * Section starts with a motivation on suitability of web-based techniques for the epidemiological application domain
-    * Added expert input in Subsection **System Paradigm and Components**
-    * Created new paragraph Selecting and Scaling the Descriptive Regression Metric
-    * Paragraph **3D Prism as Data Mini-Map** goes into detail on early prototypes of the 3D prism and why these designs were discarded
-    * [Reviewer 2] Justified selection of interaction techniques
-    * [Reviewer 3] The paragraph **2D Heat Map Slice Visualization** of Section **5.2 3D Regression Heat Map Visualization** was revised to be more precise. The area below the prism is in fact used to identify the correct position of the current slice.
-    * Shortened **Implementation** Section to save space
+    * Section starts with a motivation on suitability of web-based techniques for the epidemiological application domain.
+    * Added expert input in Subsection **System Paradigm and Components**.
+    * Created new paragraph Selecting and Scaling the Descriptive Regression Metric.
+    * Paragraph **3D Prism as Data Mini-Map** goes into detail on early prototypes of the 3D prism and why these designs were discarded.
+    * [Reviewer 2]: Justified selection of interaction techniques.
+    * [Reviewer 3]: The paragraph **2D Heat Map Slice Visualization** of Section **5.2 3D Regression Heat Map Visualization** was revised to be more precise. The area below the prism is in fact used to identify the correct position of the current slice.
+    * Shortened **Implementation** Section to save space.
 
 Additional Changes
 ------------------
 
   * As already mentioned in cover letter Section [New Title], we refer to our visualization as heat map instead of mosaic plot. Mosaic plots are derivatives of heat maps, but also encode information using the *size* of each data point (see `Friendly, Michael (March 1994). "Mosaic Displays for Multi-Way Contingency Tables". Journal of the American Statistical Association 89 (425): 190–200.`).
   * We removed the workflow describing Figure 2 to save space. We concluded that it does not contribute enough new information especially to readers from the VAST audience to justify it. The section **4.5 Analysis Workflow** covers already all aspects of the workflow.
-  * [Reviewer 1] It was criticized that it is not clear how the found models are investigated further. Therefore, we clarified this in the introduction of Section **3D Regression Heat Map Analysis of Population Study Data** as well as in the introduction of Section **5 System Design**
-  * [Reviewer 1] Elaborate more on the limitation of having only three dynamic variables. We discussed this limitation in Section **8 Summary and Outlook** by suggesting 3D projections of a high-dimensional space spanned by more than 3 dynamic regression variables.
-  * [Reviewer 2] Security issues are now indicated at the beginning of Section **3D Regression Heat Map Analysis of Population Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**
-  * [Reviewer 2] We revised a large number of long sentences to either split them up or to simplify them.
-  * [Reviewer 2] Citations are now treated as grammatically invisible
-  * [Reviewer 3] Discussed limitations of CFS algorithm in Section **4.3 Target-Variable-Dependent Dimension Reduction** and how we tackle them in Section **4.4 Abstracting Regression Results**.
-  * [Reviewer 3] We added a check box as part of the file upload step, which allows to skip the CFS preprocessing step. It is noted in Section **5.1 System Paradigm and Components**
-  * [Reviewer 3] Fixed errors in Figure 1
-  * [Reviewer 3] Removed paragraph **Encoding via CSV Files**
+  * [Reviewer 1]: It was criticized that it is not clear how the found models are investigated further. Therefore, we clarified this in the introduction of Section **3D Regression Heat Map Analysis of Population Study Data** as well as in the introduction of Section **5 System Design**.
+  * [Reviewer 1]: Elaborate more on the limitation of having only three dynamic variables. We discussed this limitation in Section **8 Summary and Outlook** by suggesting 3D projections of a high-dimensional space spanned by more than 3 dynamic regression variables.
+  * [Reviewer 2]: Security issues are now indicated at the beginning of Section **3D Regression Heat Map Analysis of Population Study Data** as well as Section **5 System Design** and discussed in Subsection **5.1 System Paradigm and Components**.
+  * [Reviewer 2]: We revised a large number of long sentences to either split them up or to simplify them.
+  * [Reviewer 2]: Citations are now treated as grammatically invisible.
+  * [Reviewer 3]: Discussed limitations of CFS algorithm in Section **4.3 Target-Variable-Dependent Dimension Reduction** and how we tackle them in Section **4.4 Abstracting Regression Results**.
+  * [Reviewer 3]: We added a check box as part of the file upload step, which allows to skip the CFS preprocessing step. It is noted in Section **5.1 System Paradigm and Components**.
+  * [Reviewer 3]: Fixed errors in Figure 1.
+  * [Reviewer 3]: Removed paragraph **Encoding via CSV Files**.
 
 Reviews
 =======
@@ -386,7 +386,7 @@ The strenghts and weaknesses balance for this paper. On the one hand, it propose
 <i><font color='green'>
 
   * We completely agree with this comment. Therefore, we implemented a range slider, which acts both as transfer function and as caption.
-  * See [User Interaction] for details
+  * See [User Interaction] for details.
 
 </i></font>
 
