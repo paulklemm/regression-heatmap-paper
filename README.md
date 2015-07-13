@@ -12,6 +12,7 @@ This is the working repository for the paper `3D Regression Heat Map Analysis of
 - [2015-03-31] Submitted to VAST'15.
 - [2015-06-07] Conditionally accepted at VAST'15. Reviews can be found at Reviews.md.
 - [2015-06-27] Revised version submitted to VAST'15.
+- [2015-07-12] Accepted at VAST'15
 
 ### Export of Cover Letter to HTML and PDF
 
