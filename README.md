@@ -2,6 +2,22 @@
 
 This is the working repository for the paper `3D Regression Heat Map Analysis of Population Study Data`.
 
+### BibTeX Entry
+```bibtex
+@article{3DRegressionHeatmap,
+  author    = {Paul Klemm and
+               Kai Lawonn and
+               Sylvia Gla{\ss}er and
+               Uli Niemann and
+               Katrin Hegenscheid and
+               Henry V{\"{o}}lzke and
+               Bernhard Preim},
+  title     = {{3D Regression Heatmap Analysis of Population Study Data}},
+  journal   = {{IEEE Trans. on Visualization and Computer Graphic}},
+  year      = {2015},
+  note      = {In print}
+}
+```
 ### Important files
 
 - `draft.tex` contains the LaTeX input for the paper.
