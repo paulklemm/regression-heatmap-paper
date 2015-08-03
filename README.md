@@ -4,7 +4,7 @@ This is the working repository for the paper `3D Regression Heat Map Analysis of
 
 ### BibTeX Entry
 ```bibtex
-@article{3DRegressionHeatmap,
+@article{3DRegressionHeatMap,
   author    = {Paul Klemm and
                Kai Lawonn and
                Sylvia Gla{\ss}er and
@@ -12,7 +12,7 @@ This is the working repository for the paper `3D Regression Heat Map Analysis of
                Katrin Hegenscheid and
                Henry V{\"{o}}lzke and
                Bernhard Preim},
-  title     = {{3D Regression Heatmap Analysis of Population Study Data}},
+  title     = {{3D Regression Heat Map Analysis of Population Study Data}},
   journal   = {{IEEE Trans. on Visualization and Computer Graphic}},
   year      = {2015},
   note      = {In print}
