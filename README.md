@@ -12,10 +12,12 @@ This is the working repository for the paper `3D Regression Heat Map Analysis of
                Katrin Hegenscheid and
                Henry V{\"{o}}lzke and
                Bernhard Preim},
+  volume    = {22},
+  number    = {1},
+  pages     = {81--90},
   title     = {{3D Regression Heat Map Analysis of Population Study Data}},
   journal   = {{IEEE Trans. on Visualization and Computer Graphic}},
-  year      = {2015},
-  note      = {In print}
+  year      = {2015}
 }
 ```
 ### Important files
